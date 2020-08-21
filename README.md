@@ -4,3 +4,4 @@
   - João Vitor Maldonado Roschel
   - Danilo da Silva Ranéa
   - Sillas Cavalcante Lopes Pinto
+  - Paulo Henrique Honorato de Souza
