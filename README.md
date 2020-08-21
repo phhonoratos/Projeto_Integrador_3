@@ -2,3 +2,4 @@
 
 :computer: Integrantes:
   - João Vitor Maldonado Roschel
+  - Danilo da Silva Ranéa
