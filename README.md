@@ -3,4 +3,4 @@
 :computer: Integrantes:
   - João Vitor Maldonado Roschel
   - Danilo da Silva Ranéa
-  - Paulo Henrique Honorato de Souza
+  - Sillas Cavalcante Lopes Pinto
