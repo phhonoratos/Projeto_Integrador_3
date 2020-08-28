@@ -1,4 +1,6 @@
-# Projeto_Integrador_3
+# Projeto_Integrador_3 :technologist:
+
+## Soluções para gestão empresarial focada no ramo de cafeteria :coffee: :doughnut:
 
 :computer: Integrantes:
   - João Vitor Maldonado Roschel
