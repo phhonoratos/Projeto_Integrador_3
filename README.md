@@ -1,4 +1,4 @@
-# Projeto_Integrador_3 :technologist:
+# Al Cappuccino :technologist:
 
 ## Soluções para gestão empresarial focada no ramo de cafeteria :coffee: :doughnut:
 
