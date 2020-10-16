@@ -23,6 +23,9 @@ public class Funcionarios {
     private long telefone2;
     private String email;
     private String endereco;
+    private String complemento;
+    private String cidade;
+    private String estado;
     private String cargo;
     private double salario;
     private float comissao;
@@ -32,7 +35,7 @@ public class Funcionarios {
     private boolean status;
 
     public Funcionarios(long cpf, String nome, long rg, String sexo, Date dt_nasc, String estado_civil, 
-            long telefone1, long telefone2, String email, String endereco, String cargo, double salario, 
+            long telefone1, long telefone2, String email, String endereco, String complemento, String cidade, String estado, String cargo, double salario, 
             float comissao, String filial, Date dt_adm, Date dt_dem, boolean status) {
         this.cpf = cpf;
         this.nome = nome;
@@ -44,6 +47,9 @@ public class Funcionarios {
         this.telefone2 = telefone2;
         this.email = email;
         this.endereco = endereco;
+        this.complemento = complemento;
+        this.cidade = cidade;
+        this.estado = estado;
         this.cargo = cargo;
         this.salario = salario;
         this.comissao = comissao;
@@ -133,6 +139,30 @@ public class Funcionarios {
         this.endereco = endereco;
     }
 
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public String getCargo() {
         return cargo;
     }
@@ -192,11 +222,11 @@ public class Funcionarios {
     @Override
     public String toString() {
         return String.format("<br/>CPF: %s <br/> Nome: %s <br/> RG: %s <br/> Sexo: %s <br/> Data Nasc: %s <br/> Estado Civil: %s "
-                + "<br/> Telefone 1: %s <br/> Telefone 2: %s <br/> E-mail: %s <br/> Endereço: %s <br/> Cargo: %s <br/> Salário: %s "
-                + "<br/> Comissao: %s <br/> Filial: %s <br/> Data Admissão: %s <br/> Data Demissão: %s <br/> Status: %s", 
+                + "<br/> Telefone 1: %s <br/> Telefone 2: %s <br/> E-mail: %s <br/> Endereço: %s <br/> Complemento: %s <br/> Cidade: %s <br/> "
+                + "Estado: %s <br/> Cargo: %s <br/> Salário: %s <br/> Comissao: %s <br/> Filial: %s <br/> Data Admissão: %s <br/> Data Demissão: %s <br/> Status: %s", 
                 this.getCpf(), this.getNome(), this.getRg(), this.getSexo(), this.getDt_nasc(), this.getEstado_civil(), this.getTelefone1(), 
-                this.getTelefone2(), this.getEmail(), this.getEndereco(), this.getCargo(), this.getSalario(), this.getComissao(), 
-                this.getDt_adm(), this.getDt_dem(), this.isStatus());
+                this.getTelefone2(), this.getEmail(), this.getEndereco(), this.getComplemento(), this.getCidade(), this.getEstado(), this.getCargo(), 
+                this.getSalario(), this.getComissao(), this.getDt_adm(), this.getDt_dem(), this.isStatus());
     }
 
     
