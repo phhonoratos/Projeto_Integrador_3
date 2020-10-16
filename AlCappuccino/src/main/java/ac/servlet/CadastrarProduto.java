@@ -31,6 +31,7 @@ public class CadastrarProduto extends HttpServlet {
         int id = Integer.parseInt(idS);
         String tipo = request.getParameter("tipo");
         String nome = request.getParameter("nome");
+        String qtd_estoque = request.getParameter("qtd_estoque");
         String precoS = request.getParameter("preco");
         double preco = Double.parseDouble(precoS);
         String porcentagemS = request.getParameter("porcentagem");

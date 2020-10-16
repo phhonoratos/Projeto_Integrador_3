@@ -44,6 +44,7 @@ public class AlterarProduto extends HttpServlet {
         int id = Integer.parseInt(idS);
         String tipo = request.getParameter("tipo");
         String nome = request.getParameter("nome");
+        String qtd_estoque = request.getParameter("qtd_estoque");
         String precoS = request.getParameter("preco");
         double preco = Double.parseDouble(precoS);
         String porcentagemS = request.getParameter("porcentagem");
@@ -55,6 +56,7 @@ public class AlterarProduto extends HttpServlet {
         
         produto.setId(id);
         produto.setTipo(tipo);
+        produto.setQtd_estoque(qtd_estoque);
         produto.setPreco(preco);
         produto.setPorcentagem(porcentagem);
         produto.setValor_venda(valor_venda);
