@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author paulo
  */
-public class ServletFuncionarios extends HttpServlet {
+public class ServletBD extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
