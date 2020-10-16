@@ -5,8 +5,13 @@
  */
 package ac.servlet;
 
+import ac.dao.FuncionariosDAO;
 import ac.entidade.Funcionarios;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -63,7 +68,18 @@ public class CadastroFuncionarios extends HttpServlet {
         Funcionarios funcionarios = new Funcionarios(cpf, nome, rg, sexo, dt_nasc, estado_civil, telefone1, telefone2, email, endereco, 
                 complemento, cidade, estado, cargo, salario, comissao, filial, dt_adm, dt_dem, status);
         
-        
+        try {
+            FuncionariosDAO.addFuncionario(funcionarios);
+            response.sendRedirect("sucesso.jsp");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("msgErro", ex.getMessage());
+            RequestDispatcher requestDispatcher
+                    = getServletContext().getRequestDispatcher("/erro.jsp");
+            requestDispatcher.forward(request, response);
+        }
     }
 
 }
