@@ -4,9 +4,17 @@
         <servlet-name>ServletFuncionarios</servlet-name>
         <servlet-class>ac.servlet.ServletBD</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarProduto</servlet-name>
+        <servlet-class>ac.servlet.ListarProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProduto</servlet-name>
+        <url-pattern>/ListarProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
