@@ -14,6 +14,7 @@ public class Produto {
     private int id;
     private String tipo;
     private String nome;
+    private String qtd_estoque;
     private double preco;
     private double porcentagem;
     private double valor_venda;
@@ -52,6 +53,14 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public String getQtd_estoque() {
+        return qtd_estoque;
+    }
+
+    public void setQtd_estoque(String qtd_estoque) {
+        this.qtd_estoque = qtd_estoque;
     }
 
     public double getPreco() {
