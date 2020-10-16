@@ -20,6 +20,10 @@
         <servlet-name>CadastroFuncionarios</servlet-name>
         <servlet-class>ac.servlet.CadastroFuncionarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>ac.servlet.ExcluirProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CadastroFuncionarios</servlet-name>
         <url-pattern>/CadastroFuncionarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
