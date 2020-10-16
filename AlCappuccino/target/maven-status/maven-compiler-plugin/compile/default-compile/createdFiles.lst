@@ -1,7 +1,0 @@
-ac\servlet\CadastrarFuncionarios.class
-ac\dao\ProdutoDAO.class
-ac\servlet\ListarProduto.class
-ac\entidade\Funcionarios.class
-ac\bd\ConexaoDB.class
-ac\servlet\ServletBD.class
-ac\entidade\Produto.class
