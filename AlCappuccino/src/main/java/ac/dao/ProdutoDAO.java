@@ -61,4 +61,17 @@ public class ProdutoDAO {
         ps.setDouble(3, produto.getValor_venda());
         ps.execute();
     }
+        
+        public static void updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.getConexao();
+        String query = "update cliente set id=?, tipo=?, nome=?, preco=?, porcentagem=?, valor_venda=? where cpf=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, produto.getId());
+        ps.setString(2, produto.getTipo());
+        ps.setString(2, produto.getNome());
+        ps.setDouble(3, produto.getPreco());
+        ps.setDouble(3, produto.getPorcentagem());
+        ps.setDouble(3, produto.getValor_venda());
+        ps.execute();
+    }
 }
