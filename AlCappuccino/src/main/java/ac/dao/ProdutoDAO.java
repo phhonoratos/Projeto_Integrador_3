@@ -48,4 +48,17 @@ public class ProdutoDAO {
         }
         return listaProduto;
     }
+        
+        public static void addProduto(Produto produto) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.getConexao();
+        String query = "insert into Produto(id, tipo, nome, preco, porcentagem, valor_venda) values (?,?,?,?,?,?)";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, produto.getId());
+        ps.setString(2, produto.getTipo());
+        ps.setString(2, produto.getNome());
+        ps.setDouble(3, produto.getPreco());
+        ps.setDouble(3, produto.getPorcentagem());
+        ps.setDouble(3, produto.getValor_venda());
+        ps.execute();
+    }
 }
