@@ -7,7 +7,6 @@ package ac.servlet;
 
 import ac.entidade.Funcionarios;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,8 +31,7 @@ public class CadastrarFuncionarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd MM yyyy");
+       
         String cpfStr = request.getParameter("cpf");
         Long cpf = Long.parseLong(cpfStr);
         String nome = request.getParameter("nome");
