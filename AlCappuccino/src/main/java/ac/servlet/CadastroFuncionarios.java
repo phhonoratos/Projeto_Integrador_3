@@ -62,6 +62,8 @@ public class CadastroFuncionarios extends HttpServlet {
         
         Funcionarios funcionarios = new Funcionarios(cpf, nome, rg, sexo, dt_nasc, estado_civil, telefone1, telefone2, email, endereco, 
                 complemento, cidade, estado, cargo, salario, comissao, filial, dt_adm, dt_dem, status);
+        
+        
     }
 
 }
