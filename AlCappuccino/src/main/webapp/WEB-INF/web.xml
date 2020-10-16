@@ -12,6 +12,10 @@
         <servlet-name>CadastrarProduto</servlet-name>
         <servlet-class>ac.servlet.CadastrarProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarProduto</servlet-name>
+        <servlet-class>ac.servlet.AlterarProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarProduto</servlet-name>
+        <url-pattern>/AlterarProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
