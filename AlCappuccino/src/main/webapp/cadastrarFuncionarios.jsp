@@ -14,7 +14,7 @@
     <body>
         <h1>Cadastro de funcionários</h1>
         
-        <form>
+        <form method="POST" action="CadastrarFuncionarios">
             <p>CPF</p>
             <input name="cpf"></input>
             <p>Nome</p>
@@ -55,7 +55,7 @@
             <input name="dt_dem"></input>
             <p>Status</p>
             <input name="status"></input>
-            
+            </br>
             <button type="submit">Enviar</button>
             
         </form>
