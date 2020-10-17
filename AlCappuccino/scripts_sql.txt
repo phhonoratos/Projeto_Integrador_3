@@ -28,5 +28,6 @@ INSERT INTO CLIENTE VALUES(
     'Casa de esquina',
     'sp', 
     'jardim x', 
-    'sao paulo'
+    'sao paulo',
+    '1994-03-16'
 );
