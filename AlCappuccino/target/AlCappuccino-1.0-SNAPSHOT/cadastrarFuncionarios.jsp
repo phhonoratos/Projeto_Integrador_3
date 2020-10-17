@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastro de Funcionários</title>
     </head>
     <body>
         <h1>Cadastro de funcionários</h1>
@@ -21,40 +21,6 @@
             <input name="nome"></input>
             <p>RG</p>
             <input name="rg"></input>
-            <p>Sexo</p>
-            <input name="sexo"></input>
-            <p>Data Nasc.</p>
-            <input name="dt_nasc"></input>
-            <p>Estado Civil</p>
-            <input name="estado_civil"></input>
-            <p>Telefone 1</p>
-            <input name="telefone1"></input>
-            <p>Telefone 2</p>
-            <input name="telefone2"></input>
-            <p>E-mail</p>
-            <input name="email"></input>
-            <p>Endereço</p>
-            <input name="endereco"></input>
-            <p>Complemento</p>
-            <input name="complemento"></input>
-            <p>Cidade</p>
-            <input name="cidade"></input>
-            <p>UF</p>
-            <input name="estado"></input>
-            <p>Cargo</p>
-            <input name="cargo"></input>
-            <p>Salário</p>
-            <input name="salario"></input>
-            <p>Comissão</p>
-            <input name="comissao"></input>
-            <p>Filial</p>
-            <input name="filial"></input>
-            <p>Data de Admissão</p>
-            <input name="dt_adm"></input>
-            <p>Data de Demissão</p>
-            <input name="dt_dem"></input>
-            <p>Status</p>
-            <input name="status"></input>
             </br>
             <button type="submit">Enviar</button>
             
