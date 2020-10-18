@@ -33,7 +33,7 @@ public class FuncionariosDAO {
         ps.execute();
     }
     
-    public List<Funcionarios> getFuncionarios() {
+    public static List<Funcionarios> getFuncionarios() {
         List<Funcionarios> listaFuncionarios = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
