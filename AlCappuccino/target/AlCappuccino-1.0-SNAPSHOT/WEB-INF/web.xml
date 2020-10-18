@@ -28,6 +28,10 @@
         <servlet-name>ListarCliente</servlet-name>
         <servlet-class>ac.servlet.ListarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarFuncionarios</servlet-name>
+        <servlet-class>ac.servlet.ListarFuncionarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ListarCliente</servlet-name>
         <url-pattern>/ListarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarFuncionarios</servlet-name>
+        <url-pattern>/ListarFuncionarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
