@@ -55,4 +55,36 @@ public class FuncionariosDAO {
         return listaFuncionarios;
     }
     
+    public static void updateFuncionario(Funcionarios funcionario) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.getConexao();
+        String query = "update funcionarios set cpf = ?, nome = ?, rg = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, funcionario.getCpf());
+        ps.setString(2, funcionario.getNome());
+        ps.setString(3, funcionario.getRg());
+        ps.execute();
+    }
+    
+    public static Funcionarios getFuncionario(String cpf) {
+        Funcionarios funcionario = null;
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String query = "select * from funcionarios where cpf = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()) {
+                String nome = rs.getString("nome");
+                String rg = rs.getString("rg");
+                funcionario = new Funcionarios(cpf, nome, rg);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FuncionariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return funcionario;
+    }
+    
 }
