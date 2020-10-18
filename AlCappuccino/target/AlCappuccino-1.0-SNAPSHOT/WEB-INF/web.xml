@@ -24,6 +24,10 @@
         <servlet-name>ExcluirProduto</servlet-name>
         <servlet-class>ac.servlet.ExcluirProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarCliente</servlet-name>
+        <servlet-class>ac.servlet.ListarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirProduto</servlet-name>
         <url-pattern>/ExcluirProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarCliente</servlet-name>
+        <url-pattern>/ListarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
