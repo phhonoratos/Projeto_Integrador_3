@@ -26,6 +26,8 @@
                     <td>${funcionarios.cpf}</td>
                     <td>${funcionarios.nome}</td>
                     <td>${funcionarios.rg}</td>
+                    <td><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}"</td>
+                    <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}"</td>
                 </tr>
             </c:forEach>
         </tbody>
