@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>CadastroFuncionarios</servlet-name>
-        <servlet-class>ac.servlet.CadastroFuncionarios</servlet-class>
+        <servlet-class>ac.servlet.CadastrarFuncionarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirProduto</servlet-name>
