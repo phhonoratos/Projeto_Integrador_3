@@ -19,7 +19,7 @@ public class ConexaoDB {
     
     static {
         try {
-            Class.forName("org.apache.derby.jdc.EmbeddedDriver");
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConexaoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
