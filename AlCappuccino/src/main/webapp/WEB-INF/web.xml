@@ -20,7 +20,6 @@
         <servlet-name>CadastrarFuncionarios</servlet-name>
         <servlet-class>ac.servlet.CadastrarFuncionarios</servlet-class>
     </servlet>
-    <servlet>
         <servlet-name>ExcluirProduto</servlet-name>
         <servlet-class>ac.servlet.ExcluirProduto</servlet-class>
     </servlet>
@@ -35,6 +34,8 @@
     <servlet>
         <servlet-name>AlterarFuncionarios</servlet-name>
         <servlet-class>ac.servlet.AlterarFuncionarios</servlet-class>
+        <servlet-name>CadastrarFuncionarios</servlet-name>
+        <servlet-class>ac.servlet.CadastrarFuncionarios</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
@@ -71,6 +72,7 @@
     <servlet-mapping>
         <servlet-name>AlterarFuncionarios</servlet-name>
         <url-pattern>/AlterarFuncionarios</url-pattern>
+        <servlet-name>CadastrarFuncionarios</servlet-name>
     </servlet-mapping>
     <session-config>
         <session-timeout>
