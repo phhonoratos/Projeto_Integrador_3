@@ -10,13 +10,17 @@ package ac.entidade;
  * @author danilo
  */
 public class Produto {
-        
-        private int id;
-        private String tipo;
-        private String nome;
-        private double preco;
-        private double porcentagem;
-        private double valor_venda;
+
+    private int id;
+    private String tipo;
+    private String nome;
+    private String qtd_estoque;
+    private double preco;
+    private double porcentagem;
+    private double valor_venda;
+
+    public Produto() {
+    }
 
     public Produto(int id, String tipo, String nome, double preco, double porcentagem, double valor_venda) {
         this.id = id;
@@ -50,6 +54,14 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public String getQtd_estoque() {
+        return qtd_estoque;
+    }
+
+    public void setQtd_estoque(String qtd_estoque) {
+        this.qtd_estoque = qtd_estoque;
+    }
 
     public double getPreco() {
         return preco;
@@ -74,10 +86,10 @@ public class Produto {
     public void setValor_venda(double valor_venda) {
         this.valor_venda = valor_venda;
     }
-        
-        @Override
+
+    @Override
     public String toString() {
-        return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %d" , 
+        return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %d",
                 this.getId(), this.getTipo(), this.getNome(), this.getPreco(), this.getPorcentagem(), this.getValor_venda());
     }
 }

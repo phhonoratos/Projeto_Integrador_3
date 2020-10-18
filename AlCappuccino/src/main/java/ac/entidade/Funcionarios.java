@@ -17,7 +17,7 @@ public class Funcionarios {
     private String nome;
     private long rg;
     private String sexo;
-    private Date dt_nasc;
+    private String dt_nasc;
     private String estado_civil;
     private long telefone1;
     private long telefone2;
@@ -30,13 +30,13 @@ public class Funcionarios {
     private double salario;
     private float comissao;
     private String filial;
-    private Date dt_adm;
-    private Date dt_dem;
+    private String dt_adm;
+    private String dt_dem;
     private boolean status;
 
-    public Funcionarios(long cpf, String nome, long rg, String sexo, Date dt_nasc, String estado_civil, 
+    public Funcionarios(long cpf, String nome, long rg, String sexo, String dt_nasc, String estado_civil, 
             long telefone1, long telefone2, String email, String endereco, String complemento, String cidade, String estado, String cargo, double salario, 
-            float comissao, String filial, Date dt_adm, Date dt_dem, boolean status) {
+            float comissao, String filial, String dt_adm, String dt_dem, boolean status) {
         this.cpf = cpf;
         this.nome = nome;
         this.rg = rg;
@@ -91,11 +91,11 @@ public class Funcionarios {
         this.sexo = sexo;
     }
 
-    public Date getDt_nasc() {
+    public String getDt_nasc() {
         return dt_nasc;
     }
 
-    public void setDt_nasc(Date dt_nasc) {
+    public void setDt_nasc(String dt_nasc) {
         this.dt_nasc = dt_nasc;
     }
 
@@ -195,19 +195,19 @@ public class Funcionarios {
         this.filial = filial;
     }
 
-    public Date getDt_adm() {
+    public String getDt_adm() {
         return dt_adm;
     }
 
-    public void setDt_adm(Date dt_adm) {
+    public void setDt_adm(String dt_adm) {
         this.dt_adm = dt_adm;
     }
 
-    public Date getDt_dem() {
+    public String getDt_dem() {
         return dt_dem;
     }
 
-    public void setDt_dem(Date dt_dem) {
+    public void setDt_dem(String dt_dem) {
         this.dt_dem = dt_dem;
     }
 

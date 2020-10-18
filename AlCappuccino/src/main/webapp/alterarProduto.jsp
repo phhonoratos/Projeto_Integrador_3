@@ -18,7 +18,7 @@
             <p>Nome</p>
             <input name="nome" value="${produto.nome}"/><br/>
             <p>Quantidade em Estoque</p>
-            <input name="qteEstoque" value="${produto.qtdEstoquel}"/><br/>
+            <input name="qteEstoque" value="${produto.qtd_estoquel}"/><br/>
             <p>Preço</p>
             <input name="preco" value="${produto.preco}" readonly="true"/><br/>
                         

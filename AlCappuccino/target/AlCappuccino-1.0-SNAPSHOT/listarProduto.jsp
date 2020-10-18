@@ -1,7 +1,7 @@
 <%-- 
     Document   : listaClientes
     Created on : 16/10/2020, 11:46:18
-    Author     : danil
+    Author     : danilo
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
