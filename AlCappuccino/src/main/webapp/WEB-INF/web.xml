@@ -32,6 +32,8 @@
         <servlet-class>ac.servlet.ListarFuncionarios</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AlterarFuncionarios</servlet-name>
+        <servlet-class>ac.servlet.AlterarFuncionarios</servlet-class>
         <servlet-name>CadastrarFuncionarios</servlet-name>
         <servlet-class>ac.servlet.CadastrarFuncionarios</servlet-class>
     </servlet>
@@ -68,8 +70,9 @@
         <url-pattern>/ListarFuncionarios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AlterarFuncionarios</servlet-name>
+        <url-pattern>/AlterarFuncionarios</url-pattern>
         <servlet-name>CadastrarFuncionarios</servlet-name>
-        <url-pattern>/CadastrarFuncionarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
