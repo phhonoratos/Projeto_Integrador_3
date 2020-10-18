@@ -9,7 +9,12 @@ import ac.bd.ConexaoDB;
 import ac.entidade.Funcionarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +31,28 @@ public class FuncionariosDAO {
         ps.setString(2, funcionarios.getNome());
         ps.setString(3, funcionarios.getRg());
         ps.execute();
+    }
+    
+    public List<Funcionarios> getFuncionarios() {
+        List<Funcionarios> listaFuncionarios = new ArrayList();
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String query = "select * from funcionarios";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                String cpf = rs.getString("cpf");
+                String nome = rs.getString("nome");
+                String rg = rs.getString("rg");
+                listaFuncionarios.add(new Funcionarios(cpf, nome, rg));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FuncionariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaFuncionarios;
     }
     
 }
