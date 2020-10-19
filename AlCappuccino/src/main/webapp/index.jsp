@@ -15,7 +15,7 @@
     <body>
         <h1>Menu</h1>
         <a href="ListarProdutos">Listar Produtos</a><br/>
-        <a href="cadastrarProdutos.jsp">Listar Produtos</a><br/>
+        <a href="cadastrarProdutos.jsp">Cadastrar Produtos</a><br/>
         <a href="ListarCliente">Clientes</a><br/>
         <a href="cadastrarFuncionarios.jsp">Cadastrar Funcionarios</a><br/>
         <a href="ListarFuncionarios">Listar Funcionarios</a>
