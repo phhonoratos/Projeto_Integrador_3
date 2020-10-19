@@ -7,13 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Produto</title>
     </head>
     <body class="container">
-        <h1>Cadastro</h1>
+        <h1>Cadastro de Produto</h1>
         <form action="cadastrarProduto" method="POST">
             <p>Nome</p>
             <input name="nome" class="form-control" required="true"/><br/>
