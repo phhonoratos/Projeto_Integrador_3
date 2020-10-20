@@ -13,13 +13,21 @@
     </head>
     <body class="container">
         <h1>Cadastro de Produto</h1>
-        <form action="cadastrarProduto" method="POST">
+        <form action="CadastrarProduto" method="POST">
+            <p>ID</p>
+            <input name="id" class="form-control" required="true"/><br/>
+            <p>Tipo do Produto</p>
+            <input name="tipo" class="form-control" required="true"/><br/>
             <p>Nome</p>
             <input name="nome" class="form-control" required="true"/><br/>
             <p>Quantidade em Estoque</p>
-            <input name="qtdEstoque" class="form-control" required="true"/><br/>
-            <p>Preço</p>
+            <input name="qtd_estoque" class="form-control" required="true"/><br/>
+            <p>Preço de Compra do Produto</p>
             <input name="preco" class="form-control" required="true"/><br/>
+            <p>Porcentagem de Lucro</p>
+            <input name="porcentagem" class="form-control" required="true"/><br/>
+            <p>Valor de Venda do Produto</p>
+            <input name="valor_venda" class="form-control" required="true"/><br/>
             
             <button type="submit" class="btn btn-primary">Enviar</button>
             

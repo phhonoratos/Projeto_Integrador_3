@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listaClientes
+    Document   : listaProduto
     Created on : 16/10/2020, 11:46:18
     Author     : danilo
 --%>
@@ -15,15 +15,15 @@
         
         <script lang="text/javascript">
             
-            function mostrarModalExclusao(preco, nome){
+            function mostrarModalExclusao(nome){
                 $("#nomeProduto").html(nome);
-                $("#precoProduto").val(preco);
+                $("#nomeProduto").val(nome);
                 $('#modalExclusao').modal('show');
             }
             
             function excluirProduto() {
-                var preco = $("#precoProduto").val();
-                $.get( "ExcluirProduto?preco="+preco, function( resposta ) {
+                var preco = $("#nomeProduto").val();
+                $.get( "ExcluirProduto?nome="+nome, function( resposta ) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Produto Excluído!");
@@ -39,18 +39,26 @@
         <h1>Lista de Produtos</h1>
         <table class="table">
             <thead>
+                <th>ID</th>
+                <th>Tipo</th>
                 <th>Nome</th>
-                <th>Quantidade em Estoquel</th>
+                <th>Quantidade em Estoque</th>
                 <th>Preço</th>
+                <th>Porcentagem</th>
+                <th>Valor de Venda</th>
             </thead>
             <tbody> 
                 <c:forEach var="produto" items="${listaProduto}">
                     <tr>
+                        <td>${produto.id}</td>
+                        <td>${produto.tipo}</td>
                         <td>${produto.nome}</td>
-                        <td>${produto.qtdEstoque}</td>
+                        <td>${produto.qtd_estoque}</td>
                         <td>${produto.preco}</td>
-                        <td><a href="alterarProduto?nome=${produto.nome}">Alterar</a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.preco}, '${produto.nome}')">Excluir</button></td>
+                        <td>${produto.porcentagem}</td>
+                         <td>${produto.valor_venda}</td>
+                        <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
+                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
                     </tr>
                 </c:forEach>
                 
@@ -68,7 +76,7 @@
                 </div>
                 <div class="modal-body">
                     Confirmar exclusão do Produto  <label id="nomeProduto"></label> ?
-                    <input id="precoProduto" hidden="true" />
+                    
                  
                 </div>
                 <div class="modal-footer">
@@ -79,6 +87,6 @@
             </div>
           </div>
         <br/>
-        <a href="menu.jsp">Voltar</a>
+        <a href="index.jsp">Voltar</a>
     </body>
 </html>

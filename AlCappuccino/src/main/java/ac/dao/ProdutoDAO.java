@@ -22,8 +22,8 @@ import java.util.logging.Logger;
  * @author danil
  */
 public class ProdutoDAO {
-        
-        public static List<Produto> getProduto() {
+
+    public static List<Produto> getProduto() {
         List<Produto> listaProduto = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
@@ -34,11 +34,11 @@ public class ProdutoDAO {
                 int id = rs.getInt("id");
                 String tipo = rs.getString("tipo");
                 String nome = rs.getString("nome");
-                String qtd_estoque = rs.getString("qtd_estoque");
+                int qtd_estoque = rs.getInt("qtd_estoque");
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
                 double valor_venda = rs.getDouble("valor_venda");
-                listaProduto.add(new Produto(id, tipo, nome, preco, porcentagem, valor_venda));
+                listaProduto.add(new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -49,44 +49,44 @@ public class ProdutoDAO {
         }
         return listaProduto;
     }
-        
-        public static void addProduto(Produto produto) throws SQLException, ClassNotFoundException {
+
+    public static void addProduto(Produto produto) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.getConexao();
         String query = "insert into Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda) values (?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, produto.getId());
         ps.setString(2, produto.getTipo());
         ps.setString(3, produto.getNome());
-        ps.setString(4, produto.getQtd_estoque());
+        ps.setInt(4, produto.getQtd_estoque());
         ps.setDouble(5, produto.getPreco());
         ps.setDouble(6, produto.getPorcentagem());
         ps.setDouble(7, produto.getValor_venda());
         ps.execute();
     }
-        
-        public static void updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
+
+    public static void updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        String query = "update produto set id=?, tipo=?, qtd_estoque=?, preco=?, porcentagem=?, valor_venda=? where nome=?";
+        String query = "update produto set id=?, tipo=?, qtd_estoque=?, preco=?, porcentagem=?, valor_venda=? where id=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, produto.getId());
         ps.setString(2, produto.getTipo());
         ps.setString(3, produto.getNome());
-        ps.setString(4, produto.getQtd_estoque());
+        ps.setInt(4, produto.getQtd_estoque());
         ps.setDouble(5, produto.getPreco());
         ps.setDouble(6, produto.getPorcentagem());
         ps.setDouble(7, produto.getValor_venda());
         ps.execute();
     }
-        
-        public static void deleteProduto(String nome) throws ClassNotFoundException, SQLException {
+
+    public static void deleteProduto(String nome) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
         String query = "delete from produto where nome=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, nome);
         ps.execute();
     }
-        
-        public static Produto getProduto(String nome) {
+
+    public static Produto getProduto(String nome) {
         Produto produto = null;
         try {
             Connection con = ConexaoDB.getConexao();
@@ -95,13 +95,21 @@ public class ProdutoDAO {
             ps.setString(1, nome);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                 int id = rs.getInt("id");
-                 String tipo = rs.getString("tipo");
-                 String qtd_estoque = rs.getString("qtd_estoque");
-                 double preco = rs.getDouble("preco");  
-                 double porcentagem = rs.getDouble("porcentagem");
-                 double valor_venda = rs.getDouble("valor_venda");
-                 produto = new Produto(id, tipo, qtd_estoque, preco, porcentagem, valor_venda);
+                int id = rs.getInt("id");
+                String tipo = rs.getString("tipo");
+                int qtd_estoque = rs.getInt("qtd_estoque");
+                double preco = rs.getDouble("preco");
+                double porcentagem = rs.getDouble("porcentagem");
+                double valor_venda = rs.getDouble("valor_venda");
+                produto = new Produto();
+
+                produto.setId(id);
+                produto.setTipo(tipo);
+                produto.setNome(nome);
+                produto.setQtd_estoque(qtd_estoque);
+                produto.setPreco(preco);
+                produto.setPorcentagem(porcentagem);
+                produto.setValor_venda(valor_venda);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
