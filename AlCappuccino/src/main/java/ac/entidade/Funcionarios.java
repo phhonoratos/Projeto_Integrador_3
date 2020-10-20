@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author paulo
  */
-public class Funcionarios extends Pessoa{
+public class Funcionarios {
     
     private String rg;
     private String cargo;
@@ -34,7 +34,7 @@ public class Funcionarios extends Pessoa{
 //    } 
 
     public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, String data_admissao, String data_demissao, boolean status, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
-        super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
+//        super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
         this.rg = rg;
         this.cargo = cargo;
         this.salario = salario;
@@ -44,7 +44,12 @@ public class Funcionarios extends Pessoa{
         this.data_demissao = data_demissao;
         this.status = status;
     }
-    
+        
+    public Funcionarios(String rg,String nome, String cpf) {
+               
+        this.rg = rg;
+        
+    }
 
     public String getRg() {
         return rg;

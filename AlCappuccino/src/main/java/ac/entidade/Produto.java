@@ -14,7 +14,7 @@ public class Produto {
     private int id;
     private String tipo;
     private String nome;
-    private String qtd_estoque;
+    private int qtd_estoque;
     private double preco;
     private double porcentagem;
     private double valor_venda;
@@ -22,10 +22,11 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(int id, String tipo, String nome, double preco, double porcentagem, double valor_venda) {
+    public Produto(int id, String tipo, String nome, int qtd_estoque, double preco, double porcentagem, double valor_venda) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
+        this.qtd_estoque = qtd_estoque;
         this.preco = preco;
         this.porcentagem = porcentagem;
         this.valor_venda = valor_venda;
@@ -54,12 +55,12 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public String getQtd_estoque() {
+
+    public int getQtd_estoque() {
         return qtd_estoque;
     }
 
-    public void setQtd_estoque(String qtd_estoque) {
+    public void setQtd_estoque(int qtd_estoque) {
         this.qtd_estoque = qtd_estoque;
     }
 
@@ -89,7 +90,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %d",
-                this.getId(), this.getTipo(), this.getNome(), this.getPreco(), this.getPorcentagem(), this.getValor_venda());
+        return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> Quantidade em estoque %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %d",
+                this.getId(), this.getTipo(), this.getNome(), this.getQtd_estoque(), this.getPreco(), this.getPorcentagem(), this.getValor_venda());
     }
 }

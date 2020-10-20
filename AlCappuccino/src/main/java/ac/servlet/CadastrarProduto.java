@@ -31,7 +31,8 @@ public class CadastrarProduto extends HttpServlet {
         int id = Integer.parseInt(idS);
         String tipo = request.getParameter("tipo");
         String nome = request.getParameter("nome");
-        String qtd_estoque = request.getParameter("qtd_estoque");
+        String qtd_estoqueS = request.getParameter("qtd_estoque");
+        int qtd_estoque = Integer.parseInt(qtd_estoqueS);
         String precoS = request.getParameter("preco");
         double preco = Double.parseDouble(precoS);
         String porcentagemS = request.getParameter("porcentagem");
@@ -39,7 +40,7 @@ public class CadastrarProduto extends HttpServlet {
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
         
-        Produto produto = new Produto(id, tipo, nome, preco, porcentagem, valor_venda);
+        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
         try {
             ProdutoDAO.addProduto(produto);
             response.sendRedirect("sucesso.jsp");

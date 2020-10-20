@@ -34,11 +34,11 @@ public class ProdutoDAO {
                 int id = rs.getInt("id");
                 String tipo = rs.getString("tipo");
                 String nome = rs.getString("nome");
-                String qtd_estoque = rs.getString("qtd_estoque");
+                int qtd_estoque = rs.getInt("qtd_estoque");
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
                 double valor_venda = rs.getDouble("valor_venda");
-                listaProduto.add(new Produto(id, tipo, nome, preco, porcentagem, valor_venda));
+                listaProduto.add(new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -57,7 +57,7 @@ public class ProdutoDAO {
         ps.setInt(1, produto.getId());
         ps.setString(2, produto.getTipo());
         ps.setString(3, produto.getNome());
-        ps.setString(4, produto.getQtd_estoque());
+        ps.setInt(4, produto.getQtd_estoque());
         ps.setDouble(5, produto.getPreco());
         ps.setDouble(6, produto.getPorcentagem());
         ps.setDouble(7, produto.getValor_venda());
@@ -71,7 +71,7 @@ public class ProdutoDAO {
         ps.setInt(1, produto.getId());
         ps.setString(2, produto.getTipo());
         ps.setString(3, produto.getNome());
-        ps.setString(4, produto.getQtd_estoque());
+        ps.setInt(4, produto.getQtd_estoque());
         ps.setDouble(5, produto.getPreco());
         ps.setDouble(6, produto.getPorcentagem());
         ps.setDouble(7, produto.getValor_venda());
@@ -97,11 +97,11 @@ public class ProdutoDAO {
             if (rs.next()) {
                  int id = rs.getInt("id");
                  String tipo = rs.getString("tipo");
-                 String qtd_estoque = rs.getString("qtd_estoque");
+                 int qtd_estoque = rs.getInt("qtd_estoque");
                  double preco = rs.getDouble("preco");  
                  double porcentagem = rs.getDouble("porcentagem");
                  double valor_venda = rs.getDouble("valor_venda");
-                 produto = new Produto(id, tipo, qtd_estoque, preco, porcentagem, valor_venda);
+                 produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
