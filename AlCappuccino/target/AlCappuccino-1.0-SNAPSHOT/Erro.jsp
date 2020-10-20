@@ -17,6 +17,6 @@
         <br/>
         ${msgErro}
         <br/>
-        <a href="menu.jsp">Voltar</a>
+        <a href="index.jsp">Voltar</a>
     </body>
 </html>
