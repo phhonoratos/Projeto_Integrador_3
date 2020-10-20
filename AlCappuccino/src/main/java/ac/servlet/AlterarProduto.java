@@ -9,7 +9,6 @@ import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
 import ac.utils.Utils;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,7 +43,8 @@ public class AlterarProduto extends HttpServlet {
         int id = Integer.parseInt(idS);
         String tipo = request.getParameter("tipo");
         String nome = request.getParameter("nome");
-        String qtd_estoque = request.getParameter("qtd_estoque");
+        String qtd_estoqueS = request.getParameter("qtd_estoque");
+        int qtd_estoque = Integer.parseInt(qtd_estoqueS);
         String precoS = request.getParameter("preco");
         double preco = Double.parseDouble(precoS);
         String porcentagemS = request.getParameter("porcentagem");
@@ -52,16 +52,9 @@ public class AlterarProduto extends HttpServlet {
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
         
-        Produto produto = new Produto();
+        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
         
-        produto.setId(id);
-        produto.setTipo(tipo);
-        produto.setQtd_estoque(qtd_estoque);
-        produto.setPreco(preco);
-        produto.setPorcentagem(porcentagem);
-        produto.setValor_venda(valor_venda);
-         
-         try {
+       try {
              ProdutoDAO.updateProduto(produto);
              response.sendRedirect("sucesso.jsp");
          } catch (ClassNotFoundException | SQLException ex) {
