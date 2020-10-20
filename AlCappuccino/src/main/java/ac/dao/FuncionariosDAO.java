@@ -57,11 +57,11 @@ public class FuncionariosDAO {
     
     public static void updateFuncionario(Funcionarios funcionario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        String query = "update funcionarios set cpf = ?, nome = ?, rg = ?";
+        String query = "update funcionarios set nome = ?, rg = ? where cpf = ?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, funcionario.getCpf());
-        ps.setString(2, funcionario.getNome());
-        ps.setString(3, funcionario.getRg());
+        ps.setString(1, funcionario.getNome());
+        ps.setString(2, funcionario.getRg());
+        ps.setString(3, funcionario.getCpf());
         ps.execute();
     }
     
