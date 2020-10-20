@@ -40,6 +40,10 @@
         <servlet-name>ExcluirFuncionarios</servlet-name>
         <servlet-class>ac.servlet.ExcluirFuncionarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarCliente</servlet-name>
+        <servlet-class>ac.servlet.CadastrarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirFuncionarios</servlet-name>
         <url-pattern>/ExcluirFuncionarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarCliente</servlet-name>
+        <url-pattern>/CadastrarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
