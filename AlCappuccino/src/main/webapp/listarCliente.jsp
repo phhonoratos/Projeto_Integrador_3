@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    
+    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clientes</title>
@@ -21,15 +21,37 @@
                 <th>Nome</th>
                 <th>Email</th>
                 <th>CPF</th>
+                <th>Telefone</th>
+                <th>Estado Civil</th>
+                <th>Sexo</th>
+                <th>Logradouro</th>
+                <th>Número</th>
+                <th>Complemento</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>CEP</th>
+                <th>Data de nascimento</th>
                 </thead>
                 <tbody> 
-                <c:forEach var="cliente" items="${listaClientes}">
-                    <tr>
-                        <td>${cliente.nome}</td>
-                        <td>${cliente.email}</td>
-                        <td>${cliente.cpf}</td>
-                    </tr>
-                </c:forEach>
+                    <c:forEach var="cliente" items="${listaClientes}">
+                        <tr>
+                            <td>${cliente.nome}</td>
+                            <td>${cliente.email}</td>
+                            <td>${cliente.cpf}</td>
+                            <td>${cliente.telefone}</td>
+                            <td>${cliente.estado_civil}</td>
+                            <td>${cliente.sexo}</td>
+                            <td>${cliente.logradouro}</td>
+                            <td>${cliente.numero}</td>
+                            <td>${cliente.complemento}</td>
+                            <td>${cliente.bairro}</td>
+                            <td>${cliente.cidade}</td>
+                            <td>${cliente.uf}</td>
+                            <td>${cliente.cep}</td>
+                            <td>${cliente.dt_nascimento}</td>
+                        </tr>
+                    </c:forEach>
 
                 </tbody>
 
