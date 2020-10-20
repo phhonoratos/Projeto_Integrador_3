@@ -27,10 +27,13 @@
                     <td>${funcionarios.nome}</td>
                     <td>${funcionarios.rg}</td>
                     <td><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></td>
-                    <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}"</a>Excluir</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+                    <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}">Excluir</a></td>
+            <br/>
+        </tr>
+    </c:forEach>
+
+</tbody>
+</table>
+<button><a href="index.jsp">Voltar</a></button>
 </body>
 </html>
