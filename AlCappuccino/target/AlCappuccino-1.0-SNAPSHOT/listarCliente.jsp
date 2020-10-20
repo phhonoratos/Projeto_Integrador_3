@@ -14,7 +14,7 @@
         <title>Clientes</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <h1 style="text-align: center">Lista de Clientes</h1>
             <table class="table">
                 <thead>
@@ -50,6 +50,8 @@
                             <td>${cliente.uf}</td>
                             <td>${cliente.cep}</td>
                             <td>${cliente.dt_nascimento}</td>
+                            <td><a class="btn btn-warning" href="index.jsp" role="button">Alterar</a></td>
+                            <td><a class="btn btn-danger" href="index.jsp" role="button">Excluir</a></td>
                         </tr>
                     </c:forEach>
 
@@ -57,7 +59,7 @@
 
             </table>
 
-            <a href="index.jsp">Voltar</a>
+            <a class="btn btn-primary" href="index.jsp" role="button">Voltar</a>
         </div>
 
     </body>
