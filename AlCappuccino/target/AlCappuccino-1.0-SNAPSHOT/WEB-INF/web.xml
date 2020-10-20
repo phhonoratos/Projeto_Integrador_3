@@ -37,6 +37,10 @@
         <servlet-class>ac.servlet.AlterarFuncionarios</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ExcluirFuncionarios</servlet-name>
+        <servlet-class>ac.servlet.ExcluirFuncionarios</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>ac.servlet.CadastrarCliente</servlet-class>
     </servlet>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarFuncionarios</servlet-name>
         <url-pattern>/CadastrarFuncionarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFuncionarios</servlet-name>
+        <url-pattern>/ExcluirFuncionarios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
