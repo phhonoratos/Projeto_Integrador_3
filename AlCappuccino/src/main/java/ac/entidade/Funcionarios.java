@@ -18,8 +18,8 @@ public class Funcionarios {
     private String salario;
     private String comissao;
     private String filial;
-    private String data_admissao;
-    private String data_demissao;
+    private Date data_admissao;
+    private Date data_demissao;
     private boolean status;
 
 //    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, String data_admissao, String data_demissao, boolean status) {
@@ -33,8 +33,9 @@ public class Funcionarios {
 //        this.status = status;
 //    } 
 
-    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, String data_admissao, String data_demissao, boolean status, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
-//        super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
+
+    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, Date data_admissao, Date data_demissao, boolean status, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
+        super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
         this.rg = rg;
         this.cargo = cargo;
         this.salario = salario;
@@ -91,19 +92,19 @@ public class Funcionarios {
         this.filial = filial;
     }
 
-    public String getData_admissao() {
+    public Date getData_admissao() {
         return data_admissao;
     }
 
-    public void setData_admissao(String data_admissao) {
+    public void setData_admissao(Date data_admissao) {
         this.data_admissao = data_admissao;
     }
 
-    public String getData_demissao() {
+    public Date getData_demissao() {
         return data_demissao;
     }
 
-    public void setData_demissao(String data_demissao) {
+    public void setData_demissao(Date data_demissao) {
         this.data_demissao = data_demissao;
     }
 
