@@ -49,16 +49,17 @@ public class CadastrarFuncionarios extends HttpServlet {
         String uf = request.getParameter("uf");
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
-        String dt_nasc = request.getParameter("dt_nasc");
+        Date dt_nascimento = Date.valueOf(request.getParameter("dt_nascimento"));
         String rg = request.getParameter("rg");
         String cargo = request.getParameter("cargo");
-        String salario = request.getParameter("salario");
+        String salarioStr = request.getParameter("salario");
+        double salario = Double.parseDouble(salarioStr);
         String filial = request.getParameter("filial");
         Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
         Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
         
         Funcionarios funcionarios = new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, nome, email, 
-                cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_adm);
+                cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
         
         try {
             FuncionariosDAO.addFuncionario(funcionarios);
