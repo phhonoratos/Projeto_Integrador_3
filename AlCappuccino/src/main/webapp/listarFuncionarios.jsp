@@ -19,6 +19,23 @@
             <th>CPF</th>
             <th>Nome</th>
             <th>RG</th>
+            <th>Data Nasc.</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Estado civil</th>
+            <th>Sexo</th>
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Numero</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>UF</th>
+            <th>Cargo</th>
+            <th>Salário</th>
+            <th>Filial</th>
+            <th>Data Adm</th>
+            <th>Data Dem</th>
         </thead>
         <tbody>
             <c:forEach items="${listaFuncionarios}" var="funcionarios">
@@ -26,8 +43,28 @@
                     <td>${funcionarios.cpf}</td>
                     <td>${funcionarios.nome}</td>
                     <td>${funcionarios.rg}</td>
+                    <td>${funcionarios.dt_nascimento}</td>
+                    <td>${funcionarios.email}</td>
+                    <td>${funcionarios.telefone}</td>
+                    <td>${funcionarios.estado_civil}</td>
+                    <td>${funcionarios.sexo}</td>
+                    <td>${funcionarios.cep}</td>
+                    <td>${funcionarios.logradouro}</td>
+                    <td>${funcionarios.numero}</td>
+                    <td>${funcionarios.complemento}</td>
+                    <td>${funcionarios.bairro}</td>
+                    <td>${funcionarios.cidade}</td>
+                    <td>${funcionarios.uf}</td>
+                    <td>${funcionarios.cargo}</td>
+                    <td>${funcionarios.salario}</td>
+                    <td>${funcionarios.filial}</td>
+                    <td>${funcionarios.dt_adm}</td>
+                    <td>${funcionarios.dt_dem}</td>
                     <td><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></td>
                     <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}">Excluir</a></td>
+                    <br/>
+                    </br>
+                    <button><a href="index.jsp">Voltar</a></button>
             <br/>
         </tr>
     </c:forEach>
