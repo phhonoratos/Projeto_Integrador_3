@@ -16,7 +16,6 @@ public class Funcionarios extends Pessoa{
     private String rg;
     private String cargo;
     private String salario;
-    private String comissao;
     private String filial;
     private Date data_admissao;
     private Date data_demissao;
@@ -32,12 +31,11 @@ public class Funcionarios extends Pessoa{
 //        this.status = status;
 //    } 
 
-    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, Date data_admissao, Date data_demissao, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
+    public Funcionarios(String rg, String cargo, String salario, String filial, Date data_admissao, Date data_demissao, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
         super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
         this.rg = rg;
         this.cargo = cargo;
         this.salario = salario;
-        this.comissao = comissao;
         this.filial = filial;
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
@@ -66,14 +64,6 @@ public class Funcionarios extends Pessoa{
 
     public void setSalario(String salario) {
         this.salario = salario;
-    }
-
-    public String getComissao() {
-        return comissao;
-    }
-
-    public void setComissao(String comissao) {
-        this.comissao = comissao;
     }
 
     public String getFilial() {
