@@ -87,4 +87,12 @@ public class FuncionariosDAO {
         return funcionario;
     }
     
+    public static void deleteFuncionario(String cpf) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.getConexao();
+        String query = "delete from funcionarios where cpf = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, cpf);
+        ps.execute();
+    }
+    
 }
