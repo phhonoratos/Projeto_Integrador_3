@@ -20,7 +20,6 @@ public class Funcionarios extends Pessoa{
     private String filial;
     private Date data_admissao;
     private Date data_demissao;
-    private boolean status;
 
 //    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, String data_admissao, String data_demissao, boolean status) {
 //        this.rg = rg;
@@ -33,7 +32,7 @@ public class Funcionarios extends Pessoa{
 //        this.status = status;
 //    } 
 
-    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, Date data_admissao, Date data_demissao, boolean status, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
+    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, Date data_admissao, Date data_demissao, String nome, String email, String cpf, String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro, String cidade, Date dt_nascimento) {
         super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
         this.rg = rg;
         this.cargo = cargo;
@@ -42,7 +41,6 @@ public class Funcionarios extends Pessoa{
         this.filial = filial;
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
-        this.status = status;
     }
     
 
@@ -101,16 +99,5 @@ public class Funcionarios extends Pessoa{
     public void setData_demissao(Date data_demissao) {
         this.data_demissao = data_demissao;
     }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-    
-    
-        
     
 }
