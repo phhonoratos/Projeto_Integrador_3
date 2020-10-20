@@ -96,7 +96,7 @@ public class FuncionariosDAO {
     public static void updateFuncionario(Funcionarios funcionario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
         String query = "update funcionarios set nome = ?, email = ?, telefone = ?, estado_civil = ?, sexo = ?, cep = ?, logradouro = ?, numero = ?, "
-                + "complemento = ?, uf = ?, bairro = ?, cidade = ?, dt_nascimento = ?, rg = ?, cargo = ?, salario = ?, filial = ?, dt_adm = ?, dt_dem = ?, "
+                + "complemento = ?, uf = ?, bairro = ?, cidade = ?, dt_nascimento = ?, rg = ?, cargo = ?, salario = ?, filial = ?, dt_adm = ?, dt_dem = ? "
                 + "where cpf = ?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, funcionario.getNome());
