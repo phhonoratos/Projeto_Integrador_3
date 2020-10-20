@@ -8,6 +8,7 @@ package ac.servlet;
 import ac.dao.FuncionariosDAO;
 import ac.entidade.Funcionarios;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,12 +35,31 @@ public class CadastrarFuncionarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String cpf = request.getParameter("cpf");
-        String nome = request.getParameter("nome");
-        String rg = request.getParameter("rg");
         
-        Funcionarios funcionarios = new Funcionarios(cpf, nome, rg);
+        String nome = request.getParameter("nome");
+        String email = request.getParameter("email");
+        String cpf = request.getParameter("cpf");
+        String telefone = request.getParameter("telefone");
+        String estado_civil = request.getParameter("estado_civil");
+        String sexo = request.getParameter("sexo");
+        String cep = request.getParameter("cep");
+        String logradouro = request.getParameter("logradouro");
+        String numero = request.getParameter("numero");
+        String complemento = request.getParameter("complemento");
+        String uf = request.getParameter("uf");
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String dt_nasc = request.getParameter("dt_nasc");
+        String rg = request.getParameter("rg");
+        String cargo = request.getParameter("cargo");
+        String salario = request.getParameter("salario");
+        String comissao = request.getParameter("comissao");
+        String filial = request.getParameter("filial");
+        Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
+        Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
+        
+        Funcionarios funcionarios = new Funcionarios(rg, cargo, salario, comissao, filial, dt_adm, dt_dem, nome, email, 
+                cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_adm);
         
         try {
             FuncionariosDAO.addFuncionario(funcionarios);
