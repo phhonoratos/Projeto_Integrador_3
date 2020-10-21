@@ -50,7 +50,7 @@ public class ProdutoDAO {
         return listaProduto;
     }
 
-    public static void addProduto(Produto produto) throws SQLException, ClassNotFoundException {
+    public static int addProduto(Produto produto) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.getConexao();
         String query = "insert into Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda) values (?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
@@ -61,7 +61,8 @@ public class ProdutoDAO {
         ps.setDouble(5, produto.getPreco());
         ps.setDouble(6, produto.getPorcentagem());
         ps.setDouble(7, produto.getValor_venda());
-        ps.execute();
+        return ps.executeUpdate();
+
     }
 
     public static void updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
@@ -101,15 +102,16 @@ public class ProdutoDAO {
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
                 double valor_venda = rs.getDouble("valor_venda");
-                produto = new Produto();
+                
+                produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
 
-                produto.setId(id);
-                produto.setTipo(tipo);
-                produto.setNome(nome);
-                produto.setQtd_estoque(qtd_estoque);
-                produto.setPreco(preco);
-                produto.setPorcentagem(porcentagem);
-                produto.setValor_venda(valor_venda);
+//                produto.setId(id);
+//                produto.setTipo(tipo);
+//                produto.setNome(nome);
+//                produto.setQtd_estoque(qtd_estoque);
+//                produto.setPreco(preco);
+//                produto.setPorcentagem(porcentagem);
+//                produto.setValor_venda(valor_venda);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

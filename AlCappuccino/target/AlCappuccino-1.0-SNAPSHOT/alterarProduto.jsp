@@ -15,19 +15,19 @@
         <h1>Alteração de Cadastro: ${produto.nome}</h1>
         <form action="AlterarProduto" method="POST">
             <p>ID</p>
-            <input name="id" value="${produto.nome}" readonly="true"/><br/>
+            <input name="id" value="${produto.id}" readonly="true"/><br/>
             <p>Tipo do Produto</p>
-            <input name="tipo" value="${produto.qtd_estoquel}"/><br/>
+            <input name="tipo" value="${produto.tipo}"/><br/>
             <p>Nome</p>
-            <input name="nome" value="${produto.preco}" readonly="true"/><br/>
+            <input name="nome" value="${produto.nome}" ><br/>
             <p>Quantidade em Estoque</p>
-            <input name="qtd_estoque" value="${produto.nome}"/><br/>
+            <input name="qtd_estoque" value="${produto.qtd_estoque}"/><br/>
             <p>Preço de Compra do Produto</p>
-            <input name="preco" value="${produto.qtd_estoquel}"/><br/>
+            <input name="preco" value="${produto.preco}"/><br/>
             <p>Procentagem de Lucro</p>
-            <input name="porcentagem" value="${produto.preco}"/><br/>
+            <input name="porcentagem" value="${produto.porcentagem}"/><br/>
              <p>Valor de Venda do Produto</p>
-            <input name="valor_venda" value="${produto.preco}"/><br/>
+            <input name="valor_venda" value="${produto.valor_venda}"/><br/>
                         
             <button type="submit">Enviar</button>
             

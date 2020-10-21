@@ -29,10 +29,7 @@ public class Produto {
         this.valor_venda = valor_venda;
     }
 
-    public Produto() {
-    }
-
-     public int getId() {
+    public int getId() {
         return id;
     }
 
@@ -91,7 +88,7 @@ public class Produto {
    
     @Override
     public String toString() {
-        return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> qtd_estoque %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %d",
+        return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> qtd_estoque %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %f",
                 this.getId(), this.getTipo(), this.getNome(), this.qtd_estoque, this.getPreco(), this.getPorcentagem(), this.getValor_venda());
     }
 }
