@@ -48,6 +48,10 @@
         <servlet-name>AtualizarCliente</servlet-name>
         <servlet-class>ac.servlet.AtualizarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <servlet-class>ac.servlet.ExcluirCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -99,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>AtualizarCliente</servlet-name>
         <url-pattern>/AtualizarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <url-pattern>/ExcluirCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
