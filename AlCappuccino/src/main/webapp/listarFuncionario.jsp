@@ -17,7 +17,7 @@
         <title>Funcionário</title>
     </head>
     <body>
-        <h1>Lista de Funcionários</h1>
+        <h1>Funcionário: ${funcionario.nome}</h1>
         <br/>
         <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
         <table>
