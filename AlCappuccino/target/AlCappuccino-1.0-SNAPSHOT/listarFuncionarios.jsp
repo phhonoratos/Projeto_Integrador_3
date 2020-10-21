@@ -15,6 +15,13 @@
     </head>
     <body>
         <h1>Lista de Funcionários</h1>
+        <br/>
+        <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
+            <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
+        <button type="submit">Pesquisar</button>
+        </form>
+            <br/>
+        <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
         <table>
             <thead>
             <th>CPF</th>
@@ -61,13 +68,14 @@
                     <td>${funcionarios.filial}</td>
                     <td>${funcionarios.dt_adm}</td>
                     <td>${funcionarios.dt_dem}</td>
-                    <td><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></td>
-                    <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}">Excluir</a></td>
+                    <td><button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button></td>
+                    <td><button><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}">Excluir</a></button></td>
             <br/>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<button><a href="index.jsp">Voltar</a></button>
+        <br/>
+        <button><a href="index.jsp">Voltar</a></button>
 </body>
 </html>
