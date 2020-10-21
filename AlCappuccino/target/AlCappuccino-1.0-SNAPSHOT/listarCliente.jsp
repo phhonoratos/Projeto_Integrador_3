@@ -73,7 +73,7 @@
                             <td>${cliente.cep}</td>
                             <td>${cliente.dt_nascimento}</td>
                             <td><a class="btn btn-warning" href="AtualizarCliente?cpf=${cliente.cpf}" role="button">Alterar</a></td>
-                            <td><a class="btn btn-danger" href="index.jsp" role="button">Excluir</a></td>
+                            <td><a class="btn btn-danger" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')" role="button">Excluir</a></td>
                         </tr>
                     </c:forEach>
 
