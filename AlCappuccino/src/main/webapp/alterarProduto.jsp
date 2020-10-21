@@ -12,8 +12,8 @@
         <title>Alterar Produto</title>
     </head>
     <body>
-        <h1>Alteração de Cadastro: ${produto.nome}</h1>
-        <form action="AlterarProduto" method="POST">
+        <h1>Alteração de Cadastro: ${produto.id}</h1>
+        <form method="POST" action="AlterarProduto">
             <p>ID</p>
             <input name="id" value="${produto.id}" readonly="true"/><br/>
             <p>Tipo do Produto</p>

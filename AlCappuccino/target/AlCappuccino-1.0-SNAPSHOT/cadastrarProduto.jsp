@@ -13,7 +13,7 @@
     </head>
     <body class="container">
         <h1>Cadastro de Produto</h1>
-        <form action="CadastrarProduto" method="POST">
+        <form method="POST" action="CadastrarProduto">
             <p>ID</p>
             <input name="id" class="form-control" required="true"/><br/>
             <p>Tipo do Produto</p>
