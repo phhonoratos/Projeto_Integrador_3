@@ -17,7 +17,7 @@
         <a href="ListarProduto">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
         <a href="ListarCliente">Clientes</a><br/>
-        <a href="cadastrarCliente.jsp">Cadastrar Cliente</a>
-        <a href="ListarFuncionarios">Funcionarios</a><br/>
+        <a href="cadastrarCliente.jsp">Cadastrar Cliente</a><br/>
+        <a href="ListarFuncionarios">Funcionarios</a>
     </body>
 </html>
