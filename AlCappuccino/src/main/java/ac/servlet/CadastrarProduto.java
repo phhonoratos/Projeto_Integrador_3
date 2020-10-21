@@ -43,7 +43,7 @@ public class CadastrarProduto extends HttpServlet {
         Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
                         
         try {
-            ProdutoDAO.addProduto(produto);
+            int linhasAfetadas = ProdutoDAO.addProduto(produto);
             response.sendRedirect("sucesso.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);

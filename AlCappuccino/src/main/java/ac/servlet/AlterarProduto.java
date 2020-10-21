@@ -53,15 +53,8 @@ public class AlterarProduto extends HttpServlet {
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
         
-        Produto produto = new Produto();
+        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
         
-        produto.setId(id);
-        produto.setTipo(tipo);
-        produto.setNome(nome);
-        produto.setQtd_estoque(qtd_estoque);
-        produto.setPreco(preco);
-        produto.setPorcentagem(porcentagem);
-        produto.setValor_venda(valor_venda);
          
          try {
              ProdutoDAO.updateProduto(produto);
