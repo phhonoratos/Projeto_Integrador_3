@@ -44,6 +44,10 @@
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>ac.servlet.CadastrarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <servlet-class>ac.servlet.AtualizarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -91,6 +95,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <url-pattern>/AtualizarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
