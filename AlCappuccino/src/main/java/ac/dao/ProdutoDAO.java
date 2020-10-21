@@ -65,18 +65,18 @@ public class ProdutoDAO {
 
     }
 
-    public static void updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
+    public static int updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        String query = "update produto set id=?, tipo=?, qtd_estoque=?, preco=?, porcentagem=?, valor_venda=? where id=?";
+        String query = "update produto set tipo=?, nome=?, qtd_estoque=?, preco=?, porcentagem=?, valor_venda=? where id=?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, produto.getId());
-        ps.setString(2, produto.getTipo());
-        ps.setString(3, produto.getNome());
-        ps.setInt(4, produto.getQtd_estoque());
-        ps.setDouble(5, produto.getPreco());
-        ps.setDouble(6, produto.getPorcentagem());
-        ps.setDouble(7, produto.getValor_venda());
-        ps.execute();
+        ps.setString(1, produto.getTipo());
+        ps.setString(2, produto.getNome());
+        ps.setInt(3, produto.getQtd_estoque());
+        ps.setDouble(4, produto.getPreco());
+        ps.setDouble(5, produto.getPorcentagem());
+        ps.setDouble(6, produto.getValor_venda());
+        ps.setInt(7, produto.getId());
+        return ps.executeUpdate();
     }
 
     public static void deleteProduto(String nome) throws ClassNotFoundException, SQLException {

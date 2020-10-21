@@ -22,7 +22,7 @@
             }
             
             function excluirProduto() {
-                var preco = $("#nomeProduto").val();
+                var nome = $("#nomeProduto").val();
                 $.get( "ExcluirProduto?nome="+nome, function( resposta ) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
@@ -81,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                  <button type="button" class="btn btn-primary" onclick="excluirProduto()">Confirmar</button>
                 </div>
               </div>
             </div>
