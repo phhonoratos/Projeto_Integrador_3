@@ -62,14 +62,10 @@
                     <td>${funcionarios.dt_dem}</td>
                     <td><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></td>
                     <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}">Excluir</a></td>
-                    <br/>
-                    </br>
-                    <button><a href="index.jsp">Voltar</a></button>
             <br/>
         </tr>
     </c:forEach>
-
-</tbody>
+    </tbody>
 </table>
 <button><a href="index.jsp">Voltar</a></button>
 </body>
