@@ -61,3 +61,21 @@ insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, lo
                 '753951468', 'Testador', 1500, 'São Paulo', '2020-01-15', '2020-10-02'),
                         ('Teste 2', 'teste2@teste.com', '72943861205', '1110102020', 'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', 
                          '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador', 1500, 'São Paulo', '2020-01-15', '2020-10-02');
+
+
+create table produto (
+	id int primary key not null,
+	tipo varchar(40) not null,
+	nome varchar(40) not null,
+	qtd_estoque int not null,
+	preco double not null,
+	porcentagem double not null,
+	valor_venda double not null
+);
+
+insert into produto (id,tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
+					values(1, "café", "Expresso", 4, 5.50, 10, 6.05),
+						  (2, "cappuccino", "Frappuccino", 5, 7.80, 15, 8.97),
+                                                                                                              (3, "refrigerante", "Guaraná", 6, 9.50, 5, 9.97),
+                                                                                                              (4, "pão", "Baguete", 7, 10.36, 8, 11.18),
+                                                                                                              (5, "chocolate", "sneakers", 8, 4.60, 9, 5.01);
