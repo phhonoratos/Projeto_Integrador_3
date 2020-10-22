@@ -57,8 +57,9 @@ public class CadastrarFuncionarios extends HttpServlet {
         String filial = request.getParameter("filial");
         Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
         Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
+        String observacao = request.getParameter("observacao");
         
-        Funcionarios funcionarios = new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, nome, email, 
+        Funcionarios funcionarios = new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, observacao, nome, email, 
                 cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
         
         try {

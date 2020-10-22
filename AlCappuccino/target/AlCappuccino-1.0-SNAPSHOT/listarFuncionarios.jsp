@@ -71,6 +71,7 @@
             <th>Filial</th>
             <th>Data Adm</th>
             <th>Data Dem</th>
+            <th>Observações</th>
         </thead>
         <tbody>
             <c:forEach items="${listaFuncionarios}" var="funcionarios">
@@ -95,6 +96,7 @@
                     <td>${funcionarios.filial}</td>
                     <td>${funcionarios.dt_adm}</td>
                     <td>${funcionarios.dt_dem}</td>
+                    <td>${funcionarios.observacao}</td>
                     <td><button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button></td>
                     <td><button type="button" class="btn btn-primary" 
                                 onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button></td>
