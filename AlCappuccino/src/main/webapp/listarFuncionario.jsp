@@ -69,6 +69,7 @@
             <th>Filial</th>
             <th>Data Adm</th>
             <th>Data Dem</th>
+            <th>Observações</th>
         </thead>
         <tbody>
             <div>
@@ -93,6 +94,7 @@
                     <td>${funcionario.filial}</td>
                     <td>${funcionario.dt_adm}</td>
                     <td>${funcionario.dt_dem}</td>
+                    <td>${funcionario.observacao}</td>
                     <td><button><a href="AlterarFuncionarios?cpf=${funcionario.cpf}">Alterar</a></button></td>
                     <td><button type="button" class="btn btn-primary" 
                                 onclick="confirmarDelete(${funcionario.cpf})">Excluir</button></td>

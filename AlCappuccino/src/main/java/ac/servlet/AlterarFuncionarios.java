@@ -58,6 +58,7 @@ public class AlterarFuncionarios extends HttpServlet {
         String filial = request.getParameter("filial");
         Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
         Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
+        String observacao = request.getParameter("observacao");
         
         Funcionarios funcionario = FuncionariosDAO.getFuncionario(cpf);
         
@@ -81,6 +82,7 @@ public class AlterarFuncionarios extends HttpServlet {
         funcionario.setFilial(filial);
         funcionario.setDt_adm(dt_adm);
         funcionario.setDt_dem(dt_dem);
+        funcionario.setObservacao(observacao);
         
         try {
             FuncionariosDAO.updateFuncionario(funcionario);
