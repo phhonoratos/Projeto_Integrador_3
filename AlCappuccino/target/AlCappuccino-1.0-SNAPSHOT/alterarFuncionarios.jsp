@@ -65,34 +65,34 @@
                         <input name="bairro" value="${funcionarios.bairro}"></input>
                         <input name="cidade" value="${funcionarios.cidade}"></input>
                         <select name="uf" value="${funcionarios.uf}">
-                            <option value="options">UF</option>
-                            <option value="acre">AC</option>
-                            <option value="alagoas">AL</option>
-                            <option value="amapa">AP</option>
-                            <option value="amazonas">AM</option>
-                            <option value="bahia">BA</option>
-                            <option value="ceara">CE</option>
-                            <option value="distrito_federal">DF</option>
-                            <option value="espirito_santo">ES</option>
-                            <option value="goias">GO</option>
-                            <option value="maranhao">MA</option>
-                            <option value="mato_grosso">MT</option>
-                            <option value="mato_grosso_sul">MS</option>
-                            <option value="minas-gerais">MG</option>
-                            <option value="para">PA</option>
-                            <option value="paraiba">PB</option>
-                            <option value="parana">PR</option>
-                            <option value="pernambuco">PE</option>
-                            <option value="piaui">PI</option>
-                            <option value="rio_de_janeiro">RJ</option>
-                            <option value="rio_grande_norte">RN</option>
-                            <option value="rio_grande_sul">RS</option>
-                            <option value="rondonia">RO</option>
-                            <option value="roraima">RR</option>
-                            <option value="santa_catarina">SC</option>
-                            <option value="sao_paulo">SP</option>
-                            <option value="sergipe">SE</option>
-                            <option value="tocantins">TO</option>
+                            <option value="UF">UF</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
                         </select>
                     </div>
                     <div class="col-4">
@@ -122,10 +122,10 @@
                         <textarea name="observacao" class="form-control" value="${funcionarios.observacao}"></textarea>
                     </div>
                 </div>
+            <button><a href="index.jsp">Cancelar</a></button>
+            <button type="submit">Atualizar</button>
             </form>
         </table>
-        <button><a href="index.jsp">Cancelar</a></button>
-        <button type="submit">Atualizar</button>
             
         </form>
     </body>
