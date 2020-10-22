@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,15 +27,10 @@ public class ExcluirFuncionarios extends HttpServlet {
         String cpf = request.getParameter("cpf");
         try {
             FuncionariosDAO.deleteFuncionario(cpf);
-            response.sendRedirect("sucesso.jsp");
-        } catch (ClassNotFoundException ex) {
+            response.getWriter().print("ok");
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ExcluirFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ExcluirFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-            request.setAttribute("msgErro", ex.getMessage());
-            RequestDispatcher requestDispatcher
-                    = getServletContext().getRequestDispatcher("/erro.jsp");
-            requestDispatcher.forward(request, response);
+            response.getWriter().print(ex.getMessage());
         }
     }
 
