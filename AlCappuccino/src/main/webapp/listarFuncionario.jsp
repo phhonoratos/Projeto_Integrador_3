@@ -1,17 +1,20 @@
 <%-- 
-    Document   : listarFuncionarios
-    Created on : 18/10/2020, 16:14:37
+    Document   : listarFuncionario
+    Created on : 21/10/2020, 21:35:15
     Author     : paulo
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Funcionário</title>
+    </head>
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de Funcionários</title>
+        <title>Funcionário</title>
         <script lang="text/javascript">
             function confirmarDelete(cpf) {
                 $('#cpfDelete').html(cpf);
@@ -41,13 +44,8 @@
                 Funcionário excluído com sucesso!
             </div>
         </div>
-        <h1>Lista de Funcionários</h1>
+        <h1>Funcionário: ${funcionario.nome}</h1>
         <br/>
-        <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
-            <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
-        <button type="submit">Pesquisar</button>
-        </form>
-            <br/>
         <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
         <table class="table">
             <thead>
@@ -74,37 +72,37 @@
             <th>Observações</th>
         </thead>
         <tbody>
-            <c:forEach items="${listaFuncionarios}" var="funcionarios">
+            <div>
                 <tr>
-                    <td>${funcionarios.cpf}</td>
-                    <td>${funcionarios.nome}</td>
-                    <td>${funcionarios.rg}</td>
-                    <td>${funcionarios.dt_nascimento}</td>
-                    <td>${funcionarios.email}</td>
-                    <td>${funcionarios.telefone}</td>
-                    <td>${funcionarios.estado_civil}</td>
-                    <td>${funcionarios.sexo}</td>
-                    <td>${funcionarios.cep}</td>
-                    <td>${funcionarios.logradouro}</td>
-                    <td>${funcionarios.numero}</td>
-                    <td>${funcionarios.complemento}</td>
-                    <td>${funcionarios.bairro}</td>
-                    <td>${funcionarios.cidade}</td>
-                    <td>${funcionarios.uf}</td>
-                    <td>${funcionarios.cargo}</td>
-                    <td>${funcionarios.salario}</td>
-                    <td>${funcionarios.filial}</td>
-                    <td>${funcionarios.dt_adm}</td>
-                    <td>${funcionarios.dt_dem}</td>
-                    <td>${funcionarios.observacao}</td>
-                    <td><button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button></td>
+                    <td>${funcionario.cpf}</td>
+                    <td>${funcionario.nome}</td>
+                    <td>${funcionario.rg}</td>
+                    <td>${funcionario.dt_nascimento}</td>
+                    <td>${funcionario.email}</td>
+                    <td>${funcionario.telefone}</td>
+                    <td>${funcionario.estado_civil}</td>
+                    <td>${funcionario.sexo}</td>
+                    <td>${funcionario.cep}</td>
+                    <td>${funcionario.logradouro}</td>
+                    <td>${funcionario.numero}</td>
+                    <td>${funcionario.complemento}</td>
+                    <td>${funcionario.bairro}</td>
+                    <td>${funcionario.cidade}</td>
+                    <td>${funcionario.uf}</td>
+                    <td>${funcionario.cargo}</td>
+                    <td>${funcionario.salario}</td>
+                    <td>${funcionario.filial}</td>
+                    <td>${funcionario.dt_adm}</td>
+                    <td>${funcionario.dt_dem}</td>
+                    <td>${funcionario.observacao}</td>
+                    <td><button><a href="AlterarFuncionarios?cpf=${funcionario.cpf}">Alterar</a></button></td>
                     <td><button type="button" class="btn btn-primary" 
-                                onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button></td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                onclick="confirmarDelete(${funcionario.cpf})">Excluir</button></td>
+            <br/>
+        </tr>
+    </tbody>
+</table>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -124,7 +122,7 @@
             </div>
         </div>
     </div>
-    <br/>
-    <button><a href="index.jsp">Voltar</a></button>
+        <br/>
+        <button><a href="index.jsp">Voltar</a></button>
 </body>
 </html>

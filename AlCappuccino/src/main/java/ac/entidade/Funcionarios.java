@@ -19,6 +19,7 @@ public class Funcionarios extends Pessoa{
     private String filial;
     private Date dt_adm;
     private Date dt_dem;
+    private String observacao;
 
 //    public Funcionarios(String rg, String cargo, String salario, String comissao, String filial, String data_admissao, String data_demissao, boolean status) {
 //        this.rg = rg;
@@ -31,7 +32,7 @@ public class Funcionarios extends Pessoa{
 //        this.status = status;
 //    } 
 
-    public Funcionarios(String rg, String cargo, Double salario, String filial, Date dt_adm, Date dt_dem, String nome, String email, String cpf, 
+    public Funcionarios(String rg, String cargo, Double salario, String filial, Date dt_adm, Date dt_dem, String observacao, String nome, String email, String cpf, 
             String telefone, String estado_civil, String sexo, String cep, String logradouro, String numero, String complemento, String uf, String bairro,
             String cidade, Date dt_nascimento) {
         super(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
@@ -41,6 +42,7 @@ public class Funcionarios extends Pessoa{
         this.filial = filial;
         this.dt_adm = dt_adm;
         this.dt_dem = dt_dem;
+        this.observacao = observacao;
     }
     
 
@@ -90,6 +92,14 @@ public class Funcionarios extends Pessoa{
 
     public void setDt_dem(Date dt_dem) {
         this.dt_dem = dt_dem;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
     
 }

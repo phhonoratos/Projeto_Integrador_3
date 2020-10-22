@@ -27,7 +27,7 @@ public class FuncionariosDAO {
         
         Connection con = ConexaoDB.getConexao();
         String query = "insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, "
-                + "cidade, dt_nascimento, rg, cargo, salario, filial, dt_adm, dt_dem) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "cidade, dt_nascimento, rg, cargo, salario, filial, dt_adm, dt_dem, observacao) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, funcionarios.getNome());
         ps.setString(2, funcionarios.getEmail());
@@ -49,6 +49,7 @@ public class FuncionariosDAO {
         ps.setString(18, funcionarios.getFilial());
         ps.setDate(19, funcionarios.getDt_adm());
         ps.setDate(20, funcionarios.getDt_dem());
+        ps.setString(21, funcionarios.getObservacao());
         ps.execute();
     }
     
@@ -81,8 +82,9 @@ public class FuncionariosDAO {
                 String filial = rs.getString("filial");
                 Date dt_adm = rs.getDate("dt_adm");
                 Date dt_dem = rs.getDate("dt_dem");
+                String observacao = rs.getString("observacao");
                 
-                listaFuncionarios.add(new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, nome, email, cpf, telefone, 
+                listaFuncionarios.add(new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, observacao, nome, email, cpf, telefone, 
                         estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento));
             }
         } catch (ClassNotFoundException ex) {
@@ -96,8 +98,8 @@ public class FuncionariosDAO {
     public static void updateFuncionario(Funcionarios funcionario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
         String query = "update funcionarios set nome = ?, email = ?, telefone = ?, estado_civil = ?, sexo = ?, cep = ?, logradouro = ?, numero = ?, "
-                + "complemento = ?, uf = ?, bairro = ?, cidade = ?, dt_nascimento = ?, rg = ?, cargo = ?, salario = ?, filial = ?, dt_adm = ?, dt_dem = ? "
-                + "where cpf = ?";
+                + "complemento = ?, uf = ?, bairro = ?, cidade = ?, dt_nascimento = ?, rg = ?, cargo = ?, salario = ?, filial = ?, dt_adm = ?, dt_dem = ?, "
+                + "observacao = ? where cpf = ?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getEmail());
@@ -118,7 +120,8 @@ public class FuncionariosDAO {
         ps.setString(17, funcionario.getFilial());
         ps.setDate(18, funcionario.getDt_adm());
         ps.setDate(19, funcionario.getDt_dem());
-        ps.setString(20, funcionario.getCpf());
+        ps.setString(20, funcionario.getObservacao());
+        ps.setString(21, funcionario.getCpf());
         ps.execute();
     }
     
@@ -151,7 +154,8 @@ public class FuncionariosDAO {
                 String filial = rs.getString("filial");
                 Date dt_adm = rs.getDate("dt_adm");
                 Date dt_dem = rs.getDate("dt_dem");
-                funcionario = new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, nome, email, cpf, telefone, 
+                String observacao = rs.getString("observacao");
+                funcionario = new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, observacao, nome, email, cpf, telefone, 
                         estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
             }
         } catch (ClassNotFoundException ex) {

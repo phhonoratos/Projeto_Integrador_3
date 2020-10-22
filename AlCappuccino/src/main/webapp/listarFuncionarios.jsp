@@ -11,11 +11,45 @@
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listar Funcionários</title>
+        <title>Lista de Funcionários</title>
+        <script lang="text/javascript">
+            function confirmarDelete(cpf) {
+                $('#cpfDelete').html(cpf);
+                $('#exampleModal').modal('show');
+            }
+
+            function deletarCliente() {
+                var cpf = $('#cpfDelete').html();
+                var url = "ExcluirFuncionarios?cpf=" + cpf;
+                $.get(url, function (data) {
+                    if (data == 'ok') {
+                        $('#exampleModal').modal('hide');
+                        $('.toast').toast('show');
+                    } else {
+                        //Mostrar modal de erro
+                    }
+                });
+            }
+        </script>
     </head>
-    <body>
+    <body class="container">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500">
+            <div class="toast-header">
+                <strong class="mr-auto">Sucesso</strong>
+            </div>
+            <div class="toast-body">
+                Funcionário excluído com sucesso!
+            </div>
+        </div>
         <h1>Lista de Funcionários</h1>
-        <table>
+        <br/>
+        <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
+            <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
+        <button type="submit">Pesquisar</button>
+        </form>
+            <br/>
+        <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
+        <table class="table">
             <thead>
             <th>CPF</th>
             <th>Nome</th>
@@ -37,6 +71,7 @@
             <th>Filial</th>
             <th>Data Adm</th>
             <th>Data Dem</th>
+            <th>Observações</th>
         </thead>
         <tbody>
             <c:forEach items="${listaFuncionarios}" var="funcionarios">
@@ -61,13 +96,35 @@
                     <td>${funcionarios.filial}</td>
                     <td>${funcionarios.dt_adm}</td>
                     <td>${funcionarios.dt_dem}</td>
-                    <td><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></td>
-                    <td><a href="ExcluirFuncionarios?cpf=${funcionarios.cpf}">Excluir</a></td>
-            <br/>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-<button><a href="index.jsp">Voltar</a></button>
+                    <td>${funcionarios.observacao}</td>
+                    <td><button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button></td>
+                    <td><button type="button" class="btn btn-primary" 
+                                onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Confirmar exclusão do cpf: </label>
+                    <span id="cpfDelete"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="deletarCliente()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <button><a href="index.jsp">Voltar</a></button>
 </body>
 </html>

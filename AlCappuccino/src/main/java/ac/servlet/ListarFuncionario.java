@@ -6,10 +6,9 @@
 package ac.servlet;
 
 import ac.dao.FuncionariosDAO;
+import ac.entidade.Funcionarios;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,19 +18,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author paulo
  */
-public class ExcluirFuncionarios extends HttpServlet {
+public class ListarFuncionario extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
-        try {
-            FuncionariosDAO.deleteFuncionario(cpf);
-            response.getWriter().print("ok");
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ExcluirFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-            response.getWriter().print(ex.getMessage());
-        }
+        Funcionarios funcionario = FuncionariosDAO.getFuncionario(cpf);
+        
+        request.setAttribute("funcionario", funcionario);
+        
+        RequestDispatcher requestDispatcher = 
+                getServletContext().getRequestDispatcher("/listarFuncionario.jsp");
+        requestDispatcher.forward(request, response);
     }
 
 }
