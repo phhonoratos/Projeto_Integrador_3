@@ -121,7 +121,7 @@ public class FuncionariosDAO {
         ps.setDate(18, funcionario.getDt_adm());
         ps.setDate(19, funcionario.getDt_dem());
         ps.setString(20, funcionario.getObservacao());
-        ps.setString(2, funcionario.getCpf());
+        ps.setString(21, funcionario.getCpf());
         ps.execute();
     }
     
