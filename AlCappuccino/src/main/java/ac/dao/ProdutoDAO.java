@@ -98,6 +98,7 @@ public class ProdutoDAO {
             if (rs.next()) {
                 int id = rs.getInt("id");
                 String tipo = rs.getString("tipo");
+                
                 int qtd_estoque = rs.getInt("qtd_estoque");
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
