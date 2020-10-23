@@ -40,7 +40,7 @@
         <h1>Lista de Produtos</h1>
         <br>
         <div id="divBusca">
-            <form method="GET" action="ListarProduto?nome='${"#nome"}.val()'">
+            <form method="GET" action="ListarProdutosPesquisa?nome='${"#nome"}.val()'">
                 <input type="text" name ="nome" id=nome" placeholder="Digite o nome..."/>
                 <button type="submit">Buscar</button>
             </form>
