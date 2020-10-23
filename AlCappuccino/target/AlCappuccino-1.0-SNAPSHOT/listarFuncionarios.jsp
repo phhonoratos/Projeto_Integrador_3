@@ -11,7 +11,9 @@
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="cadastrarFuncionarios.css">
         <title>Lista de Funcionários</title>
+        
         <script lang="text/javascript">
             function confirmarDelete(cpf) {
                 $('#cpfDelete').html(cpf);
@@ -30,9 +32,22 @@
                     }
                 });
             }
+            
+            //Manipulando as colunas
+            function ocultaColumn(colIndex) {
+                var table = document.getElementById('tabelaFuncionarios');
+                for (var r = 0; r < table.rows.length; r++)
+                    table.rows[r].cells[colIndex].style.display = 'none';
+            }
+            function mostraColumn(colIndex) {
+                var table = document.getElementById('tabelaFuncionarios');
+                for (var r = 0; r < table.rows.length; r++)
+                    table.rows[r].cells[colIndex].style.display = '';
+            }
         </script>
     </head>
-    <body class="container">
+    
+    <body class="container-fluid">
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500">
             <div class="toast-header">
                 <strong class="mr-auto">Sucesso</strong>
@@ -41,15 +56,33 @@
                 Funcionário excluído com sucesso!
             </div>
         </div>
+        
         <h1>Lista de Funcionários</h1>
         <br/>
+        
         <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
             <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
-        <button type="submit">Pesquisar</button>
+            <button type="submit" id="pesq">Pesquisar</button>
+            <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
         </form>
             <br/>
-        <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
-        <table class="table">
+            
+        <form>
+            Seleção de colunas:  
+            <select name="colIdx">
+                <script>
+                    var valores = ["CPF", "Nome", "RG", "Data Nasc.", "E-mail", "Telefone", "Estado civil", "Sexo", "CEP", "Logradouro",
+                        "Numero", "Complemento", "Bairro", "Cidade", "UF", "Cargo", "Salário", "Filial", "Data Adm.", "Data Dem.", "Observacao"];
+                    for (var i = 0; i <= valores.length; i++)
+                        document.write('<option value="' + valores[i] + '">' + valores[i]);
+                </script>
+            </select>
+            <input type="button" id="esconder" value="ESCONDER" onclick="ocultaColumn(this.form.colIdx.selectedIndex);">
+            <input type="button" id="mostrar" value="MOSTRAR" onclick="mostraColumn(this.form.colIdx.selectedIndex);">
+        </form>
+        <br/>
+            
+        <table class="table" id="tabelaFuncionarios">
             <thead>
             <th>CPF</th>
             <th>Nome</th>
@@ -73,6 +106,7 @@
             <th>Data Dem</th>
             <th>Observações</th>
         </thead>
+        
         <tbody>
             <c:forEach items="${listaFuncionarios}" var="funcionarios">
                 <tr>
@@ -104,7 +138,8 @@
             </c:forEach>
         </tbody>
     </table>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -125,6 +160,7 @@
         </div>
     </div>
     <br/>
+    
     <button><a href="index.jsp">Voltar</a></button>
-</body>
+    </body>
 </html>
