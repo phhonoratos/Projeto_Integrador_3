@@ -105,13 +105,6 @@ public class ProdutoDAO {
                 
                 produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
 
-//                produto.setId(id);
-//                produto.setTipo(tipo);
-//                produto.setNome(nome);
-//                produto.setQtd_estoque(qtd_estoque);
-//                produto.setPreco(preco);
-//                produto.setPorcentagem(porcentagem);
-//                produto.setValor_venda(valor_venda);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
