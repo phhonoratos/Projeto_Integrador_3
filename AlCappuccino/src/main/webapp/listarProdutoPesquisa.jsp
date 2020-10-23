@@ -1,7 +1,7 @@
 <%-- 
-    Document   : listaProduto
-    Created on : 16/10/2020, 11:46:18
-    Author     : danilo
+    Document   : listarProdutoPesquisa
+    Created on : 23/10/2020, 12:43:08
+    Author     : danil
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -41,8 +41,8 @@
         <br>
         <div id="divBusca">
             <form method="GET" action="ListarProduto?nome='${"#nome"}.val()'">
-                <input type="text" name ="nome" id=nome" placeholder="Digite o nome..."/>
-                <button type="submit">Buscar</button>
+           <input type="text" name ="nome" id=nome" placeholder="Digite o nome..."/>
+           <button type="submit">Buscar</button>
             </form>
         </div>
         <br>
@@ -57,7 +57,7 @@
             <th>Valor de Venda</th>
         </thead>
         <tbody> 
-            <c:forEach var="produto" items="${listaProduto}">
+            
                 <tr>
                     <td>${produto.id}</td>
                     <td>${produto.tipo}</td>
@@ -69,7 +69,7 @@
                     <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
                     <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
                 </tr>
-            </c:forEach>
+           
 
         </tbody>
 
