@@ -28,9 +28,9 @@
             <input name="porcentagem" class="form-control" required="true"/><br/>
             <p>Valor de Venda do Produto</p>
             <input name="valor_venda" class="form-control" required="true"/><br/>
-            
+            <br>
             <button type="submit" class="btn btn-primary">Enviar</button>
-            
+                        
         </form>
     </body>
 </html>
