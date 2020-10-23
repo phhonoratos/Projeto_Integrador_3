@@ -11,26 +11,27 @@
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Vendas</title>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <h1 style="text-align: center">Vendas</h1>
 
             <div class="container">
+
                 <div class="row">
                     <c:forEach var="produto" items="${listaProduto}">
                         <div class="col-4">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="${produto.nome}">
-                            <div class="card-body">
-                                <h5 class="card-title">${produto.nome}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">${produto.tipo}</h6>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                            <div class="card">
+                                <img src="../../../images/'${produto.nome}'.jpg" class="card-img-top" alt="${produto.nome}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${produto.nome}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">${produto.tipo}</h6>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
             </div>
