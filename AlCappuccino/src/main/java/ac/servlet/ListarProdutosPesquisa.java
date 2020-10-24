@@ -8,8 +8,6 @@ package ac.servlet;
 import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +23,8 @@ public class ListarProdutosPesquisa extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Produto> produto = ProdutoDAO.getProduto();
+       String nome  = request.getParameter("nome");
+        Produto produto = ProdutoDAO.getProduto(nome);
         
         request.setAttribute("produto", produto);
         

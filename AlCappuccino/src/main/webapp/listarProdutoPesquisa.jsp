@@ -39,12 +39,6 @@
         <br>
         <h1>Lista de Produtos</h1>
         <br>
-        <div id="divBusca">
-            <form method="GET" action="ListarProduto?nome='${"#nome"}.val()'">
-           <input type="text" name ="nome" id=nome" placeholder="Digite o nome..."/>
-           <button type="submit">Buscar</button>
-            </form>
-        </div>
         <br>
         <table class="table">
             <thead>
@@ -57,19 +51,19 @@
             <th>Valor de Venda</th>
         </thead>
         <tbody> 
-            
-                <tr>
-                    <td>${produto.id}</td>
-                    <td>${produto.tipo}</td>
-                    <td>${produto.nome}</td>
-                    <td>${produto.qtd_estoque}</td>
-                    <td>${produto.preco}</td>
-                    <td>${produto.porcentagem}</td>
-                    <td>${produto.valor_venda}</td>
-                    <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
-                </tr>
-           
+
+            <tr>
+                <td>${produto.id}</td>
+                <td>${produto.tipo}</td>
+                <td>${produto.nome}</td>
+                <td>${produto.qtd_estoque}</td>
+                <td>${produto.preco}</td>
+                <td>${produto.porcentagem}</td>
+                <td>${produto.valor_venda}</td>
+                <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
+                <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
+            </tr>
+
 
         </tbody>
 
