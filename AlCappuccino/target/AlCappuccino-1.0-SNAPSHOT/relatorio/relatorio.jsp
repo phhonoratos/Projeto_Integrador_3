@@ -56,22 +56,22 @@
                 <th>Total</th>
             </thead>
             <tbody>
-                <%--<c:forEach items="listaVenda" var="venda">--%>
-<!--                    <tr>
-                        <td>${venda.data}</td>
-                        <td>${venda}</td>
-                        <td>${venda}</td>
-                        <td>${venda}</td>
-                        <td>${venda}</td>
-                    </tr>-->
-                <%--</c:forEach>--%>
+                <c:forEach items="${vendas}" var="venda">
                     <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
+                        <td>${venda.data_venda}</td>
+                        <td>${venda.cpf_funcionario}</td>
+                        <td>${venda.cpf_cliente}</td>
+                        <td>${venda.tipo_pagamento}</td>
+                        <td>${venda.total}</td>
                     </tr>
+                </c:forEach>
+<!--                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                    </tr>-->
             </tbody>
         </table>
         
@@ -94,12 +94,12 @@
                     </tr>-->
                 <%--</c:forEach>--%>
                 
-                    <tr>
+<!--                    <tr>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
-                    </tr>
+                    </tr>-->
             </tbody>
         </table>
     </body>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\ClienteDAO.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarProduto.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Funcionarios.java
@@ -8,6 +7,7 @@ C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuc
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarCliente.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Cliente.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirFuncionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\VendaDAO.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarFuncionario.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ServletBD.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\bd\ConexaoDB.java
@@ -23,32 +23,6 @@ C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuc
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirCliente.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarVenda.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarFuncionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarVenda.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarProduto.java
 C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\utils\Utils.java
-=======
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarProduto.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Funcionarios.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Cliente.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarProduto.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\ClienteDAO.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\AlterarFuncionarios.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\FuncionariosDAO.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Produto.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarCliente.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarFuncionarios.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirFuncionarios.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\bd\ConexaoDB.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Pessoa.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirProduto.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Venda.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarCliente.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarFuncionario.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\ProdutoDAO.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarVenda.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\utils\Utils.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\AtualizarCliente.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarFuncionarios.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\AlterarProduto.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ServletBD.java
-D:\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirCliente.java
->>>>>>> 6d861a494d8328698feda4a34cdca98c20af5b0d
