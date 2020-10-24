@@ -45,14 +45,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Vendas</h5>
                         <p class="card-text">Adicionar</p>
-                        <a href="cadastrarFuncionarios.jsp" class="btn btn-primary">
+                        <a href="CadastrarVenda" class="btn btn-primary">
                             <span class="material-icons">
                                 attach_money
                             </span>
                         </a>
                         <hr>
                         <p class="card-text">Listar</p>
-                        <a href="ListarFuncionarios" class="btn btn-primary">
+                        <a href="#" class="btn btn-primary">
                             <span class="material-icons">
                                 list
                             </span>

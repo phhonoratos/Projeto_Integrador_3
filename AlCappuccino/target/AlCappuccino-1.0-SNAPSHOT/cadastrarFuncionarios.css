@@ -85,3 +85,15 @@ input[name="filial"] {
     width: 350px;
     height: 35px;
 }
+
+button[id="pesq"] {
+    margin-right: 30px;
+}
+
+input[id="esconder"] {
+    margin-left: 15px;
+}
+
+input[id="mostrar"] {
+    margin-left: 15px;
+}
