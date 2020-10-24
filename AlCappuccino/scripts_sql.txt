@@ -57,11 +57,19 @@ CREATE TABLE FUNCIONARIOS(
 );
 
 insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
-                cidade, dt_nascimento, rg, cargo, salario, filial, dt_adm, dt_dem) values('Teste 1', 'teste1@teste.com', '73519684238', 
-                '1110102020', 'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21', 
-                '753951468', 'Testador', 1500, 'São Paulo', '2020-01-15', '2020-10-02', 'Teste de observação'),
-                        ('Teste 2', 'teste2@teste.com', '72943861205', '1110102020', 'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', 
-                         '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador', 1500, 'São Paulo', '2020-01-15', '2020-10-02', 'Teste de observação2');
+                cidade, dt_nascimento, rg, cargo, salario, filial, dt_adm, dt_dem, observacao) 
+                
+            values
+            ('Teste 1', 'teste1@teste.com', '73519684238','1110102020', 
+            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', 
+            '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
+            'Testador', 1500, 'São Paulo', '2020-01-15', '2020-10-02', 
+            'Teste de observação'),
+
+            ('Teste 2', 'teste2@teste.com', '72943861205', '1110102020', 
+            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
+            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador',
+             1500, 'São Paulo', '2020-01-15', '2020-10-02', 'Teste de observação2');
 
 
 create table produto (
@@ -80,3 +88,15 @@ insert into produto (id,tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
                                         (3, 'refrigerante', 'Guaraná', 6, 9.50, 5, 9.97),
                                         (4, 'pão', 'Baguete', 7, 10.36, 8, 11.18),
                                         (5, 'chocolate', 'sneakers', 8, 4.60, 9, 5.01);
+
+
+
+create table venda (
+        id int generated always as identity (start with 1, increment by 1),
+	data date not null,
+	total decimal(10,2) not null,
+	tipo_pagamento varchar(10),
+        cpf_funcionario varchar(11) not null,
+        cpf_cliente varchar(11),
+        primary key (id)
+);
