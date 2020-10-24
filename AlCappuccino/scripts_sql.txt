@@ -93,7 +93,7 @@ insert into produto (id,tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
 
 create table venda (
         id int generated always as identity (start with 1, increment by 1),
-	data date not null,
+	data datetime not null,
 	total decimal(10,2) not null,
 	tipo_pagamento varchar(10),
         cpf_funcionario varchar(11) not null,

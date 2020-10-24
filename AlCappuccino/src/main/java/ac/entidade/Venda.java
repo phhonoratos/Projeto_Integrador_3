@@ -6,6 +6,7 @@
 package ac.entidade;
 
 import java.sql.Date;
+import java.sql.Time;
 
 /**
  *
@@ -19,17 +20,19 @@ public class Venda {
     String tipo_pagamento;
     String cpf_cliente;
     String cpf_funcionario;
+    Time hora;
 
     public Venda() {
     }
 
-    public Venda(int id, Date data_venda, Float total, String tipo_pagamento, String cpf_cliente, String cpf_funcionario) {
+    public Venda(int id, Date data_venda, Float total, String tipo_pagamento, String cpf_cliente, String cpf_funcionario, Time hora) {
         this.id = id;
         this.data_venda = data_venda;
         this.total = total;
         this.tipo_pagamento = tipo_pagamento;
         this.cpf_cliente = cpf_cliente;
         this.cpf_funcionario = cpf_funcionario;
+        this.hora = hora;
     }
 
     public int getId() {
@@ -80,10 +83,19 @@ public class Venda {
         this.cpf_funcionario = cpf_funcionario;
     }
 
-    @Override
-    public String toString() {
-        return "Venda{" + "id=" + id + ", data_venda=" + data_venda + ", total=" + total + ", tipo_pagamento=" + tipo_pagamento + ", cpf_cliente=" + cpf_cliente + ", cpf_funcionario=" + cpf_funcionario + '}';
+    public Time getHora() {
+        return hora;
     }
 
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "id=" + id + ", data_venda=" + data_venda + ", total=" + total + ", tipo_pagamento=" + tipo_pagamento + ", cpf_cliente=" + cpf_cliente + ", cpf_funcionario=" + cpf_funcionario + ", hora=" + hora + '}';
+    }
+
+    
        
 }

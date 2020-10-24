@@ -16,6 +16,7 @@ import ac.entidade.Venda;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
@@ -55,6 +56,8 @@ public class CadastrarVenda extends HttpServlet {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
+        Time hora = new Time(date.getTime());
+        System.out.println(date.getTime());
         
         String vendedor = request.getParameter("vendedor");
         
@@ -83,6 +86,7 @@ public class CadastrarVenda extends HttpServlet {
         venda.setCpf_cliente(cliente);
         venda.setCpf_funcionario(vendedor);
         venda.setData_venda(date);
+        venda.setHora(hora);
         venda.setTotal(soma);
         
         
@@ -90,9 +94,9 @@ public class CadastrarVenda extends HttpServlet {
             VendaDAO.addVenda(venda);
             response.sendRedirect("sucesso.jsp");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarVenda.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarVenda.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("msgErro", ex.getMessage());
             RequestDispatcher requestDispatcher
                     = getServletContext().getRequestDispatcher("/erro.jsp");
