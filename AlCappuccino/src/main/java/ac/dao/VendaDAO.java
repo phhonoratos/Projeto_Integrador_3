@@ -8,10 +8,13 @@ package ac.dao;
 import ac.bd.ConexaoDB;
 import ac.entidade.Venda;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,7 +22,6 @@ import java.sql.Statement;
  */
 public class VendaDAO {
 
-    private static ResultSet rs = null;
 
     public static boolean addVenda(Venda venda) throws SQLException, ClassNotFoundException {
         boolean retorno = false;
@@ -33,10 +35,10 @@ public class VendaDAO {
         ps.setString(4, venda.getTipo_pagamento());
         ps.setString(5, venda.getCpf_cliente());
         ps.setString(6, venda.getCpf_funcionario());
-
+        
         int linhasAfetadas = ps.executeUpdate();
         if (linhasAfetadas > 0) {
-            rs = ps.getGeneratedKeys();
+            ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 venda.setId(rs.getInt(1));
             }
@@ -45,5 +47,60 @@ public class VendaDAO {
         }
 
         return retorno;
+    }
+    
+    public static List<Venda> select() throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.getConexao();
+        String query = "select * "//data, cpf_funcionario, cpf_cliente, tipo_pagamento, total"
+                     + "from venda";
+        
+        PreparedStatement ps = con.prepareStatement(query);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        List<Venda> vendas = new ArrayList<>();
+        while (rs.next()) {            
+            Venda venda = new Venda();
+            venda.setId(rs.getInt("id"));
+            venda.setData_venda(rs.getDate("data"));
+            venda.setHora(rs.getTime("hora"));
+            venda.setTotal(rs.getFloat("total"));
+            venda.setTipo_pagamento(rs.getString("tipo_pagamento"));
+            venda.setCpf_funcionario(rs.getString("cpf_funcionario"));
+            venda.setCpf_cliente(rs.getString("cpf_cliente"));
+            
+            vendas.add(venda);
+        }
+        
+        return vendas;
+    }
+    
+    public static List<Venda> select(Date dataInicial, Date dataFinal) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.getConexao();
+        String query = "select data, cpf_funcionario, cpf_cliente, tipo_pagamento, total"
+                     + "from venda"
+                     + "where data between ? and ?";
+        
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setDate(1, dataInicial);
+        ps.setDate(2, dataFinal);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        List<Venda> vendas = new ArrayList<>();
+        while (rs.next()) {            
+            Venda venda = new Venda();
+            venda.setId(rs.getInt("id"));
+            venda.setData_venda(rs.getDate("data"));
+            venda.setHora(rs.getTime("hora"));
+            venda.setTotal(rs.getFloat("total"));
+            venda.setTipo_pagamento(rs.getString("tipo_pagamento"));
+            venda.setCpf_funcionario(rs.getString("cpf_funcionario"));
+            venda.setCpf_cliente(rs.getString("cpf_cliente"));
+            
+            vendas.add(venda);
+        }
+        
+        return vendas;
     }
 }

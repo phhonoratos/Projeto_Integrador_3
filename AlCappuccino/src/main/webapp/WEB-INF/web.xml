@@ -64,6 +64,10 @@
         <servlet-name>ListarProdutosPesquisa</servlet-name>
         <servlet-class>ac.servlet.ListarProdutosPesquisa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarVenda</servlet-name>
+        <servlet-class>ac.servlet.ListarVenda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -131,6 +135,10 @@
     <servlet-mapping>
         <servlet-name>ListarProdutosPesquisa</servlet-name>
         <url-pattern>/ListarProdutosPesquisa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarVenda</servlet-name>
+        <url-pattern>/ListarVenda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

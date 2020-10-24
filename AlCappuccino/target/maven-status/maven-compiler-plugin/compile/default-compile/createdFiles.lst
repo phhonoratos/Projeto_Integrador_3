@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+ac\servlet\ExcluirFuncionarios.class
+ac\servlet\AlterarProduto.class
+ac\bd\ConexaoDB.class
+ac\dao\ClienteDAO.class
+ac\servlet\CadastrarProduto.class
+ac\servlet\CadastrarCliente.class
+ac\utils\Utils.class
+ac\servlet\AlterarFuncionarios.class
+ac\servlet\AtualizarCliente.class
+ac\servlet\CadastrarFuncionarios.class
+ac\servlet\ListarFuncionarios.class
+ac\dao\FuncionariosDAO.class
+ac\dao\ProdutoDAO.class
+ac\servlet\ExcluirCliente.class
+ac\servlet\ExcluirProduto.class
+ac\servlet\ListarProduto.class
+ac\servlet\ListarFuncionario.class
+ac\servlet\ListarCliente.class
+ac\entidade\Venda.class
+ac\entidade\Funcionarios.class
+ac\entidade\Cliente.class
+ac\entidade\Produto.class
+ac\dao\VendaDAO.class
+ac\servlet\ListarVenda.class
+ac\servlet\ServletBD.class
+ac\entidade\Pessoa.class
+ac\servlet\CadastrarVenda.class
+ac\servlet\ListarProdutosPesquisa.class
+=======
 ac/entidade/DetalheVenda.class
 ac/bd/ConexaoDB.class
 ac/entidade/Funcionarios.class
@@ -27,3 +57,4 @@ ac/dao/FuncionariosDAO.class
 ac/dao/ClienteDAO.class
 ac/servlet/ExcluirProduto.class
 ac/entidade/Cliente.class
+>>>>>>> 3333e6ec0b0f182bf80bb69e17732400c1b972ff

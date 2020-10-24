@@ -83,16 +83,18 @@
                 <th>Total</th>
             </thead>
             <tbody>
-                <%--<c:forEach items="listaVenda" var="venda">--%>
-<!--                    <tr>
-                        <td>${venda.data}</td>
-                        <td>${venda}</td>
-                        <td>${venda}</td>
-                        <td>${venda}</td>
-                        <td>${venda}</td>
-                    </tr>-->
-                <%--</c:forEach>--%>
+                <c:forEach items="${vendas}" var="venda">
                     <tr>
+<<<<<<< HEAD
+                        <td>${venda.data_venda}</td>
+                        <td>${venda.cpf_funcionario}</td>
+                        <td>${venda.cpf_cliente}</td>
+                        <td>${venda.tipo_pagamento}</td>
+                        <td>${venda.total}</td>
+                    </tr>
+                </c:forEach>
+<!--                    <tr>
+=======
 <<<<<<< HEAD
                         <td>${venda.data}</td>
                         <td>${venda}</td>
@@ -100,13 +102,18 @@
                         <td>${venda}</td>
                         <td>${venda}</td>
 =======
+>>>>>>> 3333e6ec0b0f182bf80bb69e17732400c1b972ff
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
+<<<<<<< HEAD
+                    </tr>-->
+=======
 >>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
                     </tr>
+>>>>>>> 3333e6ec0b0f182bf80bb69e17732400c1b972ff
             </tbody>
         </table>
         
@@ -140,13 +147,17 @@
                         <td>${objeto}</td>
 =======
                 
-                    <tr>
+<!--                    <tr>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
+<<<<<<< HEAD
+                    </tr>-->
+=======
 >>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
                     </tr>
+>>>>>>> 3333e6ec0b0f182bf80bb69e17732400c1b972ff
             </tbody>
         </table>
     </body>

@@ -131,6 +131,7 @@
         <a href="ListarCliente">Clientes</a><br />
         <a href="cadastrarFuncionarios.jsp">Cadastrar Funcionarios</a><br />
         <a href="ListarFuncionarios">Listar Funcionarios</a><br />
-        <a href="cadastrarCliente.jsp">Cadastrar Cliente</a>
+        <a href="cadastrarCliente.jsp">Cadastrar Cliente</a><br />
+        <a href="ListarVenda">Listar Venda</a>
     </body>
 </html>
