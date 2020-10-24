@@ -10,15 +10,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
+        <title>JSP Page</title>
+=======
         <title>Relatório</title>
         <link rel="stylesheet" href="./relatorio.css">
         <script src="./relatorio.js"></script>
+>>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
     </head>
     <body class="container">
         <%@include file="../header.jsp" %>
 
         <h1>Relatório</h1>
         
+<<<<<<< HEAD
+        <form method="POST" action="">
+            <input id="rdnMatriz" type="radio" name="opcao" value="matriz">
+            <label for="rdnMatriz">Matriz</label>
+
+            <input id="rdnFilial" type="radio" name="opcao" value="filial">
+            <label for="rdnFilial">Filial</label>
+
+            <select class="form-control form-control-sm">
+                <option>Small select</option>
+            </select>
+
+            <br>
+
+            <label for="txtDataInicial">De</label>
+            <input id="txtDataInicial" class="form-control-sm" type="text" name="inicio">
+            <label for="txtDataFinal">Até</label>
+            <input id="txtDataFinal" class="form-control-sm" type="text" name="final">
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </form>
+        
+=======
         <br>
         
         <form method="POST" action="">
@@ -47,6 +73,7 @@
         
         <br>
         
+>>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
         <table class="table">
             <thead>
                 <th>Data</th>
@@ -66,16 +93,28 @@
                     </tr>-->
                 <%--</c:forEach>--%>
                     <tr>
+<<<<<<< HEAD
+                        <td>${venda.data}</td>
+                        <td>${venda}</td>
+                        <td>${venda}</td>
+                        <td>${venda}</td>
+                        <td>${venda}</td>
+=======
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
+>>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
                     </tr>
             </tbody>
         </table>
         
+<<<<<<< HEAD
+        <p>Total</p>
+=======
         <p id="pTotal">Total</p>
+>>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
         
         <table class="table">
             <thead>
@@ -93,12 +132,20 @@
                         <td>${objeto}</td>
                     </tr>-->
                 <%--</c:forEach>--%>
+<<<<<<< HEAD
+                    <tr>
+                        <td>${objeto}</td>
+                        <td>${objeto}</td>
+                        <td>${objeto}</td>
+                        <td>${objeto}</td>
+=======
                 
                     <tr>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
+>>>>>>> f667c55f7afef1140cb7ebb5cd7de72e02b881ce
                     </tr>
             </tbody>
         </table>

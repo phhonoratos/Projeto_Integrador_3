@@ -93,10 +93,22 @@ insert into produto (id,tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
 
 create table venda (
         id int generated always as identity (start with 1, increment by 1),
-	data datetime not null,
+	data date not null,
+        hora time not null,
 	total decimal(10,2) not null,
 	tipo_pagamento varchar(10),
         cpf_funcionario varchar(11) not null,
         cpf_cliente varchar(11),
+        primary key (id)
+);
+
+create table detalhevenda (
+        id int generated always as identity (start with 1, increment by 1),
+        id_produto int not null,
+        qtd_produto int not null,
+        id_venda int not null,
+        valor double not null,
+	foreign key (id_produto) references produto(id),
+	foreign key (id_venda) references venda(id),
         primary key (id)
 );
