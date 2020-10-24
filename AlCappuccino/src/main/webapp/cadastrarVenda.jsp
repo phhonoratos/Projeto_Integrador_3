@@ -19,10 +19,10 @@
             function calcularTotal(nome, id, precoVenda) {
                 var qtd = $("#" + nome + id).val()
                 var total = qtd * precoVenda
-                
-                console.log(qtd,total)
 
-                $("#" + nome + id + id).val(total)
+                console.log(qtd, total)
+
+                $("#" + nome + id + id).val(total.toFixed(2))
             }
 
             function adicionarCarrinho(nome, tipo, id) {
@@ -50,7 +50,7 @@
     </head>
     <body>
 
-        <div class="container">
+        <div class="container-fluid">
             <h1 style="text-align: center">Vendas</h1>
 
             <form method="POST" action="CadastrarVenda">
@@ -64,6 +64,7 @@
                 </div>
                 <table class="table" id="produtos">
                     <thead>
+                    <th>Id</th>
                     <th>Produto</th>
                     <th>Categoria</th>
                     <th>Qtd Disponível</th>
@@ -75,11 +76,12 @@
                     <tbody>
                         <c:forEach var="produto" items="${listaProduto}">
                             <tr>
+                                <td><input name="id" value="${produto.id}"></input></td>
                                 <td><input name="produto" value="${produto.nome}"></input></td>
                                 <td><input name="categoria" value="${produto.tipo}"></input></td>
                                 <td><input name="estoque" value="${produto.qtd_estoque}"></input></td>
                                 <td><input name="valor_venda" value="${produto.valor_venda}"></input></td>
-                                
+
                                 <td><input type="number" id="${produto.nome}${produto.id}" name="quantidade" min="0" max="${produto.qtd_estoque}" onchange="calcularTotal('${produto.nome}', '${produto.id}', ${produto.valor_venda})"></td>
                                 <td><input type="number" step="0.01" id="${produto.nome}${produto.id}${produto.id}" name="valorTotal"></input></td>
                             </tr>
@@ -87,6 +89,9 @@
 
                     </tbody>
                 </table>
+                <c:forEach var="produto" items="${listaProduto}">
+                    <input name="porcentagem" value="${produto.porcentagem}" hidden="true"></input>
+                </c:forEach>
                 <button type="submit" class="btn btn-success">Vender</button>
             </form>
 
