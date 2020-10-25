@@ -5,10 +5,12 @@
  */
 package ac.servlet;
 
+import ac.dao.DetalheVendaDAO;
 import ac.dao.VendaDAO;
+import ac.entidade.DetalheVenda;
 import ac.entidade.Venda;
 import java.io.IOException;
-import java.sql.Date;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,53 +26,20 @@ import javax.servlet.http.HttpServletResponse;
  * @author sillas.clpinto
  */
 public class ListarVenda extends HttpServlet {
-
-    @Override
+@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String dataInicialStr = request.getParameter("inicio");
-        if (dataInicialStr != null) {
-            String dataFinalStr = request.getParameter("final");
-
-            Date dataInicial = Date.valueOf(dataInicialStr);
-            Date dataFinal = Date.valueOf(dataFinalStr);
+        try {
+            List<Venda> vendas = VendaDAO.select();
+            request.setAttribute("vendas", vendas);
             
-            try {
-                List<Venda> vendas = VendaDAO.select(dataInicial, dataFinal);
-                float total = totalVendas(vendas);
-
-                request.setAttribute("vendas", vendas);
-                request.setAttribute("totalVendas", total);
-
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
-                rd.forward(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ListarVenda.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            try {
-
-                List<Venda> vendas = VendaDAO.select();
-                float total = totalVendas(vendas);
-
-                request.setAttribute("vendas", vendas);
-                request.setAttribute("totalVendas", total);
-
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
-                rd.forward(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ListarVenda.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            List<DetalheVenda> detalheVendas = DetalheVendaDAO.listaDetalheVenda();
+            request.setAttribute("detalheVendas", detalheVendas);
+            
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/listarVendas.jsp");
+            rd.forward(request, response);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ListarVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    private float totalVendas(List<Venda> vendas) {
-        float total = 0;
-        for (Venda venda : vendas) {
-            total += venda.getTotal();
-        }
-
-        return total;
     }
 }
