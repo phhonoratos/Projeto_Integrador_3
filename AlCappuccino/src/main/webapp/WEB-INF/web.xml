@@ -68,6 +68,10 @@
         <servlet-name>ListarVenda</servlet-name>
         <servlet-class>ac.servlet.ListarVenda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarVendaRelatorio</servlet-name>
+        <servlet-class>ac.servlet.ListarVendaRelatorio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>
@@ -139,6 +143,10 @@
     <servlet-mapping>
         <servlet-name>ListarVenda</servlet-name>
         <url-pattern>/ListarVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarVendaRelatorio</servlet-name>
+        <url-pattern>/ListarVendaRelatorio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
