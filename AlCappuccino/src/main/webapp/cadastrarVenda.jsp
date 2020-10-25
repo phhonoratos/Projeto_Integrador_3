@@ -88,6 +88,9 @@
                         </c:forEach>
 
                     </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
                 </table>
                 <c:forEach var="produto" items="${listaProduto}">
                     <input name="porcentagem" value="${produto.porcentagem}" hidden="true"></input>

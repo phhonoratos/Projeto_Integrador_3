@@ -52,7 +52,7 @@
                         </a>
                         <hr>
                         <p class="card-text">Listar</p>
-                        <a href="#" class="btn btn-primary">
+                        <a href="ListarVenda" class="btn btn-primary">
                             <span class="material-icons">
                                 list
                             </span>
@@ -125,13 +125,5 @@
                 </div>
             </div>
         </div>
-
-        <a href="ListarProduto">Listar Produtos</a><br />
-        <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br />
-        <a href="ListarCliente">Clientes</a><br />
-        <a href="cadastrarFuncionarios.jsp">Cadastrar Funcionarios</a><br />
-        <a href="ListarFuncionarios">Listar Funcionarios</a><br />
-        <a href="cadastrarCliente.jsp">Cadastrar Cliente</a><br />
-        <a href="ListarVenda">Listar Venda</a>
     </body>
 </html>
