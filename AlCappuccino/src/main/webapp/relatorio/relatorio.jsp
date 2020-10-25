@@ -21,7 +21,7 @@
         
         <br>
         
-        <form method="POST" action="">
+        <form method="GET" action="ListarVenda">
             <input id="radioMatriz" type="radio" name="opcao" value="matriz">
             <label for="radioMatriz">Matriz</label>
 
@@ -39,8 +39,8 @@
 
             <br>
             
-            <input id="dateInicial" class="form-control-sm" type="date" name="inicio">
-            <input id="dateDataFinal" class="form-control-sm" type="date" name="final">
+            <input id="dateInicial" class="form-control-sm" type="text" name="inicio">
+            <input id="dateDataFinal" class="form-control-sm" type="text" name="final">
 
             <button type="submit" class="btn btn-primary">Pesquisar</button>
         </form>
@@ -75,7 +75,7 @@
             </tbody>
         </table>
         
-        <p id="pTotal">Total</p>
+        <p id="pTotal">${totalVendas}</p>
         
         <table class="table">
             <thead>
@@ -102,5 +102,8 @@
                     </tr>-->
             </tbody>
         </table>
+                
+                <button onclick="teste()">teste</button>
+                
     </body>
 </html>
