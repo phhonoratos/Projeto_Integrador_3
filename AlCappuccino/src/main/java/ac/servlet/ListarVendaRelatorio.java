@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author sillas.clpinto
  */
-public class ListarVendaRelatório extends HttpServlet {
+public class ListarVendaRelatorio extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +46,7 @@ public class ListarVendaRelatório extends HttpServlet {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
                 rd.forward(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ListarVendaRelatório.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             try {
@@ -60,7 +60,7 @@ public class ListarVendaRelatório extends HttpServlet {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
                 rd.forward(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ListarVendaRelatório.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
