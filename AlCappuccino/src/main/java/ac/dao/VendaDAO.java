@@ -77,8 +77,8 @@ public class VendaDAO {
     
     public static List<Venda> select(Date dataInicial, Date dataFinal) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        String query = "select data, cpf_funcionario, cpf_cliente, tipo_pagamento, total"
-                     + "from venda"
+        String query = "select * "//data, cpf_funcionario, cpf_cliente, tipo_pagamento, total"
+                     + "from venda "
                      + "where data between ? and ?";
         
         PreparedStatement ps = con.prepareStatement(query);
