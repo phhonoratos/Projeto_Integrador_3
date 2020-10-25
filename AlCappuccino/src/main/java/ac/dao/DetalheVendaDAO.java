@@ -7,9 +7,15 @@ package ac.dao;
 
 import ac.bd.ConexaoDB;
 import ac.entidade.DetalheVenda;
+import ac.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,4 +35,30 @@ public class DetalheVendaDAO {
         return retorno;
     }
     
+    public static List<DetalheVenda> listaDetalheVenda() throws SQLException, ClassNotFoundException {
+        List<DetalheVenda> listaDetalheVenda = new ArrayList();
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String query = "select * from detalhevenda";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                               
+                int id = Integer.parseInt(rs.getString("id"));
+                int id_produto = Integer.parseInt(rs.getString("id_produto"));
+                int qtd_produto = Integer.parseInt(rs.getString("qtd_produto"));
+                int id_venda = Integer.parseInt(rs.getString("id_venda"));
+                float valor = Float.parseFloat(rs.getString("valor"));
+                
+                listaDetalheVenda.add(new DetalheVenda(id, id_produto, qtd_produto, id_venda, valor));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listaDetalheVenda;
+    }
 }
