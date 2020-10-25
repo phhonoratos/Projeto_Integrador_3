@@ -5,7 +5,9 @@
  */
 package ac.servlet;
 
+import ac.dao.DetalheVendaDAO;
 import ac.dao.VendaDAO;
+import ac.entidade.DetalheVenda;
 import ac.entidade.Venda;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,15 +29,17 @@ public class ListarVenda extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        try {
-//            List<Venda> vendas = VendaDAO.select();
-//            
-//            request.setAttribute("vendas", vendas);
-//            
-//            RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
-//            rd.forward(request, response);
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(ListarVenda.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            List<Venda> vendas = VendaDAO.select();
+            request.setAttribute("vendas", vendas);
+            
+            List<DetalheVenda> detalheVendas = DetalheVendaDAO.listaDetalheVenda();
+            request.setAttribute("detalheVendas", detalheVendas);
+            
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/listarVendas.jsp");
+            rd.forward(request, response);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ListarVenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

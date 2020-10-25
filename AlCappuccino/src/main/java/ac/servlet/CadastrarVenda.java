@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
@@ -39,8 +38,14 @@ public class CadastrarVenda extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         List<Produto> listaProduto = ProdutoDAO.getProduto();
-        request.setAttribute("listaProduto", listaProduto);
+        
+        for (Produto produto : listaProduto) {
+            produto.setPreco((float) Math.round(produto.getPreco() * 100.0) / 100.0);
+        }
+                
+        request.setAttribute("listaProduto", listaProduto); 
 
         List<Funcionarios> listaFuncionarios = FuncionariosDAO.getFuncionarios();
         request.setAttribute("listaFuncionarios", listaFuncionarios);
