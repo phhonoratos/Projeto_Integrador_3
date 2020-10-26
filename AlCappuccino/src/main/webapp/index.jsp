@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,9 +15,6 @@
         <title>Menu</title>
     </head>
     <body class="container">
-
-        <h1 style="text-align: center;">Menu</h1>
-
         <div class="row">
             <div class="col-sm-4">
                 <div class="card">
@@ -88,14 +85,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Filiais</h5>
                         <p class="card-text">Adicionar</p>
-                        <a href="#" class="btn btn-primary">
+                        <a href="IncluirFiliais" class="btn btn-primary">
                             <span class="material-icons">
                                 business
                             </span>
                         </a>
                         <hr>
                         <p class="card-text">Listar</p>
-                        <a href="ListarFuncionarios" class="btn btn-primary">
+                        <a href="ListarFiliais" class="btn btn-primary">
                             <span class="material-icons">
                                 list
                             </span>
@@ -124,7 +121,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">

@@ -8,12 +8,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
 
-        <script lang="text/javascript">
+        <script>
 
             function mostrarModalExclusao(nome) {
                 $("#nomeProduto").html(nome);
@@ -56,10 +56,10 @@
                 <td>${produto.id}</td>
                 <td>${produto.tipo}</td>
                 <td>${produto.nome}</td>
-                <td>${produto.qtd_estoque}</td>
+                <td>${produto.quantidadeEstoque}</td>
                 <td>${produto.preco}</td>
                 <td>${produto.porcentagem}</td>
-                <td>${produto.valor_venda}</td>
+                <td>${produto.valorVenda}</td>
                 <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
                 <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
             </tr>

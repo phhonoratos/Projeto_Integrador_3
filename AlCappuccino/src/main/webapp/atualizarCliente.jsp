@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<%@include file="header.jsp" %>
+<%@include file="pages/header/header.jsp" %>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -165,7 +165,7 @@
 
             <div class="estado_civil">
                 <label for="">estado civil</label>
-                <input type="text" value="${atualizar.estado_civil}" name="estado_civil">
+                <input type="text" value="${atualizar.estadoCivil}" name="estado_civil">
             </div>
 
             <div class="sexo">
@@ -175,7 +175,7 @@
 
             <div class="dt_nascimento">
                 <label for="">nascimento</label>
-                <input type="text" value="${atualizar.dt_nascimento}" name="data_nascimento">
+                <input type="text" value="${atualizar.dataNascimento}" name="data_nascimento">
             </div>
 
             <div class="cep">
@@ -190,7 +190,7 @@
 
             <div class="numero">
                 <label for="">numero</label>
-                <input type="text" value="${atualizar.numero}" name="numero">
+                <input type="text" value="${atualizar.numeroEndereco}" name="numero">
             </div>
 
             <div class="complemento">
@@ -210,7 +210,7 @@
 
             <div class="uf">
                 <label for="">uf</label>
-                <input type="text" value="${atualizar.uf}" name="uf">
+                <input type="text" value="${atualizar.unidadeFederativa}" name="uf">
             </div>
             
             <button class="btn btn-success" type="submit">Alterar</button>

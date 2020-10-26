@@ -72,6 +72,22 @@
         <servlet-name>ListarVendaRelatorio</servlet-name>
         <servlet-class>ac.servlet.ListarVendaRelatorio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IncluirFiliaisServlet</servlet-name>
+        <servlet-class>ac.servlet.estabelecimento.IncluirFiliaisServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarFiliaisServlet</servlet-name>
+        <servlet-class>ac.servlet.estabelecimento.ListarFiliaisServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IncluirFiliaisServlet</servlet-name>
+        <url-pattern>/IncluirFiliais</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarFiliaisServlet</servlet-name>
+        <url-pattern>/ListarFiliais</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletFuncionarios</servlet-name>
         <url-pattern>/ServletFuncionarios</url-pattern>

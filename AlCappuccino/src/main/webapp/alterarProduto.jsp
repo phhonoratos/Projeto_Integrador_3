@@ -21,13 +21,13 @@
             <p>Nome</p>
             <input name="nome" value="${produto.nome}" ><br/>
             <p>Quantidade em Estoque</p>
-            <input name="qtd_estoque" value="${produto.qtd_estoque}"/><br/>
+            <input name="qtd_estoque" value="${produto.quantidadeEstoque}"/><br/>
             <p>Preço de Compra do Produto</p>
             <input name="preco" value="${produto.preco}"/><br/>
             <p>Procentagem de Lucro</p>
             <input name="porcentagem" value="${produto.porcentagem}"/><br/>
              <p>Valor de Venda do Produto</p>
-            <input name="valor_venda" value="${produto.valor_venda}"/><br/>
+            <input name="valor_venda" value="${produto.valorVenda}"/><br/>
                         
             <button type="submit">Enviar</button>
             

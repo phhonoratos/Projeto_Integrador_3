@@ -5,8 +5,8 @@
  */
 package ac.servlet;
 
-import ac.dao.FuncionariosDAO;
-import ac.entidade.Funcionarios;
+import ac.dao.FuncionarioDAO;
+import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -40,30 +40,29 @@ public class CadastrarFuncionarios extends HttpServlet {
         String email = request.getParameter("email");
         String cpf = request.getParameter("cpf");
         String telefone = request.getParameter("telefone");
-        String estado_civil = request.getParameter("estado_civil");
+        String estadoCivil = request.getParameter("estado_civil");
         String sexo = request.getParameter("sexo");
         String cep = request.getParameter("cep");
         String logradouro = request.getParameter("logradouro");
         String numero = request.getParameter("numero");
         String complemento = request.getParameter("complemento");
-        String uf = request.getParameter("uf");
+        String unidadeFederativa = request.getParameter("uf");
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
-        Date dt_nascimento = Date.valueOf(request.getParameter("dt_nascimento"));
-        String rg = request.getParameter("rg");
+        Date dataNascimento = Date.valueOf(request.getParameter("dt_nascimento"));
+        String numeroRg = request.getParameter("rg");
         String cargo = request.getParameter("cargo");
         String salarioStr = request.getParameter("salario");
         double salario = Double.parseDouble(salarioStr);
         String filial = request.getParameter("filial");
-        Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
-        Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
+        Date dataAdmissao = Date.valueOf(request.getParameter("dt_adm"));
+        Date dataDemissao = Date.valueOf(request.getParameter("dt_dem"));
         String observacao = request.getParameter("observacao");
         
-        Funcionarios funcionarios = new Funcionarios(rg, cargo, salario, filial, dt_adm, dt_dem, observacao, nome, email, 
-                cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, cidade, dt_nascimento);
+        Funcionario funcionario = new Funcionario(nome, numero, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
         
         try {
-            FuncionariosDAO.addFuncionario(funcionarios);
+            FuncionarioDAO.addFuncionario(funcionario);
             response.sendRedirect("sucesso.jsp");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadastrarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);

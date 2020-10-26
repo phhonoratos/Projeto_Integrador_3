@@ -63,7 +63,7 @@ public class ListarVendaRelatorio extends HttpServlet {
             request.setAttribute("vendas", vendas);
             request.setAttribute("totalVendas", total);
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +86,7 @@ public class ListarVendaRelatorio extends HttpServlet {
             request.setAttribute("vendas", vendas);
             request.setAttribute("totalVendas", total);
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,13 +97,13 @@ public class ListarVendaRelatorio extends HttpServlet {
             throws ServletException, IOException {
         String idVendaStr = request.getParameter("idVenda");
         int idVenda = Integer.parseInt(idVendaStr);
-        
+
         try {
             List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(idVenda);
 
             request.setAttribute("detalhes", detalhes);
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/relatorio/relatorio.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,7 +113,7 @@ public class ListarVendaRelatorio extends HttpServlet {
     private float totalVendas(List<Venda> vendas) {
         float total = 0;
         for (Venda venda : vendas) {
-            total += venda.getTotal();
+            total += venda.getValorTotal();
         }
 
         return total;

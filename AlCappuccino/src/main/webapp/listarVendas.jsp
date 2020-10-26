@@ -8,12 +8,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Vendas</title>
 
-        <script lang="text/javascript">
+        <script>
 
             function detalheVenda(id) {
             <c:forEach items="${detalheVendas}" var="detalhe">
@@ -41,17 +41,17 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <td>Dia: ${venda.data_venda}</td>
-                                            <td>Hora: ${venda.hora}</td>
-                                            <td>Total: R$ ${venda.total}</td>
-                                            <td>Vendedor: ${venda.cpf_funcionario}</td>
+                                            <td>Dia: ${venda.dataVenda}</td>
+                                            <td>Hora: ${venda.horarioVenda}</td>
+                                            <td>Total: R$ ${venda.valorTotal}</td>
+                                            <td>Vendedor: ${venda.cpfFuncionario}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </button>
                         </h2>
                     </div>
-                                    
+
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
                             <table class="table table-bordered">

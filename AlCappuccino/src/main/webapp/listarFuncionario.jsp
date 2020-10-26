@@ -8,13 +8,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="listagemFuncionarios.css">
+        <link rel="stylesheet" href="./resources/css/listagemFuncionarios.css">
         <title>Funcionário</title>
 
-        <script lang="text/javascript">
+        <script>
             function confirmarDelete(cpf) {
                 $('#cpfDelete').html(cpf);
                 $('#exampleModal').modal('show');
@@ -79,21 +79,21 @@
                             <div class="card-body">
                                 <label id="rg"><b>RG:</b> ${funcionario.cpf}</label>
                                 <label id="sexo"><b>Sexo:</b> ${funcionario.sexo}</label>
-                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionario.dt_nascimento}</label>
+                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionario.dataNascimento}</label>
                                 <label id="estado_civil"><b>Estado civil:</b> ${funcionario.estado_civil}</label>
                                 <br/>
                                 <label id="cep"><b>CEP:</b> ${funcionario.cep}</label>
                                 <label id="logradouro"><b>Logradouro:</b> ${funcionario.logradouro}</label>
-                                <label id="numero"><b>Número:</b> ${funcionario.numero}</label>
+                                <label id="numero"><b>Número:</b> ${funcionario.numeroEndereco}</label>
                                 <br/>
                                 <label id="complemento"><b>Complemento:</b> ${funcionario.complemento}</label>
                                 <label id="bairro"><b>Bairro:</b> ${funcionario.bairro}</label>
                                 <label id="cidade"><b>Cidade:</b> ${funcionario.cidade}</label>
-                                <label id="uf"><b>UF:</b> ${funcionario.uf}</label>
+                                <label id="uf"><b>UF:</b> ${funcionario.unidadeFederativa}</label>
                                 <br/>
                                 <label id="salario"><b>Salário:</b> R$ ${funcionario.salario}</label>
-                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionario.dt_adm}</label>
-                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionario.dt_dem}</label>
+                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionario.dataAdmissao}</label>
+                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionario.dataDemissao}</label>
                                 <br/>
                                 <label id="telefone"><b>Telefone:</b> ${funcionario.telefone}</label>
                                 <label id="email"><b>E-mail:</b> ${funcionario.email}</label>

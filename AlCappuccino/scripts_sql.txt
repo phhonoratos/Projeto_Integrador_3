@@ -1,3 +1,5 @@
+/* TEMP DB */
+
 CREATE TABLE CLIENTE(
     cpf varchar(11) not null primary key,
     nome varchar(255) not null,
@@ -71,6 +73,29 @@ insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, lo
             'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador',
              1500, 'São Paulo', '2020-01-15', '2020-10-02', 'Teste de observação2');
 
+CREATE TABLE estabelecimento (
+    id INT PRIMARY KEY NOT NULL GENERATED ALWAYS AS identity (START WITH 1, increment BY 1),
+    nome VARCHAR(150) NOT NULL,
+    cnpj VARCHAR(18) NOT NULL,
+    inscricao_estadual VARCHAR(150) NOT NULL,
+    uf VARCHAR(150) NOT NULL,
+    logradouro VARCHAR(150) NOT NULL,
+    bairro VARCHAR(150) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    telefone VARCHAR(21) NOT NULL,
+    numero_endereco VARCHAR(255) NOT NULL,
+    complemento VARCHAR(150) NOT NULL,
+    cep VARCHAR(10) NOT NULL,
+    matriz BOOLEAN
+    /*fk_GerenteRegional VARCHAR(11),
+    ##FOREIGN KEY (fk_GerenteRegional) REFERENCES funcionarios (id)
+    Need Foreign Key !
+    */
+);
+
+INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bairro, email, cidade, telefone, numero_endereco, complemento, cep, matriz) VALUES 
+('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false);
 
 create table produto (
 	id int primary key not null,

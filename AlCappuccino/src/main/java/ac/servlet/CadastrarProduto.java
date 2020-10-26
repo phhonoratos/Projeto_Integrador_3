@@ -9,7 +9,6 @@ import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
 import ac.utils.Utils;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -8,13 +8,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Vendas</title>
 
 
-        <script lang="text/javascript">
+        <script>
 
             function calcularTotal(nome, id, precoVenda) {
                 var qtd = $("#" + nome + id).val()
@@ -56,11 +56,11 @@
             <form method="POST" action="CadastrarVenda">
                 <div>
                     <span>Vendedor: </span>
-                    <input type="text" name="vendedor" value="${listaClientes[0].cpf}"></input>
+                    <input type="text" name="vendedor" value="${listaClientes[0].cpf}"/>
                 </div>
                 <div>
                     <span>Cliente: </span>
-                    <input type="text" name="cliente" value="${listaClientes[0].cpf}"></input>
+                    <input type="text" name="cliente" value="${listaClientes[0].cpf}"/>
                 </div>
                 <table class="table" id="produtos">
                     <thead>
@@ -76,24 +76,24 @@
                     <tbody>
                         <c:forEach var="produto" items="${listaProduto}">
                             <tr>
-                                <td><input name="id" value="${produto.id}"></input></td>
-                                <td><input name="produto" value="${produto.nome}"></input></td>
-                                <td><input name="categoria" value="${produto.tipo}"></input></td>
-                                <td><input name="estoque" value="${produto.qtd_estoque}"></input></td>
-                                <td><input name="valor_venda" value="${produto.valor_venda}"></input></td>
+                                <td><input name="id" value="${produto.id}"/></td>
+                                <td><input name="produto" value="${produto.nome}"/></td>
+                                <td><input name="categoria" value="${produto.tipo}"/></td>
+                                <td><input name="estoque" value="${produto.quantidadeEstoque}"/></td>
+                                <td><input name="valor_venda" value="${produto.valorVenda}"/></td>
 
-                                <td><input type="number" id="${produto.nome}${produto.id}" name="quantidade" min="0" max="${produto.qtd_estoque}" onchange="calcularTotal('${produto.nome}', '${produto.id}', ${produto.valor_venda})"></td>
-                                <td><input type="number" step="0.01" id="${produto.nome}${produto.id}${produto.id}" name="valorTotal"></input></td>
+                                <td><input type="number" id="${produto.nome}${produto.id}" name="quantidade" min="0" max="${produto.quantidadeEstoque}" onchange="calcularTotal('${produto.nome}', '${produto.id}', ${produto.valorVenda})"></td>
+                                <td><input type="number" step="0.01" id="${produto.nome}${produto.id}${produto.id}" name="valorTotal"/></td>
                             </tr>
                         </c:forEach>
 
                     </tbody>
                     <tfoot>
-                        
+
                     </tfoot>
                 </table>
                 <c:forEach var="produto" items="${listaProduto}">
-                    <input name="porcentagem" value="${produto.porcentagem}" hidden="true"></input>
+                    <input name="porcentagem" value="${produto.porcentagem}" hidden="true"/>
                 </c:forEach>
                 <button type="submit" class="btn btn-success">Vender</button>
             </form>
@@ -111,10 +111,10 @@
                             <h5 class="card-title" id="${produto.nome}${produto.id}">${produto.nome}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">${produto.tipo}</h6>
                             <hr>
-                            <p class="card-subtitle mb-2 text-muted">Disponível: ${produto.qtd_estoque}</p>
-                            <p class="card-subtitle mb-2 text-muted" id="${produto.nome}${produto.id}${produto.id}">${produto.valor_venda}</p>
+                            <p class="card-subtitle mb-2 text-muted">Disponível: ${produto.quantidadeEstoque}</p>
+                            <p class="card-subtitle mb-2 text-muted" id="${produto.nome}${produto.id}${produto.id}">${produto.valorVenda}</p>
 
-                            <input style="position: absolute;right: 80px; bottom: 15px" type="number" id="${produto.nome}${produto.tipo}${produto.id}" name="quantity" min="0" max="${produto.qtd_estoque}">
+                            <input style="position: absolute;right: 80px; bottom: 15px" type="number" id="${produto.nome}${produto.tipo}${produto.id}" name="quantity" min="0" max="${produto.quantidadeEstoque}">
                             <button style="position: absolute;right: 10px; bottom: 15px" onclick="adicionarCarrinho('${produto.nome}','${produto.tipo}','${produto.id}')">
                                 Inserir
                             </button>

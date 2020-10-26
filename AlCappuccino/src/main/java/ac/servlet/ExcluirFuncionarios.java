@@ -5,7 +5,7 @@
  */
 package ac.servlet;
 
-import ac.dao.FuncionariosDAO;
+import ac.dao.FuncionarioDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -26,7 +26,7 @@ public class ExcluirFuncionarios extends HttpServlet {
             throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
         try {
-            FuncionariosDAO.deleteFuncionario(cpf);
+            FuncionarioDAO.deleteFuncionario(cpf);
             response.getWriter().print("ok");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ExcluirFuncionarios.class.getName()).log(Level.SEVERE, null, ex);

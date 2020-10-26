@@ -26,10 +26,10 @@ public class DetalheVendaDAO {
         Connection con = ConexaoDB.getConexao();
         String query = "insert into detalhevenda(id_produto,qtd_produto,valor,id_venda) values (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, detalheVenda.getIdProduto());
+        ps.setInt(1, detalheVenda.getId());
         ps.setInt(2, detalheVenda.getQuantidade());
         ps.setFloat(3, detalheVenda.getValorTotal());
-        ps.setInt(4, detalheVenda.getIdVenda());
+        ps.setInt(4, detalheVenda.getId());
       
         int retorno = ps.executeUpdate();
         return retorno;
@@ -52,10 +52,7 @@ public class DetalheVendaDAO {
                 
                 listaDetalheVenda.add(new DetalheVenda(id, id_produto, qtd_produto, id_venda, valor));
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ServletBD.class.getName()).
-                    log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
@@ -80,10 +77,7 @@ public class DetalheVendaDAO {
                 
                 listaDetalheVenda.add(new DetalheVenda(id, id_produto, qtd_produto, id_venda, valor));
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ServletBD.class.getName()).
-                    log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
         }

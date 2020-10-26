@@ -7,12 +7,12 @@ package ac.servlet;
 
 import ac.dao.ClienteDAO;
 import ac.dao.DetalheVendaDAO;
-import ac.dao.FuncionariosDAO;
+import ac.dao.FuncionarioDAO;
 import ac.dao.ProdutoDAO;
 import ac.dao.VendaDAO;
 import ac.entidade.Cliente;
 import ac.entidade.DetalheVenda;
-import ac.entidade.Funcionarios;
+import ac.entidade.Funcionario;
 import ac.entidade.Produto;
 import ac.entidade.Venda;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class CadastrarVenda extends HttpServlet {
                 
         request.setAttribute("listaProduto", listaProduto); 
 
-        List<Funcionarios> listaFuncionarios = FuncionariosDAO.getFuncionarios();
+        List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios();
         request.setAttribute("listaFuncionarios", listaFuncionarios);
 
         List<Cliente> listaClientes = ClienteDAO.getClientes();
@@ -89,11 +89,11 @@ public class CadastrarVenda extends HttpServlet {
 
         //Persistindo para Venda
         Venda venda = new Venda();
-        venda.setCpf_cliente(cliente);
-        venda.setCpf_funcionario(vendedor);
-        venda.setData_venda(date);
-        venda.setHora(hora);
-        venda.setTotal(soma);
+        venda.setCpfCliente(cliente);
+        venda.setCpfFuncionario(vendedor);
+        venda.setDataVenda(date);
+        venda.setHorarioVenda(hora);
+        venda.setValorTotal(soma);
 
         boolean retornoVenda = false;
         try {

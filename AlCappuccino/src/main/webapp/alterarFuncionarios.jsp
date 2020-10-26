@@ -7,17 +7,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="cadastrarFuncionarios.css">
+        <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
         <title>Atualização de Funcionário</title>
     </head>
     <body class="container">
         <h1>Atualização. Funcionário: ${funcionarios.nome}</h1>
         <br/>
-        <table class="table">
-            <form method="POST" action="AlterarFuncionarios">
+        <form method="POST" action="AlterarFuncionarios">
+            <table class="table">
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
@@ -34,8 +34,8 @@
                             <option value="feminino">Feminino</option>
                             <option value="lgbt">LGBTQI+</option>
                         </select>
-                        <input type="date" name="dt_nascimento" value="${funcionarios.dt_nascimento}"></input>
-                        <select name="estado_civil" value="${funcionarios.estado_civil}">
+                        <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}"></input>
+                        <select name="estado_civil" value="${funcionarios.estadoCivil}">
                             <option value="Solteiro(a)">Solteiro(a)</option>
                             <option value="Casado(a)">Casado(a)</option>
                             <option value="Divorciado(a)">Divorciado(a)</option>
@@ -55,7 +55,7 @@
                     <div class="col-8">
                         <p><b>Endereço</b></p>
                         <input name="logradouro" value="${funcionarios.logradouro}"></input>
-                        <input name="numero" value="${funcionarios.numero}"></input>
+                        <input name="numero" value="${funcionarios.numeroEndereco}"></input>
                         <br/>
                         <br/>
                         <input name="complemento" value="${funcionarios.complemento}"></input>
@@ -64,7 +64,7 @@
                         <br/>
                         <input name="bairro" value="${funcionarios.bairro}"></input>
                         <input name="cidade" value="${funcionarios.cidade}"></input>
-                        <select name="uf" value="${funcionarios.uf}">
+                        <select name="uf" value="${funcionarios.unidadeFederativa}">
                             <option value="UF">UF</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
@@ -109,10 +109,10 @@
                         <p><b>Admissão / Demissão / Observações</b></p>
                         <br/>
                         <label>Data Admissão: </label>
-                        <input type="date" name="dt_adm" value="${funcionarios.dt_adm}"></input>
+                        <input type="date" name="dt_adm" value="${funcionarios.dataAdmissao}"></input>
                         <br/>
                         <label>Data Demissão: </label>
-                        <input type="date" name="dt_dem" value="${funcionarios.dt_dem}"></input>
+                        <input type="date" name="dt_dem" value="${funcionarios.dataDemissao}"></input>
                     </div>
                     <div class="col-1">
                     </div>
@@ -122,11 +122,11 @@
                         <textarea name="observacao" class="form-control" value="${funcionarios.observacao}"></textarea>
                     </div>
                 </div>
-            <button><a href="index.jsp">Cancelar</a></button>
-            <button type="submit">Atualizar</button>
-            </form>
-        </table>
-            
+                <button><a href="index.jsp">Cancelar</a></button>
+                <button type="submit">Atualizar</button>
+            </table>
         </form>
-    </body>
+
+    </form>
+</body>
 </html>

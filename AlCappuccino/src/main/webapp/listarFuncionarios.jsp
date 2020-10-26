@@ -8,13 +8,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="listagemFuncionarios.css">
+        <link rel="stylesheet" href="./resources/css/listagemFuncionarios.css">
         <title>Lista de Funcionários</title>
 
-        <script lang="text/javascript">
+        <script>
             function confirmarDelete(cpf) {
                 $('#cpfDelete').html(cpf);
                 $('#exampleModal').modal('show');
@@ -79,21 +79,21 @@
                             <div class="card-body">
                                 <label id="rg"><b>RG:</b> ${funcionarios.cpf}</label>
                                 <label id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
-                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dt_nascimento}</label>
-                                <label id="estado_civil"><b>Estado civil:</b> ${funcionarios.estado_civil}</label>
+                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
+                                <label id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
                                 <br/>
                                 <label id="cep"><b>CEP:</b> ${funcionarios.cep}</label>
                                 <label id="logradouro"><b>Logradouro:</b> ${funcionarios.logradouro}</label>
-                                <label id="numero"><b>Número:</b> ${funcionarios.numero}</label>
+                                <label id="numero"><b>Número:</b> ${funcionarios.numeroEndereco}</label>
                                 <br/>
                                 <label id="complemento"><b>Complemento:</b> ${funcionarios.complemento}</label>
                                 <label id="bairro"><b>Bairro:</b> ${funcionarios.bairro}</label>
                                 <label id="cidade"><b>Cidade:</b> ${funcionarios.cidade}</label>
-                                <label id="uf"><b>UF:</b> ${funcionarios.uf}</label>
+                                <label id="uf"><b>UF:</b> ${funcionarios.unidadeFederativa}</label>
                                 <br/>
                                 <label id="salario"><b>Salário:</b> R$ ${funcionarios.salario}</label>
-                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dt_adm}</label>
-                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dt_dem}</label>
+                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dataAdmissao}</label>
+                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dataDemissao}</label>
                                 <br/>
                                 <label id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
                                 <label id="email"><b>E-mail:</b> ${funcionarios.email}</label>

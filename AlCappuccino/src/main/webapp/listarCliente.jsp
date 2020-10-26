@@ -8,22 +8,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clientes</title>
-        
-         <script lang="text/javascript">
-            
-            function mostrarModalExclusao(cpf, nome){
+
+        <script>
+
+            function mostrarModalExclusao(cpf, nome) {
                 $("#nomeCliente").html(nome);
                 $("#cpfCliente").val(cpf);
                 $('#modalExclusao').modal('show');
             }
-            
+
             function excluirCliente() {
                 var cpf = $("#cpfCliente").val();
-                $.get( "ExcluirCliente?cpf="+cpf, function( resposta ) {
+                $.get("ExcluirCliente?cpf=" + cpf, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -62,16 +62,16 @@
                             <td>${cliente.email}</td>
                             <td>${cliente.cpf}</td>
                             <td>${cliente.telefone}</td>
-                            <td>${cliente.estado_civil}</td>
+                            <td>${cliente.estadoCivil}</td>
                             <td>${cliente.sexo}</td>
                             <td>${cliente.logradouro}</td>
-                            <td>${cliente.numero}</td>
+                            <td>${cliente.numeroEndereco}</td>
                             <td>${cliente.complemento}</td>
                             <td>${cliente.bairro}</td>
                             <td>${cliente.cidade}</td>
-                            <td>${cliente.uf}</td>
+                            <td>${cliente.unidadeFederativa}</td>
                             <td>${cliente.cep}</td>
-                            <td>${cliente.dt_nascimento}</td>
+                            <td>${cliente.dataNascimento}</td>
                             <td><a class="btn btn-warning" href="AtualizarCliente?cpf=${cliente.cpf}" role="button">Alterar</a></td>
                             <td><a class="btn btn-danger" onclick="mostrarModalExclusao(${cliente.cpf}, '${cliente.nome}')" role="button">Excluir</a></td>
                         </tr>
@@ -80,29 +80,29 @@
                 </tbody>
 
             </table>
-            
-            
+
+
             <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Confirmar exclusão do cliente  <label id="nomeCliente"></label> ?
+                            <span id="cpfCliente"></span> <!-- use display: none ou jquery -->
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Confirmar exclusão do cliente  <label id="nomeCliente"></label> ?
-                    <input id="cpfCliente" hidden="true" />
-                 
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
-                </div>
-              </div>
             </div>
-          </div>
 
             <a class="btn btn-primary" href="index.jsp" role="button">Voltar</a>
         </div>

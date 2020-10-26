@@ -9,8 +9,6 @@ import ac.dao.ClienteDAO;
 import ac.entidade.Cliente;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,25 +27,22 @@ public class CadastrarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");
-        String estado_civil = request.getParameter("estado_civil");
+        String estadoCivil = request.getParameter("estado_civil");
         String sexo = request.getParameter("sexo");
         String cep = request.getParameter("cep");
         String logradouro = request.getParameter("logradouro");
         String numero = request.getParameter("numero");
         String complemento = request.getParameter("complemento");
         String bairro = request.getParameter("bairro");
-        String uf = request.getParameter("uf");
+        String unidadeFederativa = request.getParameter("uf");
         String cidade = request.getParameter("cidade");
-        Date data_nascimento = Date.valueOf(request.getParameter("data_nascimento"));
-        
-        
-        
-        
+        Date dataNascimento = Date.valueOf(request.getParameter("data_nascimento"));
+
 //        SimpleDateFormat formatter1=new SimpleDateFormat("yyyy/MM/dd");
 //        Date data_nascimento=null;  
 //        try {
@@ -55,12 +50,9 @@ public class CadastrarCliente extends HttpServlet {
 //        } catch (ParseException ex) {
 //            Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        
-        
-        
-        
-        Cliente cliente = new Cliente(nome, email, cpf,telefone,estado_civil,sexo,cep,logradouro,numero,complemento,uf,bairro,cidade,data_nascimento);
-        
+
+        Cliente cliente = new Cliente(nome, cpf, estadoCivil, dataNascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
+
         try {
             ClienteDAO.addCliente(cliente);
             response.sendRedirect("sucesso.jsp");

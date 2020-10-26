@@ -5,8 +5,8 @@
  */
 package ac.servlet;
 
-import ac.dao.FuncionariosDAO;
-import ac.entidade.Funcionarios;
+import ac.dao.FuncionarioDAO;
+import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -28,7 +28,7 @@ public class AlterarFuncionarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
-        Funcionarios funcionario = FuncionariosDAO.getFuncionario(cpf);
+        Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
         request.setAttribute("funcionarios", funcionario);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/alterarFuncionarios.jsp");
         rd.forward(request, response);
@@ -60,32 +60,32 @@ public class AlterarFuncionarios extends HttpServlet {
         Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
         String observacao = request.getParameter("observacao");
         
-        Funcionarios funcionario = FuncionariosDAO.getFuncionario(cpf);
+        Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
         
         funcionario.setNome(nome);
         funcionario.setEmail(email);
         funcionario.setCpf(cpf);
         funcionario.setTelefone(telefone);
-        funcionario.setEstado_civil(estado_civil);
+        funcionario.setEstadoCivil(estado_civil);
         funcionario.setSexo(sexo);
         funcionario.setCep(cep);
         funcionario.setLogradouro(logradouro);
-        funcionario.setNumero(numero);
+        funcionario.setNumeroEndereco(numero);
         funcionario.setComplemento(complemento);
-        funcionario.setUf(uf);
+        funcionario.setUnidadeFederativa(uf);
         funcionario.setBairro(bairro);
         funcionario.setCidade(cidade);
-        funcionario.setDt_nascimento(dt_nascimento);
-        funcionario.setRg(rg);
+        funcionario.setDataNascimento(dt_nascimento);
+        funcionario.setNumeroRg(rg);
         funcionario.setCargo(cargo);
         funcionario.setSalario(salario);
         funcionario.setFilial(filial);
-        funcionario.setDt_adm(dt_adm);
-        funcionario.setDt_dem(dt_dem);
+        funcionario.setDataAdmissao(dt_adm);
+        funcionario.setDataDemissao(dt_dem);
         funcionario.setObservacao(observacao);
         
         try {
-            FuncionariosDAO.updateFuncionario(funcionario);
+            FuncionarioDAO.updateFuncionario(funcionario);
             response.sendRedirect("sucesso.jsp");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AlterarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);

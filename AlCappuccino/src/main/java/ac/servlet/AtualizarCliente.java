@@ -48,7 +48,7 @@ public class AtualizarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
@@ -63,20 +63,21 @@ public class AtualizarCliente extends HttpServlet {
         String uf = request.getParameter("uf");
         String cidade = request.getParameter("cidade");
         Date data_nascimento = Date.valueOf(request.getParameter("data_nascimento"));
-        
+
         Cliente cliente = ClienteDAO.getCliente(cpf);
+
         cliente.setNome(nome);
         cliente.setEmail(email);
         cliente.setBairro(bairro);
         cliente.setCep(cep);
         cliente.setCidade(cidade);
         cliente.setComplemento(complemento);
-        cliente.setDt_nascimento(data_nascimento);
-        cliente.setEstado_civil(estado_civil);
+        cliente.setDataNascimento(data_nascimento);
+        cliente.setEstadoCivil(estado_civil);
         cliente.setLogradouro(logradouro);
-        cliente.setNumero(numero);
+        cliente.setNumeroEndereco(numero);
         cliente.setSexo(sexo);
-        cliente.setUf(uf);
+        cliente.setUnidadeFederativa(uf);
         cliente.setTelefone(telefone);
 
         try {

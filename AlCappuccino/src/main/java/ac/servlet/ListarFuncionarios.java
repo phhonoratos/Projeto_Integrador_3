@@ -5,8 +5,8 @@
  */
 package ac.servlet;
 
-import ac.dao.FuncionariosDAO;
-import ac.entidade.Funcionarios;
+import ac.dao.FuncionarioDAO;
+import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -24,7 +24,7 @@ public class ListarFuncionarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Funcionarios> funcionarios = FuncionariosDAO.getFuncionarios();
+        List<Funcionario> funcionarios = FuncionarioDAO.getFuncionarios();
         
         request.setAttribute("listaFuncionarios", funcionarios);
         

@@ -7,10 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="pages/header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="cadastrarFuncionarios.css">
+        <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
         <title>Cadastro de Funcionários</title>
     </head>
     <body class="container">
