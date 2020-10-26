@@ -15,7 +15,7 @@
         <script src="./relatorio.js"></script>
     </head>
     <body class="container">
-        <%@include file="../header.jsp" %>
+        <%@include file="../pages/header/header.jsp" %>
 
         <h1>Relatório</h1>
         
