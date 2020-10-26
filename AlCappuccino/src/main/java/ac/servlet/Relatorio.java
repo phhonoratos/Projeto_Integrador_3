@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author sillas.clpinto
  */
-public class ListarVendaRelatorio extends HttpServlet {
+public class Relatorio extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,15 +58,17 @@ public class ListarVendaRelatorio extends HttpServlet {
             throws ServletException, IOException {
         try {
             List<Venda> vendas = VendaDAO.select();
+            List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda();
             float total = totalVendas(vendas);
 
             request.setAttribute("vendas", vendas);
+            request.setAttribute("detalhes", detalhes);
             request.setAttribute("totalVendas", total);
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,7 +91,7 @@ public class ListarVendaRelatorio extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -97,16 +99,16 @@ public class ListarVendaRelatorio extends HttpServlet {
             throws ServletException, IOException {
         String idVendaStr = request.getParameter("idVenda");
         int idVenda = Integer.parseInt(idVendaStr);
-
+        
         try {
             List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(idVenda);
-
+            
             request.setAttribute("detalhes", detalhes);
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ListarVendaRelatorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
