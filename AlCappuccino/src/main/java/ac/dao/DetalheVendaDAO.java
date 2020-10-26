@@ -61,4 +61,32 @@ public class DetalheVendaDAO {
         }
         return listaDetalheVenda;
     }
+    
+    public static List<DetalheVenda> listaDetalheVenda(int idVenda) throws SQLException, ClassNotFoundException {
+        List<DetalheVenda> listaDetalheVenda = new ArrayList();
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String query = "select * from detalhevenda where id_venda = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, idVenda);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                               
+                int id = Integer.parseInt(rs.getString("id"));
+                int id_produto = Integer.parseInt(rs.getString("id_produto"));
+                int qtd_produto = Integer.parseInt(rs.getString("qtd_produto"));
+                int id_venda = Integer.parseInt(rs.getString("id_venda"));
+                float valor = Float.parseFloat(rs.getString("valor"));
+                
+                listaDetalheVenda.add(new DetalheVenda(id, id_produto, qtd_produto, id_venda, valor));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listaDetalheVenda;
+    }
 }

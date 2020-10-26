@@ -1,3 +1,37 @@
+<<<<<<< HEAD
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\ClienteDAO.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarProduto.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Funcionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\AlterarFuncionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarProdutosPesquisa.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\AtualizarCliente.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarCliente.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Cliente.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirFuncionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Filiais.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\VendaDAO.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarFuncionario.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ServletBD.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\bd\ConexaoDB.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarFuncionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Produto.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\FuncionariosDAO.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarVendaRelatorio.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Venda.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirProduto.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\ProdutoDAO.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\Pessoa.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\AlterarProduto.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\entidade\DetalheVenda.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarCliente.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ExcluirCliente.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\dao\DetalheVendaDAO.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarVenda.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarFuncionarios.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\ListarVenda.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\servlet\CadastrarProduto.java
+C:\Users\sillas.clpinto\Documents\NetBeansProjects\Projeto_Integrador_3\AlCappuccino\src\main\java\ac\utils\Utils.java
+=======
 /home/joao/NetBeansProjects/Projeto_Integrador_3/AlCappuccino/src/main/java/ac/dao/ProdutoDAO.java
 /home/joao/NetBeansProjects/Projeto_Integrador_3/AlCappuccino/src/main/java/ac/servlet/ExcluirFuncionarios.java
 /home/joao/NetBeansProjects/Projeto_Integrador_3/AlCappuccino/src/main/java/ac/servlet/AlterarFuncionarios.java
@@ -30,3 +64,4 @@
 /home/joao/NetBeansProjects/Projeto_Integrador_3/AlCappuccino/src/main/java/ac/servlet/CadastrarFuncionarios.java
 /home/joao/NetBeansProjects/Projeto_Integrador_3/AlCappuccino/src/main/java/ac/servlet/AlterarProduto.java
 /home/joao/NetBeansProjects/Projeto_Integrador_3/AlCappuccino/src/main/java/ac/servlet/AtualizarCliente.java
+>>>>>>> 45847ec587e95ac78ca64ba906998899dc104291
