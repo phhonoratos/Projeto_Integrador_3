@@ -1,0 +1,99 @@
+label[id="cpf1"] {
+    margin-left: 70px;
+}
+
+label[id="nome1"] {
+    margin-left: 230px;
+}
+
+label[id="cargo1"] {
+    margin-left: 220px;
+}
+
+label[id="filial1"] {
+    margin-left: 250px;
+}
+
+label[id="cpf"] {
+    margin-left: 35px;
+}
+
+label[id="nome"] {
+    margin-left: 110px;
+}
+
+label[id="cargo"] {
+    margin-left: 200px;
+}
+
+label[id="filial"] {
+    margin-left: 230px;
+}
+
+label[id="rg"] {
+    margin-left: 70px;
+}
+
+label[id="sexo"] {
+    margin-left: 100px;
+}
+
+label[id="dt_nasc"] {
+    margin-left: 140px;
+}
+
+label[id="estado_civil"] {
+    margin-left: 70px;
+}
+
+label[id="telefone"] {
+    margin-left: 70px;
+}
+
+label[id="email"] {
+    margin-left: 67px;
+}
+
+label[id="cep"] {
+    margin-left: 70px;
+}
+
+label[id="logradouro"] {
+    margin-left: 120px;
+}
+
+label[id="numero"] {
+    margin-left: 70px;
+}
+
+label[id="complemento"] {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+label[id="bairro"] {
+}
+
+label[id="cidade"] {
+    margin-left: 115px;
+}
+
+label[id="uf"] {
+    margin-left: 70px;
+}
+
+label[id="salario"] {
+    margin-left: 70px;
+}
+
+label[id="dt_adm"] {
+    margin-left: 97px;
+}
+
+label[id="dt_dem"] {
+    margin-left: 87px;
+}
+
+label[id="obs"] {
+    margin-left: 70px;
+}
