@@ -1,20 +1,19 @@
 <%-- 
-    Document   : listarFuncionario
-    Created on : 21/10/2020, 21:35:15
+    Document   : listarFuncionarios
+    Created on : 18/10/2020, 16:14:37
     Author     : paulo
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Funcionário</title>
-    </head>
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="listagemFuncionarios.css">
         <title>Funcionário</title>
+
         <script lang="text/javascript">
             function confirmarDelete(cpf) {
                 $('#cpfDelete').html(cpf);
@@ -35,6 +34,7 @@
             }
         </script>
     </head>
+
     <body class="container">
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500">
             <div class="toast-header">
@@ -44,65 +44,75 @@
                 Funcionário excluído com sucesso!
             </div>
         </div>
-        <h1>Funcionário: ${funcionario.nome}</h1>
+
+        <h1>Funcionário ${funcionario.nome}</h1>
         <br/>
-        <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
-        <table class="table">
-            <thead>
-            <th>CPF</th>
-            <th>Nome</th>
-            <th>RG</th>
-            <th>Data Nasc.</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            <th>Estado civil</th>
-            <th>Sexo</th>
-            <th>CEP</th>
-            <th>Logradouro</th>
-            <th>Numero</th>
-            <th>Complemento</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>UF</th>
-            <th>Cargo</th>
-            <th>Salário</th>
-            <th>Filial</th>
-            <th>Data Adm</th>
-            <th>Data Dem</th>
-            <th>Observações</th>
-        </thead>
-        <tbody>
-            <div>
-                <tr>
-                    <td>${funcionario.cpf}</td>
-                    <td>${funcionario.nome}</td>
-                    <td>${funcionario.rg}</td>
-                    <td>${funcionario.dt_nascimento}</td>
-                    <td>${funcionario.email}</td>
-                    <td>${funcionario.telefone}</td>
-                    <td>${funcionario.estado_civil}</td>
-                    <td>${funcionario.sexo}</td>
-                    <td>${funcionario.cep}</td>
-                    <td>${funcionario.logradouro}</td>
-                    <td>${funcionario.numero}</td>
-                    <td>${funcionario.complemento}</td>
-                    <td>${funcionario.bairro}</td>
-                    <td>${funcionario.cidade}</td>
-                    <td>${funcionario.uf}</td>
-                    <td>${funcionario.cargo}</td>
-                    <td>${funcionario.salario}</td>
-                    <td>${funcionario.filial}</td>
-                    <td>${funcionario.dt_adm}</td>
-                    <td>${funcionario.dt_dem}</td>
-                    <td>${funcionario.observacao}</td>
-                    <td><button><a href="AlterarFuncionarios?cpf=${funcionario.cpf}">Alterar</a></button></td>
-                    <td><button type="button" class="btn btn-primary" 
-                                onclick="confirmarDelete(${funcionario.cpf})">Excluir</button></td>
-            <br/>
-        </tr>
-    </tbody>
-</table>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
+            <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
+            <button type="submit" id="pesq">Pesquisar</button>
+            <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
+        </form>
+        <br/>
+
+        <table class="table" id="tabelaFuncionarios">
+            <tbody>
+                <div>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <label id="cpf1"><b>CPF</b></label>
+                                    <label id="nome1"><b>Nome</b></label>
+                                    <label id="cargo1"><b>Cargo</b></label>
+                                    <label id="filial1"><b>Filial</b></label>
+                                    <br/>
+                                    <label id="cpf">${funcionario.cpf}</label> 
+                                    <label id="nome">${funcionario.nome}</label>
+                                    <label id="cargo">${funcionario.cargo}</label>
+                                    <label id="filial">${funcionario.filial}</label>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <label id="rg"><b>RG:</b> ${funcionario.cpf}</label>
+                                <label id="sexo"><b>Sexo:</b> ${funcionario.sexo}</label>
+                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionario.dt_nascimento}</label>
+                                <label id="estado_civil"><b>Estado civil:</b> ${funcionario.estado_civil}</label>
+                                <br/>
+                                <label id="cep"><b>CEP:</b> ${funcionario.cep}</label>
+                                <label id="logradouro"><b>Logradouro:</b> ${funcionario.logradouro}</label>
+                                <label id="numero"><b>Número:</b> ${funcionario.numero}</label>
+                                <br/>
+                                <label id="complemento"><b>Complemento:</b> ${funcionario.complemento}</label>
+                                <label id="bairro"><b>Bairro:</b> ${funcionario.bairro}</label>
+                                <label id="cidade"><b>Cidade:</b> ${funcionario.cidade}</label>
+                                <label id="uf"><b>UF:</b> ${funcionario.uf}</label>
+                                <br/>
+                                <label id="salario"><b>Salário:</b> R$ ${funcionario.salario}</label>
+                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionario.dt_adm}</label>
+                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionario.dt_dem}</label>
+                                <br/>
+                                <label id="telefone"><b>Telefone:</b> ${funcionario.telefone}</label>
+                                <label id="email"><b>E-mail:</b> ${funcionario.email}</label>
+                                <br/>
+                                <label id="obs"><b>Observações:</b> ${funcionario.observacao}</label>
+                                <br/>
+                                <br/>
+                                <button><a href="AlterarFuncionarios?cpf=${funcionario.cpf}">Alterar</a></button>
+                                <button type="button" class="btn btn-primary" 
+                                        onclick="confirmarDelete(${funcionario.cpf})">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -122,7 +132,8 @@
             </div>
         </div>
     </div>
-        <br/>
-        <button><a href="index.jsp">Voltar</a></button>
+    <br/>
+
+    <button><a href="index.jsp">Voltar</a></button>
 </body>
 </html>

@@ -11,9 +11,9 @@
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="cadastrarFuncionarios.css">
+        <link rel="stylesheet" href="listagemFuncionarios.css">
         <title>Lista de Funcionários</title>
-        
+
         <script lang="text/javascript">
             function confirmarDelete(cpf) {
                 $('#cpfDelete').html(cpf);
@@ -32,22 +32,10 @@
                     }
                 });
             }
-            
-            //Manipulando as colunas
-            function ocultaColumn(colIndex) {
-                var table = document.getElementById('tabelaFuncionarios');
-                for (var r = 0; r < table.rows.length; r++)
-                    table.rows[r].cells[colIndex].style.display = 'none';
-            }
-            function mostraColumn(colIndex) {
-                var table = document.getElementById('tabelaFuncionarios');
-                for (var r = 0; r < table.rows.length; r++)
-                    table.rows[r].cells[colIndex].style.display = '';
-            }
         </script>
     </head>
-    
-    <body class="container-fluid">
+
+    <body class="container">
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500">
             <div class="toast-header">
                 <strong class="mr-auto">Sucesso</strong>
@@ -56,89 +44,74 @@
                 Funcionário excluído com sucesso!
             </div>
         </div>
-        
+
         <h1>Lista de Funcionários</h1>
         <br/>
-        
+
         <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
             <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
             <button type="submit" id="pesq">Pesquisar</button>
             <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
         </form>
-            <br/>
-            
-        <form>
-            Seleção de colunas:  
-            <select name="colIdx">
-                <script>
-                    var valores = ["CPF", "Nome", "RG", "Data Nasc.", "E-mail", "Telefone", "Estado civil", "Sexo", "CEP", "Logradouro",
-                        "Numero", "Complemento", "Bairro", "Cidade", "UF", "Cargo", "Salário", "Filial", "Data Adm.", "Data Dem.", "Observacao"];
-                    for (var i = 0; i <= valores.length; i++)
-                        document.write('<option value="' + valores[i] + '">' + valores[i]);
-                </script>
-            </select>
-            <input type="button" id="esconder" value="ESCONDER" onclick="ocultaColumn(this.form.colIdx.selectedIndex);">
-            <input type="button" id="mostrar" value="MOSTRAR" onclick="mostraColumn(this.form.colIdx.selectedIndex);">
-        </form>
         <br/>
-            
+
         <table class="table" id="tabelaFuncionarios">
-            <thead>
-            <th>CPF</th>
-            <th>Nome</th>
-            <th>RG</th>
-            <th>Data Nasc.</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            <th>Estado civil</th>
-            <th>Sexo</th>
-            <th>CEP</th>
-            <th>Logradouro</th>
-            <th>Numero</th>
-            <th>Complemento</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>UF</th>
-            <th>Cargo</th>
-            <th>Salário</th>
-            <th>Filial</th>
-            <th>Data Adm</th>
-            <th>Data Dem</th>
-            <th>Observações</th>
-        </thead>
-        
-        <tbody>
-            <c:forEach items="${listaFuncionarios}" var="funcionarios">
-                <tr>
-                    <td>${funcionarios.cpf}</td>
-                    <td>${funcionarios.nome}</td>
-                    <td>${funcionarios.rg}</td>
-                    <td>${funcionarios.dt_nascimento}</td>
-                    <td>${funcionarios.email}</td>
-                    <td>${funcionarios.telefone}</td>
-                    <td>${funcionarios.estado_civil}</td>
-                    <td>${funcionarios.sexo}</td>
-                    <td>${funcionarios.cep}</td>
-                    <td>${funcionarios.logradouro}</td>
-                    <td>${funcionarios.numero}</td>
-                    <td>${funcionarios.complemento}</td>
-                    <td>${funcionarios.bairro}</td>
-                    <td>${funcionarios.cidade}</td>
-                    <td>${funcionarios.uf}</td>
-                    <td>${funcionarios.cargo}</td>
-                    <td>${funcionarios.salario}</td>
-                    <td>${funcionarios.filial}</td>
-                    <td>${funcionarios.dt_adm}</td>
-                    <td>${funcionarios.dt_dem}</td>
-                    <td>${funcionarios.observacao}</td>
-                    <td><button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button></td>
-                    <td><button type="button" class="btn btn-primary" 
-                                onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button></td>
-                </tr>
+            <tbody>
+                <c:forEach items="${listaFuncionarios}" var="funcionarios">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <label id="cpf1"><b>CPF</b></label>
+                                    <label id="nome1"><b>Nome</b></label>
+                                    <label id="cargo1"><b>Cargo</b></label>
+                                    <label id="filial1"><b>Filial</b></label>
+                                    <br/>
+                                    <label id="cpf">${funcionarios.cpf}</label> 
+                                    <label id="nome">${funcionarios.nome}</label>
+                                    <label id="cargo">${funcionarios.cargo}</label>
+                                    <label id="filial">${funcionarios.filial}</label>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <label id="rg"><b>RG:</b> ${funcionarios.cpf}</label>
+                                <label id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
+                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dt_nascimento}</label>
+                                <label id="estado_civil"><b>Estado civil:</b> ${funcionarios.estado_civil}</label>
+                                <br/>
+                                <label id="cep"><b>CEP:</b> ${funcionarios.cep}</label>
+                                <label id="logradouro"><b>Logradouro:</b> ${funcionarios.logradouro}</label>
+                                <label id="numero"><b>Número:</b> ${funcionarios.numero}</label>
+                                <br/>
+                                <label id="complemento"><b>Complemento:</b> ${funcionarios.complemento}</label>
+                                <label id="bairro"><b>Bairro:</b> ${funcionarios.bairro}</label>
+                                <label id="cidade"><b>Cidade:</b> ${funcionarios.cidade}</label>
+                                <label id="uf"><b>UF:</b> ${funcionarios.uf}</label>
+                                <br/>
+                                <label id="salario"><b>Salário:</b> R$ ${funcionarios.salario}</label>
+                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dt_adm}</label>
+                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dt_dem}</label>
+                                <br/>
+                                <label id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
+                                <label id="email"><b>E-mail:</b> ${funcionarios.email}</label>
+                                <br/>
+                                <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
+                                <br/>
+                                <br/>
+                                <button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button>
+                                <button type="button" class="btn btn-primary" 
+                                        onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </c:forEach>
         </tbody>
     </table>
-            
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -160,7 +133,7 @@
         </div>
     </div>
     <br/>
-    
+
     <button><a href="index.jsp">Voltar</a></button>
-    </body>
+</body>
 </html>
