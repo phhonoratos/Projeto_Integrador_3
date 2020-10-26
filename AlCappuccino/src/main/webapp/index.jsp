@@ -127,7 +127,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Relatórios</h5>
                         <p class="card-text">Listar</p>
-                        <a href="ListarVendaRelatorio" class="btn btn-primary">
+                        <a href="Relatorio" class="btn btn-primary">
                             <span class="material-icons">
                                 list
                             </span>
