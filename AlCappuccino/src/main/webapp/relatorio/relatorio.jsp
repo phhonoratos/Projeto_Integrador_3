@@ -21,7 +21,7 @@
         
         <br>
         
-        <form method="GET" action="ListarVenda">
+        <form method="GET" action="ListarVendaRelatorio?chamada=listarVendas">
             <input id="radioMatriz" type="radio" name="opcao" value="matriz">
             <label for="radioMatriz">Matriz</label>
 
@@ -39,10 +39,10 @@
 
             <br>
             
-            <input id="dateInicial" class="form-control-sm" type="text" name="inicio">
-            <input id="dateDataFinal" class="form-control-sm" type="text" name="final">
+            <input id="dateInicial" class="form-control-sm" type="text" name="inicio" value="2020-11-15">
+            <input id="dateDataFinal" class="form-control-sm" type="text" name="final" value="2020-12-31">
 
-            <button type="submit" class="btn btn-primary">Pesquisar</button>
+            <button type="submit" class="btn btn-primary" onclick="teste()">Pesquisar</button>
         </form>
         
         <br>
@@ -56,22 +56,17 @@
                 <th>Total</th>
             </thead>
             <tbody>
-                <c:forEach items="${vendas}" var="venda">
-                    <tr>
-                        <td>${venda.data_venda}</td>
-                        <td>${venda.cpf_funcionario}</td>
-                        <td>${venda.cpf_cliente}</td>
-                        <td>${venda.tipo_pagamento}</td>
-                        <td>${venda.total}</td>
-                    </tr>
-                </c:forEach>
-<!--                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>-->
+                <c:if test="${vendas != null}">
+                    <c:forEach items="${vendas}" var="venda">
+                        <tr>
+                            <td>${venda.data_venda}</td>
+                            <td><a href="ListarVendaRelatorio?chamada=listarDetalhes&idVenda=${venda.id}">${venda.cpf_funcionario}</a></td>
+                            <td>${venda.cpf_cliente}</td>
+                            <td>${venda.tipo_pagamento}</td>
+                            <td>${venda.total}</td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
             </tbody>
         </table>
         
@@ -85,25 +80,17 @@
                 <th>Total</th>
             </thead>
             <tbody>
-                <%--<c:forEach items="listaObjetos" var="objeto">--%>
-<!--                    <tr>
-                        <td>${objeto}</td>
-                        <td>${objeto}</td>
-                        <td>${objeto}</td>
-                        <td>${objeto}</td>
-                    </tr>-->
-                <%--</c:forEach>--%>
-                
-<!--                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>-->
+                <c:if test="${detalhes != null}">
+                    <c:forEach items="${detalhes}" var="detalhe">
+                        <tr>
+                            <td>${detalhe.idProduto}</td>
+                            <td>00.00</td>
+                            <td>${detalhe.quantidade}</td>
+                            <td>${detalhe.valorTotal}</td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
             </tbody>
         </table>
-                
-                <button onclick="teste()">teste</button>
-                
     </body>
 </html>
