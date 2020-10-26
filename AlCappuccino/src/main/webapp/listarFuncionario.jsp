@@ -62,7 +62,7 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionario.cpf}" aria-expanded="true" aria-controls="collapseOne">
                                     <label id="cpf1"><b>CPF</b></label>
                                     <label id="nome1"><b>Nome</b></label>
                                     <label id="cargo1"><b>Cargo</b></label>
@@ -75,12 +75,12 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapse${funcionario.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <label id="rg"><b>RG:</b> ${funcionario.cpf}</label>
                                 <label id="sexo"><b>Sexo:</b> ${funcionario.sexo}</label>
                                 <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionario.dataNascimento}</label>
-                                <label id="estado_civil"><b>Estado civil:</b> ${funcionario.estado_civil}</label>
+                                <label id="estado_civil"><b>Estado civil:</b> ${funcionario.estadoCivil}</label>
                                 <br/>
                                 <label id="cep"><b>CEP:</b> ${funcionario.cep}</label>
                                 <label id="logradouro"><b>Logradouro:</b> ${funcionario.logradouro}</label>

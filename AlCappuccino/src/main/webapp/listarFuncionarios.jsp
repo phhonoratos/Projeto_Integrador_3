@@ -62,7 +62,7 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.cpf}" aria-expanded="true" aria-controls="collapseOne">
                                     <label id="cpf1"><b>CPF</b></label>
                                     <label id="nome1"><b>Nome</b></label>
                                     <label id="cargo1"><b>Cargo</b></label>
@@ -75,7 +75,7 @@
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapse${funcionarios.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <label id="rg"><b>RG:</b> ${funcionarios.cpf}</label>
                                 <label id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
