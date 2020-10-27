@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.cliente;
 
 import ac.dao.ClienteDAO;
 import java.io.IOException;
