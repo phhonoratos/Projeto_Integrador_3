@@ -23,13 +23,13 @@ public class ListarProdutosPesquisa extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String nome  = request.getParameter("nome");
-        Produto produto = ProdutoDAO.getProduto(nome);
-        
+        int id = Integer.parseInt(request.getParameter("id"));
+        Produto produto = ProdutoDAO.getProduto(id);
+
         request.setAttribute("produto", produto);
-        
-        RequestDispatcher requestDispatcher = 
-                getServletContext().getRequestDispatcher("/listarProdutoPesquisa.jsp");
+
+        RequestDispatcher requestDispatcher
+                = getServletContext().getRequestDispatcher("/listarProdutoPesquisa.jsp");
         requestDispatcher.forward(request, response);
     }
 
