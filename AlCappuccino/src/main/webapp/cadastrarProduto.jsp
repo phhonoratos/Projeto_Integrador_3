@@ -14,8 +14,7 @@
     <body class="container">
         <h1>Cadastro de Produto</h1>
         <form method="POST" action="CadastrarProduto">
-            <p>ID</p>
-            <input name="id" class="form-control" required="true"/><br/>
+            
             <p>Tipo do Produto</p>
             <input name="tipo" class="form-control" required="true"/><br/>
             <p>Nome</p>

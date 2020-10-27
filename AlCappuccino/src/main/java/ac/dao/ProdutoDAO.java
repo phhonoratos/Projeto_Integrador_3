@@ -50,15 +50,14 @@ public class ProdutoDAO {
 
     public static int addProduto(Produto produto) throws SQLException, ClassNotFoundException {
         Connection conexao = ConexaoDB.getConexao();
-        final String SQL_INSERT_PRODUTO = "insert into Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda) values (?,?,?,?,?,?,?)";
+        final String SQL_INSERT_PRODUTO = "insert into Produto(tipo, nome, qtd_estoque, preco, porcentagem, valor_venda) values (?,?,?,?,?,?)";
         PreparedStatement ps = conexao.prepareStatement(SQL_INSERT_PRODUTO);
-        ps.setInt(1, produto.getId());
-        ps.setString(2, produto.getTipo());
-        ps.setString(3, produto.getNome());
-        ps.setInt(4, produto.getQuantidadeEstoque());
-        ps.setDouble(5, produto.getPreco());
-        ps.setDouble(6, produto.getPorcentagem());
-        ps.setDouble(7, produto.getValorVenda());
+        ps.setString(1, produto.getTipo());
+        ps.setString(2, produto.getNome());
+        ps.setInt(3, produto.getQuantidadeEstoque());
+        ps.setDouble(4, produto.getPreco());
+        ps.setDouble(5, produto.getPorcentagem());
+        ps.setDouble(6, produto.getValorVenda());
 
         return ps.executeUpdate();
     }
