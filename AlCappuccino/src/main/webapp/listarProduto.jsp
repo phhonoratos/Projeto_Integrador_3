@@ -66,8 +66,8 @@
                     <td>${produto.preco}</td>
                     <td>${produto.porcentagem}</td>
                     <td>${produto.valorVenda}</td>
-                    <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
+                    <td><a href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
                 </tr>
             </c:forEach>
 
