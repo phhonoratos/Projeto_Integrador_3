@@ -89,8 +89,15 @@ public class CadastrarVenda extends HttpServlet {
 
         //Persistindo para Venda
         Venda venda = new Venda();
-        venda.setCpfCliente(cliente);
-        venda.setCpfFuncionario(vendedor);
+        
+        //sillas
+        Cliente c = new Cliente();
+        c.setCpf(cliente);
+        venda.setCliente(c);
+        //sillas
+        Funcionario f = new Funcionario();
+        f.setCpf(vendedor);
+        venda.setFuncionario(f);
         venda.setDataVenda(date);
         venda.setHorarioVenda(hora);
         venda.setValorTotal(soma);
@@ -112,9 +119,13 @@ public class CadastrarVenda extends HttpServlet {
                 DetalheVenda dv = new DetalheVenda();
 
                 int idproduto = Integer.parseInt(id[i]);
-                dv.setIdProduto(idproduto);
+                //sillas
+                Produto p = new Produto();
+                p.setId(idproduto);
+                dv.setProduto(p);
 
-                dv.setIdVenda(venda.getId());
+                //sillas
+                dv.setVenda(venda);
 
                 int quantidadeProduto = Integer.parseInt(quantidade[i]);
                 dv.setQuantidade(quantidadeProduto);

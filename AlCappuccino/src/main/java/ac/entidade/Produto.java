@@ -34,6 +34,8 @@ public class Produto {
         this.valorVenda = valorVenda;
     }
 
+    public Produto() {}
+
     @Override
     public String toString() {
         return String.format("Id %s <br/> Tipo %s <br/> Nome %s <br/> qtd_estoque %s <br/> Preço %s <br/> Porcentagem %s <br/> Valor de Venda %f",
