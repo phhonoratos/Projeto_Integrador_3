@@ -7,6 +7,8 @@ package ac.dao;
 
 import ac.bd.ConexaoDB;
 import ac.entidade.DetalheVenda;
+import ac.entidade.Produto;
+import ac.entidade.Venda;
 import ac.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,10 +28,10 @@ public class DetalheVendaDAO {
         Connection con = ConexaoDB.getConexao();
         String query = "insert into detalhevenda(id_produto,qtd_produto,valor,id_venda) values (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, detalheVenda.getIdProduto());
+        ps.setInt(1, detalheVenda.getProduto().getId());
         ps.setInt(2, detalheVenda.getQuantidade());
         ps.setFloat(3, detalheVenda.getValorTotal());
-        ps.setInt(4, detalheVenda.getIdVenda());
+        ps.setInt(4, detalheVenda.getVenda().getId());
       
         int retorno = ps.executeUpdate();
         return retorno;
@@ -47,10 +49,15 @@ public class DetalheVendaDAO {
                 int id = rs.getInt("id");
                 int idProduto = rs.getInt("id_produto");
                 int quantidade = rs.getInt("qtd_produto");
-                int idvenda = rs.getInt("id_venda");
+                int idVenda = rs.getInt("id_venda");
                 float valor = rs.getFloat("valor");
                 
-                listaDetalheVenda.add(new DetalheVenda(id, quantidade, idProduto, idvenda, valor));
+                Produto produto = new Produto();
+                produto.setId(idProduto);
+                Venda venda = new Venda();
+                venda.setId(idVenda);
+                
+                listaDetalheVenda.add(new DetalheVenda(id, quantidade, produto, venda, valor));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -75,7 +82,12 @@ public class DetalheVendaDAO {
                 int id_venda = Integer.parseInt(rs.getString("id_venda"));
                 float valor = Float.parseFloat(rs.getString("valor"));
                 
-                listaDetalheVenda.add(new DetalheVenda(id, id_produto, qtd_produto, id_venda, valor));
+                Produto produto = new Produto();
+                produto.setId(id_produto);
+                Venda venda = new Venda();
+                venda.setId(id_venda);
+                
+                listaDetalheVenda.add(new DetalheVenda(id, qtd_produto, produto, venda, valor));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).

@@ -18,9 +18,9 @@ public class DetalheVenda {
 
     int id;
     int quantidade;
-    int idProduto;
+    Produto produto;
     float valorTotal;
-    int idVenda;
+    Venda venda;
 
     public DetalheVenda() {
     }
@@ -28,20 +28,20 @@ public class DetalheVenda {
     public DetalheVenda(
             int id, 
             int quantidade, 
-            int idProduto, 
-            int idVenda, 
+            Produto produto, 
+            Venda venda, 
             float valorTotal
     ) {
         this.id = id;
         this.quantidade = quantidade;
-        this.idProduto = idProduto;
-        this.idVenda = idVenda;
+        this.produto = produto;
+        this.venda = venda;
         this.valorTotal = valorTotal;
     }
 
     @Override
     public String toString() {
-        return "DetalheVenda{" + "id=" + id + ", quantidade=" + quantidade + ", idProduto=" + idProduto + ", idVenda=" + idVenda + ", valorTotal=" + valorTotal + '}';
+        return "DetalheVenda{" + "id=" + id + ", quantidade=" + quantidade + ", idProduto=" + produto + ", idVenda=" + venda + ", valorTotal=" + valorTotal + '}';
     }
 
 }
