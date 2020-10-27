@@ -28,10 +28,13 @@
             <input id="radioFilial" type="radio" name="opcao" value="filial">
             <label for="radioFilial">Filial</label>
 
-            <select id="selectFilial" class="form-control-sm">
-                <option>Small select</option>
-            </select>
-
+            <input id="listFilial" name="filial" placeholder="Digite o nome da filial" list="filiais">
+            <datalist id="filiais">
+                <c:forEach items="${filiais}" var="filial">
+                    <option>${filial.nome}</option>
+                </c:forEach>
+            </datalist>
+                
             <br><br>
 
             <label id="labelDataInicial" for="txtDataInicial">De</label>
@@ -39,10 +42,10 @@
 
             <br>
             
-            <input id="dateInicial" class="form-control-sm" type="text" name="inicio" value="2020-11-15">
-            <input id="dateDataFinal" class="form-control-sm" type="text" name="final" value="2020-12-31">
+            <input id="dateInicial" class="form-control-sm" type="date" name="inicio">
+            <input id="dateDataFinal" class="form-control-sm" type="date" name="final">
 
-            <button type="submit" class="btn btn-primary" onclick="teste()">Pesquisar</button>
+            <button type="submit" class="btn btn-primary" onclick="Relatorio?chamada=listarVendas">Pesquisar</button>
         </form>
         
         <br>
