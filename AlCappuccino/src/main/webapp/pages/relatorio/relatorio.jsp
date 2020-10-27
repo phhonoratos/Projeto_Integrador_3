@@ -66,8 +66,8 @@
                                         <label class="col-3">Valor total</label>
                                         <br>
                                         <label class="col-2">${venda.dataVenda}</label>
-                                        <label class="col-2">${venda.cpfFuncionario}</label>
-                                        <label class="col-2">${venda.cpfCliente}</label>
+                                        <label class="col-2">${venda.funcionario.cpf}</label>
+                                        <label class="col-2">${venda.cliente.cpf}</label>
                                         <label class="col-3">${venda.tipoPagamento}</label>
                                         <label class="col-3">${venda.valorTotal}</label>
                                     </div>
@@ -85,9 +85,9 @@
                                         <label class="col-3">Valor total</label>
                                         <br>
                                         <c:forEach items="${detalhes}" var="detalhe">
-                                            <c:if test="${detalhe.idVenda == venda.id}">
-                                                <label class="col-3">${detalhe.idProduto}</label>
-                                                <label class="col-3">00.00</label>
+                                            <c:if test="${detalhe.venda.id == venda.id}">
+                                                <label class="col-3">${detalhe.produto.id}</label>
+                                                <label class="col-3">${detalhe.produto.valorVenda}</label>
                                                 <label class="col-3">${detalhe.quantidade}</label>
                                                 <label class="col-3">${detalhe.valorTotal}</label>
                                             </c:if>
@@ -135,16 +135,16 @@
                 <th>Total</th>
             </thead>
             <tbody>
-                <c:if test="${detalhes != null}">
-                    <c:forEach items="${detalhes}" var="detalhe">
+                <%--<c:if test="${detalhes != null}">--%>
+                    <%--<c:forEach items="${detalhes}" var="detalhe">--%>
                         <tr>
                             <td>${detalhe.idProduto}</td>
                             <td>00.00</td>
                             <td>${detalhe.quantidade}</td>
                             <td>${detalhe.valorTotal}</td>
                         </tr>
-                    </c:forEach>
-                </c:if>
+                    <%--</c:forEach>--%>
+                <%--</c:if>--%>
             </tbody>
         </table>-->
         </div>
