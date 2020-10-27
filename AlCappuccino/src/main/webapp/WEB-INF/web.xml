@@ -145,10 +145,6 @@
         <url-pattern>/ExcluirCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListarFuncionario</servlet-name>
-        <url-pattern>/ListarFuncionario</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CadastrarVenda</servlet-name>
         <url-pattern>/CadastrarVenda</url-pattern>
     </servlet-mapping>
