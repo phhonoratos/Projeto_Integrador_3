@@ -26,10 +26,10 @@ public class DetalheVendaDAO {
         Connection con = ConexaoDB.getConexao();
         String query = "insert into detalhevenda(id_produto,qtd_produto,valor,id_venda) values (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, detalheVenda.getId());
+        ps.setInt(1, detalheVenda.getIdProduto());
         ps.setInt(2, detalheVenda.getQuantidade());
         ps.setFloat(3, detalheVenda.getValorTotal());
-        ps.setInt(4, detalheVenda.getId());
+        ps.setInt(4, detalheVenda.getIdVenda());
       
         int retorno = ps.executeUpdate();
         return retorno;
