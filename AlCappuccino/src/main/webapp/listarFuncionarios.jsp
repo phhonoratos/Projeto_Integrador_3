@@ -48,8 +48,13 @@
         <h1>Lista de Funcionários</h1>
         <br/>
 
-        <form method="GET" action="ListarFuncionario?cpf='${"#cpf"}.val()'">
-            <input id ="cpf" name="cpf" placeholder="Digite o cpf"></input>
+        <form method="GET" action="ListarFuncionarios?cpf='${"#cpf"}.val()'">
+            <input id ="cpf" name="cpf" placeholder="Digite o cpf" list="exampleList"></input>
+            <datalist id="exampleList">
+                <c:forEach var="funcionarios" items="${listaFuncionarios}">
+                    <option value="${funcionarios.cpf}"></option>
+                </c:forEach>
+            </datalist>
             <button type="submit" id="pesq">Pesquisar</button>
             <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
         </form>
