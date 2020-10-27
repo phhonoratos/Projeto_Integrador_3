@@ -24,12 +24,19 @@ public class ListarCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        List<Cliente> listaClientes = ClienteDAO.getClientes();
-        request.setAttribute("listaClientes", listaClientes);
+        String cpf = request.getParameter("cpf");
+        if (cpf != "" && cpf != null) {
+            Cliente cliente = ClienteDAO.getCliente(cpf);
+            List list = java.util.Arrays.asList(cliente);
+            request.setAttribute("listaClientes", list);
+        } else {
+            List<Cliente> listaClientes = ClienteDAO.getClientes();
+            request.setAttribute("listaClientes", listaClientes);
+        }
 
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher("/listarCliente.jsp");
         requestDispatcher.forward(request, response);
     }
+
 }

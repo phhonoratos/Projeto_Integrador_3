@@ -38,7 +38,20 @@
     <body>
         <div class="container-fluid">
             <h1 style="text-align: center">Lista de Clientes</h1>
-            <table class="table">
+
+            <form method="GET" action="ListarCliente?cpf=${"#cpf"}.val()">
+                <input id ="cpf" name="cpf" placeholder="Digite o cpf" list="exampleList"></input>
+                <datalist id="exampleList">
+                    <c:forEach var="cliente" items="${listaClientes}">
+                        <option value=${cliente.cpf}></option>
+                    </c:forEach>
+                </datalist>
+                <button type="submit" id="pesq">Pesquisar</button>
+                <a class="btn btn-primary" href="cadastrarCliente.jsp" role="button">Cadastrar Cliente</a>
+            </form>
+            <br>
+            <span>Total de clientes cadastrados: ${listaClientes.size()}</span>
+            <table class="table table-sm">
                 <thead>
                 <th>Nome</th>
                 <th>Email</th>
@@ -103,8 +116,6 @@
                     </div>
                 </div>
             </div>
-
-            <a class="btn btn-primary" href="index.jsp" role="button">Voltar</a>
         </div>
 
     </body>
