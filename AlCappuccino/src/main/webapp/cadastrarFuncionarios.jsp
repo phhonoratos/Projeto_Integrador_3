@@ -54,17 +54,16 @@
                 <div class="row">
                     <div class="col-8">
                         <p><b>Endereço</b></p>
-                        <input name="logradouro" placeholder="Logradouro" style="text-align: center" required="true"></input>
-                        <input name="numero" placeholder="Número" style="text-align: center" required="true"></input>
+                        <input name="cep" id="cep" placeholder="CEP" style="text-align: center" required="true"></input>
+                        <input name="logradouro" id="rua" placeholder="Logradouro" style="text-align: center" required="true"></input>
                         <br/>
                         <br/>
-                        <input name="complemento" placeholder="Complemento" style="text-align: center" required="true"></input>
-                        <input name="cep" placeholder="CEP" style="text-align: center" required="true"></input>
+                        <input name="numero" id="numero" placeholder="Número" style="text-align: center" required="true"></input>
+                        <input name="bairro" id="bairro" placeholder="Bairro" style="text-align: center" required="true"></input>
+                        <input name="cidade" id="cidade" placeholder="cidade" style="text-align: center" required="true"></input>
                         <br/>
                         <br/>
-                        <input name="bairro" placeholder="Bairro" style="text-align: center" required="true"></input>
-                        <input name="cidade" placeholder="cidade" style="text-align: center" required="true"></input>
-                        <select name="uf">
+                        <select name="uf" id="uf">
                             <option value="UF">UF</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
@@ -94,6 +93,7 @@
                             <option value="SE">SE</option>
                             <option value="TO">TO</option>
                         </select>
+                        <input name="complemento" id="complemento" placeholder="Complemento" style="text-align: center"></input>
                     </div>
                     <div class="col-4">
                         <p><b>Função</b></p>
@@ -126,7 +126,59 @@
             <button type="submit">Cadastrar</button>
             </form>
         </table>
-            
-        </form>
+        
+        <script type="text/javascript">
+            $("#cep").blur(function () {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+                        $("#ibge").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#uf").val(dados.uf);
+                                $("#ibge").val(dados.ibge);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+        </script>
+        
     </body>
 </html>
