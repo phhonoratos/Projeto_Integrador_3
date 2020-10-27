@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.cliente;
 
 import ac.dao.ClienteDAO;
 import ac.entidade.Cliente;
@@ -33,7 +33,7 @@ public class AtualizarCliente extends HttpServlet {
         Cliente cliente = ClienteDAO.getCliente(cpf);
         request.setAttribute("atualizar", cliente);
         RequestDispatcher rd
-                = getServletContext().getRequestDispatcher("/atualizarCliente.jsp");
+                = getServletContext().getRequestDispatcher("/pages/cliente/atualizarCliente.jsp");
         rd.forward(request, response);
     }
 

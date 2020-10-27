@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.cliente;
 
 import ac.dao.ClienteDAO;
 import ac.entidade.Cliente;
@@ -35,7 +35,7 @@ public class ListarCliente extends HttpServlet {
         }
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/listarCliente.jsp");
+                .getRequestDispatcher("/pages/cliente/listarCliente.jsp");
         requestDispatcher.forward(request, response);
     }
 
