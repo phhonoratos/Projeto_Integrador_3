@@ -24,9 +24,15 @@ public class ListarFuncionarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Funcionario> funcionarios = FuncionarioDAO.getFuncionarios();
-        
-        request.setAttribute("listaFuncionarios", funcionarios);
+        String cpf = request.getParameter("cpf");
+        if(cpf != "" && cpf != null) {
+            Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
+            List list = java.util.Arrays.asList(funcionario);
+            request.setAttribute("listaFuncionarios", list);
+        } else {
+            List<Funcionario> funcionarios = FuncionarioDAO.getFuncionarios();
+            request.setAttribute("listaFuncionarios", funcionarios);
+        }
         
         RequestDispatcher requestDispatcher = 
                 getServletContext().getRequestDispatcher("/listarFuncionarios.jsp");
