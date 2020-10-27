@@ -26,7 +26,7 @@
                         <br/>
                         <br/>
                         <input name="nome" value="${funcionarios.nome}"></input>
-                        <input name="rg" value="${funcionarios.rg}"></input>
+                        <input name="rg" value="${funcionarios.numeroRg}"></input>
                         <br/>
                         <br/>
                         <select name="sexo" value="${funcionarios.sexo}">

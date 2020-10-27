@@ -123,7 +123,7 @@
                     </div>
                 </div>
             <button><a href="index.jsp">Cancelar</a></button>
-            <button type="submit">Enviar</button>
+            <button type="submit">Cadastrar</button>
             </form>
         </table>
             
