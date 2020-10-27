@@ -85,18 +85,18 @@ public class ProdutoDAO {
         ps.execute();
     }
 
-    public static Produto getProduto(String nome) {
+    public static Produto getProduto(int id) {
         Produto produto = null;
         try {
             Connection conexao = ConexaoDB.getConexao();
-            final String SQL_SELECT_PRODUTO = "select * from produto where nome=?";
+            final String SQL_SELECT_PRODUTO = "select * from produto where id=?";
             PreparedStatement ps = conexao.prepareStatement(SQL_SELECT_PRODUTO);
-            ps.setString(1, nome);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                int id = rs.getInt("id");
+                
                 String tipo = rs.getString("tipo");
-
+                String nome = rs.getString("nome");
                 int quantidadeEstoque = rs.getInt("qtd_estoque");
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
