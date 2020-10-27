@@ -17,9 +17,9 @@
 
             function detalheVenda(id) {
             <c:forEach items="${detalheVendas}" var="detalhe">
-                if (${detalhe.idVenda} == id) {
-                    console.log(${detalhe.idProduto})
-                    document.getElementById("produto" + ${detalhe.id}).innerHTML = "Produto: " + ${detalhe.idProduto}
+                if (${detalhe.venda.id} == id) {
+                    console.log(${detalhe.produto.id})
+                    document.getElementById("produto" + ${detalhe.id}).innerHTML = "Produto: " + ${detalhe.produto.id}
                     document.getElementById("quantidade" + ${detalhe.id}).innerHTML = "Quantidade: " + ${detalhe.quantidade}
                     document.getElementById("valor" + ${detalhe.id}).innerHTML = "Valor: " + ${detalhe.valorTotal}
                 }
@@ -46,15 +46,15 @@
                                 <label id="data1">${venda.dataVenda}</label> 
                                 <label id="hora1">${venda.horarioVenda}</label>
                                 <label id="total1">${venda.valorTotal}</label>
-                                <label id="vendedor1">${venda.cpfFuncionario}</label>
+                                <label id="vendedor1">${venda.funcionario.cpf}</label>
                             </button>
                         </h2>
                     </div>
                     <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <c:forEach items="${detalheVendas}" var="detalheVendas">
-                            <c:if test="${detalheVendas.idVenda == venda.id}">
+                            <c:if test="${detalheVendas.venda.id == venda.id}">
                                 <div class="card-body">
-                                    <label id="produto"><b>Produto:</b> ${detalheVendas.idProduto}</label>
+                                    <label id="produto"><b>Produto:</b> ${detalheVendas.produto.id}</label>
                                     <label id="quantidade"><b>Quantidade:</b> ${detalheVendas.quantidade}</label>
                                     <label id="valorTotal"><b>Valor Total:</b> ${detalheVendas.valorTotal}</label>
                                     <br/>

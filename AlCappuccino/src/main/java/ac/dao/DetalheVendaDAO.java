@@ -11,9 +11,11 @@ import ac.entidade.Produto;
 import ac.entidade.Venda;
 import ac.servlet.ServletBD;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -41,21 +43,37 @@ public class DetalheVendaDAO {
         List<DetalheVenda> listaDetalheVenda = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
-            String query = "select * from detalhevenda";
+            String query = "select d.id as d_id, d.qtd_produto as d_qtd_produto, d.valor as d_valor, "
+                    + "p.id as p_id, p.tipo as p_tipo, p.nome as p_nome, p.qtd_estoque as p_qtd_estoque, p.preco as p_preco, p.porcentagem as p_porcentagem, p.valor_venda as p_valor_venda, "
+                    + "v.id as v_id, v.data as v_data, v.hora as v_hora, v.total as v_total, v.tipo_pagamento as v_tipo_pagamento "
+                    + "from detalhevenda as d "
+                    + "join produto as p on p.id = d.id_produto "
+                    + "join venda as v on v.id = d.id_venda ";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                                
-                int id = rs.getInt("id");
-                int idProduto = rs.getInt("id_produto");
-                int quantidade = rs.getInt("qtd_produto");
-                int idVenda = rs.getInt("id_venda");
-                float valor = rs.getFloat("valor");
+                int id = rs.getInt("d_id");
+                int quantidade = rs.getInt("d_qtd_produto");
+                float valor = rs.getFloat("d_valor");
                 
-                Produto produto = new Produto();
-                produto.setId(idProduto);
-                Venda venda = new Venda();
-                venda.setId(idVenda);
+                int idProduto = rs.getInt("p_id");
+                String tipo = rs.getString("p_tipo");
+                String nome = rs.getString("p_nome");
+                int quantidadeEstoque = rs.getInt("p_qtd_estoque");
+                float preco = rs.getFloat("p_preco");
+                float porcentagem = rs.getFloat("p_porcentagem");
+                float valorVenda = rs.getFloat("p_valor_venda");
+                
+                int idVenda = rs.getInt("v_id");
+                Date dataVenda = rs.getDate("v_data");
+                Time horarioVenda = rs.getTime("v_hora");
+                float valorTotal = rs.getFloat("v_total");
+                String tipoPagamento = rs.getString("v_tipo_pagamento");
+                
+                //sillas
+                Produto produto = new Produto(idProduto, tipo, nome, quantidadeEstoque, preco, porcentagem, valorVenda);
+                Venda venda = new Venda(idVenda, dataVenda, valorTotal, tipoPagamento, null, null, horarioVenda);
                 
                 listaDetalheVenda.add(new DetalheVenda(id, quantidade, produto, venda, valor));
             }
