@@ -25,7 +25,13 @@ public class DetalheVenda {
     public DetalheVenda() {
     }
 
-    public DetalheVenda(int id, int quantidade, int idProduto, int idVenda, float valorTotal) {
+    public DetalheVenda(
+            int id, 
+            int quantidade, 
+            int idProduto, 
+            int idVenda, 
+            float valorTotal
+    ) {
         this.id = id;
         this.quantidade = quantidade;
         this.idProduto = idProduto;

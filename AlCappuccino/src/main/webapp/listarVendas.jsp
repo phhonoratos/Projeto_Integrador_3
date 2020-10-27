@@ -32,44 +32,39 @@
     <body>
         <h1>Vendas</h1>
 
-        <div class="accordion" id="accordionExample">
-            <c:forEach var="venda" items="${vendas}">
+        <c:forEach items="${vendas}" var="venda">
+            <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" onclick="detalheVenda(${venda.id})" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <table class="table table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td>Dia: ${venda.dataVenda}</td>
-                                            <td>Hora: ${venda.horarioVenda}</td>
-                                            <td>Total: R$ ${venda.valorTotal}</td>
-                                            <td>Vendedor: ${venda.cpfFuncionario}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
+                                <label id="data"><b>Data</b></label>
+                                <label id="hora"><b>Hora</b></label>
+                                <label id="total"><b>Total</b></label>
+                                <label id="vendedor"><b>Vendedor</b></label>
+                                <br/>
+                                <label id="data1">${venda.dataVenda}</label> 
+                                <label id="hora1">${venda.horarioVenda}</label>
+                                <label id="total1">${venda.valorTotal}</label>
+                                <label id="vendedor1">${venda.cpfFuncionario}</label>
                             </button>
                         </h2>
                     </div>
+                    <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <c:forEach items="${detalheVendas}" var="detalheVendas">
+                            <c:if test="${detalheVendas.idVenda == venda.id}">
+                                <div class="card-body">
+                                    <label id="produto"><b>Produto:</b> ${detalheVendas.idProduto}</label>
+                                    <label id="quantidade"><b>Quantidade:</b> ${detalheVendas.quantidade}</label>
+                                    <label id="valorTotal"><b>Valor Total:</b> ${detalheVendas.valorTotal}</label>
+                                    <br/>
+                                </div>
+                            </c:if>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <c:forEach var="detalhe" items="${detalheVendas}">
-                                        <tr>
-                                            <td id="produto${detalhe.id}"></td>
-                                            <td id="quantidade${detalhe.id}"></td>
-                                            <td id="valor${detalhe.id}"></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
-            </c:forEach>
-
-        </div>   
+            </div>
+        </c:forEach> 
     </body>
 </html>
