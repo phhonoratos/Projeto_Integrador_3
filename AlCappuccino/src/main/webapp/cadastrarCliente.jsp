@@ -18,23 +18,23 @@
         <form method="POST" action="CadastrarCliente">
 
             <p>CPF</p>
-            <input name="cpf"></input>
+            <input type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cpf" required="true"></input>
             <br/>
 
             <p>Nome</p>
-            <input name="nome"></input>
+            <input name="nome" required="true"></input>
             <br/>
 
             <p>E-mail</p>
-            <input name="email" type="email"></input>
+            <input name="email" type="email" required="true"></input>
             <br/>
 
             <p>Telefone</p>
-            <input name="telefone" type="tel"></input>
+            <input name="telefone" type="tel" required="true"></input>
             <br/>
 
             <p>Estado civil</p>
-            <select name="estado_civil">
+            <select name="estado_civil" required="true">
                 <option value="Solteiro(a)">Solteiro(a)</option>
                 <option value="Casado(a)">Casado(a)</option>
                 <option value="Divorciado(a)">Divorciado(a)</option>
@@ -54,38 +54,38 @@
             <br/>
 
             <p>CEP</p>
-            <input name="cep" id="cep"></input>
+            <input name="cep" id="cep" required="true"></input>
             <br/>
 
             <p>Logradouro</p>
-            <input name="logradouro" id="rua"></input>
+            <input name="logradouro" id="rua" required="true"></input>
             <br/>
 
             <p>Número</p>
-            <input name="numero"></input>
+            <input name="numero" required="true"></input>
             <br/>
 
             <p>Complemento</p>
-            <input name="complemento" id="complemento"></input>
+            <input name="complemento" id="complemento" required="true"></input>
             <br/>
 
             <p>UF</p>
-            <input name="uf" id="uf"></input>
+            <input name="uf" id="uf" required="true"></input>
             <br/>
 
             <p>Bairro</p>
-            <input name="bairro" id="bairro"></input>
+            <input name="bairro" id="bairro" required="true"></input>
             <br/>
 
             <p>Cidade</p>
-            <input name="cidade" id="cidade"></input>
+            <input name="cidade" id="cidade" required="true"></input>
             <br/>
 
             <p>Data de nascimento</p>
-            <input name="data_nascimento" type="date" id="data_nascimento"></input>
+            <input name="data_nascimento" type="date" id="data_nascimento" required="true"></input>
             <br/>
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit" required="true">Cadastrar</button>
 
         </form>
 

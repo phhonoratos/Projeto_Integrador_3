@@ -26,8 +26,8 @@ public class CadastrarProduto extends HttpServlet {
    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idS = request.getParameter("id");
-        int id = Integer.parseInt(idS);
+//        String idS = request.getParameter("id");
+//        int id = Integer.parseInt(idS);
         String tipo = request.getParameter("tipo");
         String nome = request.getParameter("nome");
         String qtd_estoqueS = request.getParameter("qtd_estoque");
@@ -39,7 +39,7 @@ public class CadastrarProduto extends HttpServlet {
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
         
-        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
+        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
                         
         try {
             int linhasAfetadas = ProdutoDAO.addProduto(produto);

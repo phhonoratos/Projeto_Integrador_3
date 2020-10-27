@@ -12,7 +12,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
+    <title>Alterar cliente</title>
 
     <style>
         .container {
@@ -35,11 +35,6 @@
         }
 
         input {
-            border: none;
-            border-bottom: 1px solid black;
-            width: 95%;
-        }
-        input:focus {
             border: none;
             border-bottom: 1px solid black;
             width: 95%;
@@ -150,7 +145,7 @@
 
             <div class="cpf">
                 <label for="">cpf</label>
-                <input type="text" value="${atualizar.cpf}" readonly="true" name="cpf">
+                <input type="text" value="${atualizar.cpf}" readonly="true" name="cpf" readonly="true">
             </div>
 
             <div class="email">
@@ -175,7 +170,7 @@
 
             <div class="dt_nascimento">
                 <label for="">nascimento</label>
-                <input type="text" value="${atualizar.dataNascimento}" name="data_nascimento">
+                <input type="date" value="${atualizar.dataNascimento}" name="data_nascimento">
             </div>
 
             <div class="cep">

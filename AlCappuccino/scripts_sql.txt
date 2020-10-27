@@ -98,21 +98,22 @@ INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bai
 ('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false);
 
 create table produto (
-	id int primary key not null,
+	id int generated always as identity (start with 1, increment by 1),
 	tipo varchar(40) not null,
 	nome varchar(40) not null,
 	qtd_estoque int not null,
 	preco double not null,
 	porcentagem double not null,
-	valor_venda double not null
+	valor_venda double not null,
+        primary key (id)
 );
 
-insert into produto (id,tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
-					values(1, 'cafe', 'Expresso', 4, 5.50, 10, 6.05),
-                                        (2, 'cappuccino', 'Frappuccino', 5, 7.80, 15, 8.97),
-                                        (3, 'refrigerante', 'Guarana', 6, 9.50, 5, 9.97),
-                                        (4, 'pao', 'Baguete', 7, 10.36, 8, 11.18),
-                                        (5, 'chocolate', 'sneakers', 8, 4.60, 9, 5.01);
+insert into produto (tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
+					values('cafe', 'Expresso', 4, 5.50, 10, 6.05),
+                                        ('cappuccino', 'Frappuccino', 5, 7.80, 15, 8.97),
+                                        ('refrigerante', 'Guarana', 6, 9.50, 5, 9.97),
+                                        ('pao', 'Baguete', 7, 10.36, 8, 11.18),
+                                        ('chocolate', 'sneakers', 8, 4.60, 9, 5.01);
 
 
 
@@ -124,6 +125,8 @@ create table venda (
 	tipo_pagamento varchar(10),
         cpf_funcionario varchar(11) not null,
         cpf_cliente varchar(11),
+        foreign key (cpf_cliente) references cliente(cpf),
+	foreign key (cpf_funcionario) references funcionarios(cpf),
         primary key (id)
 );
 
