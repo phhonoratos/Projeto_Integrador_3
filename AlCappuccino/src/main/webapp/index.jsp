@@ -106,7 +106,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Clientes</h5>
                         <p class="card-text">Adicionar</p>
-                        <a href="pages/cliente/cadastrarCliente.jsp" class="btn btn-primary">
+                        <a href="CadastrarCliente" class="btn btn-primary">
                             <span class="material-icons">
                                 person_add
                             </span>

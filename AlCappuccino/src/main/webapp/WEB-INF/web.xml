@@ -58,7 +58,7 @@
     </servlet>
     <servlet>
         <servlet-name>CadastrarVenda</servlet-name>
-        <servlet-class>ac.servlet.CadastrarVenda</servlet-class>
+        <servlet-class>ac.servlet.venda.CadastrarVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarProdutosPesquisa</servlet-name>
@@ -66,7 +66,7 @@
     </servlet>
     <servlet>
         <servlet-name>ListarVenda</servlet-name>
-        <servlet-class>ac.servlet.ListarVenda</servlet-class>
+        <servlet-class>ac.servlet.venda.ListarVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Relatorio</servlet-name>
