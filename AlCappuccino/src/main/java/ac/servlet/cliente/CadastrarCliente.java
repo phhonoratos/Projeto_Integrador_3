@@ -23,6 +23,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author joao
  */
 public class CadastrarCliente extends HttpServlet {
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        RequestDispatcher requestDispatcher = getServletContext()
+                .getRequestDispatcher("/pages/cliente/cadastrarCliente.jsp");
+        requestDispatcher.forward(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
