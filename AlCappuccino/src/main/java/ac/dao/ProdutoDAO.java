@@ -77,11 +77,11 @@ public class ProdutoDAO {
         return ps.executeUpdate();
     }
 
-    public static void deleteProduto(String nome) throws ClassNotFoundException, SQLException {
+    public static void deleteProduto(int id) throws ClassNotFoundException, SQLException {
         Connection conexao = ConexaoDB.getConexao();
-        final String SQL_DELETE_PRODUTO = "delete from produto where nome=?";
+        final String SQL_DELETE_PRODUTO = "delete from produto where id=?";
         PreparedStatement ps = conexao.prepareStatement(SQL_DELETE_PRODUTO);
-        ps.setString(1, nome);
+        ps.setInt(1, id);
         ps.execute();
     }
 
