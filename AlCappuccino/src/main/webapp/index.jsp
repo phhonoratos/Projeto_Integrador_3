@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Produto</h5>
                         <p class="card-text">Adicionar</p>
-                        <a href="cadastrarProduto.jsp" class="btn btn-primary">
+                        <a href="CadastrarProduto" class="btn btn-primary">
                             <span class="material-icons">
                                 free_breakfast
                             </span>

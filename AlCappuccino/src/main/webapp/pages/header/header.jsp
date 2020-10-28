@@ -94,7 +94,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="ListarProduto">Ver todos</a>
-                                <a class="dropdown-item" href="cadastrarProduto.jsp">Cadastrar</a>
+                                <a class="dropdown-item" href="CadastrarProduto">Cadastrar</a>
                             </div>
                         </li>
 

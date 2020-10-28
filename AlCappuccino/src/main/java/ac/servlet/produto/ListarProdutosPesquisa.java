@@ -29,7 +29,7 @@ public class ListarProdutosPesquisa extends HttpServlet {
         request.setAttribute("produto", produto);
 
         RequestDispatcher requestDispatcher
-                = getServletContext().getRequestDispatcher("/listarProdutoPesquisa.jsp");
+                = getServletContext().getRequestDispatcher("/pages/produto/listarProdutoPesquisa.jsp");
         requestDispatcher.forward(request, response);
     }
 
