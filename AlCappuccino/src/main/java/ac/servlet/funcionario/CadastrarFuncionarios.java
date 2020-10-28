@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.funcionario;
 
+import ac.dao.EstabelecimentoDAO;
+import ac.entidade.Estabelecimento;
 import ac.dao.FuncionarioDAO;
 import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -59,7 +62,7 @@ public class CadastrarFuncionarios extends HttpServlet {
         Date dataDemissao = Date.valueOf(request.getParameter("dt_dem"));
         String observacao = request.getParameter("observacao");
         
-        Funcionario funcionario = new Funcionario(nome, numero, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
+        Funcionario funcionario = new Funcionario(nome, numeroRg, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
         
         try {
             FuncionarioDAO.addFuncionario(funcionario);

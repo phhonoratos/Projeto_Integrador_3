@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.produto;
 
 import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
@@ -32,7 +32,7 @@ public class AlterarProduto extends HttpServlet {
         Produto produto = ProdutoDAO.getProduto(id);
         request.setAttribute("produto", produto);
          RequestDispatcher rd = 
-                 getServletContext().getRequestDispatcher("/alterarProduto.jsp");
+                 getServletContext().getRequestDispatcher("/pages/produto/alterarProduto.jsp");
          rd.forward(request, response);
         
     }

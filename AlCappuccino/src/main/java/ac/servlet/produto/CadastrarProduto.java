@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.produto;
 
 import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CadastrarProduto extends HttpServlet {
 
-   @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        String idS = request.getParameter("id");
@@ -38,9 +39,9 @@ public class CadastrarProduto extends HttpServlet {
         double porcentagem = Double.parseDouble(porcentagemS);
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
-        
+
         Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
-                        
+
         try {
             int linhasAfetadas = ProdutoDAO.addProduto(produto);
             response.sendRedirect("sucesso.jsp");
@@ -48,6 +49,16 @@ public class CadastrarProduto extends HttpServlet {
             Logger.getLogger(CadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);
             Utils.mostrarTelaErro(ex, request, response);
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        RequestDispatcher rd
+                = getServletContext().getRequestDispatcher("/pages/produto/cadastrarProduto.jsp");
+        rd.forward(request, response);
+
     }
 
 }

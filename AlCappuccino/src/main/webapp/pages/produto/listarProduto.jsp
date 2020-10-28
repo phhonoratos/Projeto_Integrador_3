@@ -8,22 +8,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="pages/header/header.jsp" %>
+    <%@include file="../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
 
         <script lang="text/javascript">
 
-            function mostrarModalExclusao(nome) {
-                $("#nomeProduto").html(nome);
-                $("#nomeProduto").val(nome);
+            function mostrarModalExclusao(id) {
+                $("#idProduto").html(id);
+                $("#idProduto").val(id);
                 $('#modalExclusao').modal('show');
             }
 
             function excluirProduto() {
-                var nome = $("#nomeProduto").val();
-                $.get("ExcluirProduto?nome=" + nome, function (resposta) {
+                var id = $("#idProduto").val();
+                $.get("ExcluirProduto?id=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide');
                     if (resposta === "true") {
                         console.log("Produto Excluído!");
@@ -40,8 +40,8 @@
         <h1>Lista de Produtos</h1>
         <br>
         <div id="divBusca">
-            <form method="GET" action="ListarProdutosPesquisa?nome='${"#nome"}.val()'">
-                <input type="text" name ="nome" id=nome" placeholder="Digite o nome..."/>
+            <form method="GET" action="ListarProdutosPesquisa?id='${"#id"}.val()'">
+                <input type="text" name ="id" id="id" placeholder="Digite o ID do Produto..."/>
                 <button type="submit">Buscar</button>
             </form>
         </div>
@@ -84,7 +84,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do Produto  <label id="nomeProduto"></label> ?
+                    Confirmar exclusão do Produto  <label id="idProduto"></label> ?
 
 
                 </div>

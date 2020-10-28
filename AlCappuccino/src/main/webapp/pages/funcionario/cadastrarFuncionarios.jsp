@@ -4,28 +4,28 @@
     Author     : paulo
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="pages/header/header.jsp" %>
+    <%@include file="../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
-        <title>Cadastro de Funcionários</title>
+        <link rel="stylesheet" href="../../resources/css/cadastrarFuncionarios.css">
+        <title>Cadastrar Funcionário</title>
     </head>
     <body class="container">
-        <h1>Cadastro de funcionários</h1>
+        <h1>Cadastrar Funcionário</h1>
         <br/>
         <table class="table">
-            <form method="POST" action="CadastrarFuncionarios">
+            <form method="POST" action="../../CadastrarFuncionarios">
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
-                        <input name="cpf" placeholder="Digite o CPF" style="text-align: center" required="true"></input>
-                        <button>Pesquisar</button>
-                        <br/>
-                        <br/>
                         <input name="nome" placeholder="Nome" style="text-align: center" required="true"></input>
+                        <br/>
+                        <br/>
+                        <input name="cpf" placeholder="Digite o CPF" style="text-align: center" required="true"></input>
                         <input name="rg" placeholder="RG" style="text-align: center" required="true"></input>
                         <br/>
                         <br/>
@@ -99,7 +99,14 @@
                         <p><b>Função</b></p>
                         <input name="cargo" class="form-control" placeholder="Cargo" style="text-align: center" required="true"></input>
                         <input name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"></input>
-                        <input name="filial" class="form-control" placeholder="Filial" style="text-align: center" required="true"></input>
+                        
+                        <input name="filial" class="form-control" placeholder="Filial" style="text-align: center" list="filiais">
+                        <datalist id="filiais">
+                            <c:forEach items="${filiais}" var="filiais">
+                                <option>${filial.nome}</option>
+                            </c:forEach>
+                        </datalist>
+                        
                     </div>
                 </div>
                 <br/>
@@ -122,7 +129,7 @@
                         <textarea name="observacao" class="form-control" placeholder="Observações" aria-label="With textarea" required="true"></textarea>
                     </div>
                 </div>
-            <button><a href="index.jsp">Cancelar</a></button>
+                <button><a href="../../index.jsp">Cancelar</a></button>
             <button type="submit">Cadastrar</button>
             </form>
         </table>

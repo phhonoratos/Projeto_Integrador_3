@@ -6,23 +6,23 @@
     </servlet>
     <servlet>
         <servlet-name>ListarProduto</servlet-name>
-        <servlet-class>ac.servlet.ListarProduto</servlet-class>
+        <servlet-class>ac.servlet.produto.ListarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarProduto</servlet-name>
-        <servlet-class>ac.servlet.CadastrarProduto</servlet-class>
+        <servlet-class>ac.servlet.produto.CadastrarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarProduto</servlet-name>
-        <servlet-class>ac.servlet.AlterarProduto</servlet-class>
+        <servlet-class>ac.servlet.produto.AlterarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarFuncionarios</servlet-name>
-        <servlet-class>ac.servlet.CadastrarFuncionarios</servlet-class>
+        <servlet-class>ac.servlet.funcionario.CadastrarFuncionarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirProduto</servlet-name>
-        <servlet-class>ac.servlet.ExcluirProduto</servlet-class>
+        <servlet-class>ac.servlet.produto.ExcluirProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarCliente</servlet-name>
@@ -30,15 +30,15 @@
     </servlet>
     <servlet>
         <servlet-name>ListarFuncionarios</servlet-name>
-        <servlet-class>ac.servlet.ListarFuncionarios</servlet-class>
+        <servlet-class>ac.servlet.funcionario.ListarFuncionarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarFuncionarios</servlet-name>
-        <servlet-class>ac.servlet.AlterarFuncionarios</servlet-class>
+        <servlet-class>ac.servlet.funcionario.AlterarFuncionarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirFuncionarios</servlet-name>
-        <servlet-class>ac.servlet.ExcluirFuncionarios</servlet-class>
+        <servlet-class>ac.servlet.funcionario.ExcluirFuncionarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
@@ -62,7 +62,7 @@
     </servlet>
     <servlet>
         <servlet-name>ListarProdutosPesquisa</servlet-name>
-        <servlet-class>ac.servlet.ListarProdutosPesquisa</servlet-class>
+        <servlet-class>ac.servlet.produto.ListarProdutosPesquisa</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarVenda</servlet-name>

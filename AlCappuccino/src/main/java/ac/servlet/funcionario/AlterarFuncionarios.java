@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.funcionario;
 
 import ac.dao.FuncionarioDAO;
 import ac.entidade.Funcionario;
@@ -30,7 +30,7 @@ public class AlterarFuncionarios extends HttpServlet {
         String cpf = request.getParameter("cpf");
         Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
         request.setAttribute("funcionarios", funcionario);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/alterarFuncionarios.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/funcionario/alterarFuncionarios.jsp");
         rd.forward(request, response);
     }
 

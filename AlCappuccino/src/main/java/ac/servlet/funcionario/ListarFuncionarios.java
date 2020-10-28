@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.funcionario;
 
 import ac.dao.FuncionarioDAO;
 import ac.entidade.Funcionario;
@@ -35,7 +35,7 @@ public class ListarFuncionarios extends HttpServlet {
         }
         
         RequestDispatcher requestDispatcher = 
-                getServletContext().getRequestDispatcher("/listarFuncionarios.jsp");
+                getServletContext().getRequestDispatcher("/pages/funcionario/listarFuncionarios.jsp");
         requestDispatcher.forward(request, response);
     }
 

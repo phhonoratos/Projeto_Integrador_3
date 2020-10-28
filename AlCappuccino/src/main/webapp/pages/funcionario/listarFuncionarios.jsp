@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="pages/header/header.jsp" %>
+    <%@include file="../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/listagemFuncionarios.css">
@@ -56,8 +56,8 @@
                 </c:forEach>
             </datalist>
             <button type="submit" id="pesq">Pesquisar</button>
-            <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
-        </form>
+            <button><a href="pages/funcionario/cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
+        </form>   
         <br/>
 
         <table class="table" id="tabelaFuncionarios">
@@ -138,7 +138,6 @@
         </div>
     </div>
     <br/>
-
     <button><a href="index.jsp">Voltar</a></button>
 </body>
 </html>

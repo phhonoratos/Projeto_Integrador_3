@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="pages/header/header.jsp" %>
+    <%@include file="../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
@@ -21,11 +21,10 @@
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
-                        <input name="cpf" value="${funcionarios.cpf}" readonly="true"></input>
-                        <button>Pesquisar</button>
-                        <br/>
-                        <br/>
                         <input name="nome" value="${funcionarios.nome}"></input>
+                        <br/>
+                        <br/>
+                        <input name="cpf" value="${funcionarios.cpf}" readonly="true"></input>
                         <input name="rg" value="${funcionarios.numeroRg}"></input>
                         <br/>
                         <br/>
@@ -119,7 +118,7 @@
                     <div class="col-7">
                         <br/>
                         <br/>
-                        <textarea name="observacao" class="form-control" value="${funcionarios.observacao}"></textarea>
+                        <textarea name="observacao" class="form-control">${funcionarios.observacao}</textarea>
                     </div>
                 </div>
                 <button><a href="index.jsp">Cancelar</a></button>
