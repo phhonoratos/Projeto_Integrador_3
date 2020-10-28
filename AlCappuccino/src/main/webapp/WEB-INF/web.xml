@@ -26,7 +26,7 @@
     </servlet>
     <servlet>
         <servlet-name>ListarCliente</servlet-name>
-        <servlet-class>ac.servlet.ListarCliente</servlet-class>
+        <servlet-class>ac.servlet.cliente.ListarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarFuncionarios</servlet-name>
@@ -42,15 +42,15 @@
     </servlet>
     <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
-        <servlet-class>ac.servlet.CadastrarCliente</servlet-class>
+        <servlet-class>ac.servlet.cliente.CadastrarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AtualizarCliente</servlet-name>
-        <servlet-class>ac.servlet.AtualizarCliente</servlet-class>
+        <servlet-class>ac.servlet.cliente.AtualizarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirCliente</servlet-name>
-        <servlet-class>ac.servlet.ExcluirCliente</servlet-class>
+        <servlet-class>ac.servlet.cliente.ExcluirCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarFuncionario</servlet-name>
@@ -79,6 +79,10 @@
     <servlet>
         <servlet-name>ListarFiliaisServlet</servlet-name>
         <servlet-class>ac.servlet.estabelecimento.ListarFiliaisServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>ac.servlet.Index</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IncluirFiliaisServlet</servlet-name>
@@ -159,6 +163,10 @@
     <servlet-mapping>
         <servlet-name>Relatorio</servlet-name>
         <url-pattern>/Relatorio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/Index</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
