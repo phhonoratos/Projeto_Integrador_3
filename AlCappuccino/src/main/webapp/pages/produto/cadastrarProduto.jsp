@@ -14,23 +14,49 @@
     </head>
     <body class="container">
         <br>
-        <h1 >Cadastro de Produto</h1>
-           <form method="POST" action="CadastrarProduto">
+        <div style="text-align: center">
+            <h1 >Cadastro de Produto</h1>
+        </div>
+        <br>
+        <br>
+        <form method="POST" action="CadastrarProduto">
+            <div class="row">
+                <div class="col-sm">
+                    <label for="tipo">Tipo do Produto</label>
+                    <input type="tipo" name="tipo" class="form-control" required="true"/><br/>
+                </div>
 
-            <p>Tipo do Produto</p>
-            <input name="tipo" class="form-control" required="true"/><br/>
-            <p>Nome</p>
-            <input name="nome" class="form-control" required="true"/><br/>
-            <p>Quantidade em Estoque</p>
-            <input name="qtd_estoque" class="form-control" required="true"/><br/>
-            <p>Preço de Compra do Produto</p>
-            <input name="preco" class="form-control" required="true"/><br/>
-            <p>Porcentagem de Lucro</p>
-            <input name="porcentagem" class="form-control" required="true"/><br/>
-            <p>Valor de Venda do Produto</p>
-            <input name="valor_venda" class="form-control" required="true"/><br/>
+                <div class="col-sm">
+                    <label for="nome">Nome</label>
+                    <input type="nome" name="nome" class="form-control" required="true"/><br/>
+                </div>
+
+                <div class="col-sm">
+                    <label for="qtdEstoque">Quantidade em Estoque</label>
+                    <input type="qtdEstoque" name="qtd_estoque" class="form-control" required="true"/><br/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <label for="preco">Preço de Compra do Produto</label>
+                    <input type="preco" name="preco" class="form-control" required="true"/><br/>
+                </div>
+
+                <div class="col-sm">
+                    <label>Porcentagem de Lucro</label>
+                    <input type="porcentagem" name="porcentagem" class="form-control" required="true"/><br/>
+                </div>
+
+                <div class="col-sm">
+                    <label>Valor de Venda do Produto</label>
+                    <input type="valor" name="valor_venda" class="form-control" required="true"/><br/>
+                </div>
+            </div>
             <br>
+            <div style="text-align: center">
             <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
 
         </form>
     </body>
