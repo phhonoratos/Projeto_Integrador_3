@@ -57,7 +57,7 @@
             </datalist>
             <button type="submit" id="pesq">Pesquisar</button>
             <button><a href="cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
-        </form>
+        </form>   
         <br/>
 
         <table class="table" id="tabelaFuncionarios">

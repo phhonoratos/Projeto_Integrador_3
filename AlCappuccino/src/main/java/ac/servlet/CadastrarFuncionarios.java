@@ -5,11 +5,14 @@
  */
 package ac.servlet;
 
+import ac.dao.EstabelecimentoDAO;
+import ac.entidade.Estabelecimento;
 import ac.dao.FuncionarioDAO;
 import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -73,6 +76,18 @@ public class CadastrarFuncionarios extends HttpServlet {
                     = getServletContext().getRequestDispatcher("/erro.jsp");
             requestDispatcher.forward(request, response);
         }
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
+        request.setAttribute("filiais", filiais);
+        
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/cadastrarFuncionarios.jsp");
+        rd.forward(request, response);
+        
     }
 
 }
