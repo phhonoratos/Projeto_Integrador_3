@@ -6,6 +6,7 @@
 package ac.servlet;
 
 import ac.dao.ProdutoDAO;
+import ac.entidade.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -25,9 +26,11 @@ public class ExcluirProduto extends HttpServlet {
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nome = request.getParameter("nome");
-       try {
-           ProdutoDAO.deleteProduto(nome);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Produto produto = ProdutoDAO.getProduto(id);
+      
+        try {
+           ProdutoDAO.deleteProduto(id);
            response.getWriter().print(true);
        } catch (ClassNotFoundException | SQLException ex) {
            Logger.getLogger(ExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);

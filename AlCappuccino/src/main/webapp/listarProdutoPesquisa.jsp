@@ -15,15 +15,15 @@
 
         <script>
 
-            function mostrarModalExclusao(nome) {
-                $("#nomeProduto").html(nome);
-                $("#nomeProduto").val(nome);
+            function mostrarModalExclusao(id) {
+                $("#idProduto").html(id);
+                $("#idProduto").val(id);
                 $('#modalExclusao').modal('show');
             }
 
             function excluirProduto() {
-                var nome = $("#nomeProduto").val();
-                $.get("ExcluirProduto?nome=" + nome, function (resposta) {
+                var id = $("#idProduto").val();
+                $.get("ExcluirProduto?id=" + id, function (resposta) {
                     $('#modalExclusao').modal('hide');
                     if (resposta === "true") {
                         console.log("Produto Excluído!");
@@ -60,8 +60,8 @@
                 <td>${produto.preco}</td>
                 <td>${produto.porcentagem}</td>
                 <td>${produto.valorVenda}</td>
-                <td><a href="AlterarProduto?nome=${produto.nome}">Alterar</a></td>
-                <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.nome}')">Excluir</button></td>
+                <td><a href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
             </tr>
 
 
@@ -78,7 +78,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Confirmar exclusão do Produto  <label id="nomeProduto"></label> ?
+                    Confirmar exclusão do Produto  <label id="idProduto"></label> ?
 
 
                 </div>
