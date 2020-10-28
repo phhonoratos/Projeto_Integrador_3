@@ -7,4 +7,10 @@ and open the template in the editor.
     Created on : Oct 25, 2020, 9:47:11 AM
     Author     : joao
 */
-
+h1{
+    text-align: center;
+}
+label{
+    color: black;
+    margin-right: 100px;
+}

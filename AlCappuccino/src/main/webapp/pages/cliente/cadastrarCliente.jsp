@@ -22,7 +22,7 @@
 
                 <div class="cpf">
                     <label for="">cpf</label>
-                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cpf" required="true">
+                    <input type="text" maxlength="11" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cpf" required="true">
                 </div>
 
                 <div class="nome">
@@ -37,7 +37,12 @@
                 
                 <div class="sexo">
                     <label for="">sexo</label>
-                    <input type="text" name="sexo">
+                    <input type="text" name="sexo" list="sexo">
+                    <datalist id="sexo">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outro">Outro</option>
+                    </datalist>
                 </div>
                 
                 <div class="estado_civil">
