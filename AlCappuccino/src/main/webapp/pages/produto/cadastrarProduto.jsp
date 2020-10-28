@@ -13,9 +13,10 @@
         <title>Cadastrar Produto</title>
     </head>
     <body class="container">
-        <h1>Cadastro de Produto</h1>
-        <form method="POST" action="CadastrarProduto">
-            
+        <br>
+        <h1 >Cadastro de Produto</h1>
+           <form method="POST" action="CadastrarProduto">
+
             <p>Tipo do Produto</p>
             <input name="tipo" class="form-control" required="true"/><br/>
             <p>Nome</p>
@@ -30,7 +31,7 @@
             <input name="valor_venda" class="form-control" required="true"/><br/>
             <br>
             <button type="submit" class="btn btn-primary">Enviar</button>
-                        
+
         </form>
     </body>
 </html>
