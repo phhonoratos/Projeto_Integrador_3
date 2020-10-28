@@ -35,7 +35,7 @@ public class ListarFuncionarios extends HttpServlet {
         }
         
         RequestDispatcher requestDispatcher = 
-                getServletContext().getRequestDispatcher("/listarFuncionarios.jsp");
+                getServletContext().getRequestDispatcher("/pages/funcionario/listarFuncionarios.jsp");
         requestDispatcher.forward(request, response);
     }
 

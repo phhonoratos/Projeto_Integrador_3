@@ -63,7 +63,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Funcionários</h5>
                         <p class="card-text">Adicionar</p>
-                        <a href="cadastrarFuncionarios.jsp" class="btn btn-primary">
+                        <a href="pages/funcionario/cadastrarFuncionarios.jsp" class="btn btn-primary">
                             <span class="material-icons">
                                 person_add
                             </span>

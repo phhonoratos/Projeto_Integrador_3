@@ -62,7 +62,7 @@ public class CadastrarFuncionarios extends HttpServlet {
         Date dataDemissao = Date.valueOf(request.getParameter("dt_dem"));
         String observacao = request.getParameter("observacao");
         
-        Funcionario funcionario = new Funcionario(nome, numero, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
+        Funcionario funcionario = new Funcionario(nome, numeroRg, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
         
         try {
             FuncionarioDAO.addFuncionario(funcionario);
@@ -76,18 +76,6 @@ public class CadastrarFuncionarios extends HttpServlet {
                     = getServletContext().getRequestDispatcher("/erro.jsp");
             requestDispatcher.forward(request, response);
         }
-    }
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
-        request.setAttribute("filiais", filiais);
-        
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/cadastrarFuncionarios.jsp");
-        rd.forward(request, response);
-        
     }
 
 }
