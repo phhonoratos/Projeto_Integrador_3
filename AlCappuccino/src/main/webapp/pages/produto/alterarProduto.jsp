@@ -61,9 +61,11 @@
                     <input id="valor" type="valor" name="valor_venda" value="${produto.valorVenda}" class="form-control"/><br/>
                 </div>
             </div>
+            <br>
 
-
+            <div style="text-align: center">
             <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
 
         </form>
     </body>
