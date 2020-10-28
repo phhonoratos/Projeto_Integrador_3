@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.produto;
 
 import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
 import ac.utils.Utils;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,27 +19,15 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author danilo
+ * @author danil
  */
-public class AlterarProduto extends HttpServlet {
+public class CadastrarProduto extends HttpServlet {
 
-       @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Produto produto = ProdutoDAO.getProduto(id);
-        request.setAttribute("produto", produto);
-         RequestDispatcher rd = 
-                 getServletContext().getRequestDispatcher("/alterarProduto.jsp");
-         rd.forward(request, response);
-        
-    }
-
-    @Override
+   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idS = request.getParameter("id");
-        int id = Integer.parseInt(idS);
+//        String idS = request.getParameter("id");
+//        int id = Integer.parseInt(idS);
         String tipo = request.getParameter("tipo");
         String nome = request.getParameter("nome");
         String qtd_estoqueS = request.getParameter("qtd_estoque");
@@ -53,16 +39,15 @@ public class AlterarProduto extends HttpServlet {
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
         
-        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
-        
-         
-         try {
-             int linhasAfetadas = ProdutoDAO.updateProduto(produto);
-             response.sendRedirect("sucesso.jsp");
-         } catch (ClassNotFoundException | SQLException ex) {
-             Logger.getLogger(AlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
-             Utils.mostrarTelaErro(ex, request, response);
-         } 
-        
+        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
+                        
+        try {
+            int linhasAfetadas = ProdutoDAO.addProduto(produto);
+            response.sendRedirect("sucesso.jsp");
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(CadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Utils.mostrarTelaErro(ex, request, response);
+        }
     }
+
 }
