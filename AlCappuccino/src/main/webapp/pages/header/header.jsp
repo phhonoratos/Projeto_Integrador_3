@@ -40,7 +40,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="ListarFuncionarios">Ver todos</a>
-                                <a class="dropdown-item" href="cadastrarFuncionarios.jsp">Cadastrar</a>
+                                <a class="dropdown-item" href="pages/funcionario/cadastrarFuncionarios.jsp">Cadastrar</a>
                             </div>
                         </li>
 

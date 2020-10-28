@@ -8,17 +8,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="pages/header/header.jsp" %>
+    <%@include file="../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
+        <link rel="stylesheet" href="../../resources/css/cadastrarFuncionarios.css">
         <title>Cadastrar Funcionário</title>
     </head>
     <body class="container">
         <h1>Cadastrar Funcionário</h1>
         <br/>
         <table class="table">
-            <form method="POST" action="CadastrarFuncionarios">
+            <form method="POST" action="../../CadastrarFuncionarios">
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
@@ -129,7 +129,7 @@
                         <textarea name="observacao" class="form-control" placeholder="Observações" aria-label="With textarea" required="true"></textarea>
                     </div>
                 </div>
-            <button><a href="index.jsp">Cancelar</a></button>
+                <button><a href="../../index.jsp">Cancelar</a></button>
             <button type="submit">Cadastrar</button>
             </form>
         </table>

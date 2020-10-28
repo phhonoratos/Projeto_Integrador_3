@@ -30,7 +30,7 @@ public class AlterarFuncionarios extends HttpServlet {
         String cpf = request.getParameter("cpf");
         Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
         request.setAttribute("funcionarios", funcionario);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/alterarFuncionarios.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/funcionario/alterarFuncionarios.jsp");
         rd.forward(request, response);
     }
 
