@@ -25,7 +25,7 @@
                         <input type="text" name="nome" placeholder="Nome" style="text-align: center" title="Digite o nome completo" required="true"></input>
                         <br/>
                         <br/>
-                        <input pattern="^\d{11}$" type="number" name="cpf" placeholder="CPF" style="text-align: center" title="Digite apenas números" required="true"></input>
+                        <input minlength="11" maxlength="11" type="number" name="cpf" placeholder="CPF" style="text-align: center" title="Digite apenas números" required="true"></input>
                         <input pattern="[a-zA-Z0-9]+" type="text" name="rg" placeholder="RG" style="text-align: center" title="Digite apenas números" required="true"></input>
                         <br/>
                         <br/>
@@ -45,7 +45,7 @@
                     <div class="col-4">
                         <p><b>Contatos</b></p>
                         <br/>
-                        <input type="tel" name="telefone" class="form-control" placeholder="Telefone" style="text-align: center"></input>
+                        <input minlength="10" maxlength="12" name="telefone" class="form-control" placeholder="Telefone" style="text-align: center"></input>
                         <br/>
                         <input type="email" name="email" class="form-control" placeholder="E-mail" style="text-align: center"></input>
                     </div>

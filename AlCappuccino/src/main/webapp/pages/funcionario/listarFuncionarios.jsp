@@ -68,40 +68,54 @@
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.cpf}" aria-expanded="true" aria-controls="collapseOne">
-                                    <label id="cpf1"><b>CPF</b></label>
-                                    <label id="nome1"><b>Nome</b></label>
-                                    <label id="cargo1"><b>Cargo</b></label>
-                                    <label id="filial1"><b>Filial</b></label>
-                                    <br/>
-                                    <label id="cpf">${funcionarios.cpf}</label> 
-                                    <label id="nome">${funcionarios.nome}</label>
-                                    <label id="cargo">${funcionarios.cargo}</label>
-                                    <label id="filial">${funcionarios.filial}</label>
+                                    <div class="row">
+                                        <label class="col-3" id="cpf1"><b>CPF</b></label>
+                                        <label class="col-3" id="nome1"><b>Nome</b></label>
+                                        <label class="col-3" id="cargo1"><b>Cargo</b></label>
+                                        <label class="col-3" id="filial1"><b>Filial</b></label>
+                                    </div>
+                                    <div class="row">
+                                        <br/>
+                                        <label class="col-3" id="cpf">${funcionarios.cpf}</label> 
+                                        <label class="col-3" id="nome">${funcionarios.nome}</label>
+                                        <label class="col-3" id="cargo">${funcionarios.cargo}</label>
+                                        <label class="col-3" id="filial">${funcionarios.filial}</label>
+                                    </div>
                                 </button>
                             </h2>
                         </div>
                         <div id="collapse${funcionarios.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <label id="rg"><b>RG:</b> ${funcionarios.cpf}</label>
-                                <label id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
-                                <label id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
-                                <label id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
+                                <div class="row">
+                                    <label class="col-3" id="rg"><b>RG:</b> ${funcionarios.cpf}</label>
+                                    <label class="col-3" id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
+                                    <label class="col-3" id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
+                                    <label class="col-3" id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
+                                </div>
                                 <br/>
-                                <label id="cep"><b>CEP:</b> ${funcionarios.cep}</label>
-                                <label id="logradouro"><b>Logradouro:</b> ${funcionarios.logradouro}</label>
-                                <label id="numero"><b>Número:</b> ${funcionarios.numeroEndereco}</label>
+                                <div class="row">
+                                    <label class="col-3" id="cep"><b>CEP:</b> ${funcionarios.cep}</label>
+                                    <label class="col-3" id="logradouro"><b>Logradouro:</b> ${funcionarios.logradouro}</label>
+                                    <label class="col-3" id="numero"><b>Número:</b> ${funcionarios.numeroEndereco}</label>
+                                    <label class="col-3" id="bairro"><b>Bairro:</b> ${funcionarios.bairro}</label>
+                                </div>
                                 <br/>
-                                <label id="complemento"><b>Complemento:</b> ${funcionarios.complemento}</label>
-                                <label id="bairro"><b>Bairro:</b> ${funcionarios.bairro}</label>
-                                <label id="cidade"><b>Cidade:</b> ${funcionarios.cidade}</label>
-                                <label id="uf"><b>UF:</b> ${funcionarios.unidadeFederativa}</label>
+                                <div class="row">
+                                    <label class="col-3" id="complemento"><b>Complemento:</b> ${funcionarios.complemento}</label>
+                                    <label class="col-3" id="cidade"><b>Cidade:</b> ${funcionarios.cidade}</label>
+                                    <label class="col-6" id="uf"><b>UF:</b> ${funcionarios.unidadeFederativa}</label>
+                                </div>
                                 <br/>
-                                <label id="salario"><b>Salário:</b> R$ ${funcionarios.salario}</label>
-                                <label id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dataAdmissao}</label>
-                                <label id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dataDemissao}</label>
+                                <div class="row">
+                                    <label class="col-3" id="salario"><b>Salário:</b> R$ ${funcionarios.salario}</label>
+                                    <label class="col-3" id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dataAdmissao}</label>
+                                    <label class="col-6" id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dataDemissao}</label>
+                                </div>
                                 <br/>
-                                <label id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
-                                <label id="email"><b>E-mail:</b> ${funcionarios.email}</label>
+                                <div class="row">
+                                    <label class="col-3" id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
+                                    <label class="col-3" id="email"><b>E-mail:</b> ${funcionarios.email}</label>
+                                </div>
                                 <br/>
                                 <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
                                 <br/>
