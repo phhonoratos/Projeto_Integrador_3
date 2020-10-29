@@ -28,13 +28,15 @@
                         <input pattern="[a-zA-Z0-9]+" type="text" name="rg" title="Digite apenas números" value="${funcionarios.numeroRg}" required="true"></input>
                         <br/>
                         <br/>
-                        <select name="sexo" value="${funcionarios.sexo}">
-                            <option value="masculino">Masculino</option>
-                            <option value="feminino">Feminino</option>
-                            <option value="lgbt">LGBTQI+</option>
+                        <select name="sexo">
+                            <option value="${funcionarios.sexo}">${funcionarios.sexo}</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="LGBTQI+">LGBTQI+</option>
                         </select>
                         <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}" required="true"></input>
-                        <select name="estado_civil" value="${funcionarios.estadoCivil}">
+                        <select name="estado_civil" >
+                            <option value="${funcionarios.estadoCivil}">${funcionarios.estadoCivil}</option>
                             <option value="Solteiro(a)">Solteiro(a)</option>
                             <option value="Casado(a)">Casado(a)</option>
                             <option value="Divorciado(a)">Divorciado(a)</option>
@@ -62,8 +64,8 @@
                         <input type="text" name="cidade" id="cidade" value="${funcionarios.cidade}"></input>
                         <br/>
                         <br/>
-                        <select name="uf" id="uf" value="${funcionarios.unidadeFederativa}">
-                            <option value="UF">UF</option>
+                        <select name="uf" id="uf">
+                            <option value="${funcionarios.unidadeFederativa}">${funcionarios.unidadeFederativa}</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
                             <option value="AP">AP</option>
