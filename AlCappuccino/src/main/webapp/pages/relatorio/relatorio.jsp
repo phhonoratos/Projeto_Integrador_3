@@ -21,7 +21,7 @@
         
         <br>
         
-        <form method="GET" action="Relatorio?chamada=listarVendas">
+        <!--<form method="GET" action="Relatorio?chamada=listarVendas">-->
             <input id="radioMatriz" type="radio" name="opcao" value="matriz">
             <label for="radioMatriz">Matriz</label>
 
@@ -45,8 +45,8 @@
             <input id="dateInicial" class="form-control-sm" type="date" name="inicio">
             <input id="dateDataFinal" class="form-control-sm" type="date" name="final">
 
-            <button type="submit" class="btn btn-primary" onclick="Relatorio?chamada=listarVendas">Pesquisar</button>
-        </form>
+            <button class="btn btn-primary" onclick="listarVendas()">Pesquisar</button>
+        <!--</form>-->
         
         <br>
         
@@ -147,6 +147,7 @@
                 <%--</c:if>--%>
             </tbody>
         </table>-->
-        </div>
+        <!--</div>-->
+        <!--<button onclick="teste()">teste</button>-->
     </body>
 </html>

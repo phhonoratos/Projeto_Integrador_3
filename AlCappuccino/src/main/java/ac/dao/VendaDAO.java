@@ -132,12 +132,12 @@ public class VendaDAO {
                                                + "f.logradouro, f.numero, f.complemento, f.uf, f.bairro, f.cidade, "
                                                + "f.dt_nascimento, f.rg, f.cargo, f.salario, f.filial, f.dt_adm, "
                                                + "f.dt_dem, f.observacao, "
-                                               + "c.cpf, c.nome, c.email, c.telefone, c.estado_civil, c.sexo, c.cep, "
-                                               + "c.logradouro, c.numero, c.complemento, c.uf, c.bairro, c.cidade, "
-                                               + "c.data_nascimento "
+                                               + "c.cpf as c_cpf, c.nome as c_nome, c.email as c_email, c.telefone as c_telefone, c.estado_civil as c_estado_civil, c.sexo as c_sexo, c.cep as c_cep, "
+                                               + "c.logradouro as c_logradouro, c.numero as c_numero, c.complemento as c_complemento, c.uf as c_uf, c.bairro as c_bairro, c.cidade as c_cidade, "
+                                               + "c.data_nascimento as c_data_nascimento "
                                                + "from venda as v "
                                                + "join funcionarios as f on f.cpf = v.cpf_funcionario "
-                                               + "join cliente as c on c.cpf = v.cpf_cliente"
+                                               + "join cliente as c on c.cpf = v.cpf_cliente "
                                                + "where data between ? and ?";
 
         PreparedStatement ps = conexao.prepareStatement(SQL_SELECT_VENDA_POR_DATA);
@@ -156,44 +156,44 @@ public class VendaDAO {
             venda.setTipoPagamento(rs.getString("tipo_pagamento"));
             
             Funcionario funcionario = new Funcionario();
-            funcionario.setCpf(rs.getString("f.cpf"));
-            funcionario.setNome(rs.getString("f.nome"));
-            funcionario.setTelefone(rs.getString("f.telefone"));
-            funcionario.setEstadoCivil(rs.getString("f.estado_civil"));
-            funcionario.setSexo(rs.getString("f.sexo"));
-            funcionario.setCep(rs.getString("f.cep"));
-            funcionario.setLogradouro(rs.getString("f.logradouro"));
-            funcionario.setNumeroEndereco(rs.getString("f.numero"));
-            funcionario.setComplemento(rs.getString("f.complemento"));
-            funcionario.setUnidadeFederativa(rs.getString("f.uf"));
-            funcionario.setBairro(rs.getString("f.bairro"));
-            funcionario.setCidade(rs.getString("f.cidade"));
-            funcionario.setDataNascimento(rs.getDate("f.dt_nascimento"));
-            funcionario.setNumeroRg(rs.getString("f.rg"));
-            funcionario.setCargo(rs.getString("f.cargo"));
-            funcionario.setSalario(rs.getDouble("f.salario"));
-            funcionario.setFilial(rs.getString("f.filial"));
-            funcionario.setDataAdmissao(rs.getDate("f.dt_adm"));
-            funcionario.setDataDemissao(rs.getDate("f.dt_dem"));
-            funcionario.setObservacao(rs.getString("f.observacao"));
+            funcionario.setCpf(rs.getString("cpf"));
+            funcionario.setNome(rs.getString("nome"));
+            funcionario.setTelefone(rs.getString("telefone"));
+            funcionario.setEstadoCivil(rs.getString("estado_civil"));
+            funcionario.setSexo(rs.getString("sexo"));
+            funcionario.setCep(rs.getString("cep"));
+            funcionario.setLogradouro(rs.getString("logradouro"));
+            funcionario.setNumeroEndereco(rs.getString("numero"));
+            funcionario.setComplemento(rs.getString("complemento"));
+            funcionario.setUnidadeFederativa(rs.getString("uf"));
+            funcionario.setBairro(rs.getString("bairro"));
+            funcionario.setCidade(rs.getString("cidade"));
+            funcionario.setDataNascimento(rs.getDate("dt_nascimento"));
+            funcionario.setNumeroRg(rs.getString("rg"));
+            funcionario.setCargo(rs.getString("cargo"));
+            funcionario.setSalario(rs.getDouble("salario"));
+            funcionario.setFilial(rs.getString("filial"));
+            funcionario.setDataAdmissao(rs.getDate("dt_adm"));
+            funcionario.setDataDemissao(rs.getDate("dt_dem"));
+            funcionario.setObservacao(rs.getString("observacao"));
             
             venda.setFuncionario(funcionario);
             
             Cliente cliente = new Cliente();
-            cliente.setCpf(rs.getString("c.cpf"));
-            cliente.setNome(rs.getString("c.nome"));
-            cliente.setEmail(rs.getString("c.email"));
-            cliente.setTelefone(rs.getString("c.telefone"));
-            cliente.setEstadoCivil(rs.getString("c.estado_civil"));
-            cliente.setSexo(rs.getString("c.sexo"));
-            cliente.setCep(rs.getString("c.cep"));
-            cliente.setLogradouro(rs.getString("c.logradouro"));
-            cliente.setNumeroEndereco(rs.getString("c.numero"));
-            cliente.setComplemento(rs.getString("c.complemento"));
-            cliente.setUnidadeFederativa(rs.getString("c.uf"));
-            cliente.setBairro(rs.getString("c.bairro"));
-            cliente.setCidade(rs.getString("c.cidade"));
-            cliente.setDataNascimento(rs.getDate("c.data_nascimento"));
+            cliente.setCpf(rs.getString("c_cpf"));
+            cliente.setNome(rs.getString("c_nome"));
+            cliente.setEmail(rs.getString("c_email"));
+            cliente.setTelefone(rs.getString("c_telefone"));
+            cliente.setEstadoCivil(rs.getString("c_estado_civil"));
+            cliente.setSexo(rs.getString("c_sexo"));
+            cliente.setCep(rs.getString("c_cep"));
+            cliente.setLogradouro(rs.getString("c_logradouro"));
+            cliente.setNumeroEndereco(rs.getString("c_numero"));
+            cliente.setComplemento(rs.getString("c_complemento"));
+            cliente.setUnidadeFederativa(rs.getString("c_uf"));
+            cliente.setBairro(rs.getString("c_bairro"));
+            cliente.setCidade(rs.getString("c_cidade"));
+            cliente.setDataNascimento(rs.getDate("c_data_nascimento"));
             
             venda.setCliente(cliente);
 

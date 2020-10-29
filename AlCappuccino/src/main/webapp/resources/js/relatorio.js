@@ -1,13 +1,11 @@
-function teste() {
-    alert('qualquer coisa');
-//    var object = document.createElement("button");
-//    document.getElementById('teste').appendChild(object);
+function listarVendas() {
+    var url = "Relatorio?chamada=listarVendas";
+    $.get(url, function (data) {
+        console.log(data);
+        location.reload();
+    });
 }
 
-function listarDetalhes(vendas) {
-    var object = JSON.parse(vendas);
-    console.log(object);
-//    $("#excluirCliente").modal("show");
-//    $("#nome").html(nome);
-//    $("#cpf").html(cpf);
+function teste(nome) {
+    console.log(nome);
 }
