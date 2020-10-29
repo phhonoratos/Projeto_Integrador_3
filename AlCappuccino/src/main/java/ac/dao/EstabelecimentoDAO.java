@@ -18,9 +18,10 @@ import java.util.logging.Logger;
  */
 public class EstabelecimentoDAO {
 
-    private static final String SQL_INSERT_ESTABELECIMENTO = "INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bairro, email, cidade, telefone, numero_endereco, complemento, cep, matriz) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_SELECT_FILIAIS = "SELECT * FROM estabelecimento";
     private static final String SQL_SELECT_MATRIZ = "SELECT * FROM estabelecimento WHERE matriz = 1";
+    private static final String SQL_SELECT_ESTABELECIMENTO_PELO_ID = "SELECT * FROM estabelecimento WHERE id = ?";
+    private static final String SQL_INSERT_ESTABELECIMENTO = "INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bairro, email, cidade, telefone, numero_endereco, complemento, cep, matriz) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_DELETE_ESTABELECIMENTO = "DELETE FROM estabelecimento WHERE id = ?";
     private static final String SQL_UPDATE_ESTABELECIMENTO = "UPDATE estabelecimento set nome = ?, cnpj = ?, inscricao_estadual = ?, email = ?, telefone = ?, cep = ?, logradouro = ?, numero_endereco = ?, complemento = ?, uf = ?, bairro = ?, cidade = ? WHERE id = ?";
 
@@ -43,7 +44,7 @@ public class EstabelecimentoDAO {
             SQL.setString(11, estabelecimento.getComplemento());
             SQL.setString(12, estabelecimento.getCep());
             SQL.setBoolean(13, estabelecimento.isMatriz());
-            //SQL.setString(11, estabelecimento.getGerenteRegional().getNome());
+            //SQL.setString(14, estabelecimento.getGerenteRegional().getNome());
 
             cadastrou = SQL.executeUpdate() > 0;
 
@@ -78,9 +79,7 @@ public class EstabelecimentoDAO {
                 String bairro = result.getString("bairro");
                 String cidade = result.getString("cidade");
 
-                Funcionario gerenteRegional = new Funcionario();
-                
-
+                //Funcionario gerenteRegional = new Funcionario();
                 Estabelecimento estabelecimento = new Estabelecimento(matriz, null, nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
                 estabelecimento.setId(id);
 
@@ -117,10 +116,9 @@ public class EstabelecimentoDAO {
                 String bairro = result.getString("bairro");
                 String cidade = result.getString("cidade");
 
-                Funcionario gerenteRegional = new Funcionario();
-                //gerenteRegional.setId(Integer.parseInt(fkGerenteRegional));
-
-                Estabelecimento estabelecimento = new Estabelecimento(matriz, gerenteRegional, nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
+                /*Funcionario gerenteRegional = new Funcionario();
+                //gerenteRegional.setId(Integer.parseInt(fkGerenteRegional)); */
+                Estabelecimento estabelecimento = new Estabelecimento(matriz, null, nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
                 estabelecimento.setId(id);
 
                 return estabelecimento;
@@ -154,7 +152,7 @@ public class EstabelecimentoDAO {
         boolean alterou = false;
 
         try (Connection conexao = ConexaoDB.getConexao();
-                PreparedStatement SQL = conexao.prepareStatement(SQL_DELETE_ESTABELECIMENTO)) {
+                PreparedStatement SQL = conexao.prepareStatement(SQL_UPDATE_ESTABELECIMENTO)) {
 
             SQL.setString(1, estabelecimento.getNome());
             SQL.setString(2, estabelecimento.getCnpj());
@@ -179,4 +177,46 @@ public class EstabelecimentoDAO {
         return alterou;
     }
 
+    public static Estabelecimento buscarEstabelecimentoPeloId(int idEstabelecimento) {
+        Estabelecimento estabelecimento;
+
+        try (Connection conexao = ConexaoDB.getConexao();
+                PreparedStatement SQL = conexao.prepareStatement(SQL_SELECT_ESTABELECIMENTO_PELO_ID)) {
+
+            SQL.setInt(1, idEstabelecimento);
+
+            ResultSet result = SQL.executeQuery();
+
+            if (result.next()) {
+                int id = result.getInt("id");
+                boolean matriz = result.getBoolean("matriz");
+                String nome = result.getString("nome");
+                String cnpj = result.getString("cnpj");
+                String inscricaoEstadual = result.getString("inscricao_estadual");
+                String email = result.getString("email");
+                String telefone = result.getString("telefone");
+                String cep = result.getString("cep");
+                String logradouro = result.getString("logradouro");
+                String numeroEndereco = result.getString("numero_endereco");
+                String complemento = result.getString("complemento");
+                String unidadeFederativa = result.getString("uf");
+                String bairro = result.getString("bairro");
+                String cidade = result.getString("cidade");
+
+                //Funcionario gerenteRegional = new Funcionario();
+                estabelecimento = new Estabelecimento(matriz, null, nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
+                estabelecimento.setId(id);
+
+                if (result != null || !result.isClosed()) {
+                    result.close();
+                }
+                return estabelecimento;
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(EstabelecimentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
 }
