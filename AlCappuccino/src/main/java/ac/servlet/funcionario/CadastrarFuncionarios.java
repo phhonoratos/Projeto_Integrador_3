@@ -12,6 +12,8 @@ import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,7 +61,14 @@ public class CadastrarFuncionarios extends HttpServlet {
         double salario = Double.parseDouble(salarioStr);
         String filial = request.getParameter("filial");
         Date dataAdmissao = Date.valueOf(request.getParameter("dt_adm"));
-        Date dataDemissao = Date.valueOf(request.getParameter("dt_dem"));
+        String dt_dem = request.getParameter("dt_dem");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        Date dataDemissao = null;
+        try {
+            dataDemissao = (Date) formato.parse(dt_dem);
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastrarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String observacao = request.getParameter("observacao");
         
         Funcionario funcionario = new Funcionario(nome, numeroRg, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
