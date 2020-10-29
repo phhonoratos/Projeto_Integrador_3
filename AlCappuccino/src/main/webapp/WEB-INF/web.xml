@@ -84,10 +84,6 @@
         <servlet-name>Index</servlet-name>
         <servlet-class>ac.servlet.Index</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>RelatorioData</servlet-name>
-        <servlet-class>ac.servlet.relatorio.RelatorioData</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>IncluirFiliaisServlet</servlet-name>
         <url-pattern>/IncluirFiliais</url-pattern>
@@ -171,10 +167,6 @@
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RelatorioData</servlet-name>
-        <url-pattern>/RelatorioData</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
