@@ -10,7 +10,7 @@ function enviarExclusao(id) {
         complete: function (xhr, textStatus) {
             console.log(xhr.status);
 
-            xhr.status == '200' ? modalSuccess() : modalFailed();
+            xhr.status === 200 ? modalSuccess() : modalFailed();
         }
     });
 }
@@ -42,7 +42,7 @@ $("#btn-confirm-update-ajax-form").on('click', function (e) {
         },
         complete: function (xhr, textStatus) {
             console.log(xhr.status);
-            xhr.status === '200' ? modalSuccess() : modalFailed();
+            xhr.status === 200 ? modalSuccess() : modalFailed();
         }
     });
     e.preventDefault();
