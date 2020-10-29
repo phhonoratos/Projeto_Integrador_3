@@ -66,12 +66,12 @@
                                 <label class="font-weight-bolder">E-mail: </label><span> ${estabelecimento.email}</span> </br>
                                 <div class="button-group mt-5 p-3">
                                     <button class="btn btn-primary btn-block" 
-                                            onclick="mostrarModal('alteracao');">
+                                            onclick="mostrarModal('alteracao', ${estabelecimento.id});">
                                         Alterar Filial
                                     </button> 
                                     </br>
                                     <button class="btn btn-danger mt-1 btn-block" id="deleteEstabelecimento"
-                                            onclick="mostrarModal('exclusao');">
+                                            onclick="mostrarModal('exclusao', ${estabelecimento.id});">
                                         Realizar exclusão
                                     </button>
                                 </div>
@@ -81,7 +81,7 @@
                 </div>
 
                 <!-- MODAL DE EXCLUSÃO - POP-UP -->
-                <div class="modal fade" id="modalExclusao" tabindex="-1" role="dialog">
+                <div class="modal fade" id="modalExclusao${estabelecimento.id}" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -117,7 +117,7 @@
                 </div>
 
                 <!-- MODAL DE ALTERAÇÃO - POP-UP -->
-                <div class="modal fade" id="modalAlteracao" tabindex="-1" role="dialog">
+                <div class="modal fade" id="modalAlteracao${estabelecimento.id}" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -255,8 +255,8 @@
             $('.modal-footer').show();
         });
 
-        function mostrarModal(tipo) {
-            let modal = tipo === 'exclusao' ? '#modalExclusao' : '#modalAlteracao';
+        function mostrarModal(tipo, id) {
+            let modal = tipo === 'exclusao' ? '#modalExclusao'+id : '#modalAlteracao'+id;
             $(modal).modal('show');
             $('.modal-footer').show();
         }
