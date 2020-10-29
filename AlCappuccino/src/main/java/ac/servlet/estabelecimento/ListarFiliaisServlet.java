@@ -6,12 +6,10 @@
 package ac.servlet.estabelecimento;
 
 import ac.dao.EstabelecimentoDAO;
-import java.io.IOException;
 import ac.entidade.Estabelecimento;
-import java.util.List;
+import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,33 +17,21 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author Paulo Costa
-@WebServlet(
-        name = "ListarFiliais",
-        description = "Acessa a página de controle de Filiais",
-        urlPatterns = "/ListarFiliais"
-)
+ * @WebServlet( name = "ListarFiliais", description = "Acessa a página de controle de Filiais", urlPatterns = "/ListarFiliais" )
  */
-
-// TODO: Alteração, exclusão
 public class ListarFiliaisServlet extends HttpServlet {
+
+    private static final String LISTAR_FILIAL = "/pages/estabelecimento/listarFilial.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        List<Estabelecimento> listaEstabelecimento = EstabelecimentoDAO.obterFiliais();
-
-        request.setAttribute("listaEstabelecimento", listaEstabelecimento);
+        request.setAttribute("listaEstabelecimento", EstabelecimentoDAO.obterFiliais());
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/pages/estabelecimento/listarFilial.jsp");
+                .getRequestDispatcher(LISTAR_FILIAL);
 
         requestDispatcher.forward(request, response);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
 }

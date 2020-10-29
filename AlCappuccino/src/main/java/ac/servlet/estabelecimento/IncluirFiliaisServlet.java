@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ac.servlet.estabelecimento;
 
 import ac.dao.EstabelecimentoDAO;
@@ -18,20 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author Paulo Costa
-@WebServlet(
-        name = "IncluirFiliais",
-        description = "Acessa a página de cadastro de Filiais",
-        urlPatterns = "/IncluirFilial"
-)
+ * @WebServlet( name = "IncluirFiliais", description = "Acessa a página de cadastro de Filiais", urlPatterns = "/IncluirFilial" )
  */
 public class IncluirFiliaisServlet extends HttpServlet {
+
+    private static final String INSERCAO_FILIAL = "/pages/estabelecimento/incluirFilial.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/pages/estabelecimento/incluirFilial.jsp");
+                .getRequestDispatcher(INSERCAO_FILIAL);
 
         requestDispatcher.forward(request, response);
     }
