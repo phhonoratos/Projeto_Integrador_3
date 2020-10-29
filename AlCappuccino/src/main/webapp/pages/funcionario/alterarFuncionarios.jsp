@@ -21,11 +21,11 @@
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
-                        <input name="nome" value="${funcionarios.nome}"></input>
+                        <input type="text" title="Digite o nome completo" name="nome" value="${funcionarios.nome}"></input>
                         <br/>
                         <br/>
-                        <input name="cpf" value="${funcionarios.cpf}" readonly="true"></input>
-                        <input name="rg" value="${funcionarios.numeroRg}"></input>
+                        <input pattern="^\d{11}$" type="number" name="cpf" title="Digite apenas números" value="${funcionarios.cpf}" readonly="true"></input>
+                        <input pattern="[a-zA-Z0-9]+" type="text" name="rg" title="Digite apenas números" value="${funcionarios.numeroRg}" required="true"></input>
                         <br/>
                         <br/>
                         <select name="sexo" value="${funcionarios.sexo}">
@@ -33,7 +33,7 @@
                             <option value="feminino">Feminino</option>
                             <option value="lgbt">LGBTQI+</option>
                         </select>
-                        <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}"></input>
+                        <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}" required="true"></input>
                         <select name="estado_civil" value="${funcionarios.estadoCivil}">
                             <option value="Solteiro(a)">Solteiro(a)</option>
                             <option value="Casado(a)">Casado(a)</option>
@@ -53,13 +53,13 @@
                 <div class="row">
                     <div class="col-8">
                         <p><b>Endereço</b></p>
-                        <input name="cep" id="cep" value="${funcionarios.cep}"></input>
-                        <input name="logradouro" id="rua" value="${funcionarios.logradouro}"></input>
+                        <input type="number" name="cep" id="cep" value="${funcionarios.cep}"></input>
+                        <input type="text" name="logradouro" id="rua" value="${funcionarios.logradouro}"></input>
                         <br/>
                         <br/>
-                        <input name="numero" id="numero" value="${funcionarios.numeroEndereco}"></input>
-                        <input name="bairro" id="bairro" value="${funcionarios.bairro}"></input>
-                        <input name="cidade" id="cidade" value="${funcionarios.cidade}"></input>
+                        <input type="number" name="numero" id="numero" value="${funcionarios.numeroEndereco}"></input>
+                        <input type="text" name="bairro" id="bairro" value="${funcionarios.bairro}"></input>
+                        <input type="text" name="cidade" id="cidade" value="${funcionarios.cidade}"></input>
                         <br/>
                         <br/>
                         <select name="uf" id="uf" value="${funcionarios.unidadeFederativa}">
@@ -92,12 +92,12 @@
                             <option value="SE">SE</option>
                             <option value="TO">TO</option>
                         </select>
-                        <input name="complemento" value="${funcionarios.complemento}"></input>
+                        <input type="text" name="complemento" value="${funcionarios.complemento}"></input>
                     </div>
                     <div class="col-4">
                         <p><b>Função</b></p>
-                        <input name="cargo" class="form-control" value="${funcionarios.cargo}"></input>
-                        <input name="salario" class="form-control" value="${funcionarios.salario}"></input>
+                        <input type="text" name="cargo" class="form-control" value="${funcionarios.cargo}"></input>
+                        <input type="number" name="salario" class="form-control" value="${funcionarios.salario}"></input>
                         <input name="filial" class="form-control" value="${funcionarios.filial}"></input>
                     </div>
                 </div>
