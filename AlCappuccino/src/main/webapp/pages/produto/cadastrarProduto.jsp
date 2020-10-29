@@ -10,6 +10,7 @@
     <%@include file="../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="./resources/js/produto.js"></script>
         <title>Cadastrar Produto</title>
     </head>
     <body class="container">
@@ -40,17 +41,17 @@
             <div class="row">
                 <div class="col-sm">
                     <label for="preco">Preço de Compra do Produto</label>
-                    <input type="preco" name="preco" class="form-control" required="true"/><br/>
+                    <input id="preco" type="preco" name="preco" class="form-control" required="true"/><br/>
                 </div>
 
                 <div class="col-sm">
                     <label>Porcentagem de Lucro</label>
-                    <input type="porcentagem" name="porcentagem" class="form-control" required="true"/><br/>
+                    <input id="porcentagem" type="porcentagem" name="porcentagem" class="form-control" required="true" /><br/>
                 </div>
 
                 <div class="col-sm">
                     <label>Valor de Venda do Produto</label>
-                    <input type="valor" name="valor_venda" class="form-control" required="true"/><br/>
+                    <input id="valorTotal" type="valor" name="valor_venda" class="form-control" required="true" onfocus="calcularVendaProduto()"/><br/>
                 </div>
             </div>
             <br>
