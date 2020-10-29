@@ -10,6 +10,8 @@ import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -57,7 +59,19 @@ public class AlterarFuncionarios extends HttpServlet {
         double salario = Double.parseDouble(salarioStr);
         String filial = request.getParameter("filial");
         Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
-        Date dt_dem = Date.valueOf(request.getParameter("dt_dem"));
+        String data_dem = request.getParameter("dt_dem");
+        Date dt_dem = null;
+        if(data_dem == "0000-00-00" || data_dem == null) {
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                dt_dem = (Date) formato.parse(data_dem);
+            } catch (ParseException ex) {
+                Logger.getLogger(AlterarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            dt_dem = Date.valueOf(request.getParameter("dt_dem"));
+        }
+        
         String observacao = request.getParameter("observacao");
         
         Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
