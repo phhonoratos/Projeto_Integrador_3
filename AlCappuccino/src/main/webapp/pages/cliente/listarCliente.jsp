@@ -47,7 +47,7 @@
                     </c:forEach>
                 </datalist>
                 <button type="submit" id="pesq">Pesquisar</button>
-                <a class="btn btn-primary" href="cadastrarCliente.jsp" role="button">Cadastrar Cliente</a>
+                <a class="btn btn-primary" href="CadastrarCliente" role="button">Cadastrar Cliente</a>
             </form>
             <br>
             <span>Total de clientes cadastrados: ${listaClientes.size()}</span>
