@@ -99,7 +99,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Relatorio" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="Relatorio?chamada=total" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                                 <span class="material-icons">
                                     data_usage
                                 </span>
