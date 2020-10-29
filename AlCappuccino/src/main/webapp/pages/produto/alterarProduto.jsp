@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/listarProduto.css">
+         <script src="./resources/js/produto.js"></script>
         <title>Alterar Produto</title>
     </head>
     <body class="container">
@@ -58,7 +59,7 @@
             <div class="row">    
                 <div class="col-sm">
                     <label for="valor">Valor de Venda do Produto</label>
-                    <input id="valor" type="valor" name="valor_venda" value="${produto.valorVenda}" class="form-control"/><br/>
+                    <input id="valorTotal" type="valor" name="valor_venda" value="${produto.valorVenda}" class="form-control" onfocus="calcularVendaProduto()"/><br/>
                 </div>
             </div>
             <br>
