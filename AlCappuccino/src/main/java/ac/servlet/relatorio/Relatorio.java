@@ -93,7 +93,7 @@ public class Relatorio extends HttpServlet {
             List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(dataInicial, dataFinal, nomeCliente, nomeProduto);
             List<Venda> vendas = new ArrayList<>();
 
-            if (detalhes != null) {
+            if (detalhes.size() > 0) {
                 int idVenda = detalhes.get(0).getVenda().getId();
                 vendas.add(detalhes.get(0).getVenda());
 
