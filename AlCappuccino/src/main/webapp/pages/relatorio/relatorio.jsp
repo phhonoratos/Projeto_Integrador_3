@@ -44,7 +44,13 @@
             
             <input id="dateInicial" class="form-control-sm" type="date" name="inicio">
             <input id="dateDataFinal" class="form-control-sm" type="date" name="final">
-
+            <input id="textCliente" class="form-control-sm" type="text" name="cliente" list="clientes">
+            <datalist id="clientes">
+                <c:forEach items="${filiais}" var="filial">
+                    <option>${filial.nome}</option>
+                </c:forEach>
+            </datalist>
+            
             <button class="btn btn-primary" onclick="listarVendas()">Pesquisar</button>
         <!--</form>-->
         
