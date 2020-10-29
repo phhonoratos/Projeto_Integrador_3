@@ -47,13 +47,13 @@
             <div class="row">
                 <input class="col-3" id="dateInicial" class="form-control-sm" type="date" name="inicio">
                 <input class="col-3" id="dateDataFinal" class="form-control-sm" type="date" name="final">
-                <input class="col-3" id="textCliente" class="form-control-sm" type="text" name="cliente" list="clientes">
+                <input class="col-3" id="textCliente" class="form-control-sm" type="text" name="cliente" list="clientes" placeholder="Nome do cliente">
                 <datalist id="clientes">
                     <c:forEach items="${clientes}" var="cliente">
                         <option>${cliente.nome}</option>
                     </c:forEach>
                 </datalist>
-                <input class="col-3" id="textProduto" class="form-control-sm" type="text" name="produto" list="produtos">
+                <input class="col-3" id="textProduto" class="form-control-sm" type="text" name="produto" list="produtos" placeholder="Nome do produto">
                 <datalist id="produtos">
                     <c:forEach items="${produtos}" var="produto">
                         <option>${produto.nome}</option>
