@@ -57,20 +57,7 @@ public class Relatorio extends HttpServlet {
             List<Produto> produtos = ProdutoDAO.getProduto();
 
             List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda();
-            List<Venda> vendas = new ArrayList<>();
-
-            if (detalhes != null) {
-                int idVenda = detalhes.get(0).getVenda().getId();
-                vendas.add(detalhes.get(0).getVenda());
-
-                for (DetalheVenda detalhe : detalhes) {
-                    Venda venda = detalhe.getVenda();
-                    if (venda.getId() != idVenda) {
-                        vendas.add(venda);
-                        idVenda = venda.getId();
-                    }
-                }
-            }
+            List<Venda> vendas = VendaDAO.select();
             float total = totalVendas(vendas);
 
             request.setAttribute("filiais", filiais);
@@ -84,14 +71,14 @@ public class Relatorio extends HttpServlet {
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 
     private void listarVendas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String dataInicialStr = request.getParameter("inicio") == null ? "1000-01-01" : request.getParameter("inicio");
-        String dataFinalStr = request.getParameter("final") == null ? "3000-01-01" : request.getParameter("final");
+        String dataInicialStr = request.getParameter("inicio").equals("") ? "1000-01-01" : request.getParameter("inicio");
+        String dataFinalStr = request.getParameter("final").equals("") ? "3000-01-01" : request.getParameter("final");
         String nomeCliente = request.getParameter("cliente");
         String nomeProduto = request.getParameter("produto");
 
