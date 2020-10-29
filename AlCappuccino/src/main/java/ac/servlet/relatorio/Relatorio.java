@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ac.servlet;
+package ac.servlet.relatorio;
 
 import ac.dao.DetalheVendaDAO;
 import ac.dao.EstabelecimentoDAO;
