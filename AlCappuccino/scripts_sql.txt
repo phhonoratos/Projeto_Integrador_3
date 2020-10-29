@@ -18,20 +18,20 @@ CREATE TABLE CLIENTE(
 );
 
 INSERT INTO CLIENTE VALUES(
-    '36784874853', 
-    'João', 
-    'joao@gmail.com',
-    '11956778448',
-    'solteiro',
-    'masculino', 
-    '04743065', 
-    'Rua X', 
-    '154',
-    'Casa de esquina',
-    'sp', 
-    'jardim x', 
-    'sao paulo',
-    '1994-03-16'
+    '11111111111', 
+    'Cliente Default', 
+    'cliente1@gmail.com',
+    '11111111111',
+    'Solteiro(a)',
+    'Masculino', 
+    '04696000', 
+    'Avenida Engenheiro Eusebio Stevaux', 
+    'sem',
+    'sem',
+    'SP', 
+    'Jurubatuba', 
+    'Sao Paulo',
+    '2020-10-28'
 );
 
 CREATE TABLE FUNCIONARIOS(
