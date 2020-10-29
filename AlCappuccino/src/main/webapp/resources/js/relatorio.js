@@ -7,5 +7,5 @@ function listarVendas() {
 }
 
 function teste(nome) {
-    console.log(nome);
+    console.log();
 }
