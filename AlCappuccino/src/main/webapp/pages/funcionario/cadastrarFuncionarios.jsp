@@ -22,11 +22,11 @@
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
-                        <input name="nome" placeholder="Nome" style="text-align: center" required="true"></input>
+                        <input type="text" name="nome" placeholder="Nome" style="text-align: center" title="Digite o nome completo" required="true"></input>
                         <br/>
                         <br/>
-                        <input name="cpf" placeholder="Digite o CPF" style="text-align: center" required="true"></input>
-                        <input name="rg" placeholder="RG" style="text-align: center" required="true"></input>
+                        <input pattern="^\d{11}$" type="number" name="cpf" placeholder="CPF" style="text-align: center" title="Digite apenas números" required="true"></input>
+                        <input pattern="[a-zA-Z0-9]+" type="text" name="rg" placeholder="RG" style="text-align: center" title="Digite apenas números" required="true"></input>
                         <br/>
                         <br/>
                         <select name="sexo">
@@ -45,22 +45,22 @@
                     <div class="col-4">
                         <p><b>Contatos</b></p>
                         <br/>
-                        <input name="telefone" class="form-control" placeholder="Telefone" style="text-align: center" required="true"></input>
+                        <input type="tel" name="telefone" class="form-control" placeholder="Telefone" style="text-align: center"></input>
                         <br/>
-                        <input name="email" class="form-control" placeholder="Digite o email" style="text-align: center" required="true"></input>
+                        <input type="email" name="email" class="form-control" placeholder="E-mail" style="text-align: center"></input>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-8">
                         <p><b>Endereço</b></p>
-                        <input name="cep" id="cep" placeholder="CEP" style="text-align: center" required="true"></input>
-                        <input name="logradouro" id="rua" placeholder="Logradouro" style="text-align: center" required="true"></input>
+                        <input type="number" name="cep" id="cep" placeholder="CEP" style="text-align: center" required="true"></input>
+                        <input type="text" name="logradouro" id="rua" placeholder="Logradouro" style="text-align: center" required="true"></input>
                         <br/>
                         <br/>
-                        <input name="numero" id="numero" placeholder="Número" style="text-align: center" required="true"></input>
-                        <input name="bairro" id="bairro" placeholder="Bairro" style="text-align: center" required="true"></input>
-                        <input name="cidade" id="cidade" placeholder="cidade" style="text-align: center" required="true"></input>
+                        <input type="number" name="numero" id="numero" placeholder="Número" style="text-align: center" required="true"></input>
+                        <input type="text" name="bairro" id="bairro" placeholder="Bairro" style="text-align: center" required="true"></input>
+                        <input type="text" name="cidade" id="cidade" placeholder="cidade" style="text-align: center" required="true"></input>
                         <br/>
                         <br/>
                         <select name="uf" id="uf">
@@ -93,20 +93,13 @@
                             <option value="SE">SE</option>
                             <option value="TO">TO</option>
                         </select>
-                        <input name="complemento" id="complemento" placeholder="Complemento" style="text-align: center"></input>
+                        <input type="text" name="complemento" id="complemento" placeholder="Complemento" style="text-align: center"></input>
                     </div>
                     <div class="col-4">
                         <p><b>Função</b></p>
-                        <input name="cargo" class="form-control" placeholder="Cargo" style="text-align: center" required="true"></input>
-                        <input name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"></input>
-                        
-                        <input name="filial" class="form-control" placeholder="Filial" style="text-align: center" list="filiais">
-                        <datalist id="filiais">
-                            <c:forEach items="${filiais}" var="filiais">
-                                <option>${filial.nome}</option>
-                            </c:forEach>
-                        </datalist>
-                        
+                        <input type="text" name="cargo" class="form-control" placeholder="Cargo" style="text-align: center" required="true"></input>
+                        <input type="number" name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"></input>
+                        <input name="filial" class="form-control" placeholder="Filial" style="text-align: center" list="filiais" required="true">
                     </div>
                 </div>
                 <br/>
@@ -119,14 +112,14 @@
                         <input type="date" name="dt_adm" placeholder="Data Adm." style="text-align: center" required="true"></input>
                         <br/>
                         <label>Data Demissão: </label>
-                        <input type="date" name="dt_dem" placeholder="Data Dem." style="text-align: center" required="true"></input>
+                        <input type="date" name="dt_dem" placeholder="Data Dem." style="text-align: center"></input>
                     </div>
                     <div class="col-1">
                     </div>
                     <div class="col-7">
                         <br/>
                         <br/>
-                        <textarea name="observacao" class="form-control" placeholder="Observações" aria-label="With textarea" required="true"></textarea>
+                        <textarea name="observacao" class="form-control" placeholder="Observações" aria-label="With textarea"></textarea>
                     </div>
                 </div>
                 <button><a href="../../index.jsp">Cancelar</a></button>
