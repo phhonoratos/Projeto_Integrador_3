@@ -71,7 +71,7 @@ public class Relatorio extends HttpServlet {
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 
     private void listarVendas(HttpServletRequest request, HttpServletResponse response)
