@@ -22,22 +22,22 @@
 
                 <div class="cpf">
                     <label for="">cpf</label>
-                    <input type="text" maxlength="11" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cpf" required="true">
+                    <input type="text" maxlength="11" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cpf" required>
                 </div>
 
                 <div class="nome">
                     <label for="">nome</label>
-                    <input type="text" name="nome">
+                    <input type="text" name="nome" required>
                 </div>
                 
                 <div class="dt_nascimento">
                     <label for="">nascimento</label>
-                    <input type="date" name="data_nascimento">
+                    <input type="date" name="data_nascimento" required>
                 </div>
                 
                 <div class="sexo">
                     <label for="">sexo</label>
-                    <input type="text" name="sexo" list="sexo">
+                    <input type="text" name="sexo" list="sexo" required>
                     <datalist id="sexo">
                         <option value="Masculino">Masculino</option>
                         <option value="Feminino">Feminino</option>
@@ -47,7 +47,7 @@
                 
                 <div class="estado_civil">
                     <label for="">estado civil</label>
-                    <input name="estado_civil" list="exampleList"></input>
+                    <input name="estado_civil" list="exampleList" required>
                     <datalist id="exampleList">
                         <option value="Solteiro(a)">Solteiro(a)</option>
                         <option value="Casado(a)">Casado(a)</option>
@@ -58,47 +58,47 @@
                 
                 <div class="telefone">
                     <label for="">telefone</label>
-                    <input type="text" name="telefone">
+                    <input type="text" name="telefone" required>
                 </div>
 
                 <div class="email">
                     <label for="">e-mail</label>
-                    <input type="text" name="email">
+                    <input type="text" name="email" required>
                 </div>                
 
                 <div class="cep">
                     <label for="">cep</label>
-                    <input type="text" name="cep"  id="cep">
+                    <input type="text" name="cep"  id="cep" required>
                 </div>
 
                 <div class="logradouro">
                     <label for="">logradouro</label>
-                    <input type="text" name="logradouro" id="rua">
+                    <input type="text" name="logradouro" id="rua" required>
                 </div>
 
                 <div class="numero">
                     <label for="">numero</label>
-                    <input type="text" name="numero">
+                    <input type="text" name="numero" required>
                 </div>
 
                 <div class="complemento">
                     <label for="">complemento</label>
-                    <input type="text" name="complemento">
+                    <input type="text" name="complemento" required>
                 </div>
 
                 <div class="bairro">
                     <label for="">bairro</label>
-                    <input type="text" name="bairro" id="bairro">
+                    <input type="text" name="bairro" id="bairro" required>
                 </div>
 
                 <div class="cidade">
                     <label for="">cidade</label>
-                    <input type="text" name="cidade" id="cidade">
+                    <input type="text" name="cidade" id="cidade" required>
                 </div>
 
                 <div class="uf">
                     <label for="">uf</label>
-                    <input type="text" name="uf" id="uf">
+                    <input type="text" name="uf" id="uf" required>
                 </div>
                 <button type="submit" required="true">Cadastrar</button>
             </div>
