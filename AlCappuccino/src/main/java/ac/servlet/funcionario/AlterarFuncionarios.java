@@ -59,19 +59,11 @@ public class AlterarFuncionarios extends HttpServlet {
         double salario = Double.parseDouble(salarioStr);
         String filial = request.getParameter("filial");
         Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
-        String data_dem = request.getParameter("dt_dem");
+        String data_dem = request.getParameter("dt_dem").equals("") ? "1000-01-01" : request.getParameter("dt_dem");
         Date dt_dem = null;
-        if(data_dem == "0000-00-00" || data_dem == null) {
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
-            try {
-                dt_dem = (Date) formato.parse(data_dem);
-            } catch (ParseException ex) {
-                Logger.getLogger(AlterarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            dt_dem = Date.valueOf(request.getParameter("dt_dem"));
-        }
-        
+        if(!data_dem.equals("1000-01-01")) {
+            dt_dem = Date.valueOf(data_dem);
+        }        
         String observacao = request.getParameter("observacao");
         
         Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
