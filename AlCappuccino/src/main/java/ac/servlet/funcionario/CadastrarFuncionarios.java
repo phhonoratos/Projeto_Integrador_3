@@ -61,13 +61,10 @@ public class CadastrarFuncionarios extends HttpServlet {
         double salario = Double.parseDouble(salarioStr);
         String filial = request.getParameter("filial");
         Date dataAdmissao = Date.valueOf(request.getParameter("dt_adm"));
-        String dt_dem = request.getParameter("dt_dem");
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        String dt_dem = request.getParameter("dt_dem").equals("") ? "1000-01-01" : request.getParameter("dt_dem");
         Date dataDemissao = null;
-        try {
-            dataDemissao = (Date) formato.parse(dt_dem);
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastrarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+        if(!dt_dem.equals("1000-01-01")) {
+            dataDemissao = Date.valueOf(dt_dem);
         }
         String observacao = request.getParameter("observacao");
         
