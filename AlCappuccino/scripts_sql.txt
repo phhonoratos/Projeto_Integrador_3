@@ -130,10 +130,8 @@ create table venda (
 	tipo_pagamento varchar(10),
         cpf_funcionario varchar(11) not null,
         cpf_cliente varchar(11),
-        id_estabelecimento int not null,
         foreign key (cpf_cliente) references cliente(cpf),
 	foreign key (cpf_funcionario) references funcionarios(cpf),
-        foreign key (id_estabelecimento) references estabelecimento(id),
         primary key (id)
 );
 

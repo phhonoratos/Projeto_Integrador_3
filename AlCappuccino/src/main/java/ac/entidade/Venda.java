@@ -41,6 +41,9 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Venda{" + "id=" + id + ", data_venda=" + dataVenda + ", total=" + valorTotal + ", tipo_pagamento=" + tipoPagamento + ", cpf_cliente=" + cliente + ", cpf_funcionario=" + funcionario + ", hora=" + horarioVenda + '}';
+        return "Venda{" + "id=" + id + ", data_venda=" + dataVenda + ", "
+                + "total=" + valorTotal + ", tipo_pagamento=" + tipoPagamento + ", "
+                + "cpf_cliente=" + cliente + ", cpf_funcionario=" + funcionario + ", "
+                + "hora=" + horarioVenda +'}';
     }
 }

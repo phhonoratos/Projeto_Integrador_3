@@ -4,6 +4,7 @@ d.id as d_id, d.qtd_produto as d_qtd_produto, d.valor as d_valor,
 p.id as p_id, p.tipo as p_tipo, p.nome as p_nome, 
 p.qtd_estoque as p_qtd_estoque, p.preco as p_preco,
 p.porcentagem as p_porcentagem, p.valor_venda as p_valor_venda,
+p.id_estabelecimento as p_id_estabelecimento
 v.id as v_id, v.data as v_data, v.hora as v_hora, 
 v.total as v_total, v.tipo_pagamento as v_tipo_pagamento,
 c.cpf as c_cpf, c.nome as c_nome, c.email as c_email,
@@ -18,7 +19,7 @@ f.sexo as f_sexo, f.cep as f_cep, f.logradouro as f_logradouro,
 f.numero as f_numero, f.complemento as f_complemento, f.uf as f_uf,
 f.bairro as f_bairro, f.cidade as f_cidade,                        
 f.dt_nascimento as f_dt_nascimento, f.rg as f_rg,                  
-f.cargo as f_cargo, f.salario as f_salario, f.filial as f_filial,  
+f.cargo as f_cargo, f.salario as f_salario, f.id_estabelecimento as f_id_estabelecimento,  
 f.dt_adm as f_dt_adm, f.dt_dem as f_dt_dem,                        
 f.observacao as f_observacao                                       
 from detalhevenda as d 
