@@ -16,13 +16,10 @@ import lombok.Setter;
 @Setter
 public abstract class Pessoa {
 
-    public Pessoa() {
-    }
-
     protected String nome;
     protected String email;
     protected String telefone;
-    protected String cep;
+    protected String cep;            
     protected String logradouro;
     protected String numeroEndereco;
     protected String complemento;
@@ -41,5 +38,8 @@ public abstract class Pessoa {
         this.unidadeFederativa = unidadeFederativa;
         this.bairro = bairro;
         this.cidade = cidade;
+    }
+    
+    public Pessoa() {
     }
 }

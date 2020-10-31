@@ -22,6 +22,7 @@ public class Cliente extends PessoaFisica {
 
         super(nome, cpf, estadoCivil, dataNascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
     }
-
-    public Cliente(){}
+    
+    public Cliente() {
+    }
 }

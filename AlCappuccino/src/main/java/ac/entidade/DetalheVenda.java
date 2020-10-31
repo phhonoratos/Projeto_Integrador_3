@@ -16,32 +16,31 @@ import lombok.Setter;
 @Setter
 public class DetalheVenda {
 
-    int id;
-    int quantidade;
-    Produto produto;
-    float valorTotal;
-    Venda venda;
+    private int id;
+    private int quantidade;
+    private float valorTotal;
+    private Produto produto;
+    private Venda venda;
+
+    public DetalheVenda(
+            int id,
+            int quantidade,
+            float valorTotal,
+            Produto produto,
+            Venda venda
+    ) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.valorTotal = valorTotal;
+        this.produto = produto;
+        this.venda = venda;
+    }
 
     public DetalheVenda() {
     }
 
-    public DetalheVenda(
-            int id, 
-            int quantidade, 
-            Produto produto, 
-            Venda venda, 
-            float valorTotal
-    ) {
-        this.id = id;
-        this.quantidade = quantidade;
-        this.produto = produto;
-        this.venda = venda;
-        this.valorTotal = valorTotal;
-    }
-
     @Override
     public String toString() {
-        return "DetalheVenda{" + "id=" + id + ", quantidade=" + quantidade + ", idProduto=" + produto + ", idVenda=" + venda + ", valorTotal=" + valorTotal + '}';
+        return "DetalheVenda{" + "id=" + id + ", quantidade=" + quantidade + ", produto=" + produto + ", venda=" + venda + ", valorTotal=" + valorTotal + '}';
     }
-
 }

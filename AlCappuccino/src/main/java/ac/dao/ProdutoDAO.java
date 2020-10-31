@@ -6,6 +6,7 @@
 package ac.dao;
 
 import ac.bd.ConexaoDB;
+import ac.entidade.Estabelecimento;
 import ac.entidade.Produto;
 import ac.servlet.ServletBD;
 import java.sql.Connection;
@@ -38,7 +39,12 @@ public class ProdutoDAO {
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
                 double valor_venda = rs.getDouble("valor_venda");
-                listaProduto.add(new Produto(id, tipo, nome, quantidadeEstoque, preco, porcentagem, valor_venda));
+                int id_estabelecimento = rs.getInt("id_estabelecimento");
+                
+                Estabelecimento estabelecimento = new Estabelecimento();
+                estabelecimento.setId(id_estabelecimento);
+                
+                listaProduto.add(new Produto(id, tipo, nome, quantidadeEstoque, preco, porcentagem, valor_venda, estabelecimento));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -101,8 +107,12 @@ public class ProdutoDAO {
                 double preco = rs.getDouble("preco");
                 double porcentagem = rs.getDouble("porcentagem");
                 double valorVenda = rs.getDouble("valor_venda");
+                int id_estabelecimento = rs.getInt("id_estabelecimento");
+                
+                Estabelecimento estabelecimento = new Estabelecimento();
+                estabelecimento.setId(id_estabelecimento);                
 
-                produto = new Produto(id, tipo, nome, quantidadeEstoque, preco, porcentagem, valorVenda);
+                produto = new Produto(id, tipo, nome, quantidadeEstoque, preco, porcentagem, valorVenda, estabelecimento);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).

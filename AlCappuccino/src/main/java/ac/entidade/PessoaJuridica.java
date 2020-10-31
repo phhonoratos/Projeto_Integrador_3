@@ -9,7 +9,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class PessoaJuridica extends Pessoa {
+public abstract class PessoaJuridica extends Pessoa {
 
     protected String cnpj;
     protected String inscricaoEstadual;
@@ -32,5 +32,7 @@ public class PessoaJuridica extends Pessoa {
         this.cnpj = cnpj;
         this.inscricaoEstadual = inscricaoEstadual;
     }
-
+    
+    public PessoaJuridica() {
+    }
 }

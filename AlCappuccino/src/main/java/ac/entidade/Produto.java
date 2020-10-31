@@ -16,14 +16,14 @@ import lombok.Setter;
 @Setter
 public class Produto {
 
-    int id;
-    String tipo;
-    String nome;
-    int quantidadeEstoque;
-    double preco;
-    double porcentagem;
-    double valorVenda;
-    Estabelecimento estabelecimento;
+    private int id;
+    private String tipo;
+    private String nome;
+    private int quantidadeEstoque;
+    private double preco;
+    private double porcentagem;
+    private double valorVenda;
+    private Estabelecimento estabelecimento;
 
     public Produto(int id, String tipo, String nome, int quantidadeEstoque, double preco, double porcentagem, double valorVenda, Estabelecimento estabelecimento) {
         this.id = id;
@@ -33,10 +33,11 @@ public class Produto {
         this.preco = preco;
         this.porcentagem = porcentagem;
         this.valorVenda = valorVenda;
-        this.estabelecimento=estabelecimento;
+        this.estabelecimento = estabelecimento;
     }
 
-    public Produto() {}
+    public Produto() {
+    }
 
     @Override
     public String toString() {

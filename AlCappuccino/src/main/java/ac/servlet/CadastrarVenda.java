@@ -150,7 +150,8 @@ public class CadastrarVenda extends HttpServlet {
                         categoria[i], produto[i], novoEstoque,
                         Float.parseFloat(valor_venda[i]),
                         Float.parseFloat(porcentagem[i]),
-                        Float.parseFloat(valor_venda[i])
+                        Float.parseFloat(valor_venda[i]),
+                        null//precisa modificar para estabelecimento
                 );
 
                 try {

@@ -10,10 +10,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class PessoaFisica extends Pessoa {
-
-    public PessoaFisica() {
-    }
+public abstract class PessoaFisica extends Pessoa {
 
     protected String cpf;
     protected String estadoCivil;
@@ -21,11 +18,11 @@ public class PessoaFisica extends Pessoa {
     protected Date dataNascimento;
 
     public PessoaFisica(
-            String nome,
             String cpf,
             String estadoCivil,
-            Date dataNascimento,
             String sexo,
+            Date dataNascimento,
+            String nome,
             String email,
             String telefone,
             String cep,
@@ -34,13 +31,15 @@ public class PessoaFisica extends Pessoa {
             String complemento,
             String unidadeFederativa,
             String bairro,
-            String cidade) {
+            String cidade
+    ) {
         super(nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
-
         this.cpf = cpf;
         this.estadoCivil = estadoCivil;
-        this.dataNascimento = dataNascimento;
         this.sexo = sexo;
+        this.dataNascimento = dataNascimento;
     }
-
+    
+    public PessoaFisica() {
+    }
 }

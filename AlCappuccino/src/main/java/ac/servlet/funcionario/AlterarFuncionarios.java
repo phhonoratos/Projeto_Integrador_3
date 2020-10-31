@@ -66,7 +66,7 @@ public class AlterarFuncionarios extends HttpServlet {
         String cargo = request.getParameter("cargo");
         String salarioStr = request.getParameter("salario");
         double salario = Double.parseDouble(salarioStr);
-        String filial = request.getParameter("filial");
+//        String filial = request.getParameter("filial");
         Date dt_adm = Date.valueOf(request.getParameter("dt_adm"));
         String data_dem = request.getParameter("dt_dem").equals("") ? "1000-01-01" : request.getParameter("dt_dem");
         Date dt_dem = null;
@@ -94,7 +94,7 @@ public class AlterarFuncionarios extends HttpServlet {
         funcionario.setNumeroRg(rg);
         funcionario.setCargo(cargo);
         funcionario.setSalario(salario);
-        funcionario.setFilial(filial);
+//        funcionario.setFilial(filial);
         funcionario.setDataAdmissao(dt_adm);
         funcionario.setDataDemissao(dt_dem);
         funcionario.setObservacao(observacao);
