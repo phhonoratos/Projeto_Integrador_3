@@ -1,0 +1,28 @@
+create view detalhe_venda_join as
+select 
+d.id as d_id, d.qtd_produto as d_qtd_produto, d.valor as d_valor,
+p.id as p_id, p.tipo as p_tipo, p.nome as p_nome, 
+p.qtd_estoque as p_qtd_estoque, p.preco as p_preco,
+p.porcentagem as p_porcentagem, p.valor_venda as p_valor_venda,
+v.id as v_id, v.data as v_data, v.hora as v_hora, 
+v.total as v_total, v.tipo_pagamento as v_tipo_pagamento,
+c.cpf as c_cpf, c.nome as c_nome, c.email as c_email,
+c.telefone as c_telefone, c.estado_civil as c_estado_civil,        
+c.sexo as c_sexo, c.cep as c_cep, c.logradouro as c_logradouro,    
+c.numero as c_numero, c.complemento as c_complemento, c.uf as c_uf,
+c.bairro as c_bairro, c.cidade as c_cidade,                        
+c.data_nascimento as c_data_nascimento,                            
+f.cpf as f_cpf, f.nome as f_nome, f.email as f_email,              
+f.telefone as f_telefone, f.estado_civil as f_estado_civil,        
+f.sexo as f_sexo, f.cep as f_cep, f.logradouro as f_logradouro,    
+f.numero as f_numero, f.complemento as f_complemento, f.uf as f_uf,
+f.bairro as f_bairro, f.cidade as f_cidade,                        
+f.dt_nascimento as f_dt_nascimento, f.rg as f_rg,                  
+f.cargo as f_cargo, f.salario as f_salario, f.filial as f_filial,  
+f.dt_adm as f_dt_adm, f.dt_dem as f_dt_dem,                        
+f.observacao as f_observacao                                       
+from detalhevenda as d 
+join produto      as p on p.id  = d.id_produto 
+join venda        as v on v.id  = d.id_venda 
+join cliente      as c on c.cpf = v.cpf_cliente
+join funcionarios as f on f.cpf = v.cpf_funcionario;    
