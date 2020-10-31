@@ -121,53 +121,6 @@
             </c:forEach>
         </c:if>
 
-        <p id="pTotal">${totalVendas}</p>
-
-        <!--        <table class="table">
-                        <thead>
-                            <th>Data</th>
-                            <th>Vendedor</th>
-                            <th>Cliente</th>
-                            <th>Tipo de pagamento</th>
-                            <th>Total</th>
-                        </thead>
-                        <tbody>-->
-        <%--<c:forEach items="${vendas}" var="venda">--%>
-        <!--                        <tr>
-                                    <td>${venda.dataVenda}</td>
-                                    <td>${venda.cpfFuncionario}</td>
-                                    <td>${venda.cpfCliente}</td>
-                                    <td>${venda.tipoPagamento}</td>
-                                    <td>${venda.valorTotal}</td>
-                                </tr>-->
-        <%--</c:forEach>--%>
-        <%--</c:if>--%>
-        <!--            </tbody>
-                    </table>-->
-
-<!--        <p id="pTotal">${totalVendas}</p>-->
-
-        <!--    <table class="table">
-                    <thead>
-                        <th>Produto</th>
-                        <th>Valor Unitário R$</th>
-                        <th>Quantidade</th>
-                        <th>Total</th>
-                    </thead>
-                    <tbody>
-        <%--<c:if test="${detalhes != null}">--%>
-        <%--<c:forEach items="${detalhes}" var="detalhe">--%>
-            <tr>
-                <td>${detalhe.idProduto}</td>
-                <td>00.00</td>
-                <td>${detalhe.quantidade}</td>
-                <td>${detalhe.valorTotal}</td>
-            </tr>
-        <%--</c:forEach>--%>
-        <%--</c:if>--%>
-    </tbody>
-</table>-->
-        <!--</div>-->
-        <!--<button onclick="teste()">teste</button>-->
+        <p id="pTotal">Total: ${totalVendas}</p>
     </body>
 </html>
