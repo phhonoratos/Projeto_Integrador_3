@@ -5,13 +5,16 @@
  */
 package ac.servlet.funcionario;
 
+import ac.dao.EstabelecimentoDAO;
 import ac.dao.FuncionarioDAO;
+import ac.entidade.Estabelecimento;
 import ac.entidade.Funcionario;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -29,9 +32,15 @@ public class AlterarFuncionarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String cpf = request.getParameter("cpf");
+        
         Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
+        List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
+        
+        request.setAttribute("filiais", filiais);
         request.setAttribute("funcionarios", funcionario);
+        
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/funcionario/alterarFuncionarios.jsp");
         rd.forward(request, response);
     }

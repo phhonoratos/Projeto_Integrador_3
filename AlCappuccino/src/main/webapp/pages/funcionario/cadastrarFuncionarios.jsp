@@ -98,8 +98,15 @@
                     <div class="col-4">
                         <p><b>Função</b></p>
                         <input type="text" name="cargo" class="form-control" placeholder="Cargo" style="text-align: center" required="true"></input>
+                        <br/>
                         <input type="number" name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"></input>
-                        <input name="filial" class="form-control" placeholder="Filial" style="text-align: center" list="filiais" required="true">
+                        <br/>
+                        <input id="listFilial" class="form-control" name="filial" placeholder="Digite o nome da filial" list="filiais">
+                        <datalist id="filiais">
+                            <c:forEach items="${filiais}" var="filial">
+                                <option>${filial.nome}</option>
+                            </c:forEach>
+                        </datalist>
                     </div>
                 </div>
                 <br/>

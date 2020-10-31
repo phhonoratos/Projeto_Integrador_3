@@ -83,5 +83,17 @@ public class CadastrarFuncionarios extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
     }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
+        
+        request.setAttribute("filiais", filiais);
+        
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/funcionario/cadastrarFuncionarios.jsp");
+            rd.forward(request, response);
+    }
 
 }

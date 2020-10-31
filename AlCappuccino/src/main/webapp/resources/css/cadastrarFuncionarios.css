@@ -69,8 +69,8 @@ select[name="uf"] {
 }
 
 input[name="cargo"] {
-    margin-bottom: 15px;
-    width: 350px;
+    margin-bottom: 100px;
+    width: 10px;
     height: 35px;
 }
 
@@ -84,16 +84,4 @@ input[name="filial"] {
     margin-bottom: 15px;
     width: 350px;
     height: 35px;
-}
-
-button[id="pesq"] {
-    margin-right: 30px;
-}
-
-input[id="esconder"] {
-    margin-left: 15px;
-}
-
-input[id="mostrar"] {
-    margin-left: 15px;
 }
