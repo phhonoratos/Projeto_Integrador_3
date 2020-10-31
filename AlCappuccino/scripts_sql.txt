@@ -34,45 +34,6 @@ INSERT INTO CLIENTE VALUES(
     '2020-10-28'
 );
 
-CREATE TABLE FUNCIONARIOS(
-    cpf varchar(11) not null primary key,
-    nome varchar(255) not null,
-    email varchar(255),
-    telefone varchar(11) not null,
-    estado_civil varchar(255) not null,
-    sexo varchar(20) not null,
-    cep varchar(8) not null,
-    logradouro varchar(255) not null,
-    numero varchar(255) not null,
-    complemento varchar(255),
-    uf varchar(2) not null,
-    bairro varchar(255) not null,
-    cidade varchar(255) not null,
-    dt_nascimento date not null,
-    rg varchar(9) not null,
-    cargo varchar(30) not null,
-    salario numeric(10,2) not null,
-    filial varchar(30) not null,
-    dt_adm date not null,
-    dt_dem date,
-    observacao varchar(1500)
-);
-
-insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
-                cidade, dt_nascimento, rg, cargo, salario, filial, dt_adm, dt_dem, observacao) 
-                
-            values
-            ('Teste 1', 'teste1@teste.com', '73519684238','1110102020', 
-            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', 
-            '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
-            'Testador', 1500, 'São Paulo', '2020-01-15', '2020-10-02', 
-            'Teste de observação'),
-
-            ('Teste 2', 'teste2@teste.com', '72943861205', '1110102020', 
-            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
-            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador',
-             1500, 'São Paulo', '2020-01-15', '2020-10-02', 'Teste de observação2');
-
 CREATE TABLE estabelecimento (
     id INT PRIMARY KEY NOT NULL GENERATED ALWAYS AS identity (START WITH 1, increment BY 1),
     nome VARCHAR(150) NOT NULL,
@@ -97,6 +58,49 @@ CREATE TABLE estabelecimento (
 INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bairro, email, cidade, telefone, numero_endereco, complemento, cep, matriz) VALUES 
 ('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false);
 
+CREATE TABLE FUNCIONARIOS(
+    cpf varchar(11) not null primary key,
+    nome varchar(255) not null,
+    email varchar(255),
+    telefone varchar(11) not null,
+    estado_civil varchar(255) not null,
+    sexo varchar(20) not null,
+    cep varchar(8) not null,
+    logradouro varchar(255) not null,
+    numero varchar(255) not null,
+    complemento varchar(255),
+    uf varchar(2) not null,
+    bairro varchar(255) not null,
+    cidade varchar(255) not null,
+    dt_nascimento date not null,
+    rg varchar(9) not null,
+    cargo varchar(30) not null,
+    salario numeric(10,2) not null,
+    dt_adm date not null,
+    dt_dem date,
+    observacao varchar(1500),
+    id_estabelecimento int not null,
+    foreign key (id_estabelecimento) references estabelecimento(id)
+    
+);
+
+insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
+                cidade, dt_nascimento, rg, cargo, salario, dt_adm, dt_dem, observacao, id_estabelecimento) 
+                
+            values
+            ('Teste 1', 'teste1@teste.com', '73519684238','1110102020', 
+            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', 
+            '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
+            'Testador', 1500, '2020-01-15', '2020-10-02', 
+            'Teste de observação',1),
+
+            ('Teste 2', 'teste2@teste.com', '72943861205', '1110102020', 
+            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
+            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador',
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2',1);
+
+
+
 create table produto (
 	id int generated always as identity (start with 1, increment by 1),
 	tipo varchar(40) not null,
@@ -105,15 +109,16 @@ create table produto (
 	preco double not null,
 	porcentagem double not null,
 	valor_venda double not null,
+        id_estabelecimento int not null,
         primary key (id)
 );
 
-insert into produto (tipo,nome,qtd_estoque,preco,porcentagem,valor_venda)
-					values('cafe', 'Expresso', 4, 5.50, 10, 6.05),
-                                        ('cappuccino', 'Frappuccino', 5, 7.80, 15, 8.97),
-                                        ('refrigerante', 'Guarana', 6, 9.50, 5, 9.97),
-                                        ('pao', 'Baguete', 7, 10.36, 8, 11.18),
-                                        ('chocolate', 'sneakers', 8, 4.60, 9, 5.01);
+insert into produto (tipo,nome,qtd_estoque,preco,porcentagem,valor_venda,id_estabelecimento)
+					values('cafe', 'Expresso', 4, 5.50, 10, 6.05,1),
+                                        ('cappuccino', 'Frappuccino', 5, 7.80, 15, 8.97,1),
+                                        ('refrigerante', 'Guarana', 6, 9.50, 5, 9.97,1),
+                                        ('pao', 'Baguete', 7, 10.36, 8, 11.18,1),
+                                        ('chocolate', 'sneakers', 8, 4.60, 9, 5.01,1);
 
 
 
@@ -125,8 +130,10 @@ create table venda (
 	tipo_pagamento varchar(10),
         cpf_funcionario varchar(11) not null,
         cpf_cliente varchar(11),
+        id_estabelecimento int not null,
         foreign key (cpf_cliente) references cliente(cpf),
 	foreign key (cpf_funcionario) references funcionarios(cpf),
+        foreign key (id_estabelecimento) references estabelecimento(id),
         primary key (id)
 );
 
