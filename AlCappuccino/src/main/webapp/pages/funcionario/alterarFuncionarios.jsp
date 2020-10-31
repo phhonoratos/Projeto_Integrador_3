@@ -4,6 +4,7 @@
     Author     : paulo
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -99,8 +100,15 @@
                     <div class="col-4">
                         <p><b>Função</b></p>
                         <input type="text" name="cargo" class="form-control" value="${funcionarios.cargo}"></input>
+                        <br/>
                         <input type="number" name="salario" class="form-control" value="${funcionarios.salario}"></input>
-                        <input name="filial" class="form-control" value="${funcionarios.filial}"></input>
+                        <br/>
+                        <input id="listFilial" class="form-control" name="filial" placeholder="Digite o nome da filial" list="filiais">
+                        <datalist id="filiais">
+                            <c:forEach items="${filiais}" var="filial">
+                                <option>${filial.nome}</option>
+                            </c:forEach>
+                        </datalist>
                     </div>
                 </div>
                 <br/>
