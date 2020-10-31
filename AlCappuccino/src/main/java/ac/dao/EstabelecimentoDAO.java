@@ -79,8 +79,10 @@ public class EstabelecimentoDAO {
                 String bairro = result.getString("bairro");
                 String cidade = result.getString("cidade");
 
-                //Funcionario gerenteRegional = new Funcionario();
-                Estabelecimento estabelecimento = new Estabelecimento(matriz, null, nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
+                Funcionario gerenteRegional = new Funcionario();
+                gerenteRegional.setCpf(result.getString("cpf_gerente_regional"));
+                
+                Estabelecimento estabelecimento = new Estabelecimento(matriz, gerenteRegional, nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
                 estabelecimento.setId(id);
 
                 listaEstabelecimentos.add(estabelecimento);

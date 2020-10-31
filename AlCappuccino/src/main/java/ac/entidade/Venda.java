@@ -18,29 +18,32 @@ import lombok.Setter;
 @Setter
 public class Venda {
 
-    int id;
-    Date dataVenda;
-    Float valorTotal;
-    String tipoPagamento;
-    Cliente cliente;
-    Funcionario funcionario;
-    Time horarioVenda;
+    private int id;
+    private Date dataVenda;
+    private Float valorTotal;
+    private String tipoPagamento;
+    private Time horarioVenda;
+    private Cliente cliente;
+    private Funcionario funcionario;
 
-    public Venda() {
-    }
-
-    public Venda(int id, Date data_venda, Float total, String tipo_pagamento, Cliente cliente, Funcionario funcionario, Time hora) {
+    public Venda(int id, Date data_venda, Float total, String tipo_pagamento, Time hora, Cliente cliente, Funcionario funcionario) {
         this.id = id;
         this.dataVenda = data_venda;
         this.valorTotal = total;
         this.tipoPagamento = tipo_pagamento;
+        this.horarioVenda = hora;
         this.cliente = cliente;
         this.funcionario = funcionario;
-        this.horarioVenda = hora;
+    }
+
+    public Venda() {
     }
 
     @Override
     public String toString() {
-        return "Venda{" + "id=" + id + ", data_venda=" + dataVenda + ", total=" + valorTotal + ", tipo_pagamento=" + tipoPagamento + ", cpf_cliente=" + cliente + ", cpf_funcionario=" + funcionario + ", hora=" + horarioVenda + '}';
+        return "Venda{" + "id=" + id + ", data_venda=" + dataVenda + ", "
+                + "total=" + valorTotal + ", tipo_pagamento=" + tipoPagamento + ", "
+                + "cliente=" + cliente + ", funcionario=" + funcionario + ", "
+                + "hora=" + horarioVenda + '}';
     }
 }

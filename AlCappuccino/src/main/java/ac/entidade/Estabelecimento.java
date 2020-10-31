@@ -11,9 +11,9 @@ import lombok.Setter;
 @Setter
 public class Estabelecimento extends PessoaJuridica {
 
-    protected int id;
-    protected boolean matriz;
-    protected Funcionario gerenteRegional;
+    private int id;
+    private boolean matriz;
+    private Funcionario gerenteRegional;
 
     public Estabelecimento(
             boolean matriz,
@@ -29,11 +29,15 @@ public class Estabelecimento extends PessoaJuridica {
             String complemento,
             String unidadeFederativa,
             String bairro,
-            String cidade) {
+            String cidade   
+    ) {
         super(nome, cnpj, inscricaoEstadual, email, telefone, cep, logradouro, numeroEndereco, complemento, unidadeFederativa, bairro, cidade);
 
         this.matriz = matriz;
         this.gerenteRegional = gerenteRegional;
+    }
+    
+    public Estabelecimento() {
     }
 
     public boolean isMatriz() {

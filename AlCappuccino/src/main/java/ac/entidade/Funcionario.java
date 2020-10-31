@@ -17,26 +17,22 @@ import lombok.Setter;
 @Setter
 public class Funcionario extends PessoaFisica {
 
-    public Funcionario() {
-    }
-
-    protected int id;
-    protected String numeroRg;
-    protected String cargo;
-    protected String filial;
-    protected String observacao;
-    protected Date dataAdmissao;
-    protected Date dataDemissao;
-    protected double salario;
+    private int id;
+    private String numeroRg;
+    private String cargo;
+    private String observacao;
+    private Date dataAdmissao;
+    private Date dataDemissao;
+    private double salario;
+    private Estabelecimento estabelecimento;
 
     public Funcionario(
             String nome,
             String numeroRg,
             String cargo,
             double salario,
-            String filial,
-            Date dataAdmissao,
-            Date dataDemissao,
+            Date   dataAdmissao,
+            Date   dataDemissao,
             String observacao,
             String email,
             String cpf,
@@ -50,15 +46,20 @@ public class Funcionario extends PessoaFisica {
             String unidadeFederativa,
             String bairro,
             String cidade,
-            Date dataNascimento) {
+            Date   dataNascimento,
+            Estabelecimento estabelecimento
+    ) {
         super(nome, cpf, estadoCivil, dataNascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
 
         this.numeroRg = numeroRg;
         this.cargo = cargo;
         this.salario = salario;
-        this.filial = filial;
+        this.estabelecimento = estabelecimento;
         this.dataAdmissao = dataAdmissao;
         this.dataDemissao = dataDemissao;
         this.observacao = observacao;
+    }
+    
+    public Funcionario() {
     }
 }

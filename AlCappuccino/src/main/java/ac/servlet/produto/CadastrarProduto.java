@@ -40,7 +40,7 @@ public class CadastrarProduto extends HttpServlet {
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
 
-        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda);
+        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, null);
 
         try {
             int linhasAfetadas = ProdutoDAO.addProduto(produto);

@@ -7,6 +7,7 @@ package ac.servlet;
 
 import ac.dao.ClienteDAO;
 import ac.dao.DetalheVendaDAO;
+import ac.dao.EstabelecimentoDAO;
 import ac.dao.FuncionarioDAO;
 import ac.dao.ProdutoDAO;
 import ac.dao.VendaDAO;
@@ -15,10 +16,12 @@ import ac.entidade.DetalheVenda;
 import ac.entidade.Funcionario;
 import ac.entidade.Produto;
 import ac.entidade.Venda;
+import ac.entidade.Estabelecimento;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
@@ -39,10 +42,13 @@ public class CadastrarVenda extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        DecimalFormat df2 = new DecimalFormat("#.##");
+        
         List<Produto> listaProduto = ProdutoDAO.getProduto();
         
         for (Produto produto : listaProduto) {
-            produto.setPreco((float) Math.round(produto.getPreco() * 100.0) / 100.0);
+            Float preco = Float.parseFloat(df2.format(produto.getPreco()));
+            produto.setPreco(preco);
         }
                 
         request.setAttribute("listaProduto", listaProduto); 
@@ -52,6 +58,10 @@ public class CadastrarVenda extends HttpServlet {
 
         List<Cliente> listaClientes = ClienteDAO.getClientes();
         request.setAttribute("listaClientes", listaClientes);
+        
+        List<Estabelecimento> estabelecimento = EstabelecimentoDAO.obterFiliais();
+        request.setAttribute("listaEstabelecimentos", estabelecimento);
+        
 
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher("/cadastrarVenda.jsp");
@@ -140,7 +150,8 @@ public class CadastrarVenda extends HttpServlet {
                         categoria[i], produto[i], novoEstoque,
                         Float.parseFloat(valor_venda[i]),
                         Float.parseFloat(porcentagem[i]),
-                        Float.parseFloat(valor_venda[i])
+                        Float.parseFloat(valor_venda[i]),
+                        null//precisa modificar para estabelecimento
                 );
 
                 try {
