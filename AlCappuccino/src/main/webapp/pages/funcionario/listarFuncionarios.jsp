@@ -56,7 +56,7 @@
                 </c:forEach>
             </datalist>
             <button type="submit" id="pesq">Pesquisar</button>
-            <button><a href="pages/funcionario/cadastrarFuncionarios.jsp">Cadastrar Funcionário</a></button>
+            <button><a href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
         </form>   
         <br/>
 
@@ -79,7 +79,7 @@
                                         <label class="col-3" id="cpf">${funcionarios.cpf}</label> 
                                         <label class="col-3" id="nome">${funcionarios.nome}</label>
                                         <label class="col-3" id="cargo">${funcionarios.cargo}</label>
-                                        <label class="col-3" id="filial">${funcionarios.filial}</label>
+                                        <label class="col-3" id="filial">${funcionarios.estabelecimento.id}</label>
                                     </div>
                                 </button>
                             </h2>
@@ -87,7 +87,7 @@
                         <div id="collapse${funcionarios.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <div class="row">
-                                    <label class="col-3" id="rg"><b>RG:</b> ${funcionarios.cpf}</label>
+                                    <label class="col-3" id="rg"><b>RG:</b> ${funcionarios.numeroRg}</label>
                                     <label class="col-3" id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
                                     <label class="col-3" id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
                                     <label class="col-3" id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
@@ -120,9 +120,9 @@
                                 <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
                                 <br/>
                                 <br/>
-                                <button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button>
+                                <button><a href="AlterarFuncionarios?cpf=${funcionarios.estadoCivil}">Alterar</a></button>
                                 <button type="button" class="btn btn-primary" 
-                                        onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button>
+                                        onclick="confirmarDelete(${funcionarios.estadoCivil})">Excluir</button>
                             </div>
                         </div>
                     </div>
