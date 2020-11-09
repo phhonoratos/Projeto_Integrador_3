@@ -67,7 +67,7 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.cpf}" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.estadoCivil}" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="row">
                                         <label class="col-3" id="cpf1"><b>CPF</b></label>
                                         <label class="col-3" id="nome1"><b>Nome</b></label>
@@ -76,21 +76,21 @@
                                     </div>
                                     <div class="row">
                                         <br/>
-                                        <label class="col-3" id="cpf">${funcionarios.cpf}</label> 
-                                        <label class="col-3" id="nome">${funcionarios.nome}</label>
+                                        <label class="col-3" id="cpf">${funcionarios.estadoCivil}</label> 
+                                        <label class="col-3" id="nome">${funcionarios.cpf}</label>
                                         <label class="col-3" id="cargo">${funcionarios.cargo}</label>
                                         <label class="col-3" id="filial">${funcionarios.estabelecimento.id}</label>
                                     </div>
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapse${funcionarios.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapse${funcionarios.estadoCivil}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <div class="row">
                                     <label class="col-3" id="rg"><b>RG:</b> ${funcionarios.numeroRg}</label>
-                                    <label class="col-3" id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
+                                    <label class="col-3" id="sexo"><b>Sexo:</b> ${funcionarios.nome}</label>
                                     <label class="col-3" id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
-                                    <label class="col-3" id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
+                                    <label class="col-3" id="estado_civil"><b>Estado civil:</b> ${funcionarios.sexo}</label>
                                 </div>
                                 <br/>
                                 <div class="row">
