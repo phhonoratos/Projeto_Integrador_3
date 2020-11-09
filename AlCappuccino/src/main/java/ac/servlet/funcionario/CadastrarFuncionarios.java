@@ -59,7 +59,9 @@ public class CadastrarFuncionarios extends HttpServlet {
         String cargo = request.getParameter("cargo");
         String salarioStr = request.getParameter("salario");
         double salario = Double.parseDouble(salarioStr);
-//        String filial = request.getParameter("filial");
+        String filial = request.getParameter("filial");
+        Estabelecimento estabelecimento = new Estabelecimento();
+        estabelecimento.setId(Integer.parseInt(filial));
         Date dataAdmissao = Date.valueOf(request.getParameter("dt_adm"));
         String dt_dem = request.getParameter("dt_dem").equals("") ? "1000-01-01" : request.getParameter("dt_dem");
         Date dataDemissao = null;
@@ -68,7 +70,7 @@ public class CadastrarFuncionarios extends HttpServlet {
         }
         String observacao = request.getParameter("observacao");
         
-        Funcionario funcionario = new Funcionario(nome, numeroRg, cargo, salario, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento, null);
+        Funcionario funcionario = new Funcionario(nome, numeroRg, cargo, salario, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento, estabelecimento);
         
         try {
             FuncionarioDAO.addFuncionario(funcionario);

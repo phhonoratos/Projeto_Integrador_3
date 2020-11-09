@@ -15,7 +15,7 @@
         <title>Atualização de Funcionário</title>
     </head>
     <body class="container">
-        <h1>Atualização. Funcionário: ${funcionarios.nome}</h1>
+        <h1>Atualização. Funcionário: ${funcionarios.cpf}</h1>
         <br/>
         <form method="POST" action="AlterarFuncionarios">
             <table class="table">
@@ -103,10 +103,10 @@
                         <br/>
                         <input type="number" name="salario" class="form-control" value="${funcionarios.salario}"></input>
                         <br/>
-                        <input id="listFilial" class="form-control" name="filial" placeholder="Digite o nome da filial" list="filiais">
+                        <input id="listFilial" class="form-control" name="filial" value="${funcionarios.estabelecimento.id}" list="filiais">
                         <datalist id="filiais">
                             <c:forEach items="${filiais}" var="filial">
-                                <option>${filial.nome}</option>
+                                <option>${filial.id}</option>
                             </c:forEach>
                         </datalist>
                     </div>
