@@ -5,11 +5,14 @@
  */
 package ac.servlet.produto;
 
+import ac.dao.EstabelecimentoDAO;
+import ac.entidade.Estabelecimento;
 import ac.dao.ProdutoDAO;
 import ac.entidade.Produto;
 import ac.utils.Utils;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -39,8 +42,11 @@ public class CadastrarProduto extends HttpServlet {
         double porcentagem = Double.parseDouble(porcentagemS);
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
+        Estabelecimento estabelecimento = new Estabelecimento();
+        String filial = request.getParameter("filial");
+        estabelecimento.setId(Integer.parseInt(filial));
 
-        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, null);
+        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, estabelecimento);
 
         try {
             int linhasAfetadas = ProdutoDAO.addProduto(produto);
@@ -54,11 +60,13 @@ public class CadastrarProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        RequestDispatcher rd
-                = getServletContext().getRequestDispatcher("/pages/produto/cadastrarProduto.jsp");
-        rd.forward(request, response);
 
+        List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
+
+        request.setAttribute("filiais", filiais);
+
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/produto/cadastrarProduto.jsp");
+        rd.forward(request, response);
     }
 
 }

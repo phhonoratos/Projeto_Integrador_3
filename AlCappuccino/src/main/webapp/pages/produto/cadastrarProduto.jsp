@@ -54,9 +54,20 @@
                     <input id="valorTotal" type="valor" name="valor_venda" class="form-control" required="true" onfocus="calcularVendaProduto()"/><br/>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
+                    <datalist id="filiais">
+                        <c:forEach items="${filiais}" var="filial">
+                            <option>${filial.id}</option>
+                        </c:forEach>
+                    </datalist>
+                </div>
+            </div>
             <br>
             <div style="text-align: center">
-            <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
 
         </form>
