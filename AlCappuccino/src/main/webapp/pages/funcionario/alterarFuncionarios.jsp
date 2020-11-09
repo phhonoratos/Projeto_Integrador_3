@@ -22,22 +22,22 @@
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
-                        <input type="text" title="Digite o nome completo" name="nome" value="${funcionarios.nome}"></input>
+                        <input type="text" title="Digite o nome completo" name="nome" value="${funcionarios.cpf}"></input>
                         <br/>
                         <br/>
-                        <input pattern="^\d{11}$" type="number" name="cpf" title="Digite apenas números" value="${funcionarios.cpf}" readonly="true"></input>
+                        <input pattern="^\d{11}$" type="number" name="cpf" title="Digite apenas números" value="${funcionarios.estadoCivil}" readonly="true"></input>
                         <input pattern="[a-zA-Z0-9]+" type="text" name="rg" title="Digite apenas números" value="${funcionarios.numeroRg}" required="true"></input>
                         <br/>
                         <br/>
                         <select name="sexo">
-                            <option value="${funcionarios.sexo}">${funcionarios.sexo}</option>
+                            <option value="${funcionarios.nome}">${funcionarios.nome}</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                             <option value="LGBTQI+">LGBTQI+</option>
                         </select>
                         <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}" required="true"></input>
                         <select name="estado_civil" >
-                            <option value="${funcionarios.estadoCivil}">${funcionarios.estadoCivil}</option>
+                            <option value="${funcionarios.sexo}">${funcionarios.sexo}</option>
                             <option value="Solteiro(a)">Solteiro(a)</option>
                             <option value="Casado(a)">Casado(a)</option>
                             <option value="Divorciado(a)">Divorciado(a)</option>
