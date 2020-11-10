@@ -6,6 +6,7 @@
 package ac.servlet.produto;
 
 import ac.dao.ProdutoDAO;
+import ac.entidade.Estabelecimento;
 import ac.entidade.Produto;
 import ac.utils.Utils;
 import java.io.IOException;
@@ -52,8 +53,11 @@ public class AlterarProduto extends HttpServlet {
         double porcentagem = Double.parseDouble(porcentagemS);
         String valor_vendaS = request.getParameter("valor_venda");
         double valor_venda = Double.parseDouble(valor_vendaS);
-        
-        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, null);
+        Estabelecimento estabelecimento = new Estabelecimento();
+        String filial = request.getParameter("filial");
+        estabelecimento.setId(Integer.parseInt(filial));
+
+        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, estabelecimento);
         
          
          try {

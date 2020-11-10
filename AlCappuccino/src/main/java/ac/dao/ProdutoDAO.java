@@ -56,7 +56,7 @@ public class ProdutoDAO {
 
     public static int addProduto(Produto produto) throws SQLException, ClassNotFoundException {
         Connection conexao = ConexaoDB.getConexao();
-        final String SQL_INSERT_PRODUTO = "insert into Produto(tipo, nome, qtd_estoque, preco, porcentagem, valor_venda) values (?,?,?,?,?,?)";
+        final String SQL_INSERT_PRODUTO = "insert into Produto(tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, id_estabelecimento) values (?,?,?,?,?,?,?)";
         PreparedStatement ps = conexao.prepareStatement(SQL_INSERT_PRODUTO);
         ps.setString(1, produto.getTipo());
         ps.setString(2, produto.getNome());
@@ -64,13 +64,14 @@ public class ProdutoDAO {
         ps.setDouble(4, produto.getPreco());
         ps.setDouble(5, produto.getPorcentagem());
         ps.setDouble(6, produto.getValorVenda());
+        ps.setInt(7, produto.getEstabelecimento().getId());
 
         return ps.executeUpdate();
     }
 
     public static int updateProduto(Produto produto) throws ClassNotFoundException, SQLException {
         Connection conexao = ConexaoDB.getConexao();
-        final String SQL_UPDATE_PRODUTO = "update produto set tipo=?, nome=?, qtd_estoque=?, preco=?, porcentagem=?, valor_venda=? where id=?";
+        final String SQL_UPDATE_PRODUTO = "update produto set tipo=?, nome=?, qtd_estoque=?, preco=?, porcentagem=?, valor_venda=?, id_estabelecimento = ? where id=?";
         PreparedStatement ps = conexao.prepareStatement(SQL_UPDATE_PRODUTO);
         ps.setString(1, produto.getTipo());
         ps.setString(2, produto.getNome());
@@ -78,7 +79,8 @@ public class ProdutoDAO {
         ps.setDouble(4, produto.getPreco());
         ps.setDouble(5, produto.getPorcentagem());
         ps.setDouble(6, produto.getValorVenda());
-        ps.setInt(7, produto.getId());
+         ps.setInt(7, produto.getEstabelecimento().getId());
+        ps.setInt(8, produto.getId());
 
         return ps.executeUpdate();
     }

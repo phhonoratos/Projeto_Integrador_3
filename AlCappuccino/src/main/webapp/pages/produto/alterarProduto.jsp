@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/listarProduto.css">
-         <script src="./resources/js/produto.js"></script>
+        <script src="./resources/js/produto.js"></script>
         <title>Alterar Produto</title>
     </head>
     <body class="container">
@@ -62,10 +62,17 @@
                     <input id="valorTotal" type="valor" name="valor_venda" value="${produto.valorVenda}" class="form-control" onfocus="calcularVendaProduto()"/><br/>
                 </div>
             </div>
+
+            <div class="row">    
+                <div class="col-sm">
+                    <label for="filial">Filial</label>
+                    <input id="filial" type="valor" name="filial" value="${produto.estabelecimento.id}" class="form-control"/><br/>
+                </div>
+            </div>
             <br>
 
             <div style="text-align: center">
-            <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
 
         </form>

@@ -55,6 +55,7 @@
             <th>Preço</th>
             <th>Porcentagem</th>
             <th>Valor de Venda</th>
+            <th>Filial</th>
         </thead>
         <tbody> 
             <c:forEach var="produto" items="${listaProduto}">
@@ -66,6 +67,7 @@
                     <td>${produto.preco}</td>
                     <td>${produto.porcentagem}</td>
                     <td>${produto.valorVenda}</td>
+                    <td>${produto.estabelecimento.id}</td>
                     <td><a href="AlterarProduto?id=${produto.id}">Alterar</a></td>
                     <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
                 </tr>
