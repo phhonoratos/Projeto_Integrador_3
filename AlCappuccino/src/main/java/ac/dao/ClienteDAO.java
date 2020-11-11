@@ -48,7 +48,22 @@ public class ClienteDAO {
                 String cidade = rs.getString("cidade");
                 Date dataNascimento = rs.getDate("data_nascimento");
 
-                listaClientes.add(new Cliente(nome, cpf, estadoCivil, dataNascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade));
+                listaClientes.add(new Cliente(
+                        cpf, 
+                        estadoCivil, 
+                        sexo, 
+                        dataNascimento, 
+                        nome, 
+                        email, 
+                        telefone, 
+                        cep, 
+                        logradouro, 
+                        numero, 
+                        complemento, 
+                        unidadeFederativa, 
+                        bairro, 
+                        cidade
+                ));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -136,7 +151,22 @@ public class ClienteDAO {
                 String cidade = rs.getString("cidade");
                 Date dt_nascimento = rs.getDate("data_nascimento");
 
-                cliente = (new Cliente(nome, cpf, estado_civil, dt_nascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade));
+                cliente = (new Cliente(
+                        cpf, 
+                        estado_civil, 
+                        sexo, 
+                        dt_nascimento, 
+                        nome, 
+                        email, 
+                        telefone, 
+                        cep, 
+                        logradouro, 
+                        numero, 
+                        complemento, 
+                        unidadeFederativa, 
+                        bairro, 
+                        cidade
+                ));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).
