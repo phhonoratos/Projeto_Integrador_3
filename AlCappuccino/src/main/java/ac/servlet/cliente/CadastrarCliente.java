@@ -60,7 +60,7 @@ public class CadastrarCliente extends HttpServlet {
 //            Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 
-        Cliente cliente = new Cliente(nome, cpf, estadoCivil, dataNascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
+        Cliente cliente = new Cliente(cpf, estadoCivil, sexo, dataNascimento, nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
 
         try {
             ClienteDAO.addCliente(cliente);
