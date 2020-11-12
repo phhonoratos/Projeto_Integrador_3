@@ -41,22 +41,11 @@ public class Funcionario extends PessoaFisica {
         this.login = login;
         this.senha = senha;
     }
-//
-//    public Funcionario(int id, String numeroRg, String cargo, String observacao, Date dataAdmissao, Date dataDemissao, double salario, Estabelecimento estabelecimento, String login, String senha) {
-//        this.id = id;
-//        this.numeroRg = numeroRg;
-//        this.cargo = cargo;
-//        this.observacao = observacao;
-//        this.dataAdmissao = dataAdmissao;
-//        this.dataDemissao = dataDemissao;
-//        this.salario = salario;
-//        this.estabelecimento = estabelecimento;
-//        this.login = login;
-//        this.senha = senha;
-//    }
 
-    
-    
     public Funcionario() {
+    }
+    
+    public boolean isAdmin() {
+        return this.cargo.equalsIgnoreCase("gerente") || this.cargo.equalsIgnoreCase("ti");
     }
 }
