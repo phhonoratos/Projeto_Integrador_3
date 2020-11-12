@@ -15,29 +15,29 @@
         <title>Atualização de Funcionário</title>
     </head>
     <body class="container">
-        <h1>Atualização. Funcionário: ${funcionarios.cpf}</h1>
+        <h1>Atualização. Funcionário: ${funcionarios.nome}</h1>
         <br/>
         <form method="POST" action="AlterarFuncionarios">
             <table class="table">
                 <div class="row">
                     <div class="col-8">
                         <p><b>Dados Pessoais</b></p>
-                        <input type="text" title="Digite o nome completo" name="nome" value="${funcionarios.cpf}"></input>
+                        <input type="text" title="Digite o nome completo" name="nome" value="${funcionarios.nome}"/>
                         <br/>
                         <br/>
-                        <input pattern="^\d{11}$" type="number" name="cpf" title="Digite apenas números" value="${funcionarios.estadoCivil}" readonly="true"></input>
-                        <input pattern="[a-zA-Z0-9]+" type="text" name="rg" title="Digite apenas números" value="${funcionarios.numeroRg}" required="true"></input>
+                        <input pattern="^\d{11}$" type="number" name="cpf" title="Digite apenas números" value="${funcionarios.cpf}" readonly="true"/>
+                        <input pattern="[a-zA-Z0-9]+" type="text" name="rg" title="Digite apenas números" value="${funcionarios.numeroRg}" required="true"/>
                         <br/>
                         <br/>
                         <select name="sexo">
-                            <option value="${funcionarios.nome}">${funcionarios.nome}</option>
+                            <option value="${funcionarios.sexo}">${funcionarios.sexo}</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                             <option value="LGBTQI+">LGBTQI+</option>
                         </select>
-                        <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}" required="true"></input>
+                        <input type="date" name="dt_nascimento" value="${funcionarios.dataNascimento}" required="true"/>
                         <select name="estado_civil" >
-                            <option value="${funcionarios.sexo}">${funcionarios.sexo}</option>
+                            <option value="${funcionarios.estadoCivil}">${funcionarios.estadoCivil}</option>
                             <option value="Solteiro(a)">Solteiro(a)</option>
                             <option value="Casado(a)">Casado(a)</option>
                             <option value="Divorciado(a)">Divorciado(a)</option>
@@ -47,22 +47,22 @@
                     <div class="col-4">
                         <p><b>Contatos</b></p>
                         <br/>
-                        <input name="telefone" class="form-control" value="${funcionarios.telefone}"></input>
+                        <input name="telefone" class="form-control" value="${funcionarios.telefone}"/>
                         <br/>
-                        <input name="email" class="form-control" value="${funcionarios.email}"></input>
+                        <input name="email" class="form-control" value="${funcionarios.email}"/>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-8">
                         <p><b>Endereço</b></p>
-                        <input type="number" name="cep" id="cep" value="${funcionarios.cep}"></input>
-                        <input type="text" name="logradouro" id="rua" value="${funcionarios.logradouro}"></input>
+                        <input type="number" name="cep" id="cep" value="${funcionarios.cep}"/>
+                        <input type="text" name="logradouro" id="rua" value="${funcionarios.logradouro}"/>
                         <br/>
                         <br/>
-                        <input type="number" name="numero" id="numero" value="${funcionarios.numeroEndereco}"></input>
-                        <input type="text" name="bairro" id="bairro" value="${funcionarios.bairro}"></input>
-                        <input type="text" name="cidade" id="cidade" value="${funcionarios.cidade}"></input>
+                        <input type="number" name="numero" id="numero" value="${funcionarios.numeroEndereco}"/>
+                        <input type="text" name="bairro" id="bairro" value="${funcionarios.bairro}"/>
+                        <input type="text" name="cidade" id="cidade" value="${funcionarios.cidade}"/>
                         <br/>
                         <br/>
                         <select name="uf" id="uf">
@@ -99,10 +99,13 @@
                     </div>
                     <div class="col-4">
                         <p><b>Função</b></p>
-                        <input type="text" name="cargo" class="form-control" value="${funcionarios.cargo}"></input>
-                        <br/>
-                        <input type="number" name="salario" class="form-control" value="${funcionarios.salario}"></input>
-                        <br/>
+                        <select name="cargo" id="cargo" required="true" class="form-control">
+                            <option value="${funcionario.cargo}">${funcionario.cargo}</option>
+                            <option value="Gerente">Gerente</option>
+                            <option value="Vendedor(a)">Vendedor(a)</option>
+                            <option value="TI">TI</option>
+                        </select>
+                        <input type="number" name="salario" class="form-control" value="${funcionarios.salario}"/>
                         <input id="listFilial" class="form-control" name="filial" value="${funcionarios.estabelecimento.id}" list="filiais">
                         <datalist id="filiais">
                             <c:forEach items="${filiais}" var="filial">
@@ -118,10 +121,10 @@
                         <p><b>Admissão / Demissão / Observações</b></p>
                         <br/>
                         <label>Data Admissão: </label>
-                        <input type="date" name="dt_adm" value="${funcionarios.dataAdmissao}"></input>
+                        <input type="date" name="dt_adm" value="${funcionarios.dataAdmissao}"/>
                         <br/>
                         <label>Data Demissão: </label>
-                        <input type="date" name="dt_dem" value="${funcionarios.dataDemissao}"></input>
+                        <input type="date" name="dt_dem" value="${funcionarios.dataDemissao}"/>
                     </div>
                     <div class="col-1">
                     </div>
@@ -131,8 +134,19 @@
                         <textarea name="observacao" class="form-control">${funcionarios.observacao}</textarea>
                     </div>
                 </div>
-                <button><a href="index.jsp">Cancelar</a></button>
-                <button type="submit">Atualizar</button>
+                <div class="row">
+                    <div class="col-8">
+                        <p><b>Acesso ao sistema</b></p>
+                        <br/>
+                        <input id="login" maxlength="150" type="text" name="login" class="form-control" value="${funcionario.login}"/>
+                        <input id="senha" maxlength="150" type="text" name="senha" class="form-control" value="${funcionario.senha}"/>
+                    </div>
+                    <div class="col-4">
+                        <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
+                        <button id="cadastrar" type="submit">Atualizar</button>
+                    </div>
+                </div>
+                <br/>
             </table>
         </form>
         

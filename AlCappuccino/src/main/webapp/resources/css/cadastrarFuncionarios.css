@@ -1,6 +1,6 @@
 textarea[name="observacao"] {
     width: 635px;
-    height: 130px;
+    height: 150px;
 }
 
 input[name="cpf"] {
@@ -68,7 +68,7 @@ select[name="uf"] {
     height: 30px;
 }
 
-input[name="cargo"] {
+select[name="cargo"] {
     margin-bottom: 15px;
     width: 350px;
     height: 35px;
@@ -84,4 +84,23 @@ input[name="filial"] {
     margin-bottom: 15px;
     width: 350px;
     height: 35px;
+}
+
+input[name="login"] {
+    width: 350px;
+    margin-bottom: 15px;
+}
+
+input[name="senha"] {
+    width: 350px;
+}
+
+button[id="cadastrar"]{
+    margin-top: 120px;;
+    margin-left: 30px;
+}
+
+button[id="cancelar"]{
+    margin-top: 120px;
+    margin-left: 150px;
 }

@@ -69,8 +69,10 @@ public class CadastrarFuncionarios extends HttpServlet {
             dataDemissao = Date.valueOf(dt_dem);
         }
         String observacao = request.getParameter("observacao");
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
         
-        Funcionario funcionario = new Funcionario(nome, numeroRg, cargo, salario, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estadoCivil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento, estabelecimento);
+        Funcionario funcionario = new Funcionario(0, numeroRg, cargo, observacao, dataAdmissao, dataDemissao, salario, estabelecimento, login, senha, cpf, estadoCivil, sexo, dataNascimento, nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
         
         try {
             FuncionarioDAO.addFuncionario(funcionario);

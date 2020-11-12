@@ -76,6 +76,8 @@ public class AlterarFuncionarios extends HttpServlet {
             dt_dem = Date.valueOf(data_dem);
         }        
         String observacao = request.getParameter("observacao");
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
         
         Funcionario funcionario = FuncionarioDAO.getFuncionario(cpf);
         
@@ -100,6 +102,8 @@ public class AlterarFuncionarios extends HttpServlet {
         funcionario.setDataAdmissao(dt_adm);
         funcionario.setDataDemissao(dt_dem);
         funcionario.setObservacao(observacao);
+        funcionario.setLogin(login);
+        funcionario.setSenha(senha);
         
         try {
             FuncionarioDAO.updateFuncionario(funcionario);

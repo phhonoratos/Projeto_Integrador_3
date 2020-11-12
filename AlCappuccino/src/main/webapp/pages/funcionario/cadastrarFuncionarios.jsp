@@ -22,11 +22,11 @@
                     <div class="row">
                         <div class="col-8">
                             <p><b>Dados Pessoais</b></p>
-                            <input type="text" id="nome" name="nome" placeholder="Nome" style="text-align: center" title="Digite o nome completo" required="true"></input>
+                            <input type="text" id="nome" name="nome" placeholder="Nome" style="text-align: center" title="Digite o nome completo" required="true"/>
                             <br/>
                             <br/>
-                            <input id="cpf" minlength="11" maxlength="11" type="number" name="cpf" placeholder="CPF" style="text-align: center" title="Digite apenas números" required="true"></input>
-                            <input pattern="[a-zA-Z0-9]+" type="text" name="rg" placeholder="RG" style="text-align: center" title="Digite apenas números" required="true"></input>
+                            <input id="cpf" minlength="11" maxlength="11" type="number" name="cpf" placeholder="CPF" style="text-align: center" title="Digite apenas números" required="true"/>
+                            <input pattern="[a-zA-Z0-9]+" type="text" name="rg" placeholder="RG" style="text-align: center" title="Digite apenas números" required="true"/>
                             <br/>
                             <br/>
                             <select id="sexo" name="sexo">
@@ -34,7 +34,7 @@
                                 <option value="feminino">Feminino</option>
                                 <option value="lgbt">LGBTQI+</option>
                             </select>
-                            <input id="dt_nascimento" type="date" name="dt_nascimento" placeholder="Data de nasc." style="text-align: center" required="true"></input>
+                            <input id="dt_nascimento" type="date" name="dt_nascimento" placeholder="Data de nasc." style="text-align: center" required="true"/>
                             <select name="estado_civil">
                                 <option value="Solteiro(a)">Solteiro(a)</option>
                                 <option value="Casado(a)">Casado(a)</option>
@@ -45,22 +45,22 @@
                         <div class="col-4">
                             <p><b>Contatos</b></p>
                             <br/>
-                            <input id="telefone" minlength="10" maxlength="12" name="telefone" class="form-control" placeholder="Telefone" style="text-align: center"></input>
+                            <input id="telefone" minlength="10" maxlength="12" name="telefone" class="form-control" placeholder="Telefone" style="text-align: center"/>
                             <br/>
-                            <input id="email" type="email" name="email" class="form-control" placeholder="E-mail" style="text-align: center"></input>
+                            <input id="email" type="email" name="email" class="form-control" placeholder="E-mail" style="text-align: center"/>
                         </div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-8">
                             <p><b>Endereço</b></p>
-                            <input type="number" name="cep" id="cep" placeholder="CEP" style="text-align: center" required="true"></input>
-                            <input type="text" name="logradouro" id="rua" placeholder="Logradouro" style="text-align: center" required="true"></input>
+                            <input type="number" name="cep" id="cep" placeholder="CEP" style="text-align: center" required="true"/>
+                            <input type="text" name="logradouro" id="rua" placeholder="Logradouro" style="text-align: center" required="true"/>
                             <br/>
                             <br/>
-                            <input type="number" name="numero" id="numero" placeholder="Número" style="text-align: center" required="true"></input>
-                            <input type="text" name="bairro" id="bairro" placeholder="Bairro" style="text-align: center" required="true"></input>
-                            <input type="text" name="cidade" id="cidade" placeholder="cidade" style="text-align: center" required="true"></input>
+                            <input type="number" name="numero" id="numero" placeholder="Número" style="text-align: center" required="true"/>
+                            <input type="text" name="bairro" id="bairro" placeholder="Bairro" style="text-align: center" required="true"/>
+                            <input type="text" name="cidade" id="cidade" placeholder="cidade" style="text-align: center" required="true"/>
                             <br/>
                             <br/>
                             <select name="uf" id="uf">
@@ -93,12 +93,16 @@
                                 <option value="SE">SE</option>
                                 <option value="TO">TO</option>
                             </select>
-                            <input type="text" name="complemento" id="complemento" placeholder="Complemento" style="text-align: center"></input>
+                            <input type="text" name="complemento" id="complemento" placeholder="Complemento" style="text-align: center"/>
                         </div>
                         <div class="col-4">
                             <p><b>Função</b></p>
-                            <input type="text" name="cargo" class="form-control" placeholder="Cargo" style="text-align: center" required="true"></input>
-                            <input type="number" name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"></input>
+                            <select name="cargo" id="cargo" required="true" class="form-control">
+                                <option value="Gerente">Gerente</option>
+                                <option value="Vendedor(a)">Vendedor(a)</option>
+                                <option value="TI">TI</option>
+                            </select>
+                            <input type="number" name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"/>
                             <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
                             <datalist id="filiais">
                                 <c:forEach items="${filiais}" var="filial">
@@ -114,10 +118,10 @@
                             <p><b>Admissão / Demissão / Observações</b></p>
                             <br/>
                             <label>Data Admissão: </label>
-                            <input type="date" name="dt_adm" placeholder="Data Adm." style="text-align: center" required="true"></input>
+                            <input type="date" name="dt_adm" placeholder="Data Adm." style="text-align: center" required="true"/>
                             <br/>
                             <label>Data Demissão: </label>
-                            <input type="date" name="dt_dem" placeholder="Data Dem." style="text-align: center"></input>
+                            <input type="date" name="dt_dem" placeholder="Data Dem." style="text-align: center"/>
                         </div>
                         <div class="col-1">
                         </div>
@@ -127,8 +131,19 @@
                             <textarea name="observacao" class="form-control" placeholder="Observações" aria-label="With textarea"></textarea>
                         </div>
                     </div>
-                    <button><a href="index.jsp">Cancelar</a></button>
-                    <button type="submit">Cadastrar</button>
+                    <div class="row">
+                        <div class="col-8">
+                            <p><b>Acesso ao sistema</b></p>
+                            <br/>
+                            <input id="login" maxlength="150" name="login" class="form-control" placeholder="Login" style="text-align: center"/>
+                            <input id="senha" maxlength="150" name="senha" class="form-control" placeholder="Senha" style="text-align: center"/>
+                        </div>
+                        <div class="col-4">
+                            <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
+                            <button id="cadastrar" type="submit">Cadastrar</button>
+                        </div>
+                    </div>
+                    <br/>
             </table>
         </form>
         
