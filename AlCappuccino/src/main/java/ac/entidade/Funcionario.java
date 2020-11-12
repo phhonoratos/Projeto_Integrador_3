@@ -25,40 +25,37 @@ public class Funcionario extends PessoaFisica {
     private Date dataDemissao;
     private double salario;
     private Estabelecimento estabelecimento;
+    private String login;
+    private String senha;
 
-    public Funcionario(
-            String nome,
-            String numeroRg,
-            String cargo,
-            double salario,
-            Date   dataAdmissao,
-            Date   dataDemissao,
-            String observacao,
-            String email,
-            String cpf,
-            String telefone,
-            String estadoCivil,
-            String sexo,
-            String cep,
-            String logradouro,
-            String numero,
-            String complemento,
-            String unidadeFederativa,
-            String bairro,
-            String cidade,
-            Date   dataNascimento,
-            Estabelecimento estabelecimento
-    ) {
-        super(nome, cpf, estadoCivil, dataNascimento, sexo, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
-
+    public Funcionario(int id, String numeroRg, String cargo, String observacao, Date dataAdmissao, Date dataDemissao, double salario, Estabelecimento estabelecimento, String login, String senha, String cpf, String estadoCivil, String sexo, Date dataNascimento, String nome, String email, String telefone, String cep, String logradouro, String numero, String complemento, String unidadeFederativa, String bairro, String cidade) {
+        super(cpf, estadoCivil, sexo, dataNascimento, nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
+        this.id = id;
         this.numeroRg = numeroRg;
         this.cargo = cargo;
-        this.salario = salario;
-        this.estabelecimento = estabelecimento;
+        this.observacao = observacao;
         this.dataAdmissao = dataAdmissao;
         this.dataDemissao = dataDemissao;
-        this.observacao = observacao;
+        this.salario = salario;
+        this.estabelecimento = estabelecimento;
+        this.login = login;
+        this.senha = senha;
     }
+//
+//    public Funcionario(int id, String numeroRg, String cargo, String observacao, Date dataAdmissao, Date dataDemissao, double salario, Estabelecimento estabelecimento, String login, String senha) {
+//        this.id = id;
+//        this.numeroRg = numeroRg;
+//        this.cargo = cargo;
+//        this.observacao = observacao;
+//        this.dataAdmissao = dataAdmissao;
+//        this.dataDemissao = dataDemissao;
+//        this.salario = salario;
+//        this.estabelecimento = estabelecimento;
+//        this.login = login;
+//        this.senha = senha;
+//    }
+
+    
     
     public Funcionario() {
     }

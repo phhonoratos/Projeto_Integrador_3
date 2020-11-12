@@ -78,24 +78,30 @@ CREATE TABLE FUNCIONARIOS(
     dt_dem date,
     observacao varchar(1500),
     id_estabelecimento int not null,
+    login varchar(20),
+    senha varchar(150),
     foreign key (id_estabelecimento) references estabelecimento(id)
-    
 );
 
-insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
-                cidade, dt_nascimento, rg, cargo, salario, dt_adm, dt_dem, observacao, id_estabelecimento) 
+insert into funcionarios(cpf, nome, email, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
+                cidade, dt_nascimento, rg, cargo, salario, dt_adm, dt_dem, observacao, id_estabelecimento, login, senha) 
                 
             values
-            ('Teste 1', 'teste1@teste.com', '73519684238','1110102020', 
-            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10', 
+            ('73519684238', 'Lorena Sanchez', 'teste1@teste.com', '1110102020', 
+            'Casado(a)', 'Feminino', '05588001', 'Rua do Teste', '10', 
             '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
-            'Testador', 1500, '2020-01-15', '2020-10-02', 
-            'Teste de observação',1),
+            'Gerente', 1500, '2020-01-15', '2020-10-02', 
+            'Teste de observação',1, 'gerente', 'gerente'),
 
-            ('Teste 2', 'teste2@teste.com', '72943861205', '1110102020', 
+            ('72943861205', 'Luiz Fernando', 'teste2@teste.com', '1110102020', 
             'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
-            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Testador',
-             1500, '2020-01-15', '2020-10-02', 'Teste de observação2',1);
+            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Vendedor(a)',
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, 'vendedor', 'vendedor'),
+
+            ('72943861271', 'Paulo Honorato', 'teste3@teste.com', '1110102020', 
+            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
+            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'TI',
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, 'ti', 'ti');
 
 
 

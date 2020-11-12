@@ -28,7 +28,7 @@ public class FuncionarioDAO {
 
         Connection conexao = ConexaoDB.getConexao();
         final String SQL_INSERT_FUNCIONARIO = "insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, "
-                + "cidade, dt_nascimento, rg, cargo, salario, id_estabelecimento, dt_adm, dt_dem, observacao) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "cidade, dt_nascimento, rg, cargo, salario, id_estabelecimento, dt_adm, dt_dem, observacao, login, senha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = conexao.prepareStatement(SQL_INSERT_FUNCIONARIO);
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getEmail());
@@ -51,6 +51,8 @@ public class FuncionarioDAO {
         ps.setDate(19, funcionario.getDataAdmissao());
         ps.setDate(20, funcionario.getDataDemissao());
         ps.setString(21, funcionario.getObservacao());
+        ps.setString(22, funcionario.getLogin());
+        ps.setString(23, funcionario.getSenha());
         ps.execute();
     }
 
@@ -86,8 +88,11 @@ public class FuncionarioDAO {
 
                 Estabelecimento estabelecimento = new Estabelecimento();
                 estabelecimento.setId(rs.getInt("id_estabelecimento"));
+                
+                String login = rs.getString("login");
+                String senha = rs.getString("senha");
 
-                listaFuncionarios.add(new Funcionario(nome, numeroRg, cargo, salario, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento, estabelecimento));
+                listaFuncionarios.add(new Funcionario(0, numeroRg, cargo, observacao, dataAdmissao, dataDemissao, salario, estabelecimento, login, senha, cpf, estado_civil, sexo, dataNascimento, nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,10 +102,10 @@ public class FuncionarioDAO {
 
     public static void updateFuncionario(Funcionario funcionario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        final String SQL_UPDATE_FUNCIONARIO = "update funcionarios set nome = ?, email = ?, telefone = ?, estado_civil = ?, sexo = ?, cep = ?, logradouro = ?, numero = ?, "
+        String SQL_UPDATE_FUNCIONARIO = "update funcionarios set nome = ?, email = ?, telefone = ?, estado_civil = ?, sexo = ?, cep = ?, logradouro = ?, numero = ?, "
                 + "complemento = ?, uf = ?, bairro = ?, cidade = ?, dt_nascimento = ?, rg = ?, cargo = ?, salario = ?, id_estabelecimento = ?, dt_adm = ?, dt_dem = ?, "
-                + "observacao = ? where cpf = ?";
-
+                + "observacao = ?, login = ?, senha = ? where cpf = ?";
+        
         PreparedStatement ps = con.prepareStatement(SQL_UPDATE_FUNCIONARIO);
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getEmail());
@@ -122,7 +127,9 @@ public class FuncionarioDAO {
         ps.setDate(18, funcionario.getDataAdmissao());
         ps.setDate(19, funcionario.getDataDemissao());
         ps.setString(20, funcionario.getObservacao());
-        ps.setString(21, funcionario.getCpf());
+        ps.setString(21, funcionario.getLogin());
+        ps.setString(22, funcionario.getSenha());
+        ps.setString(23, funcionario.getCpf());
         ps.execute();
     }
 
@@ -158,8 +165,11 @@ public class FuncionarioDAO {
                 
                 Estabelecimento estabelecimento = new Estabelecimento();
                 estabelecimento.setId(rs.getInt("id_estabelecimento"));
+                
+                String login = rs.getString("login");
+                String senha = rs.getString("senha");
 
-                funcionario = new Funcionario(nome, numeroRg, cargo, salario, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento, estabelecimento);
+                funcionario = new Funcionario(0, numeroRg, cargo, observacao, dataAdmissao, dataDemissao, salario, estabelecimento, login, senha, cpf, estado_civil, sexo, dataNascimento, nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
