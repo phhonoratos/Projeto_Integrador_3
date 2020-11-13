@@ -91,19 +91,12 @@ insert into funcionarios(cpf, nome, email, telefone, estado_civil, sexo, cep, lo
             'Casado(a)', 'Feminino', '05588001', 'Rua do Teste', '10', 
             '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
             'Gerente', 1500, '2020-01-15', '2020-10-02', 
-            'Teste de observação',1, 'gerente', 'gerente'),
+            'Teste de observação',1, 'gerente', '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
 
             ('72943861205', 'Luiz Fernando', 'teste2@teste.com', '1110102020', 
             'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
             'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Vendedor(a)',
-             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, 'vendedor', 'vendedor'),
-
-            ('72943861271', 'Paulo Honorato', 'teste3@teste.com', '1110102020', 
-            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
-            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'TI',
-             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, 'ti', 'ti');
-
-
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, 'vendedor', '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG');
 
 create table produto (
     id int generated always as identity (start with 1, increment by 1),

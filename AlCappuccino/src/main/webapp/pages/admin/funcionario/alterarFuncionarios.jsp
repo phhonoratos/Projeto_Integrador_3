@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../header/header.jsp" %>
+    <%@include file="../../../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
@@ -131,16 +131,10 @@
                     <div class="col-7">
                         <br/>
                         <br/>
-                        <textarea name="observacao" class="form-control">${funcionarios.observacao}</textarea>
+                        <textarea name="observacao" placeholder="Observações" class="form-control">${funcionarios.observacao}</textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8">
-                        <p><b>Acesso ao sistema</b></p>
-                        <br/>
-                        <input id="login" maxlength="150" type="text" name="login" class="form-control" value="${funcionario.login}"/>
-                        <input id="senha" maxlength="150" type="text" name="senha" class="form-control" value="${funcionario.senha}"/>
-                    </div>
                     <div class="col-4">
                         <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
                         <button id="cadastrar" type="submit">Atualizar</button>

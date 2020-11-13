@@ -4,6 +4,7 @@
     Author     : danilo
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -104,6 +105,16 @@
                                     data_usage
                                 </span>
                                 Relatórios
+                            </a>
+
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="<c:url value="/LogoutServlet"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                <span class="material-icons">
+                                    data_usage
+                                </span>
+                                Sair
                             </a>
 
                         </li>
