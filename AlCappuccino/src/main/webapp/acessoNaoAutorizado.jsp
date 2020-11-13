@@ -1,6 +1,6 @@
 <%-- 
-    Document   : sucesso
-    Created on : 16/10/2020, 11:57:16
+    Document   : paginaNaoEncontrada
+    Created on : 16/10/2020, 11:56:35
     Author     : danil
 --%>
 
@@ -10,10 +10,9 @@
     <%@include file="header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sucesso</title>
+        <title>Erro 403</title>
     </head>
     <body>
-        <h1>Operação executada com sucesso!</h1><br/>
-        <a href="index.jsp">Voltar</a>
+        <h1>Erro 403 : Você não tem permissão de acesso!</h1>
     </body>
 </html>

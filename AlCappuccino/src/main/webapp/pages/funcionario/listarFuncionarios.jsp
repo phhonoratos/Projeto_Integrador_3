@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../header/header.jsp" %>
+    <%@include file="../../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/listagemFuncionarios.css">
@@ -56,7 +56,9 @@
                 </c:forEach>
             </datalist>
             <button type="submit" id="pesq">Pesquisar</button>
-            <button><a href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
+            <c:if test="${sessionScope.usuario.admin}">
+                <button><a href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
+            </c:if>
         </form>   
         <br/>
 
@@ -69,63 +71,64 @@
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.cpf}" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="row">
-                                        <label class="col-3" id="cpf1"><b>CPF</b></label>
-                                        <label class="col-3" id="nome1"><b>Nome</b></label>
-                                        <label class="col-3" id="cargo1"><b>Cargo</b></label>
-                                        <label class="col-3" id="filial1"><b>Filial</b></label>
+                                        <label class="col-4" id="nome1"><b>Nome</b></label>
+                                        <label class="col-4" id="cargo1"><b>Cargo</b></label>
+                                        <label class="col-4" id="filial1"><b>Estabelecimento</b></label>
                                     </div>
                                     <div class="row">
                                         <br/>
-                                        <label class="col-3" id="cpf">${funcionarios.cpf}</label> 
-                                        <label class="col-3" id="nome">${funcionarios.nome}</label>
-                                        <label class="col-3" id="cargo">${funcionarios.cargo}</label>
-                                        <label class="col-3" id="filial">${funcionarios.estabelecimento.id}</label>
+                                        <label class="col-4" id="nome">${funcionarios.nome}</label>
+                                        <label class="col-4" id="cargo">${funcionarios.cargo}</label>
+                                        <label class="col-4" id="filial">${funcionarios.estabelecimento.id}</label>
                                     </div>
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapse${funcionarios.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <div class="row">
-                                    <label class="col-3" id="rg"><b>RG:</b> ${funcionarios.numeroRg}</label>
-                                    <label class="col-3" id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
-                                    <label class="col-3" id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
-                                    <label class="col-3" id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
+                        <c:if test="${sessionScope.usuario.admin}">
+                            <div id="collapse${funcionarios.cpf}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <label class="col-3" id="cpf"><b>CPF:</b> ${funcionarios.cpf}</label>
+                                        <label class="col-3" id="rg"><b>RG:</b> ${funcionarios.numeroRg}</label>
+                                        <label class="col-3" id="dt_nasc"><b>Data Nasc.:</b> ${funcionarios.dataNascimento}</label>
+                                        <label class="col-3" id="estado_civil"><b>Estado civil:</b> ${funcionarios.estadoCivil}</label>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <label class="col-3" id="sexo"><b>Sexo:</b> ${funcionarios.sexo}</label>
+                                        <label class="col-3" id="cep"><b>CEP:</b> ${funcionarios.cep}</label>
+                                        <label class="col-3" id="logradouro"><b>Logradouro:</b> ${funcionarios.logradouro}</label>
+                                        <label class="col-3" id="numero"><b>Número:</b> ${funcionarios.numeroEndereco}</label>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <label class="col-3" id="bairro"><b>Bairro:</b> ${funcionarios.bairro}</label>
+                                        <label class="col-3" id="complemento"><b>Complemento:</b> ${funcionarios.complemento}</label>
+                                        <label class="col-3" id="cidade"><b>Cidade:</b> ${funcionarios.cidade}</label>
+                                        <label class="col-3" id="uf"><b>UF:</b> ${funcionarios.unidadeFederativa}</label>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <label class="col-3" id="salario"><b>Salário:</b> R$ ${funcionarios.salario}</label>
+                                        <label class="col-3" id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dataAdmissao}</label>
+                                        <label class="col-6" id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dataDemissao}</label>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <label class="col-3" id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
+                                        <label class="col-3" id="email"><b>E-mail:</b> ${funcionarios.email}</label>
+                                        <label class="col-3" id="login"><b>Login:</b> ${funcionarios.login}</label>
+                                    </div>
+                                    <br/>
+                                    <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
+                                    <br/>
+                                    <br/>
+                                    <button><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>">Alterar</a></button>
+                                    <button type="button" class="btn btn-primary" 
+                                            onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button>
                                 </div>
-                                <br/>
-                                <div class="row">
-                                    <label class="col-3" id="cep"><b>CEP:</b> ${funcionarios.cep}</label>
-                                    <label class="col-3" id="logradouro"><b>Logradouro:</b> ${funcionarios.logradouro}</label>
-                                    <label class="col-3" id="numero"><b>Número:</b> ${funcionarios.numeroEndereco}</label>
-                                    <label class="col-3" id="bairro"><b>Bairro:</b> ${funcionarios.bairro}</label>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <label class="col-3" id="complemento"><b>Complemento:</b> ${funcionarios.complemento}</label>
-                                    <label class="col-3" id="cidade"><b>Cidade:</b> ${funcionarios.cidade}</label>
-                                    <label class="col-6" id="uf"><b>UF:</b> ${funcionarios.unidadeFederativa}</label>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <label class="col-3" id="salario"><b>Salário:</b> R$ ${funcionarios.salario}</label>
-                                    <label class="col-3" id="dt_adm"><b>Data Adm.:</b> ${funcionarios.dataAdmissao}</label>
-                                    <label class="col-6" id="dt_dem"><b>Data Dem.:</b> ${funcionarios.dataDemissao}</label>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <label class="col-3" id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
-                                    <label class="col-3" id="email"><b>E-mail:</b> ${funcionarios.email}</label>
-                                    <label class="col-3" id="login"><b>Login:</b> ${funcionarios.login}</label>
-                                </div>
-                                <br/>
-                                <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
-                                <br/>
-                                <br/>
-                                <button><a href="AlterarFuncionarios?cpf=${funcionarios.cpf}">Alterar</a></button>
-                                <button type="button" class="btn btn-primary" 
-                                        onclick="confirmarDelete(${funcionarios.estadoCivil})">Excluir</button>
                             </div>
-                        </div>
+                        </c:if>            
                     </div>
                 </div>
             </c:forEach>
@@ -153,6 +156,6 @@
         </div>
     </div>
     <br/>
-    <button><a href="index.jsp">Voltar</a></button>
+    <button><a href="<c:url value="/index.jsp"/>">Voltar</a></button>
 </body>
 </html>

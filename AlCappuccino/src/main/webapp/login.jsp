@@ -16,7 +16,7 @@
         <%--<%@include file="pages/header/header.jsp" %>--%>
         <c:if test="${not empty param.erro}">
             <div class="alert alert-danger" role="alert">
-                Usuário / Senha inválidos!
+                Usuário/Senha inválidos!
             </div>
         </c:if>
         <form method="POST" action="LoginServlet">
@@ -28,7 +28,7 @@
                 <label>Senha</label>
                 <input type="password" name="senha" required class="form-control"/>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
     </body>
 </html>

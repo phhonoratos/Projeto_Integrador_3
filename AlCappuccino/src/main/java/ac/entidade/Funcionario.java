@@ -5,6 +5,7 @@
  */
 package ac.entidade;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,6 +44,15 @@ public class Funcionario extends PessoaFisica {
     }
 
     public Funcionario() {
+    }
+    
+    public String codificarSenha(String senha) {
+        return BCrypt.withDefaults().hashToString(12, senha.toCharArray());
+    }
+    
+    public boolean validarSenha(String senha) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senha.toCharArray(), this.getSenha());
+        return response.verified;
     }
     
     public boolean isAdmin() {

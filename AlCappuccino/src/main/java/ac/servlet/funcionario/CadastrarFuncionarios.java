@@ -96,7 +96,7 @@ public class CadastrarFuncionarios extends HttpServlet {
         
         request.setAttribute("filiais", filiais);
         
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/funcionario/cadastrarFuncionarios.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/admin/funcionario/cadastrarFuncionarios.jsp");
             rd.forward(request, response);
     }
 

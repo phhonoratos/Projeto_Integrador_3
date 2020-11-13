@@ -8,6 +8,7 @@ package ac.dao;
 import ac.bd.ConexaoDB;
 import ac.entidade.Estabelecimento;
 import ac.entidade.Funcionario;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -30,6 +31,7 @@ public class FuncionarioDAO {
         final String SQL_INSERT_FUNCIONARIO = "insert into funcionarios(nome, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro, "
                 + "cidade, dt_nascimento, rg, cargo, salario, id_estabelecimento, dt_adm, dt_dem, observacao, login, senha) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = conexao.prepareStatement(SQL_INSERT_FUNCIONARIO);
+        String senha = BCrypt.withDefaults().hashToString(12, funcionario.getSenha().toCharArray());
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getEmail());
         ps.setString(3, funcionario.getCpf());
@@ -52,7 +54,7 @@ public class FuncionarioDAO {
         ps.setDate(20, funcionario.getDataDemissao());
         ps.setString(21, funcionario.getObservacao());
         ps.setString(22, funcionario.getLogin());
-        ps.setString(23, funcionario.getSenha());
+        ps.setString(23, senha);
         ps.execute();
     }
 
@@ -104,7 +106,7 @@ public class FuncionarioDAO {
         Connection con = ConexaoDB.getConexao();
         String SQL_UPDATE_FUNCIONARIO = "update funcionarios set nome = ?, email = ?, telefone = ?, estado_civil = ?, sexo = ?, cep = ?, logradouro = ?, numero = ?, "
                 + "complemento = ?, uf = ?, bairro = ?, cidade = ?, dt_nascimento = ?, rg = ?, cargo = ?, salario = ?, id_estabelecimento = ?, dt_adm = ?, dt_dem = ?, "
-                + "observacao = ?, login = ?, senha = ? where cpf = ?";
+                + "observacao = ? where cpf = ?";
         
         PreparedStatement ps = con.prepareStatement(SQL_UPDATE_FUNCIONARIO);
         ps.setString(1, funcionario.getNome());
@@ -127,9 +129,7 @@ public class FuncionarioDAO {
         ps.setDate(18, funcionario.getDataAdmissao());
         ps.setDate(19, funcionario.getDataDemissao());
         ps.setString(20, funcionario.getObservacao());
-        ps.setString(21, funcionario.getLogin());
-        ps.setString(22, funcionario.getSenha());
-        ps.setString(23, funcionario.getCpf());
+        ps.setString(21, funcionario.getCpf());
         ps.execute();
     }
 
@@ -185,50 +185,31 @@ public class FuncionarioDAO {
         ps.setString(1, cpf);
         ps.execute();
     }
+    
+    public static Funcionario getUsuario(String login) {
+        Funcionario funcionario = null;
+        try {
+            Connection con = ConexaoDB.getConexao();
+            final String SQL_SELECT_FUNCIONARIO = "select * from funcionarios where login = ?";
+            PreparedStatement ps = con.prepareStatement(SQL_SELECT_FUNCIONARIO);
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
 
-//    // <Não testado>
-//    public static Funcionario obterGerenteRegional(String id) {
-//        // Talvez Atributo Admin
-//        final String SQL_SELECT_GERENTE_REGIONAL = "SELECT * FROM funcionario WHERE id = ? AND cargo = ?";
-//
-//        try (Connection conexao = ConexaoDB.getConexao();
-//                PreparedStatement SQL = conexao.prepareStatement(SQL_SELECT_GERENTE_REGIONAL);
-//                ResultSet result = SQL.executeQuery()) {
-//
-//            SQL.setString(1, id);
-//            SQL.setString(2, "gerente");
-//
-//            if (result.next()) {
-//                String nome = result.getString("nome");
-//                String email = result.getString("email");
-//                String cpf = result.getString("cpf");
-//                String telefone = result.getString("telefone");
-//                String estado_civil = result.getString("estado_civil");
-//                String sexo = result.getString("sexo");
-//                String cep = result.getString("cep");
-//                String logradouro = result.getString("logradouro");
-//                String numero = result.getString("numero");
-//                String complemento = result.getString("complemento");
-//                String unidadeFederativa = result.getString("uf");
-//                String bairro = result.getString("bairro");
-//                String cidade = result.getString("cidade");
-//                Date dataNascimento = result.getDate("dt_nascimento");
-//                String numeroRg = result.getString("rg");
-//                String cargo = result.getString("cargo");
-//                double salario = result.getDouble("salario");
-//                String filial = result.getString("filial");
-//                Date dataAdmissao = result.getDate("dt_adm");
-//                Date dataDemissao = result.getDate("dt_dem");
-//                String observacao = result.getString("observacao");
-//
-//                return new Funcionario(nome, numeroRg, cargo, salario, filial, dataAdmissao, dataDemissao, observacao, email, cpf, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade, dataNascimento);
-//            }
-//
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(EstabelecimentoDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return null;
-//    }
+            if (rs.next()) {
+                String nome = rs.getString("nome");
+                String cargo = rs.getString("cargo");
+                String senha = rs.getString("senha");
+                funcionario = new Funcionario();
+                funcionario.setNome(nome);
+                funcionario.setLogin(login);
+                funcionario.setCargo(cargo);
+                funcionario.setSenha(senha);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return funcionario;
+    }
 
 }
