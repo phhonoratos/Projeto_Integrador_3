@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../header/header.jsp" %>
+    <%@include file="../../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/cadastrarVenda.css">
@@ -60,7 +60,9 @@
                     <input type="text" name="vendedor" placeholder="Escolha um funcionário" list="funcionario" required/>
                     <datalist id="funcionario">
                         <c:forEach var="funcionario" items="${listaFuncionarios}">
+                            <c:if test="${sessionScope.usuario.estabelecimento.id == funcionario.estabelecimento.id}">
                             <option value=${funcionario.cpf}></option>
+                            </c:if>
                         </c:forEach>
                     </datalist>
                 </div>
@@ -86,16 +88,18 @@
 
                     <tbody>
                         <c:forEach var="produto" items="${listaProduto}">
-                            <tr>
-                                <td><input name="id" value="${produto.id}"/></td>
-                                <td><input name="produto" value="${produto.nome}"/></td>
-                                <td><input name="categoria" value="${produto.tipo}"/></td>
-                                <td><input name="estoque" value="${produto.quantidadeEstoque}"/></td>
-                                <td><input name="valor_venda" value="${produto.valorVenda}"/></td>
+                            <c:if test="${sessionScope.usuario.estabelecimento.id == produto.estabelecimento.id}">
+                                <tr>
+                                    <td><input name="id" value="${produto.id}"/></td>
+                                    <td><input name="produto" value="${produto.nome}"/></td>
+                                    <td><input name="categoria" value="${produto.tipo}"/></td>
+                                    <td><input name="estoque" value="${produto.quantidadeEstoque}"/></td>
+                                    <td><input name="valor_venda" value="${produto.valorVenda}"/></td>
 
-                                <td><input type="number" id="${produto.nome}${produto.id}" name="quantidade" min="0" max="${produto.quantidadeEstoque}" onchange="calcularTotal('${produto.nome}', '${produto.id}', ${produto.valorVenda})"></td>
-                                <td><input type="number" step="0.01" id="${produto.nome}${produto.id}${produto.id}" name="valorTotal"/></td>
-                            </tr>
+                                    <td><input type="number" id="${produto.nome}${produto.id}" name="quantidade" min="0" max="${produto.quantidadeEstoque}" onchange="calcularTotal('${produto.nome}', '${produto.id}', ${produto.valorVenda})"></td>
+                                    <td><input type="number" step="0.01" id="${produto.nome}${produto.id}${produto.id}" name="valorTotal"/></td>
+                                </tr>
+                            </c:if>
                         </c:forEach>
 
                     </tbody>

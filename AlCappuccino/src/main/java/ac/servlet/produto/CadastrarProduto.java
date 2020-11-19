@@ -65,7 +65,7 @@ public class CadastrarProduto extends HttpServlet {
 
         request.setAttribute("filiais", filiais);
 
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/produto/cadastrarProduto.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/admin/produto/cadastrarProduto.jsp");
         rd.forward(request, response);
     }
 
