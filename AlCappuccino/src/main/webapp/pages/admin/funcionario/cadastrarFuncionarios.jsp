@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
+        <link rel="stylesheet" href="resources/css/front.css">
         <title>Cadastrar Funcionário</title>
     </head>
     <body class="container">
@@ -135,7 +136,6 @@
                         <div class="col-8">
                             <p><b>Acesso ao sistema</b></p>
                             <br/>
-                            <input id="login" maxlength="150" name="login" class="form-control" placeholder="Login" style="text-align: center"/>
                             <input id="senha" maxlength="150" name="senha" class="form-control" placeholder="Senha" style="text-align: center"/>
                         </div>
                         <div class="col-4">

@@ -59,7 +59,7 @@ INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bai
 CREATE TABLE FUNCIONARIOS(
     cpf varchar(11) not null primary key,
     nome varchar(255) not null,
-    email varchar(255),
+    email varchar(255) unique,
     telefone varchar(11) not null,
     estado_civil varchar(255) not null,
     sexo varchar(20) not null,
@@ -78,25 +78,24 @@ CREATE TABLE FUNCIONARIOS(
     dt_dem date,
     observacao varchar(1500),
     id_estabelecimento int not null,
-    login varchar(20),
     senha varchar(150),
     foreign key (id_estabelecimento) references estabelecimento(id)
 );
 
 insert into funcionarios(cpf, nome, email, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
-                cidade, dt_nascimento, rg, cargo, salario, dt_adm, dt_dem, observacao, id_estabelecimento, login, senha) 
+                cidade, dt_nascimento, rg, cargo, salario, dt_adm, dt_dem, observacao, id_estabelecimento, senha) 
                 
             values
             ('73519684238', 'Lorena Sanchez', 'teste1@teste.com', '1110102020', 
             'Casado(a)', 'Feminino', '05588001', 'Rua do Teste', '10', 
             '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
             'Gerente', 1500, '2020-01-15', '2020-10-02', 
-            'Teste de observação',1, 'gerente', '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
+            'Teste de observação',1, '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
 
             ('72943861205', 'Luiz Fernando', 'teste2@teste.com', '1110102020', 
             'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
             'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Vendedor(a)',
-             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, 'vendedor', '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG');
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG');
 
 create table produto (
     id int generated always as identity (start with 1, increment by 1),

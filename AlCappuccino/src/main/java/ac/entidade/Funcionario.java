@@ -26,10 +26,9 @@ public class Funcionario extends PessoaFisica {
     private Date dataDemissao;
     private double salario;
     private Estabelecimento estabelecimento;
-    private String login;
     private String senha;
 
-    public Funcionario(int id, String numeroRg, String cargo, String observacao, Date dataAdmissao, Date dataDemissao, double salario, Estabelecimento estabelecimento, String login, String senha, String cpf, String estadoCivil, String sexo, Date dataNascimento, String nome, String email, String telefone, String cep, String logradouro, String numero, String complemento, String unidadeFederativa, String bairro, String cidade) {
+    public Funcionario(int id, String numeroRg, String cargo, String observacao, Date dataAdmissao, Date dataDemissao, double salario, Estabelecimento estabelecimento, String senha, String cpf, String estadoCivil, String sexo, Date dataNascimento, String nome, String email, String telefone, String cep, String logradouro, String numero, String complemento, String unidadeFederativa, String bairro, String cidade) {
         super(cpf, estadoCivil, sexo, dataNascimento, nome, email, telefone, cep, logradouro, numero, complemento, unidadeFederativa, bairro, cidade);
         this.id = id;
         this.numeroRg = numeroRg;
@@ -39,13 +38,12 @@ public class Funcionario extends PessoaFisica {
         this.dataDemissao = dataDemissao;
         this.salario = salario;
         this.estabelecimento = estabelecimento;
-        this.login = login;
         this.senha = senha;
     }
 
     public Funcionario() {
     }
-    
+
     public String codificarSenha(String senha) {
         return BCrypt.withDefaults().hashToString(12, senha.toCharArray());
     }

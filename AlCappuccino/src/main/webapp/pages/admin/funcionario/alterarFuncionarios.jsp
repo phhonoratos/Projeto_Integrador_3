@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/cadastrarFuncionarios.css">
+        <link rel="stylesheet" href="resources/css/front.css">
         <title>Atualização de Funcionário</title>
     </head>
     <body class="container">
@@ -134,12 +135,8 @@
                         <textarea name="observacao" placeholder="Observações" class="form-control">${funcionarios.observacao}</textarea>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-4">
-                        <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
-                        <button id="cadastrar" type="submit">Atualizar</button>
-                    </div>
-                </div>
+                    <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
+                    <button id="cadastrar" type="submit">Atualizar</button>
                 <br/>
             </table>
         </form>
