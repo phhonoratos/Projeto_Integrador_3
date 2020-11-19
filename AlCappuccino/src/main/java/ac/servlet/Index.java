@@ -23,7 +23,7 @@ public class Index extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/index.jsp");
+                .getRequestDispatcher("/pages/index.jsp");
 
         requestDispatcher.forward(request, response);
     }

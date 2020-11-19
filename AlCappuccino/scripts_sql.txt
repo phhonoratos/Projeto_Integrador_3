@@ -49,12 +49,12 @@ CREATE TABLE estabelecimento (
     complemento VARCHAR(150) NOT NULL,
     cep VARCHAR(10) NOT NULL,
     matriz BOOLEAN,
-    cpf_gerente_regional VARCHAR(11),
-    foreign key (cpf_gerente_regional) references funcionarios (cpf)
+    cpf_gerente_regional VARCHAR(11)
 );
 
 INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bairro, email, cidade, telefone, numero_endereco, complemento, cep, matriz) VALUES 
-('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false);
+('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false),
+('ALCAPPUCCINO LTDA.', '21.399.991/0001-05', '399.688.493.733', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false);
 
 CREATE TABLE FUNCIONARIOS(
     cpf varchar(11) not null primary key,
@@ -86,13 +86,24 @@ insert into funcionarios(cpf, nome, email, telefone, estado_civil, sexo, cep, lo
                 cidade, dt_nascimento, rg, cargo, salario, dt_adm, dt_dem, observacao, id_estabelecimento, senha) 
                 
             values
-            ('73519684238', 'Lorena Sanchez', 'teste1@teste.com', '1110102020', 
+            ('73519684238', 'Lorena Sanchez', 'lorena@coffe.com', '1110102020', 
             'Casado(a)', 'Feminino', '05588001', 'Rua do Teste', '10', 
             '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
             'Gerente', 1500, '2020-01-15', '2020-10-02', 
             'Teste de observação',1, '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
 
-            ('72943861205', 'Luiz Fernando', 'teste2@teste.com', '1110102020', 
+            ('60779782054', 'Luiz Fernando', 'luiz@coffe.com', '1110102020', 
+            'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
+            'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Vendedor(a)',
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG'),
+
+            ('48185926093', 'Carla Sanchez', 'carla@alcappuccino.com', '1110102020', 
+            'Casado(a)', 'Feminino', '05588001', 'Rua do Teste', '10', 
+            '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
+            'Gerente', 1500, '2020-01-15', '2020-10-02', 
+            'Teste de observação',1, '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
+
+            ('52292128020', 'Claudio Fernando', 'luiz@alcappuccino.com', '1110102020', 
             'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
             'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Vendedor(a)',
              1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG');
@@ -115,7 +126,12 @@ insert into produto (tipo,nome,qtd_estoque,preco,porcentagem,valor_venda,id_esta
                                         ('cappuccino', 'Frappuccino', 5, 7.80, 15, 8.97,1),
                                         ('refrigerante', 'Guarana', 6, 9.50, 5, 9.97,1),
                                         ('pao', 'Baguete', 7, 10.36, 8, 11.18,1),
-                                        ('chocolate', 'sneakers', 8, 4.60, 9, 5.01,1);
+                                        ('chocolate', 'sneakers', 8, 4.60, 9, 5.01,1),
+                                        ('cafe', 'Expresso', 4, 5.50, 10, 6.05,2),
+                                        ('cappuccino', 'Frappuccino', 5, 7.80, 15, 8.97,2),
+                                        ('refrigerante', 'Guarana', 6, 9.50, 5, 9.97,2),
+                                        ('salgado', 'croissant queijo e presunto', 7, 10.36, 8, 11.18,2),
+                                        ('doce', 'croissant chocolate', 8, 4.60, 9, 5.01,2);
 
 
 
