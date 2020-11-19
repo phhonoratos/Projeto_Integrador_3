@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/listagemFuncionarios.css">
+        <link rel="stylesheet" href="resources/css/front.css">
         <title>Lista de Funcionários</title>
 
         <script>
@@ -117,7 +118,6 @@
                                     <div class="row">
                                         <label class="col-3" id="telefone"><b>Telefone:</b> ${funcionarios.telefone}</label>
                                         <label class="col-3" id="email"><b>E-mail:</b> ${funcionarios.email}</label>
-                                        <label class="col-3" id="login"><b>Login:</b> ${funcionarios.login}</label>
                                     </div>
                                     <br/>
                                     <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
