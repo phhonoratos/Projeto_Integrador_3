@@ -101,12 +101,12 @@ insert into funcionarios(cpf, nome, email, telefone, estado_civil, sexo, cep, lo
             'Casado(a)', 'Feminino', '05588001', 'Rua do Teste', '10', 
             '100-5', 'SP', 'Butantã', 'São Paulo', '1993-06-21','753951468', 
             'Gerente', 1500, '2020-01-15', '2020-10-02', 
-            'Teste de observação',1, '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
+            'Teste de observação',2, '$2y$12$U8qDhzkAQ64rQAW0sgzrFekJNgwrcOowIWQ.h.YJb0orP8BzVwcXS'),
 
             ('52292128020', 'Claudio Fernando', 'luiz@alcappuccino.com', '1110102020', 
             'Solteiro', 'Masculino', '05588001', 'Rua do Teste', '10','100-5', 
             'SP', 'Butantã', 'São Paulo', '1993-06-21', '753951468', 'Vendedor(a)',
-             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 1, '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG');
+             1500, '2020-01-15', '2020-10-02', 'Teste de observação2', 2, '$2y$12$Hhm87oUGWnUw3ECZUJu66upyXMd.OVnnYEoFRWJgTDcCwTlMUj7tG');
 
 create table produto (
     id int generated always as identity (start with 1, increment by 1),

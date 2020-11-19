@@ -79,8 +79,8 @@
                                 Vendas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="ListarVenda">Ver todos</a>
-                                <a class="dropdown-item" href="CadastrarVenda">Cadastrar</a>
+                                <a class="dropdown-item" href="<c:url value="/ListarVenda"/>">Ver todos</a>
+                                <a class="dropdown-item" href="<c:url value="/CadastrarVenda"/>">Cadastrar</a>
                             </div>
                         </li>
 

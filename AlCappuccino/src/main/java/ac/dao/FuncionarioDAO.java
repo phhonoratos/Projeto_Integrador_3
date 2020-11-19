@@ -196,11 +196,15 @@ public class FuncionarioDAO {
                 String nome = rs.getString("nome");
                 String cargo = rs.getString("cargo");
                 String senha = rs.getString("senha");
+                int id_estabelecimento = rs.getInt("id_estabelecimento");
+                Estabelecimento estabelecimento = EstabelecimentoDAO.buscarEstabelecimentoPeloId(id_estabelecimento);
+                
                 funcionario = new Funcionario();
                 funcionario.setNome(nome);
                 funcionario.setEmail(login);
                 funcionario.setCargo(cargo);
                 funcionario.setSenha(senha);
+                funcionario.setEstabelecimento(estabelecimento);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
