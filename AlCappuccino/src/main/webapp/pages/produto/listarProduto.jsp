@@ -43,7 +43,7 @@
         <div id="divBusca">
             <form method="GET" action="ListarProdutosPesquisa?id='${"#id"}.val()'">
                 <input type="text" name ="id" id="id" placeholder="Digite o ID do Produto..."/>
-                <button type="submit">Buscar</button>
+                <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
         </div>
         <br>
@@ -69,8 +69,8 @@
                     <td>${produto.porcentagem}</td>
                     <td>${produto.valorVenda}</td>
                     <td>${produto.estabelecimento.id}</td>
-                    <td><a href="AlterarProduto?id=${produto.id}">Alterar</a></td>
-                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
+                    <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                    <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
                 </tr>
             </c:forEach>
 
@@ -93,12 +93,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="excluirProduto()">Confirmar</button>
+                    <button type="button" class="btn btn-danger" onclick="excluirProduto()">Confirmar</button>
                 </div>
             </div>
         </div>
     </div>
-    <br/>
-    <a href="index.jsp">Voltar</a>
 </body>
 </html>

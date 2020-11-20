@@ -14,6 +14,5 @@
     </head>
     <body>
         <h1>Operação executada com sucesso!</h1><br/>
-        <a href="index.jsp">Voltar</a>
     </body>
 </html>
