@@ -67,7 +67,7 @@ public class Relatorio extends HttpServlet {
             request.setAttribute("vendas", vendas);
             request.setAttribute("totalVendas", total);
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/admin/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,7 +116,7 @@ public class Relatorio extends HttpServlet {
             request.setAttribute("vendas", vendas);
             request.setAttribute("totalVendas", total);
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/relatorio/relatorio.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/admin/relatorio/relatorio.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
