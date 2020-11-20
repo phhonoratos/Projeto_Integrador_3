@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
         <link rel="stylesheet" href="../../resources/css/front.css">
+        <link rel="stylesheet" href="resources/css/front.css">
 
         <script lang="text/javascript">
 
@@ -47,81 +48,86 @@
             </form>
         </div>
         <br>
-        <table class="table">
-            <thead>
-            <th>ID</th>
-            <th>Tipo</th>
-            <th>Nome</th>
-            <th>Quantidade em Estoque</th>
-            <th>Preço</th>
-            <th>Porcentagem</th>
-            <th>Valor de Venda</th>
-            <th>Filial</th>
-        </thead>
-        <tbody>
-            <c:choose>
-                <c:when test="${sessionScope.usuario.estabelecimento.matriz}">
-                    <c:forEach var="produto" items="${listaProduto}">
+        <div class="card">
 
-                        <tr>
-                            <td>${produto.id}</td>
-                            <td>${produto.tipo}</td>
-                            <td>${produto.nome}</td>
-                            <td>${produto.quantidadeEstoque}</td>
-                            <td>${produto.preco}</td>
-                            <td>${produto.porcentagem}</td>
-                            <td>${produto.valorVenda}</td>
-                            <td>${produto.estabelecimento.id}</td>
-                            <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
-                            <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
-                        </tr>
+            <br>
+            <table class="table">
+                <thead>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Nome</th>
+                <th>Quantidade em Estoque</th>
+                <th>Preço</th>
+                <th>Porcentagem</th>
+                <th>Valor de Venda</th>
+                <th>Filial</th>
+                </thead>
+                <tbody>
+                    <c:choose>
+                        <c:when test="${sessionScope.usuario.estabelecimento.matriz}">
+                            <c:forEach var="produto" items="${listaProduto}">
 
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <c:forEach var="produto" items="${listaProduto}">
-                        <c:if test="${sessionScope.usuario.estabelecimento.id == produto.estabelecimento.id}">
-                            <tr>
-                                <td>${produto.id}</td>
-                                <td>${produto.tipo}</td>
-                                <td>${produto.nome}</td>
-                                <td>${produto.quantidadeEstoque}</td>
-                                <td>${produto.preco}</td>
-                                <td>${produto.porcentagem}</td>
-                                <td>${produto.valorVenda}</td>
-                                <td>${produto.estabelecimento.id}</td>
-                                <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
-                                <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
-                            </tr>
-                        </c:if>
-                    </c:forEach>
-                </c:otherwise>
-            </c:choose>
+                                <tr>
+                                    <td>${produto.id}</td>
+                                    <td>${produto.tipo}</td>
+                                    <td>${produto.nome}</td>
+                                    <td>${produto.quantidadeEstoque}</td>
+                                    <td>${produto.preco}</td>
+                                    <td>${produto.porcentagem}</td>
+                                    <td>${produto.valorVenda}</td>
+                                    <td>${produto.estabelecimento.id}</td>
+                                    <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                                    <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
+                                </tr>
 
-
-        </tbody>
-
-    </table>
-    <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Confirmar exclusão do Produto  <label id="idProduto"></label> ?
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach var="produto" items="${listaProduto}">
+                                <c:if test="${sessionScope.usuario.estabelecimento.id == produto.estabelecimento.id}">
+                                    <tr>
+                                        <td>${produto.id}</td>
+                                        <td>${produto.tipo}</td>
+                                        <td>${produto.nome}</td>
+                                        <td>${produto.quantidadeEstoque}</td>
+                                        <td>${produto.preco}</td>
+                                        <td>${produto.porcentagem}</td>
+                                        <td>${produto.valorVenda}</td>
+                                        <td>${produto.estabelecimento.id}</td>
+                                        <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                                        <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
 
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" onclick="excluirProduto()">Confirmar</button>
+                </tbody>
+
+            </table>
+            <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Confirmar exclusão do Produto  <label id="idProduto"></label> ?
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" onclick="excluirProduto()">Confirmar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+
+    </body>
 </html>
