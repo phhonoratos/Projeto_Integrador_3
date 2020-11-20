@@ -40,28 +40,26 @@
                     </div>
                 </div>
             </div>
-            <c:if test="${sessionScope.usuario.admin}">
-                <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Vendas</h5>
-                            <p class="card-text">Adicionar</p>
-                            <a href="<c:url value="/CadastrarVenda"/>" class="btn btn-primary">
-                                <span class="material-icons">
-                                    attach_money
-                                </span>
-                            </a>
-                            <hr>
-                            <p class="card-text">Listar</p>
-                            <a href="<c:url value="/ListarVenda"/>" class="btn btn-primary">
-                                <span class="material-icons">
-                                    list
-                                </span>
-                            </a>
-                        </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Vendas</h5>
+                        <p class="card-text">Adicionar</p>
+                        <a href="<c:url value="/CadastrarVenda"/>" class="btn btn-primary">
+                            <span class="material-icons">
+                                attach_money
+                            </span>
+                        </a>
+                        <hr>
+                        <p class="card-text">Listar</p>
+                        <a href="<c:url value="/ListarVenda"/>" class="btn btn-primary">
+                            <span class="material-icons">
+                                list
+                            </span>
+                        </a>
                     </div>
                 </div>
-            </c:if>
+            </div>
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
@@ -101,7 +99,7 @@
                             <hr>
                         </c:if>
                         <p class="card-text">Listar</p>
-                        <a href="<c:url value="/ListarFiliaisServlet"/>" class="btn btn-primary">
+                        <a href="<c:url value="/ListarFiliais"/>" class="btn btn-primary">
                             <span class="material-icons">
                                 list
                             </span>
