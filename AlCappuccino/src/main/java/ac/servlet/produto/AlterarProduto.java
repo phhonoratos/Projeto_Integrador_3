@@ -33,7 +33,7 @@ public class AlterarProduto extends HttpServlet {
         Produto produto = ProdutoDAO.getProduto(id);
         request.setAttribute("produto", produto);
          RequestDispatcher rd = 
-                 getServletContext().getRequestDispatcher("/pages/produto/alterarProduto.jsp");
+                 getServletContext().getRequestDispatcher("/pages/admin/produto/alterarProduto.jsp");
          rd.forward(request, response);
         
     }
