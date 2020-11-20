@@ -58,21 +58,46 @@
             <th>Valor de Venda</th>
             <th>Filial</th>
         </thead>
-        <tbody> 
-            <c:forEach var="produto" items="${listaProduto}">
-                <tr>
-                    <td>${produto.id}</td>
-                    <td>${produto.tipo}</td>
-                    <td>${produto.nome}</td>
-                    <td>${produto.quantidadeEstoque}</td>
-                    <td>${produto.preco}</td>
-                    <td>${produto.porcentagem}</td>
-                    <td>${produto.valorVenda}</td>
-                    <td>${produto.estabelecimento.id}</td>
-                    <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
-                    <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
-                </tr>
-            </c:forEach>
+        <tbody>
+            <c:choose>
+                <c:when test="${sessionScope.usuario.estabelecimento.matriz}">
+                    <c:forEach var="produto" items="${listaProduto}">
+
+                        <tr>
+                            <td>${produto.id}</td>
+                            <td>${produto.tipo}</td>
+                            <td>${produto.nome}</td>
+                            <td>${produto.quantidadeEstoque}</td>
+                            <td>${produto.preco}</td>
+                            <td>${produto.porcentagem}</td>
+                            <td>${produto.valorVenda}</td>
+                            <td>${produto.estabelecimento.id}</td>
+                            <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                            <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
+                        </tr>
+
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="produto" items="${listaProduto}">
+                        <c:if test="${sessionScope.usuario.estabelecimento.id == produto.estabelecimento.id}">
+                            <tr>
+                                <td>${produto.id}</td>
+                                <td>${produto.tipo}</td>
+                                <td>${produto.nome}</td>
+                                <td>${produto.quantidadeEstoque}</td>
+                                <td>${produto.preco}</td>
+                                <td>${produto.porcentagem}</td>
+                                <td>${produto.valorVenda}</td>
+                                <td>${produto.estabelecimento.id}</td>
+                                <td><a class="btn btn-warning" href="AlterarProduto?id=${produto.id}">Alterar</a></td>
+                                <td><button type="button" class="btn btn-danger" onclick="mostrarModalExclusao('${produto.id}')">Excluir</button></td>
+                            </tr>
+                        </c:if>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>
+
 
         </tbody>
 

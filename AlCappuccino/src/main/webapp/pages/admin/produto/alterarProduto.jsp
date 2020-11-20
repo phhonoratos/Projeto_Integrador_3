@@ -63,12 +63,21 @@
                 </div>
             </div>
 
-            <div class="row">    
+           <c:if test="${sessionScope.usuario.estabelecimento.matriz}">
+            <div class="row">
                 <div class="col-sm">
-                    <label for="filial">Filial</label>
-                    <input id="filial" type="valor" name="filial" value="${produto.estabelecimento.id}" class="form-control"/><br/>
+                    <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
+                    <datalist id="filiais">
+                        <c:forEach items="${filiais}" var="filial">
+                            <option>${filial.id}</option>
+                        </c:forEach>
+                    </datalist>
                 </div>
             </div>
+            </c:if>
+            <c:if test="${not sessionScope.usuario.estabelecimento.matriz}">
+                <input hidden="true" value="${sessionScope.usuario.estabelecimento.id}" name="filial"></input>
+            </c:if>
             <br>
 
             <div style="text-align: center">
