@@ -53,7 +53,7 @@ CREATE TABLE estabelecimento (
 );
 
 INSERT INTO estabelecimento (nome, cnpj, inscricao_estadual, uf, logradouro, bairro, email, cidade, telefone, numero_endereco, complemento, cep, matriz) VALUES 
-('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false),
+('COFFE LTDA.', '09.669.793/0001-00', '520.738.222.844', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', true),
 ('ALCAPPUCCINO LTDA.', '21.399.991/0001-05', '399.688.493.733', 'SP', 'Rua Teste', 'Bairro', 'teste@teste.com', 'Sao Paulo', '11959599999', '101', 'Comp', '03995000', false);
 
 CREATE TABLE FUNCIONARIOS(

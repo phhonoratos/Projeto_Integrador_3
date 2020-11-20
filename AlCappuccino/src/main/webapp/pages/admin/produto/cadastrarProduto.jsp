@@ -54,7 +54,8 @@
                     <input id="valorTotal" type="valor" name="valor_venda" class="form-control" required="true" onfocus="calcularVendaProduto()"/><br/>
                 </div>
             </div>
-
+            
+            <c:if test="${sessionScope.usuario.estabelecimento.matriz}">
             <div class="row">
                 <div class="col-sm">
                     <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
@@ -65,6 +66,11 @@
                     </datalist>
                 </div>
             </div>
+            </c:if>
+            <c:if test="${not sessionScope.usuario.estabelecimento.matriz}">
+                <input hidden="true" value="${sessionScope.usuario.estabelecimento.id}" name="filial"></input>
+            </c:if>
+            
             <br>
             <div style="text-align: center">
                 <button type="submit" class="btn btn-success">Enviar</button>
