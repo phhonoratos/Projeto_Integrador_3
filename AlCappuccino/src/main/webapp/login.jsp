@@ -31,7 +31,6 @@
                         <div class="card" style="width: 400px; margin-top: 130px" >
                             <img src="resources/img/person.jpg">
                             <div class="form-group">
-                                <span id="email" class="material-icons">email</span>
                                 <input placeholder="email" style="width: 350px; margin-left: 25px; margin-top: 50px" type="email" name="login" required />
                             </div>
                             <div class="form-group">
