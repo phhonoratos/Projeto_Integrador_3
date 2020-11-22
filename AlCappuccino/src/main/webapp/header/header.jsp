@@ -15,7 +15,7 @@
 
         <style>
             li{
-                margin-left: 30px;
+                margin-left: 3px;
             }
         </style>
     </head>
@@ -26,6 +26,10 @@
 
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <img id="logo" src="../resources/img/logo 2.png" class="navbar-brand">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="navbar-brand" href="<c:url value="/Index"/>">AlCappuccino</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
