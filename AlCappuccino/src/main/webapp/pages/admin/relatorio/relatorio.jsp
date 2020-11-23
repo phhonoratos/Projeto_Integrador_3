@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Relatório</title>
         <link rel="stylesheet" href="../../../resources/css/relatorio.css">
+        <link rel="stylesheet" href="./resources/css/front.css">
         <script src="../../../resources/js/relatorio.js"></script>
     </head>
     <body class="container">

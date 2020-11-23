@@ -91,7 +91,7 @@
                         <h5 class="card-title">Filiais</h5>
                         <c:if test="${sessionScope.usuario.admin}">
                             <p class="card-text">Adicionar</p>
-                            <a href="<c:url value="/IncluirFiliaisServlet"/>" class="btn btn-primary">
+                            <a href="<c:url value="/IncluirFiliais"/>" class="btn btn-primary">
                                 <span class="material-icons">
                                     business
                                 </span>

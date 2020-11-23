@@ -13,7 +13,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
         <link rel="stylesheet" href="../../resources/css/front.css">
-        <link rel="stylesheet" href="resources/css/front.css">
 
         <script>
 

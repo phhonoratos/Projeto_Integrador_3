@@ -61,7 +61,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<c:url value="/ListarFiliais"/>">Ver todos</a>
                                 <c:if test="${sessionScope.usuario.admin}">
-                                    <a class="dropdown-item" href="<c:url value="/IncluirFiliaisServlet"/>">Cadastrar</a>
+                                    <a class="dropdown-item" href="<c:url value="/IncluirFiliais"/>">Cadastrar</a>
                                 </c:if>
                             </div>
                         </li>
