@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/cadastrarCliente.css">
+        <link rel="stylesheet" href="./resources/css/front.css">
         <title>Cadastrar Cliente</title>
     </head>
     <body>

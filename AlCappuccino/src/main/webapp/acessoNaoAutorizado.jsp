@@ -10,6 +10,7 @@
     <%@include file="header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="resources/css/front.css">
         <title>Erro 403</title>
     </head>
     <body>

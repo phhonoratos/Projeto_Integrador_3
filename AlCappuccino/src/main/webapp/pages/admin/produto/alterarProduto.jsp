@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./resources/css/listarProduto.css">
-        <link rel="stylesheet" href="resources/css/front.css">
+        <link rel="stylesheet" href="../../../resources/css/front.css">
         <script src="./resources/js/produto.js"></script>
         <title>Alterar Produto</title>
     </head>
