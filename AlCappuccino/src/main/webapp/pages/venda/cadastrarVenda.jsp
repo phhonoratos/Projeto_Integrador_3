@@ -11,7 +11,7 @@
     <%@include file="../../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./resources/css/cadastrarVenda.css">
+        <link rel="stylesheet" href="resources/css/cadastrarVenda.css">
         <title>Vendas</title>
 
 
@@ -61,7 +61,7 @@
                     <datalist id="funcionario">
                         <c:forEach var="funcionario" items="${listaFuncionarios}">
                             <c:if test="${sessionScope.usuario.estabelecimento.id == funcionario.estabelecimento.id}">
-                            <option value=${funcionario.cpf}></option>
+                                <option value=${funcionario.cpf}></option>
                             </c:if>
                         </c:forEach>
                     </datalist>
@@ -75,6 +75,11 @@
                         </c:forEach>
                     </datalist>
                 </div>
+                
+                <div class="col-8 lista-produtos">
+                    a
+                </div>
+                <!--
                 <table class="table table-striped" id="produtos">
                     <thead>
                     <th>Id</th>
@@ -107,9 +112,11 @@
 
                     </tfoot>
                 </table>
+                -->
                 <c:forEach var="produto" items="${listaProduto}">
                     <input name="porcentagem" value="${produto.porcentagem}" hidden="true"/>
                 </c:forEach>
+                <input name="id_estabelecimento" value="${sessionScope.usuario.estabelecimento.id}" hidden="true"/>
                 <button type="submit" class="btn btn-success">Vender</button>
             </form>
     </body>

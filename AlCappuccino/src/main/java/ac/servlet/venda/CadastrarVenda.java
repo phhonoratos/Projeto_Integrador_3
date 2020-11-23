@@ -8,6 +8,7 @@ package ac.servlet.venda;
 import ac.servlet.*;
 import ac.dao.ClienteDAO;
 import ac.dao.DetalheVendaDAO;
+import ac.dao.EstabelecimentoDAO;
 import ac.dao.FuncionarioDAO;
 import ac.dao.ProdutoDAO;
 import ac.dao.VendaDAO;
@@ -16,6 +17,7 @@ import ac.entidade.DetalheVenda;
 import ac.entidade.Funcionario;
 import ac.entidade.Produto;
 import ac.entidade.Venda;
+import ac.entidade.Estabelecimento;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -66,9 +68,9 @@ public class CadastrarVenda extends HttpServlet {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         Time hora = new Time(date.getTime());
-
+        
+        int id_estabelecimento = Integer.parseInt(request.getParameter("id_estabelecimento"));
         String vendedor = request.getParameter("vendedor");
-
         String cliente = request.getParameter("cliente");
         
         if (cliente.trim().equals("")){
@@ -108,7 +110,9 @@ public class CadastrarVenda extends HttpServlet {
         venda.setValorTotal(soma);
 
         boolean retornoVenda = false;
+        Estabelecimento estabelecimento=null;
         try {
+            estabelecimento = EstabelecimentoDAO.buscarEstabelecimentoPeloId(id_estabelecimento);
             retornoVenda = VendaDAO.addVenda(venda);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadastrarVenda.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,11 +146,13 @@ public class CadastrarVenda extends HttpServlet {
 
                 Produto atualizarEstoque = new Produto(
                         Integer.parseInt(id[i]),
-                        categoria[i], produto[i], novoEstoque,
+                        categoria[i], 
+                        produto[i], 
+                        novoEstoque,
                         Float.parseFloat(valor_venda[i]),
                         Float.parseFloat(porcentagem[i]),
                         Float.parseFloat(valor_venda[i]),
-                        null
+                        estabelecimento
                 );
 
                 try {

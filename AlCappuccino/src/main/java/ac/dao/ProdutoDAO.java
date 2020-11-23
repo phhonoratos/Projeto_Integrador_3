@@ -79,7 +79,7 @@ public class ProdutoDAO {
         ps.setDouble(4, produto.getPreco());
         ps.setDouble(5, produto.getPorcentagem());
         ps.setDouble(6, produto.getValorVenda());
-         ps.setInt(7, produto.getEstabelecimento().getId());
+        ps.setInt(7, produto.getEstabelecimento().getId());
         ps.setInt(8, produto.getId());
 
         return ps.executeUpdate();
