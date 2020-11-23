@@ -11,8 +11,7 @@
     <%@include file="../../header/header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./resources/css/listagemFuncionarios.css">
-        <link rel="stylesheet" href="resources/css/front.css">
+        <link rel="stylesheet" href="./resources/css/front.css">
         <title>Lista de Funcionários</title>
 
         <script>
@@ -56,9 +55,9 @@
                     <option value="${funcionarios.cpf}"></option>
                 </c:forEach>
             </datalist>
-            <button type="submit" id="pesq">Pesquisar</button>
+            <button type="submit" id="pesq" class="btn btn-primary">Pesquisar</button>
             <c:if test="${sessionScope.usuario.admin}">
-                <button><a href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
+                <button id="cad" class="btn btn-primary"><a id="bt" href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
             </c:if>
         </form>   
         <br/>
@@ -123,8 +122,8 @@
                                     <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
                                     <br/>
                                     <br/>
-                                    <button><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>">Alterar</a></button>
-                                    <button type="button" class="btn btn-primary" 
+                                    <button class="btn btn-warning"><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>">Alterar</a></button>
+                                    <button type="button" class="btn btn-danger" 
                                             onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button>
                                 </div>
                             </div>
@@ -156,6 +155,5 @@
         </div>
     </div>
     <br/>
-    <button><a href="<c:url value="/index.jsp"/>">Voltar</a></button>
 </body>
 </html>

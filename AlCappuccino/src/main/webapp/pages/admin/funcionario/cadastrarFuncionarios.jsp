@@ -139,8 +139,7 @@
                             <input id="senha" maxlength="150" name="senha" class="form-control" placeholder="Senha" style="text-align: center"/>
                         </div>
                         <div class="col-4">
-                            <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
-                            <button id="cadastrar" type="submit">Cadastrar</button>
+                            <button id="cadastrar" type="submit" class="btn btn-success">Cadastrar</button>
                         </div>
                     </div>
                     <br/>

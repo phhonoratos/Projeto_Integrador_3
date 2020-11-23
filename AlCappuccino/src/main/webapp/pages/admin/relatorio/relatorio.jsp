@@ -11,11 +11,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Relatório</title>
-        <link rel="stylesheet" href="./resources/css/relatorio.css">
-        <script src="./resources/js/relatorio.js"></script>
+        <link rel="stylesheet" href="../../../resources/css/relatorio.css">
+        <link rel="stylesheet" href="./resources/css/front.css">
+        <script src="../../../resources/js/relatorio.js"></script>
     </head>
     <body class="container">
-        <%@include file="/pages/header/header.jsp" %>
+        <%@include file="../../../header/header.jsp" %>
 
         <h1>Relatório</h1>
 

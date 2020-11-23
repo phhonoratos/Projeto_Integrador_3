@@ -13,6 +13,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="./resources/css/atualizarCliente.css">
+    <link rel="stylesheet" href="../../resources/css/front.css">
     <title>Alterar cliente</title>
 
 </head>

@@ -135,8 +135,11 @@
                         <textarea name="observacao" placeholder="Observações" class="form-control">${funcionarios.observacao}</textarea>
                     </div>
                 </div>
-                    <button id="cancelar"><a href="index.jsp">Cancelar</a></button>
-                    <button id="cadastrar" type="submit">Atualizar</button>
+                <br/>
+                <br/>
+                <div class="col-4">
+                    <button id="cad" type="submit" class="btn btn-success">Atualizar</button>
+                </div>
                 <br/>
             </table>
         </form>

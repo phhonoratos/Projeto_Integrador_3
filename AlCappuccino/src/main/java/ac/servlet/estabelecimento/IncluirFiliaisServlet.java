@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class IncluirFiliaisServlet extends HttpServlet {
 
-    private static final String INSERCAO_FILIAL = "/pages/estabelecimento/incluirFilial.jsp";
+    private static final String INSERCAO_FILIAL = "/pages/admin/estabelecimento/incluirFilial.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

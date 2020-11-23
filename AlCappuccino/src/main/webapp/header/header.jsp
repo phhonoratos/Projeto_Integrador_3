@@ -15,7 +15,7 @@
 
         <style>
             li{
-                margin-left: 30px;
+                margin-left: 3px;
             }
         </style>
     </head>
@@ -26,7 +26,11 @@
 
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="<c:url value="/Index"/>">AlCappuccino</a>
+                <img id="logo" src="<c:url value="/resources/img/logo 2.png"/>" class="navbar-brand">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="<c:url value="/pages/index.jsp"/>">AlCappuccino</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,8 +44,10 @@
                                 Funcionários
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="ListarFuncionarios">Ver todos</a>
-                                <a class="dropdown-item" href="CadastrarFuncionarios">Cadastrar</a>
+                                <a class="dropdown-item" href="<c:url value="/ListarFuncionarios"/>">Ver todos</a>
+                                <c:if test="${sessionScope.usuario.admin}">
+                                    <a class="dropdown-item" href="<c:url value="/CadastrarFuncionarios"/>">Cadastrar</a>
+                                </c:if>
                             </div>
                         </li>
 
@@ -53,8 +59,10 @@
                                 Filiais
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="ListarFiliais">Ver todos</a>
-                                <a class="dropdown-item" href="IncluirFiliais">Cadastrar</a>
+                                <a class="dropdown-item" href="<c:url value="/ListarFiliais"/>">Ver todos</a>
+                                <c:if test="${sessionScope.usuario.admin}">
+                                    <a class="dropdown-item" href="<c:url value="/IncluirFiliais"/>">Cadastrar</a>
+                                </c:if>
                             </div>
                         </li>
 
@@ -66,8 +74,8 @@
                                 Clientes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="ListarCliente">Ver todos</a>
-                                <a class="dropdown-item" href="CadastrarCliente">Cadastrar</a>
+                                <a class="dropdown-item" href="<c:url value="/ListarCliente"/>">Ver todos</a>
+                                <a class="dropdown-item" href="<c:url value="/CadastrarCliente"/>">Cadastrar</a>
                             </div>
                         </li>
 
@@ -95,28 +103,33 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<c:url value="/ListarProduto"/>">Ver todos</a>
-                                <a class="dropdown-item" href="<c:url value="/CadastrarProduto"/>">Cadastrar</a>
+                                <c:if test="${sessionScope.usuario.admin}">
+                                    <a class="dropdown-item" href="<c:url value="/CadastrarProduto"/>">Cadastrar</a>
+                                </c:if>
                             </div>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="Relatorio?chamada=total" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                                <span class="material-icons">
-                                    data_usage
-                                </span>
-                                Relatórios
-                            </a>
-
-                        </li>
                         
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/LogoutServlet"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                        <c:if test="${sessionScope.usuario.admin}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="<c:url value="/Relatorio?chamada=total"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                    <span class="material-icons">
+                                        data_usage
+                                    </span>
+                                    Relatórios
+                                </a>
+                            </li>
+                        </c:if>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="material-icons">
-                                    data_usage
+                                    person
                                 </span>
-                                Sair
                             </a>
-
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="<c:url value="/AlterarSenha"/>">Trocar senha</a>
+                                <a class="dropdown-item" href="<c:url value="/LogoutServlet"/>">SAIR</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

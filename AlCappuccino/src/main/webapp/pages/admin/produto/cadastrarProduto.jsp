@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="./resources/js/produto.js"></script>
+        <link rel="stylesheet" href="./resources/css/front.css">
         <title>Cadastrar Produto</title>
     </head>
     <body class="container">
