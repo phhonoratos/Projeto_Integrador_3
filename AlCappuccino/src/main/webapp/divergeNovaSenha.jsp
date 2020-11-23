@@ -8,11 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%@include file="header/header.jsp" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="resources/css/front.css">
         <title>Alterar Senha</title>
     </head>
-    <body>
+    <body class="container">
+        <br/>
         <h1>Os campos SENHA e CONFIRMAR SENHA devem ser iguais!</h1>
     </body>
 </html>
