@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="resources/css/front.css">
         <title>Sucesso</title>
     </head>
-    <body>
+    <body class="container">
         <h1>Operação executada com sucesso!</h1><br/>
     </body>
 </html>
