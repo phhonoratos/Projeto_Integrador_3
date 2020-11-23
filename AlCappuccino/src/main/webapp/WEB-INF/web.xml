@@ -100,6 +100,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>ac.servlet.filter.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarSenha</servlet-name>
+        <servlet-class>ac.servlet.funcionario.AlterarSenha</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IncluirFiliaisServlet</servlet-name>
         <url-pattern>/IncluirFiliais</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarSenha</servlet-name>
+        <url-pattern>/AlterarSenha</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

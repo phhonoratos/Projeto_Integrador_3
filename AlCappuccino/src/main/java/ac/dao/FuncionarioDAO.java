@@ -212,5 +212,16 @@ public class FuncionarioDAO {
         
         return funcionario;
     }
+    
+    public static void updateSenha(Funcionario funcionario) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.getConexao();
+        String SQL_UPDATE_FUNCIONARIO = "update funcionarios set senha = ? where email = ?";
+        
+        PreparedStatement ps = con.prepareStatement(SQL_UPDATE_FUNCIONARIO);
+        String senha = BCrypt.withDefaults().hashToString(12, funcionario.getSenha().toCharArray());
+        ps.setString(1, senha);
+        ps.setString(2, funcionario.getEmail());
+        ps.execute();
+    }
 
 }
