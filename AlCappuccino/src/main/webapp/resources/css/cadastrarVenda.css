@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : joao
 */
 
+body{
+    background-color: black;
+}
+
 input {
     background-color: transparent;
     border: none;
@@ -25,4 +29,8 @@ input {
     display: inline-block;
     width:auto;
     max-width: 500px;
+}
+
+.lista-produtos{
+    border: 1px solid black;
 }
