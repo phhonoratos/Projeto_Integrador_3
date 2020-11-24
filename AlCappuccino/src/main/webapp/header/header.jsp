@@ -26,7 +26,7 @@
 
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <img id="logo" src="<c:url value="/resources/img/logo 2.png"/>" class="navbar-brand">
+                <a href="<c:url value="/pages/index.jsp"/>"><img id="logo" src="<c:url value="/resources/img/logo 2.png"/>" class="navbar-brand"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
