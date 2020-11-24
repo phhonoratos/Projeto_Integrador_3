@@ -15,7 +15,7 @@
 
         <style>
             li{
-                margin-left: 3px;
+                margin-left: 5px;
             }
         </style>
     </head>
@@ -25,7 +25,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 1150px; margin-left: -20px">
                 <a href="<c:url value="/pages/index.jsp"/>"><img id="logo" src="<c:url value="/resources/img/logo 2.png"/>" class="navbar-brand"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
