@@ -108,7 +108,7 @@
                                 </c:if>
                             </div>
                         </li>
-                        
+
                         <c:if test="${sessionScope.usuario.admin}">
                             <li class="nav-item">
                                 <a class="nav-link" href="<c:url value="/Relatorio?chamada=total"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
@@ -119,7 +119,7 @@
                                 </a>
                             </li>
                         </c:if>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="material-icons">
@@ -128,6 +128,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<c:url value="/AlterarSenha"/>">Trocar senha</a>
+                                <a class="dropdown-item" href="../AlCappuccinoHistory.jsp">AlCappuccino History</a>
+                                <a class="dropdown-item" href="<c:url value="/AlterarSenha"/>">Entre em contato</a>
                                 <a class="dropdown-item" href="<c:url value="/LogoutServlet"/>">SAIR</a>
                             </div>
                         </li>
