@@ -34,3 +34,37 @@ input {
 .lista-produtos{
     border: 1px solid black;
 }
+
+input[name="id"]{
+    width:50px;
+}
+
+input[name="produto"]{
+    width:300px;
+}
+
+input[name="categoria"]{
+    width:100px;
+}
+
+input[name="estoque"]{
+    width:50px;
+}
+
+.card-produtos{
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 500px;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll; /* Add vertical scrollbar */
+    padding: 2px;
+}
+
+input.card-title{
+    border: none;
+}
+
+input.card-subtitle{
+    border: none;
+}
