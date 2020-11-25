@@ -61,7 +61,7 @@
                                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                                                    value="${produto.quantidadeEstoque}" name="estoque" id="estoque" readonly>
                                         </div>
-                                        
+
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Preço (R$)</span>
@@ -69,7 +69,7 @@
                                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                                                    value="${produto.valorVenda}" name="valor_venda" id="valor_venda" readonly>
                                         </div>
-                                        
+
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Quantidade</span>
@@ -79,12 +79,12 @@
                                                    aria-label="Default" 
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="quantidade" 
-                                                   id="${produto.nome}${produto.id}" 
+                                                   id="${produto.tipo}${produto.id}" 
                                                    min="0" 
                                                    max="${produto.quantidadeEstoque}" 
-                                                   onchange="calcularTotal('${produto.nome}', '${produto.id}', ${produto.valorVenda})">
+                                                   onchange="calcularTotal('${produto.tipo}', '${produto.id}', ${produto.valorVenda})">
                                         </div>
-                                        
+
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Valor Total (R$)</span>
@@ -94,12 +94,12 @@
                                                    aria-label="Default" 
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="valorTotal"
-                                                   id="${produto.nome}${produto.id}${produto.id}" 
+                                                   id="${produto.tipo}${produto.id}${produto.id}" 
                                                    readonly>
                                         </div>
 
                                     </div>
-                                    <a href="#" class="btn btn-primary">Incluir</a>
+                                    <a href="#" class="btn btn-primary" onclick="adicionarCarrinho('${produto.tipo}', '${produto.id}', ${produto.valorVenda})">Incluir</a>
                                 </div>
                             </div>
 
@@ -149,34 +149,27 @@
             </form>
 
             <script>
-
-                function calcularTotal(nome, id, precoVenda) {
-                    var qtd = $("#" + nome + id).val()
-                    var total = qtd * precoVenda
-
-                    console.log(qtd, total)
-
-                    $("#" + nome + id + id).val(total.toFixed(2))
+                
+                function adicionarCarrinho(tipo, idProduto, valorTotal){
+                    
+                    var quantidade = $("#"+tipo+""+idProduto).val();
+                    var total = quantidade * valorTotal;
+                    
+                    $.get("Carrinho?idProduto="+idProduto+"&quantidade="+quantidade +"&valorTotal="+total, function (resposta){
+                        console.log(total);
+                    });
+                    
+//                    window.location.reload();
+                    
                 }
 
-                function adicionarCarrinho(nome, tipo, id) {
-                    var qtd_total = $("#" + nome + tipo + id).val()
-                    var produto = $("#" + nome + id).html()
-                    var valor = $("#" + nome + id + id).html()
-                    valor = valor * qtd_total;
+                function calcularTotal(nome, id, precoVenda) {
+                    var qtd = $("#" + nome + id).val();
+                    var total = qtd * precoVenda;
 
-                    console.log(qtd_total, valor);
-                    console.log(produto)
+                    console.log(qtd, total);
 
-                    var table = document.getElementById("carrinho");
-                    var row = table.insertRow(-1);
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    var cell3 = row.insertCell(2);
-
-                    cell1.innerHTML = produto;
-                    cell2.innerHTML = qtd_total;
-                    cell3.innerHTML = valor;
+                    $("#" + nome + id + id).val(total.toFixed(2));
                 }
 
             </script>
