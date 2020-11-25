@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <h1>Lista de Funcionários</h1>
+        <h3 style="margin-left: 450px">Funcionários</h3>
         <br/>
 
         <form method="GET" action="ListarFuncionarios?cpf='${"#cpf"}.val()'">

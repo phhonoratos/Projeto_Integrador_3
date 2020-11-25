@@ -16,7 +16,7 @@
         <title>Atualização de Funcionário</title>
     </head>
     <body class="container">
-        <h1>Atualização. Funcionário: ${funcionarios.nome}</h1>
+        <h3 style="margin-left: 200px">Atualização: ${funcionarios.nome}</h3>
         <br/>
         <form method="POST" action="AlterarFuncionarios">
             <table class="table">
