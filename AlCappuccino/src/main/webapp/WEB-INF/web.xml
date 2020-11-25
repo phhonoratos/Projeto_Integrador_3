@@ -104,6 +104,10 @@
         <servlet-name>AlterarSenha</servlet-name>
         <servlet-class>ac.servlet.funcionario.AlterarSenha</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Carrinho</servlet-name>
+        <servlet-class>ac.servlet.carrinho.Carrinho</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IncluirFiliaisServlet</servlet-name>
         <url-pattern>/IncluirFiliais</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>AlterarSenha</servlet-name>
         <url-pattern>/AlterarSenha</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Carrinho</servlet-name>
+        <url-pattern>/Carrinho</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

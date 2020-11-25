@@ -121,7 +121,15 @@
                         </c:if>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link carrinho" data-toggle="modal" data-target="#modalCarrinho" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                <span class="material-icons">
+                                    add_shopping_cart
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="<c:url value="/Carrinho"/>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="material-icons">
                                     person
                                 </span>
@@ -132,11 +140,43 @@
                                 <a class="dropdown-item" href="<c:url value="/LogoutServlet"/>">SAIR</a>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </nav>
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="modalCarrinho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Carrinho de vendas</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <c:forEach var="lista" items="${sessionScope.carrinho}">
+                            <div class="row produtos-carrinho">
+                                <label class="col-2">${lista.quantidadeEstoque}</label> <label class="col-5">${lista.nome}</label> <label class="col-5">R$ ${lista.valorVenda}</label>
+                            </div>
+                            <hr>
+                        </c:forEach>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <label>Total ${sessionScope.totalCarrinho}</label>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-success">Finalizar venda</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <script src="./resources/js/header.js"></script>
     </body>
 </html>
