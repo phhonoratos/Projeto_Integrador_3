@@ -136,7 +136,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<c:url value="/AlterarSenha"/>">Trocar senha</a>
-                                <a class="dropdown-item" href="../AlCappuccinoInstitucional.jsp">AlCappuccino Institucional</a>
+                                <a class="dropdown-item" href="<c:url value="/AlCappuccinoInstitucional"/>">AlCappuccino Institucional</a>
                                 <a class="dropdown-item" href="<c:url value="/LogoutServlet"/>">SAIR</a>
                             </div>
                         </li>
