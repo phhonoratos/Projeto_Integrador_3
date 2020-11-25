@@ -12,3 +12,7 @@ button[id="cad"] {
 a[id="bt"] {
     color: white;
 }
+
+a[id="cad"] {
+    margin-left: 640px;
+}

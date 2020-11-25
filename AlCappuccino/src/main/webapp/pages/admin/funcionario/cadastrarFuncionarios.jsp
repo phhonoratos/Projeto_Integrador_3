@@ -16,7 +16,7 @@
         <title>Cadastrar Funcionário</title>
     </head>
     <body class="container">
-        <h1>Cadastrar Funcionário</h1>
+        <h3 style="margin-left: 320px">Cadastro de funcionário</h3>
         <br/>
         <form method="POST" action="CadastrarFuncionarios">
             <table class="table">
