@@ -101,7 +101,7 @@
                     <div class="col-4">
                         <p><b>Função</b></p>
                         <select name="cargo" id="cargo" required="true" class="form-control">
-                            <option value="${funcionario.cargo}">${funcionario.cargo}</option>
+                            <option value="${funcionarios.cargo}">${funcionarios.cargo}</option>
                             <option value="Gerente">Gerente</option>
                             <option value="Vendedor(a)">Vendedor(a)</option>
                             <option value="TI">TI</option>
@@ -110,7 +110,7 @@
                         <input id="listFilial" class="form-control" name="filial" value="${funcionarios.estabelecimento.id}" list="filiais">
                         <datalist id="filiais">
                             <c:forEach items="${filiais}" var="filial">
-                                <option>${filial.id}</option>
+                                <option>${filial.id} - ${filial.nome}</option>
                             </c:forEach>
                         </datalist>
                     </div>
@@ -138,7 +138,7 @@
                 <br/>
                 <br/>
                 <div class="col-4">
-                    <button id="cad" type="submit" class="btn btn-success">Atualizar</button>
+                    <button id="cad" type="submit" class="btn btn-primary">Atualizar</button>
                 </div>
                 <br/>
             </table>

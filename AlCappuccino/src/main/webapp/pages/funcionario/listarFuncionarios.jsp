@@ -122,7 +122,7 @@
                                     <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
                                     <br/>
                                     <br/>
-                                    <button class="btn btn-warning"><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>">Alterar</a></button>
+                                    <button class="btn btn-warning" style="margin-left: 900px"><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>" style="color: white">Alterar</a></button>
                                     <button type="button" class="btn btn-danger" 
                                             onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button>
                                 </div>

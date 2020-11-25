@@ -107,7 +107,7 @@
                             <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
                             <datalist id="filiais">
                                 <c:forEach items="${filiais}" var="filial">
-                                    <option>${filial.id}</option>
+                                    <option>${filial.id} - ${filial.nome}</option>
                                 </c:forEach>
                             </datalist>
                         </div>
@@ -139,7 +139,7 @@
                             <input id="senha" maxlength="150" name="senha" class="form-control" placeholder="Senha" style="text-align: center"/>
                         </div>
                         <div class="col-4">
-                            <button id="cadastrar" type="submit" class="btn btn-success">Cadastrar</button>
+                            <button id="cadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
                         </div>
                     </div>
                     <br/>
