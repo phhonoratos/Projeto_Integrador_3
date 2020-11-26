@@ -138,7 +138,7 @@
                 <br/>
                 <br/>
                 <div class="col-4">
-                    <button id="cad" type="submit" class="btn btn-primary">Atualizar</button>
+                    <button id="cad" type="submit" class="btn btn-success">Atualizar</button>
                 </div>
                 <br/>
             </table>

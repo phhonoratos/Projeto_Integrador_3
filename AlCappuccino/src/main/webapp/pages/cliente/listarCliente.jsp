@@ -48,7 +48,7 @@
                     </c:forEach>
                 </datalist>
                 <button type="submit" id="pesq">Pesquisar</button>
-                <a id="cad" class="btn btn-primary" href="CadastrarCliente" role="button">Cadastrar Cliente</a>
+                <a id="cad" class="btn btn-success" href="CadastrarCliente" role="button">Cadastrar Cliente</a>
             </form>
             <br>
             <span>Total de clientes cadastrados: ${listaClientes.size()}</span>
@@ -114,7 +114,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" class="btn btn-success" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
+                            <button type="button" class="btn btn-success" onclick="excluirCliente()">Confirmar</button>
                         </div>
                     </div>
                 </div>
