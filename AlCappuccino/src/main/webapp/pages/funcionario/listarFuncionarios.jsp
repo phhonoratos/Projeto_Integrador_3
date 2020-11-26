@@ -57,7 +57,7 @@
             </datalist>
             <button type="submit" id="pesq" class="btn btn-primary">Pesquisar</button>
             <c:if test="${sessionScope.usuario.admin}">
-                <button id="cad" class="btn btn-primary"><a id="bt" href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
+                <button id="cad" class="btn btn-success"><a id="bt" href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
             </c:if>
         </form>   
         <br/>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="deletarCliente()">Confirmar</button>
+                    <button type="button" class="btn btn-success" onclick="deletarCliente()">Confirmar</button>
                 </div>
             </div>
         </div>
