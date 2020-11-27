@@ -67,7 +67,9 @@
                                                 <span class="input-group-text">Preço (R$)</span>
                                             </div>
                                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-                                                   value="${produto.valorVenda}" name="valor_venda" id="valor_venda" readonly>
+                                                   value="${produto.valorVenda}" name="valor_venda" id="valor_venda" 
+                                                   step="any" class="two-decimals"
+                                                   readonly>
                                         </div>
 
                                         <div class="input-group mb-3">
@@ -95,6 +97,7 @@
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="valorTotal"
                                                    id="${produto.tipo}${produto.id}${produto.id}" 
+                                                   step="any" class="two-decimals"
                                                    readonly>
                                         </div>
 
