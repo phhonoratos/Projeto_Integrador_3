@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <h1>Lista de Funcionários</h1>
+        <h3 style="margin-left: 450px">Funcionários</h3>
         <br/>
 
         <form method="GET" action="ListarFuncionarios?cpf='${"#cpf"}.val()'">
@@ -57,7 +57,7 @@
             </datalist>
             <button type="submit" id="pesq" class="btn btn-primary">Pesquisar</button>
             <c:if test="${sessionScope.usuario.admin}">
-                <button id="cad" class="btn btn-primary"><a id="bt" href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
+                <button id="cad" class="btn btn-success"><a id="bt" href="CadastrarFuncionarios">Cadastrar Funcionário</a></button>
             </c:if>
         </form>   
         <br/>
@@ -122,7 +122,7 @@
                                     <label id="obs"><b>Observações:</b> ${funcionarios.observacao}</label>
                                     <br/>
                                     <br/>
-                                    <button class="btn btn-warning"><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>">Alterar</a></button>
+                                    <button class="btn btn-warning" style="margin-left: 900px"><a href="<c:url value="/AlterarFuncionarios?cpf=${funcionarios.cpf}"/>" style="color: white">Alterar</a></button>
                                     <button type="button" class="btn btn-danger" 
                                             onclick="confirmarDelete(${funcionarios.cpf})">Excluir</button>
                                 </div>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="deletarCliente()">Confirmar</button>
+                    <button type="button" class="btn btn-success" onclick="deletarCliente()">Confirmar</button>
                 </div>
             </div>
         </div>

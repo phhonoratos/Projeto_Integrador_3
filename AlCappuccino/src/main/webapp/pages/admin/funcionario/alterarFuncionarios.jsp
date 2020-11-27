@@ -16,7 +16,7 @@
         <title>Atualização de Funcionário</title>
     </head>
     <body class="container">
-        <h1>Atualização. Funcionário: ${funcionarios.nome}</h1>
+        <h3 style="margin-left: 200px">Atualização: ${funcionarios.nome}</h3>
         <br/>
         <form method="POST" action="AlterarFuncionarios">
             <table class="table">
@@ -101,7 +101,7 @@
                     <div class="col-4">
                         <p><b>Função</b></p>
                         <select name="cargo" id="cargo" required="true" class="form-control">
-                            <option value="${funcionario.cargo}">${funcionario.cargo}</option>
+                            <option value="${funcionarios.cargo}">${funcionarios.cargo}</option>
                             <option value="Gerente">Gerente</option>
                             <option value="Vendedor(a)">Vendedor(a)</option>
                             <option value="TI">TI</option>
@@ -110,7 +110,7 @@
                         <input id="listFilial" class="form-control" name="filial" value="${funcionarios.estabelecimento.id}" list="filiais">
                         <datalist id="filiais">
                             <c:forEach items="${filiais}" var="filial">
-                                <option>${filial.id}</option>
+                                <option>${filial.id} - ${filial.nome}</option>
                             </c:forEach>
                         </datalist>
                     </div>

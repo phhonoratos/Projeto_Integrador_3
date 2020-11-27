@@ -101,7 +101,7 @@
                     <label for="">uf</label>
                     <input type="text" name="uf" id="uf" required>
                 </div>
-                <button type="submit" required="true">Cadastrar</button>
+                <button type="submit" class="btn btn-success" required="true">Cadastrar</button>
             </div>
 
         </form>

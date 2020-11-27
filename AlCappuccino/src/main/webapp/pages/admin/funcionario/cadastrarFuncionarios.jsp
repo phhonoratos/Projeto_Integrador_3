@@ -16,7 +16,7 @@
         <title>Cadastrar Funcionário</title>
     </head>
     <body class="container">
-        <h1>Cadastrar Funcionário</h1>
+        <h3 style="margin-left: 320px">Cadastro de funcionário</h3>
         <br/>
         <form method="POST" action="CadastrarFuncionarios">
             <table class="table">
@@ -107,7 +107,7 @@
                             <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
                             <datalist id="filiais">
                                 <c:forEach items="${filiais}" var="filial">
-                                    <option>${filial.id}</option>
+                                    <option>${filial.id} - ${filial.nome}</option>
                                 </c:forEach>
                             </datalist>
                         </div>
