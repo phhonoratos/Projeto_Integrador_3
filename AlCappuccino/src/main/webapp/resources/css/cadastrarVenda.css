@@ -52,13 +52,14 @@ input[name="estoque"]{
 }
 
 .card-produtos{
-    border: 2px solid black;
     margin-top: 20px;
     margin-bottom: 20px;
     height: 500px;
     overflow-x: hidden; /* Hide horizontal scrollbar */
     overflow-y: scroll; /* Add vertical scrollbar */
     padding: 2px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
 }
 
 input.card-title{
@@ -67,4 +68,8 @@ input.card-title{
 
 input.card-subtitle{
     border: none;
+}
+
+.btn-vender{
+    align-content: flex-end;
 }

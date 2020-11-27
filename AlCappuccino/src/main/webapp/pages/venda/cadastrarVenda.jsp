@@ -10,9 +10,9 @@
 <html>
     <%@include file="../../header/header.jsp" %>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./resources/css/cadastrarVenda.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
         <link rel="stylesheet" href="./resources/css/front.css">
+        <link rel="stylesheet" href="./resources/css/cadastrarVenda.css">
         <title>Vendas</title>
     </head>
     <body>
@@ -20,18 +20,7 @@
         <div class="container">
             <h1 style="text-align: center">Vendas</h1>
 
-            <form method="POST" action="CadastrarVenda">
-                <div class="vendedor">
-                    <span>Vendedor: </span>
-                    <input type="text" name="vendedor" placeholder="Escolha um funcionário" list="funcionario" required/>
-                    <datalist id="funcionario">
-                        <c:forEach var="funcionario" items="${listaFuncionarios}">
-                            <c:if test="${sessionScope.usuario.estabelecimento.id == funcionario.estabelecimento.id}">
-                                <option value=${funcionario.cpf}></option>
-                            </c:if>
-                        </c:forEach>
-                    </datalist>
-                </div>
+            <form method="POST" action="Carrinho">
                 <div class="cliente">
                     <span>Cliente: </span>
                     <input type="text" name="cliente" placeholder="Escolha um cliente" list="cliente"/>
@@ -53,21 +42,36 @@
                                     <input class="card-title" readonly="true" value="${produto.nome}" name="produto"></input>
                                     <input class="card-subtitle mb-2 text-muted" name="categoria" value="${produto.tipo}" readonly="true"></input>
                                     <div class="card-text">
+                                        <input name="id" value="${produto.id}" hidden/>
 
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Estoque</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-                                                   value="${produto.quantidadeEstoque}" name="estoque" id="estoque" readonly>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   aria-label="Default" 
+                                                   aria-describedby="inputGroup-sizing-default"
+                                                   value="${produto.quantidadeEstoque}" 
+                                                   name="estoque" 
+                                                   id="estoque" 
+                                                   readonly>
                                         </div>
 
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Preço (R$)</span>
                                             </div>
-                                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-                                                   value="${produto.valorVenda}" name="valor_venda" id="valor_venda" readonly>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   aria-label="Default" 
+                                                   aria-describedby="inputGroup-sizing-default"
+                                                   value="${produto.valorVenda}" 
+                                                   name="valor_venda" 
+                                                   id="valor_venda" 
+                                                   readonly 
+                                                   step="0.01"
+                                                   lang="nb">
                                         </div>
 
                                         <div class="input-group mb-3">
@@ -95,11 +99,12 @@
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="valorTotal"
                                                    id="${produto.tipo}${produto.id}${produto.id}" 
-                                                   readonly>
+                                                   readonly
+                                                   step="0.01"
+                                                   lang="nb">
                                         </div>
 
                                     </div>
-                                    <a href="#" class="btn btn-primary" onclick="adicionarCarrinho('${produto.tipo}', '${produto.id}', ${produto.valorVenda})">Incluir</a>
                                 </div>
                             </div>
 
@@ -145,31 +150,38 @@
                     <input name="porcentagem" value="${produto.porcentagem}" hidden="true"/>
                 </c:forEach>
                 <input name="id_estabelecimento" value="${sessionScope.usuario.estabelecimento.id}" hidden="true"/>
-                <button type="submit" class="btn btn-success">Vender</button>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-success">Incluir</button>
+                    </div>
+                    <div class="col-6 btn-vender">
+                        <label>Total R$ </label>
+                        <label id="labelTotal">0.0</label>
+                    </div>
+                </div>
+
             </form>
 
             <script>
-                
-                function adicionarCarrinho(tipo, idProduto, valorTotal){
-                    
-                    var quantidade = $("#"+tipo+""+idProduto).val();
+
+                function adicionarCarrinho(tipo, idProduto, valorTotal) {
+
+                    var quantidade = $("#" + tipo + "" + idProduto).val();
                     var total = quantidade * valorTotal;
-                    
-                    $.get("Carrinho?idProduto="+idProduto+"&quantidade="+quantidade +"&valorTotal="+total, function (resposta){
-                        console.log(total);
+                    $.get("Carrinho?idProduto=" + idProduto + "&quantidade=" + quantidade + "&valorTotal=" + total, function (resposta) {
+                        console.log('foi');
                     });
-                    
-//                    window.location.reload();
-                    
+                    window.location.reload();
                 }
 
                 function calcularTotal(nome, id, precoVenda) {
+                    var valorTotal = parseFloat($("#labelTotal").html());
                     var qtd = $("#" + nome + id).val();
                     var total = qtd * precoVenda;
-
                     console.log(qtd, total);
-
                     $("#" + nome + id + id).val(total.toFixed(2));
+                    $("#labelTotal").html(valorTotal + parseFloat(precoVenda));
+                    console.log($("#labelTotal").html());
                 }
 
             </script>

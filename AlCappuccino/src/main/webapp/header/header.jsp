@@ -11,13 +11,9 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/css/header.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <style>
-            li{
-                margin-left: 5px;
-            }
-        </style>
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
@@ -146,36 +142,59 @@
             </nav>
         </div>
 
+
+
         <!-- Modal -->
         <div class="modal fade" id="modalCarrinho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrinho de vendas</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Carrinho de compras de ${sessionScope.cliente.nome}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <c:forEach var="lista" items="${sessionScope.carrinho}">
-                            <div class="row produtos-carrinho">
-                                <label class="col-2">${lista.quantidadeEstoque}</label> <label class="col-5">${lista.nome}</label> <label class="col-5">R$ ${lista.valorVenda}</label>
+                    <form method="POST" action="CadastrarVenda">
+                        <div class="modal-body">
+                            <input hidden name="id_estabelecimento" valeu="${sessionScope.usuario.estabelecimento.id}">
+                            <input hidden name="cliente" valeu="${sessionScope.cliente.cpf}">
+                            <input hidden name="cliente" valeu="${sessionScope.usuario.cpf}">
+                            <c:forEach var="lista" items="${sessionScope.carrinho}">
+                                <div class="row produtos-carrinho">
+                                    <input name="id" value="${lista.id}" hidden>
+                                    <input name="categoria" value="${lista.tipo}">
+                                    <input name="estoque" value="${lista.quantidadeEstoque}">
+                                    <div class="col-2">
+                                        <input name="quantidade" value="${sessionScope.quantidade}">
+                                    </div>
+                                    <div class="col-5">
+                                        <input name="produto" value="${lista.nome}">
+                                    </div>
+                                    <div class="col-5">
+                                        <input name="valorTotal" value="${lista.valorVenda}">
+                                    </div>
+                                </div>
+                                <hr>
+                            </c:forEach>
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <label>Total R$ ${sessionScope.totalCarrinho}</label>
+
                             </div>
-                            <hr>
-                        </c:forEach>
-                    </div>
-                    <div class="modal-footer">
-                        <div>
-                            <label>Total ${sessionScope.totalCarrinho}</label>
+                            <div>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-success">Finalizar venda</button>
+                            </div>
                         </div>
-                        <div>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-success">Finalizar venda</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+
+        <c:if test="${sessionScope.totalCarrinho > 0}">
+            <input id="verificarValorCarrinho" valeu="true" hidden>
+        </c:if>
 
         <script src="./resources/js/header.js"></script>
     </body>
