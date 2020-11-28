@@ -78,7 +78,7 @@ public class Carrinho extends HttpServlet {
         String[] id = request.getParameterValues("id");
 //        String[] nomeProduto = request.getParameterValues("produto");
 //        String[] categoria = request.getParameterValues("categoria");
-        String[] estoque = request.getParameterValues("estoque");
+//        String[] estoque = request.getParameterValues("estoque");
 //        String[] valor_venda = request.getParameterValues("valor_venda");
         String[] quantidade = request.getParameterValues("quantidade");
         String[] valores = request.getParameterValues("valorTotal");
@@ -101,7 +101,7 @@ public class Carrinho extends HttpServlet {
                 Double valorTotal = Double.parseDouble(valores[i]);
                 Produto produto = ProdutoDAO.getProduto(Integer.parseInt(id[i]));
                 produto.setValorVenda(valorTotal);
-                produto.setQuantidadeEstoque(Integer.parseInt(estoque[i]));
+                produto.setQuantidadeEstoque(Integer.parseInt(quantidade[i]));
                 soma += valorTotal;
                 
                 if (sessao.getAttribute("carrinho") == null) {
@@ -119,7 +119,6 @@ public class Carrinho extends HttpServlet {
             }
         }
         sessao.setAttribute("carrinho", listaCarrinho);
-        sessao.setAttribute("quantidade", quantidade);
         sessao.setAttribute("cliente", c);
 
         httpResponse.sendRedirect(httpRequest.getContextPath() + "/CadastrarVenda");

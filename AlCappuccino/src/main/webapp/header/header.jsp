@@ -156,16 +156,15 @@
                     </div>
                     <form method="POST" action="CadastrarVenda">
                         <div class="modal-body">
-                            <input hidden name="id_estabelecimento" valeu="${sessionScope.usuario.estabelecimento.id}">
-                            <input hidden name="cliente" valeu="${sessionScope.cliente.cpf}">
-                            <input hidden name="cliente" valeu="${sessionScope.usuario.cpf}">
-                            <c:forEach var="lista" items="${sessionScope.carrinho}">
+                            <input hidden name="id_estabelecimento" value="${sessionScope.usuario.estabelecimento.id}">
+                            <input hidden name="cliente" value="${sessionScope.cliente.cpf}">
+                            <input hidden name="vendedor" value="${sessionScope.usuario.cpf}">
+                            <c:forEach var="lista" items="${sessionScope.carrinho}" varStatus="status">
                                 <div class="row produtos-carrinho">
                                     <input name="id" value="${lista.id}" hidden>
-                                    <input name="categoria" value="${lista.tipo}">
-                                    <input name="estoque" value="${lista.quantidadeEstoque}">
+                                    <input name="categoria" value="${lista.tipo}" hidden>
                                     <div class="col-2">
-                                        <input name="quantidade" value="${sessionScope.quantidade}">
+                                        <input name="quantidade" value="${lista.quantidadeEstoque}">
                                     </div>
                                     <div class="col-5">
                                         <input name="produto" value="${lista.nome}">

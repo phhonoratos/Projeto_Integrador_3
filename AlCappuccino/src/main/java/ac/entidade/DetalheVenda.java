@@ -18,7 +18,7 @@ public class DetalheVenda {
 
     private int id;
     private int quantidade;
-    private float valorTotal;
+    private double valorTotal;
     private Produto produto;
     private Venda venda;
 

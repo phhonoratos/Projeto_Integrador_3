@@ -63,14 +63,14 @@
                                                 <span class="input-group-text">Preço (R$)</span>
                                             </div>
 
-                                            <input type="text" class="form-control" 
+                                            <input type="number" 
+                                                   class="form-control two-decimals" 
                                                    aria-label="Default" 
                                                    aria-describedby="inputGroup-sizing-default"
                                                    value="${produto.valorVenda}" 
                                                    name="valor_venda" 
                                                    id="valor_venda" 
-                                                   step="any" 
-                                                   class="two-decimals"
+                                                   step=0.01 
                                                    readonly>
                                         </div>
 
@@ -99,8 +99,7 @@
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="valorTotal"
                                                    id="${produto.tipo}${produto.id}${produto.id}" 
-                                                   step="any" 
-                                                   class="two-decimals"
+                                                   step=0.01
                                                    readonly>
                                         </div>
 
@@ -163,7 +162,7 @@
             </form>
 
             <script>
-
+                
                 function adicionarCarrinho(tipo, idProduto, valorTotal) {
 
                     var quantidade = $("#" + tipo + "" + idProduto).val();
@@ -178,9 +177,10 @@
                     var valorTotal = parseFloat($("#labelTotal").html());
                     var qtd = $("#" + nome + id).val();
                     var total = qtd * precoVenda;
+                    var totalLabel = valorTotal + parseFloat(precoVenda);
                     console.log(qtd, total);
                     $("#" + nome + id + id).val(total.toFixed(2));
-                    $("#labelTotal").html(valorTotal + parseFloat(precoVenda));
+                    $("#labelTotal").html(totalLabel.toFixed(2));
                     console.log($("#labelTotal").html());
                 }
 
