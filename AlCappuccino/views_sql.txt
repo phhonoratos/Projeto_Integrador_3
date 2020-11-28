@@ -28,9 +28,9 @@ f.dt_adm as f_dt_adm, f.dt_dem as f_dt_dem,
 f.observacao as f_observacao,
 
 e.id as e_id, e.nome as e_nome, e.cnpj as e_cnpj,
-e.inscricao_estadual as e_inscricao_estadual, e.uf as e_uf, e.logradouro as e_logradouro,    
+e.inscricao_estadual as e_inscricao_estadual, e.email as e_email, e.uf as e_uf, e.logradouro as e_logradouro,    
 e.bairro as e_bairro, e.cidade as e_cidade, e.telefone as e_telefone, 
-e.numero_endereco as e_numero_endereco, e.cep as e_cep, e.matriz as e_matriz               
+e.numero_endereco as e_numero_endereco, e.complemento as e_complemento, e.cep as e_cep, e.matriz as e_matriz               
 
 from detalhevenda    as d 
 join produto         as p on p.id  = d.id_produto 

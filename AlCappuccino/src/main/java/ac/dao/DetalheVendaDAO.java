@@ -36,7 +36,7 @@ public class DetalheVendaDAO {
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, detalheVenda.getProduto().getId());
         ps.setInt(2, detalheVenda.getQuantidade());
-        ps.setFloat(3, detalheVenda.getValorTotal());
+        ps.setDouble(3, detalheVenda.getValorTotal());
         ps.setInt(4, detalheVenda.getVenda().getId());
 
         int retorno = ps.executeUpdate();
@@ -130,7 +130,7 @@ public class DetalheVendaDAO {
                 DetalheVenda dv = new DetalheVenda();
                 dv.setId(rs.getInt("d_id"));
                 dv.setQuantidade(rs.getInt("d_qtd_produto"));
-                dv.setValorTotal(rs.getFloat("d_valor"));
+                dv.setValorTotal(rs.getDouble("d_valor"));
                 dv.setProduto(p);
                 dv.setVenda(v);
 

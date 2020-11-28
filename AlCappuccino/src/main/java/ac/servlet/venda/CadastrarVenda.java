@@ -31,6 +31,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,14 +42,14 @@ public class CadastrarVenda extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         List<Produto> listaProduto = ProdutoDAO.getProduto();
-        
+
         for (Produto produto : listaProduto) {
             produto.setPreco((float) Math.round(produto.getPreco() * 100.0) / 100.0);
         }
-                
-        request.setAttribute("listaProduto", listaProduto); 
+
+        request.setAttribute("listaProduto", listaProduto);
 
         List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios();
         request.setAttribute("listaFuncionarios", listaFuncionarios);
@@ -68,13 +69,13 @@ public class CadastrarVenda extends HttpServlet {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
         Time hora = new Time(date.getTime());
-        
+
         int id_estabelecimento = Integer.parseInt(request.getParameter("id_estabelecimento"));
         String vendedor = request.getParameter("vendedor");
         String cliente = request.getParameter("cliente");
-        
-        if (cliente.trim().equals("")){
-            cliente="11111111111";
+
+        if (cliente.trim().equals("")) {
+            cliente = "11111111111";
         }
 
         String[] id = request.getParameterValues("id");
@@ -96,7 +97,7 @@ public class CadastrarVenda extends HttpServlet {
 
         //Persistindo para Venda
         Venda venda = new Venda();
-        
+
         //sillas
         Cliente c = new Cliente();
         c.setCpf(cliente);
@@ -110,7 +111,7 @@ public class CadastrarVenda extends HttpServlet {
         venda.setValorTotal(soma);
 
         boolean retornoVenda = false;
-        Estabelecimento estabelecimento=null;
+        Estabelecimento estabelecimento = null;
         try {
             estabelecimento = EstabelecimentoDAO.buscarEstabelecimentoPeloId(id_estabelecimento);
             retornoVenda = VendaDAO.addVenda(venda);
@@ -129,8 +130,8 @@ public class CadastrarVenda extends HttpServlet {
 
                 int idproduto = Integer.parseInt(id[i]);
                 //sillas
-                Produto p = new Produto();
-                p.setId(idproduto);
+                Produto p = ProdutoDAO.getProduto(idproduto);
+//                p.setId(idproduto);
                 dv.setProduto(p);
 
                 //sillas
@@ -139,21 +140,33 @@ public class CadastrarVenda extends HttpServlet {
                 int quantidadeProduto = Integer.parseInt(quantidade[i]);
                 dv.setQuantidade(quantidadeProduto);
 
-                float valorTotal = (Float.parseFloat(quantidade[i]) * Float.parseFloat(valor_venda[i]));
+                double valorTotal = Double.parseDouble(quantidade[i]) * p.getValorVenda();
                 dv.setValorTotal(valorTotal);
 
-                int novoEstoque = Integer.parseInt(estoque[i]) - Integer.parseInt(quantidade[i]);
+                int novoEstoque = p.getQuantidadeEstoque() - Integer.parseInt(quantidade[i]);
 
-                Produto atualizarEstoque = new Produto(
-                        Integer.parseInt(id[i]),
-                        categoria[i], 
-                        produto[i], 
-                        novoEstoque,
-                        Float.parseFloat(valor_venda[i]),
-                        Float.parseFloat(porcentagem[i]),
-                        Float.parseFloat(valor_venda[i]),
-                        estabelecimento
-                );
+//                Produto atualizarEstoque = new Produto(
+//                        Integer.parseInt(id[i]),
+//                        categoria[i],
+//                        produto[i],
+//                        novoEstoque,
+//                        Float.parseFloat(valor_venda[i]),
+//                        Float.parseFloat(porcentagem[i]),
+//                        p.getValorVenda(),
+//                        estabelecimento
+//                );
+
+                Produto atualizarEstoque = new Produto();
+                atualizarEstoque.setId(Integer.parseInt(id[i]));
+                atualizarEstoque.setTipo(categoria[i]);
+                atualizarEstoque.setNome(produto[i]);
+                atualizarEstoque.setQuantidadeEstoque(novoEstoque);
+                atualizarEstoque.setPreco(p.getPreco());
+                atualizarEstoque.setPorcentagem(p.getPorcentagem());
+                atualizarEstoque.setValorVenda(p.getValorVenda());
+                atualizarEstoque.setEstabelecimento(estabelecimento);
+                
+                
 
                 try {
                     retornoProdutoAtualizado = ProdutoDAO.updateProduto(atualizarEstoque);
@@ -169,6 +182,9 @@ public class CadastrarVenda extends HttpServlet {
 
         if (retornoVenda && retornoProdutoAtualizado > 0 && retornoInsereDetalheVenda > 0) {
             response.sendRedirect("sucesso.jsp");
+            HttpSession sessao = request.getSession();
+            sessao.removeAttribute("carrinho");
+            sessao.removeAttribute("totalCarrinho");
         } else {
             request.setAttribute("msgErro", "Erro");
             RequestDispatcher requestDispatcher
