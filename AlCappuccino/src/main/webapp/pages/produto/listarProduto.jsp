@@ -12,8 +12,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
-        <link rel="stylesheet" href="../../resources/css/front.css">
-        <link rel="stylesheet" href="resources/css/front.css">
+        <link rel="stylesheet" href="./resources/css/front.css">
+        
 
         <script lang="text/javascript">
 
@@ -44,6 +44,7 @@
         <div id="divBusca">
             <form method="GET" action="ListarProdutosPesquisa?id='${"#id"}.val()'">
                 <input type="text" name ="id" id="id" placeholder="Digite o ID do Produto..."/>
+                <br>
                 <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
         </div>
