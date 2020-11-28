@@ -107,7 +107,7 @@
                             <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
                             <datalist id="filiais">
                                 <c:forEach items="${filiais}" var="filial">
-                                    <option>${filial.id} - ${filial.nome}</option>
+                                    <option value="${filial.id}">${filial.nome}</option>
                                 </c:forEach>
                             </datalist>
                         </div>
