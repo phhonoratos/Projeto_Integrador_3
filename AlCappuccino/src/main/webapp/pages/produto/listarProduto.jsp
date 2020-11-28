@@ -65,7 +65,7 @@
                 </thead>
                 <tbody>
                     <c:choose>
-                        <c:when test="${sessionScope.usuario.estabelecimento.matriz}">
+                        <c:when test="${(sessionScope.usuario.estabelecimento.matriz) && (sessionScope.usuario.cargo == 'Gerente')}">
                             <c:forEach var="produto" items="${listaProduto}">
 
                                 <tr>
