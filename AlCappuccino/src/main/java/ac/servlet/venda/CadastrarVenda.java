@@ -73,6 +73,7 @@ public class CadastrarVenda extends HttpServlet {
         int id_estabelecimento = Integer.parseInt(request.getParameter("id_estabelecimento"));
         String vendedor = request.getParameter("vendedor");
         String cliente = request.getParameter("cliente");
+        String formaDePagamento = request.getParameter("formaDePagamento");
 
         if (cliente.trim().equals("")) {
             cliente = "11111111111";
@@ -109,6 +110,7 @@ public class CadastrarVenda extends HttpServlet {
         venda.setDataVenda(date);
         venda.setHorarioVenda(hora);
         venda.setValorTotal(soma);
+        venda.setTipoPagamento(formaDePagamento);
 
         boolean retornoVenda = false;
         Estabelecimento estabelecimento = null;

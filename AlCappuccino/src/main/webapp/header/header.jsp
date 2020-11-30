@@ -176,12 +176,22 @@
                                 <hr>
                             </c:forEach>
                         </div>
-                        <div class="modal-footer">
-                            <div>
+                        <div class="row" style="margin: 5px">
+                            <div class="col-2">
                                 <label>Total R$ ${sessionScope.totalCarrinho}</label>
-
                             </div>
-                            <div>
+                            <div class="col-6">
+                                <label for="">Forma de pagamento</label>
+
+                                <input type="text" name="formaDePagamento" list="formaDePagamento" required>
+                                <datalist id="formaDePagamento">
+                                    <option value="dinheiro"></option>
+                                    <option value="debito"></option>
+                                    <option value="credito"></option>
+                                    <option value="vr"></option>
+                                </datalist>
+                            </div>
+                            <div class="col-4">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                 <button type="submit" class="btn btn-success">Finalizar venda</button>
                             </div>
