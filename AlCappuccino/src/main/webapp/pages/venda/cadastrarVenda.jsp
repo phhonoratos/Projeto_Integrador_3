@@ -153,9 +153,9 @@
                     <div class="col-6">
                         <button type="submit" class="btn btn-success">Incluir</button>
                     </div>
-                    <div class="col-6 btn-vender">
-                        <label>Total R$ </label>
-                        <label id="labelTotal">0.0</label>
+                    <div class="col-6 btn-vender" style="text-align: right">
+                        <label style="border: 1px solid #ced4da; background-color: #e9ecef; padding: .375rem .75rem; border-radius: .25rem">Total R$ </label>
+                        <label id="labelTotal" style="border: 1px solid #ced4da; padding: .375rem .75rem">0.0</label>
                     </div>
                 </div>
 
@@ -174,12 +174,17 @@
                 }
 
                 function calcularTotal(nome, id, precoVenda) {
-                    var valorTotal = parseFloat($("#labelTotal").html());
-                    var qtd = $("#" + nome + id).val();
+                    var valorTotal = parseFloat($("#labelTotal").html()); // 30.04
+                    var qtd = $("#" + nome + id).val(); // 0
                     var total = qtd * precoVenda;
-                    var totalLabel = valorTotal + parseFloat(precoVenda);
+                    var totalLabel = 0;
                     console.log(qtd, total);
-                    $("#" + nome + id + id).val(total.toFixed(2));
+                    if ($("#" + nome + id + id).val() < total){
+                        totalLabel = valorTotal + parseFloat(precoVenda);
+                    }else{
+                        totalLabel = valorTotal - parseFloat(precoVenda);
+                    }
+                    $("#" + nome + id + id).val(total.toFixed(2)); // total de cada produto
                     $("#labelTotal").html(totalLabel.toFixed(2));
                     console.log($("#labelTotal").html());
                 }

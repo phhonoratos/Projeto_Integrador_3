@@ -192,7 +192,6 @@
                                 </datalist>
                             </div>
                             <div class="col-4">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                 <button type="submit" class="btn btn-success">Finalizar venda</button>
                             </div>
                         </div>
