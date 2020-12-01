@@ -10,7 +10,19 @@ and open the template in the editor.
 h1{
     text-align: center;
 }
-label{
+h1{
     color: black;
     margin-right: 100px;
+}
+
+label[id="quantidade"] {
+    margin-left: 120px;
+}
+
+label[id="valorUnitario"] {
+    margin-left: 120px;
+}
+
+label[id="valorTotal"] {
+    margin-left: 120px;
 }
