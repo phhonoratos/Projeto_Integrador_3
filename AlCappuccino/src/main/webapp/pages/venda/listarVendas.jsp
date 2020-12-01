@@ -32,44 +32,100 @@
         </script>
     </head>
     <body>
-        <div class="container">
-            <h1>Vendas</h1>
-
-            <c:forEach items="${vendas}" var="venda">
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
-                                    <label id="data"><b>Data</b></label>
-                                    <label id="hora"><b>Hora</b></label>
-                                    <label id="total"><b>Total</b></label>
-                                    <label id="vendedor"><b>Vendedor</b></label>
-                                    <hr>
-                                    <label id="data1">${venda.dataVenda}</label> 
-                                    <label id="hora1">${venda.horarioVenda}</label>
-                                    <label id="total1">${venda.valorTotal}</label>
-                                    <label id="vendedor1">${venda.funcionario.cpf}</label>
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <c:forEach items="${detalheVendas}" var="detalheVendas">
-                                <c:if test="${detalheVendas.venda.id == venda.id}">
-                                    <div class="card-body">
-                                        <label id="produto"><b>Produto:</b> ${detalheVendas.produto.id}</label>
-                                        <label id="quantidade"><b>Quantidade:</b> ${detalheVendas.quantidade}</label>
-                                        <label id="valorTotal"><b>Valor Total:</b> ${detalheVendas.valorTotal}</label>
-                                        <br/>
+        <br/>
+        <h1>Vendas</h1>
+        <br/>
+        <table class="table">
+            <tbody>
+                <c:choose>
+                    <c:when test="${(sessionScope.usuario.estabelecimento.matriz) && (sessionScope.usuario.cargo == 'Gerente')}">
+                        <c:forEach items="${vendas}" var="venda">
+                        <div class="container">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-block" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
+                                                <div class="row">
+                                                    <label class="col-3" id="data"><b>Data</b></label>
+                                                    <label class="col-3" id="hora"><b>Hora</b></label>
+                                                    <label class="col-3" id="total"><b>Total</b></label>
+                                                    <label class="col-3" id="vendedor"><b>Vendedor</b></label>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <input class="col-3" id="data1" value="${venda.dataVenda}" type="date" readonly style="border: none; background-color: transparent; text-align: center"/>
+                                                    <label class="col-3" id="hora1">${venda.horarioVenda}</label>
+                                                    <label class="col-3" id="total1">${venda.valorTotal}</label>
+                                                    <label class="col-3" id="vendedor1">${venda.funcionario.email}</label>
+                                                </div>
+                                            </button>
+                                        </h2>
                                     </div>
-                                </c:if>
-
-                            </c:forEach>
+                                    <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <c:forEach items="${detalheVendas}" var="detalheVendas">
+                                            <c:if test="${detalheVendas.venda.id == venda.id}">
+                                                <div class="card-body">
+                                                    <label id="produto"><b>Produto:</b> ${detalheVendas.produto.nome}</label>
+                                                    <label id="valorUnitario"><b>Valor Unitário:</b> ${detalheVendas.produto.valorVenda}</label>
+                                                    <label id="quantidade"><b>Quantidade:</b> ${detalheVendas.quantidade}</label>
+                                                    <label id="valorTotal"><b>Valor Total:</b> ${detalheVendas.valorTotal}</label>
+                                                    <br/>
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </c:forEach> 
-        </div>
-
-    </body>
+                    </c:forEach> 
+                </c:when>
+                <c:otherwise>
+                    <c:forEach items="${vendas}" var="venda">
+                        <c:if test="${sessionScope.usuario.estabelecimento.id == venda.funcionario.estabelecimento.id}">
+                            <div class="container">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
+                                                    <div class="row">
+                                                        <label class="col-3" id="data"><b>Data</b></label>
+                                                        <label class="col-3" id="hora"><b>Hora</b></label>
+                                                        <label class="col-3" id="total"><b>Total</b></label>
+                                                        <label class="col-3" id="vendedor"><b>Vendedor</b></label>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <label class="col-3" id="data1">${venda.dataVenda}</label> 
+                                                        <label class="col-3" id="hora1">${venda.horarioVenda}</label>
+                                                        <label class="col-3" id="total1">${venda.valorTotal}</label>
+                                                        <label class="col-3" id="vendedor1">${venda.funcionario.email}</label>
+                                                    </div>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <c:forEach items="${detalheVendas}" var="detalheVendas">
+                                                <c:if test="${detalheVendas.venda.id == venda.id}">
+                                                    <div class="card-body">
+                                                        <label id="produto"><b>Produto:</b> ${detalheVendas.produto.nome}</label>
+                                                        <label id="valorUnitario"><b>Valor Unitário:</b> ${detalheVendas.produto.valorVenda}</label>
+                                                        <label id="quantidade"><b>Quantidade:</b> ${detalheVendas.quantidade}</label>
+                                                        <label id="valorTotal"><b>Valor Total:</b> ${detalheVendas.valorTotal}</label>
+                                                        <br/>
+                                                    </div>
+                                                </c:if>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+                    </c:forEach> 
+                </c:otherwise>
+            </c:choose>
+        </tbody>
+    </table>
+</body>
 </html>
