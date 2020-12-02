@@ -192,11 +192,11 @@
                                 </datalist>
                             </div>
                             <div class="col-4">
+                                <a href="<c:url value="/MatarCarrinho"/>">Cancelar venda</a>
                                 <button type="submit" class="btn btn-success">Finalizar venda</button>
                             </div>
                         </div>
                     </form>
-                    <button onclick="matarCarrinho()">Cancelar venda</button>
                 </div>
             </div>
         </div>
@@ -208,11 +208,4 @@
         <script src="./resources/js/header.js"></script>
     </body>
 
-    <script>
-                                    function matarCarrinho() {
-        <%
-            session.removeAttribute('carrinho')
-        %>
-                                    }
-    </script>
 </html>
