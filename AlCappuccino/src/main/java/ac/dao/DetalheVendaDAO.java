@@ -43,14 +43,16 @@ public class DetalheVendaDAO {
         return retorno;
     }
 
-    public static List<DetalheVenda> listaDetalheVenda() throws SQLException, ClassNotFoundException {
+    public static List<DetalheVenda> listaDetalheVenda(String nomeFilial) throws SQLException, ClassNotFoundException {
         List<DetalheVenda> listaDetalheVenda = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
 
-            String query = "select * from detalhe_venda_join ";
+            String query = "select * from detalhe_venda_join where e_nome like ?";
 
             PreparedStatement ps = con.prepareStatement(query);
+            
+            ps.setString(1, nomeFilial);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -143,22 +145,25 @@ public class DetalheVendaDAO {
         return listaDetalheVenda;
     }
 
-    public static List<DetalheVenda> listaDetalheVenda(Date dataInicial, Date dataFinal, String clienteString, String produtoString)
+    public static List<DetalheVenda> listaDetalheVenda(Date dataInicial, Date dataFinal, String clienteString, String produtoString, String nomeFilial)
             throws SQLException, ClassNotFoundException {
         List<DetalheVenda> listaDetalheVenda = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
 
             String query = "select * from detalhe_venda_join "
-                    + "where v.data between ? and ? "
-                    + "and   c.nome like    ? "
-                    + "and   p.nome like    ? ";
+                    + "where v_data between ? and ? "
+                    + "and   c_nome like    ? "
+                    + "and   p_nome like    ? "
+                    + "and   e_nome   like    ? ";
 
             PreparedStatement ps = con.prepareStatement(query);
             ps.setDate(1, dataInicial);
             ps.setDate(2, dataFinal);
             ps.setString(3, "%" + clienteString + "%");
             ps.setString(4, "%" + produtoString + "%");
+
+            ps.setString(5, "%" + nomeFilial + "%");
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

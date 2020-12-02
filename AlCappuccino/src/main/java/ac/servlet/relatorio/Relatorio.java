@@ -40,12 +40,12 @@ public class Relatorio extends HttpServlet {
 
         String chamada = request.getParameter("chamada");
         switch (chamada) {
-        case "total":
-            listarVendasTotal(request, response);
-            break;
-        case "listarVendas":
-            listarVendas(request, response);
-            break;
+            default:
+                listarVendasTotal(request, response);
+                break;
+            case "listarVendas":
+                listarVendas(request, response);
+                break;
         }
     }
 
@@ -55,8 +55,10 @@ public class Relatorio extends HttpServlet {
             List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
             List<Cliente> clientes = ClienteDAO.getClientes();
             List<Produto> produtos = ProdutoDAO.getProduto();
+            
+            String nomeFilial = request.getParameter("chamada");
 
-            List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda();
+            List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(nomeFilial);
             List<Venda> vendas = VendaDAO.select();
             float total = totalVendas(vendas);
 
@@ -71,7 +73,7 @@ public class Relatorio extends HttpServlet {
             rd.forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
 
     private void listarVendas(HttpServletRequest request, HttpServletResponse response)
@@ -81,6 +83,8 @@ public class Relatorio extends HttpServlet {
         String dataFinalStr = request.getParameter("final").equals("") ? "3000-01-01" : request.getParameter("final");
         String nomeCliente = request.getParameter("cliente");
         String nomeProduto = request.getParameter("produto");
+        String nomeFilial = request.getParameter("filial");
+        
 
         Date dataInicial = Date.valueOf(dataInicialStr);
         Date dataFinal = Date.valueOf(dataFinalStr);
@@ -90,7 +94,7 @@ public class Relatorio extends HttpServlet {
             List<Cliente> clientes = ClienteDAO.getClientes();
             List<Produto> produtos = ProdutoDAO.getProduto();
             //problema sempre listando todos os detalhes
-            List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(dataInicial, dataFinal, nomeCliente, nomeProduto);
+            List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(dataInicial, dataFinal, nomeCliente, nomeProduto, nomeFilial);
             List<Venda> vendas = new ArrayList<>();
 
             if (detalhes.size() > 0) {

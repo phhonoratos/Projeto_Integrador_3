@@ -32,7 +32,7 @@ public class ListarVenda extends HttpServlet {
             List<Venda> vendas = VendaDAO.select();
             request.setAttribute("vendas", vendas);
             
-            List<DetalheVenda> detalheVendas = DetalheVendaDAO.listaDetalheVenda();
+            List<DetalheVenda> detalheVendas = DetalheVendaDAO.listaDetalheVenda("");
             request.setAttribute("detalheVendas", detalheVendas);
             
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/pages/venda/listarVendas.jsp");
