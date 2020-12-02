@@ -178,7 +178,7 @@
                         </div>
                         <div class="row" style="margin: 5px">
                             <div class="col-2">
-                                <label>Total R$ ${sessionScope.totalCarrinho}</label>
+                                <label step=0.01 class="two-decimals">Total R$ ${sessionScope.totalCarrinho}</label>
                             </div>
                             <div class="col-6">
                                 <label for="">Forma de pagamento</label>
@@ -196,6 +196,7 @@
                             </div>
                         </div>
                     </form>
+                    <button onclick="matarCarrinho()">Cancelar venda</button>
                 </div>
             </div>
         </div>
@@ -206,4 +207,12 @@
 
         <script src="./resources/js/header.js"></script>
     </body>
+
+    <script>
+                                    function matarCarrinho() {
+        <%
+            session.removeAttribute('carrinho')
+        %>
+                                    }
+    </script>
 </html>
