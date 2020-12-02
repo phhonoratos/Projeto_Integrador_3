@@ -69,7 +69,7 @@
                                                    aria-describedby="inputGroup-sizing-default"
                                                    value="${produto.valorVenda}" 
                                                    name="valor_venda" 
-                                                   id="valor_venda" 
+                                                   id="valor_venda${produto.id}" 
                                                    step=0.01 
                                                    readonly>
                                         </div>
@@ -83,10 +83,10 @@
                                                    aria-label="Default" 
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="quantidade" 
-                                                   id="${produto.tipo}${produto.id}" 
+                                                   id="qtd${produto.id}" 
                                                    min="0" 
                                                    max="${produto.quantidadeEstoque}" 
-                                                   onchange="calcularTotal('${produto.tipo}', '${produto.id}', ${produto.valorVenda})">
+                                                   onchange="calcularTotal(${listaProduto.size()})">
                                         </div>
 
                                         <div class="input-group mb-3">
@@ -98,7 +98,7 @@
                                                    aria-label="Default" 
                                                    aria-describedby="inputGroup-sizing-default"
                                                    name="valorTotal"
-                                                   id="${produto.tipo}${produto.id}${produto.id}" 
+                                                   id="valorTotal${produto.id}" 
                                                    step=0.01
                                                    readonly>
                                         </div>
@@ -162,7 +162,7 @@
             </form>
 
             <script>
-                
+
                 function adicionarCarrinho(tipo, idProduto, valorTotal) {
 
                     var quantidade = $("#" + tipo + "" + idProduto).val();
@@ -173,22 +173,20 @@
                     window.location.reload();
                 }
 
-                function calcularTotal(nome, id, precoVenda) {
-                    var valorTotal = parseFloat($("#labelTotal").html()); // 30.04
-                    var qtd = $("#" + nome + id).val(); // 0
-                    var total = qtd * precoVenda;
-                    var totalLabel = 0;
-                    console.log(qtd, total);
-                    if ($("#" + nome + id + id).val() < total){
-                        totalLabel = valorTotal + parseFloat(precoVenda);
-                    }else{
-                        totalLabel = valorTotal - parseFloat(precoVenda);
+                function calcularTotal(tamanho) {
+                    var totalCarrinho = 0;
+                    for (var i = 1; i <= tamanho; i++) {
+                        var x = i.toString();
+                        var qtd = $("#qtd" + x).val();
+                        var valorVenda = $("#valor_venda" + x).val();
+                        var total = qtd * valorVenda;
+                        if (!isNaN(total)) {
+                            $("#valorTotal" + x).val(total.toFixed(2)); // total de cada produto
+                            totalCarrinho = totalCarrinho + total;
+                        }
                     }
-                    $("#" + nome + id + id).val(total.toFixed(2)); // total de cada produto
-                    $("#labelTotal").html(totalLabel.toFixed(2));
-                    console.log($("#labelTotal").html());
+                    $("#labelTotal").html(totalCarrinho.toFixed(2));
                 }
-
             </script>
     </body>
 </html>
