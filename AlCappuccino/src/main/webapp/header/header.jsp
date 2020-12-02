@@ -167,10 +167,13 @@
                                         <input name="quantidade" value="${lista.quantidadeEstoque}">
                                     </div>
                                     <div class="col-5">
-                                        <input name="produto" value="${lista.nome}">
+                                        <input id="produto" name="produto" value="${lista.nome}">
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-3">
                                         <input name="valorTotal" value="${lista.valorVenda}">
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-danger material-icons"><a href="<c:url value="/AtualizarCarrinho?produto=${lista.nome}"/>">delete</a></button>
                                     </div>
                                 </div>
                                 <hr>
@@ -192,7 +195,7 @@
                                 </datalist>
                             </div>
                             <div class="col-4">
-                                <a href="<c:url value="/MatarCarrinho"/>">Cancelar venda</a>
+                                <button class="btn btn-danger"><a href="<c:url value="/MatarCarrinho"/>" style="color: white">Cancelar venda</a></button>
                                 <button type="submit" class="btn btn-success">Finalizar venda</button>
                             </div>
                         </div>

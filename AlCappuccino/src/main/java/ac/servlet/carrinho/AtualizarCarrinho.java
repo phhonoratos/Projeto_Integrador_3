@@ -6,6 +6,7 @@
 package ac.servlet.carrinho;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author paulo
  */
-public class MatarCarrinho extends HttpServlet {
+public class AtualizarCarrinho extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,10 +26,17 @@ public class MatarCarrinho extends HttpServlet {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         
-        httpResponse.sendRedirect(httpRequest.getContextPath() + "/CadastrarVenda");
+        String produto = request.getParameter("produto");
+        
         HttpSession sessao = request.getSession();
-        sessao.removeAttribute("carrinho");
-        sessao.removeAttribute("totalCarrinho");     
+        sessao.removeAttribute(produto);
+        httpResponse.sendRedirect(httpRequest.getContextPath() + "/CadastrarVenda");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
     }
 
 }
