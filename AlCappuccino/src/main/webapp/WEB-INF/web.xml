@@ -112,6 +112,10 @@
         <servlet-name>MatarCarrinho</servlet-name>
         <servlet-class>ac.servlet.carrinho.MatarCarrinho</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AtualizarCarrinho</servlet-name>
+        <servlet-class>ac.servlet.carrinho.AtualizarCarrinho</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IncluirFiliaisServlet</servlet-name>
         <url-pattern>/IncluirFiliais</url-pattern>
@@ -215,6 +219,10 @@
     <servlet-mapping>
         <servlet-name>MatarCarrinho</servlet-name>
         <url-pattern>/MatarCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarCarrinho</servlet-name>
+        <url-pattern>/AtualizarCarrinho</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
