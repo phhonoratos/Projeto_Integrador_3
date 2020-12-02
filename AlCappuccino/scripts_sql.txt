@@ -79,7 +79,7 @@ CREATE TABLE FUNCIONARIOS(
     observacao varchar(1500),
     id_estabelecimento int not null,
     senha varchar(150),
-    foreign key (id_estabelecimento) references estabelecimento(id)
+    foreign key (id_estabelecimento) references estabelecimento(id) on delete cascade
 );
 
 insert into funcionarios(cpf, nome, email, telefone, estado_civil, sexo, cep, logradouro, numero, complemento, uf, bairro,
@@ -118,7 +118,7 @@ create table produto (
     valor_venda double not null,
     id_estabelecimento int not null,
     primary key (id),
-    foreign key (id_estabelecimento) references estabelecimento(id)
+    foreign key (id_estabelecimento) references estabelecimento(id) on delete cascade
 );
 
 insert into produto (tipo,nome,qtd_estoque,preco,porcentagem,valor_venda,id_estabelecimento)
