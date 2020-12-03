@@ -39,10 +39,10 @@
             </c:choose>
             <div class="row">
                 <div class="col-12">
-                    <label name="labelDataInicial" id="labelDataInicial" for="dateInicial">De</label>
-                    <label name="labelDataFinal" id="labelDataFinal" for="dateDataFinal">Até</label>
-                    <label name="labelCliente" id="labelCliente" for="textCliente">Cliente</label>
-                    <label name="labelProduto" id="labelProduto" for="textProduto">Produto</label>
+                    <label name="labelDataInicial" id="labelDataInicial" for="dateInicial"><b>De</b></label>
+                    <label name="labelDataFinal" id="labelDataFinal" for="dateDataFinal"><b>Até</b></label>
+                    <label name="labelCliente" id="labelCliente" for="textCliente"><b>Cliente</b></label>
+                    <label name="labelProduto" id="labelProduto" for="textProduto"><b>Produto</b></label>
                 </div>
             </div>
             <div class="row">
@@ -77,12 +77,12 @@
                                     <h2 class="mb-0">
                                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
                                             <div class="row">
-                                                <label class="col-2" style="text-align: center">Estabelecimento</label>
-                                                <label class="col-2" style="text-align: center">Data da venda</label>
-                                                <label class="col-2" style="text-align: center">Nome Funcionário</label>
-                                                <label class="col-2" style="text-align: center">Nome Cliente</label>
-                                                <label class="col-2" style="text-align: center">Tipo de pagamento</label>
-                                                <label class="col-2" style="text-align: center">Valor total</label>
+                                                <label class="col-2" style="text-align: center"><b>Estabelecimento</b></label>
+                                                <label class="col-2" style="text-align: center"><b>Data da venda</b></label>
+                                                <label class="col-2" style="text-align: center"><b>Nome Funcionário</b></label>
+                                                <label class="col-2" style="text-align: center"><b>Nome Cliente</b></label>
+                                                <label class="col-2" style="text-align: center"><b>Tipo de pagamento</b></label>
+                                                <label class="col-2" style="text-align: center"><b>Valor total</b></label>
                                                 <br>
                                                 <label class="col-2" style="text-align: center">${venda.funcionario.estabelecimento.nome}</label>
                                                 <label class="col-2" style="text-align: center">${venda.dataVenda}</label>
@@ -98,11 +98,11 @@
                                     <div class="card-body">
                                         <c:if test="${detalhes != null}">
                                             <div class="row">
-                                                <label class="col-1">Id</label>
-                                                <label class="col-3">Nome do produto</label>
-                                                <label class="col-3">Valor unitário</label>
-                                                <label class="col-2">Quantidade</label>
-                                                <label class="col-3">Total produto</label>
+                                                <label class="col-1"><b>Id</b></label>
+                                                <label class="col-3"><b>Nome do produto</b></label>
+                                                <label class="col-3"><b>Valor unitário</b></label>
+                                                <label class="col-2"><b>Quantidade</b></label>
+                                                <label class="col-3"><b>Total produto</b></label>
                                                 <br>
                                                 <c:forEach items="${detalhes}" var="detalhe">
                                                     <c:if test="${detalhe.venda.id == venda.id}">
@@ -110,7 +110,13 @@
                                                         <label class="col-3">${detalhe.produto.nome}</label>
                                                         <label class="col-3">${detalhe.produto.valorVenda}</label>
                                                         <label class="col-2">${detalhe.quantidade}</label>
-                                                        <label class="col-3">${detalhe.valorTotal}</label>
+                                                        <input class="col-3 two-decimals" 
+                                                               name="inputTotalProduto" 
+                                                               step=.01 
+                                                               type="number" 
+                                                               maxlength="2"
+                                                               value="${detalhe.valorTotal}" 
+                                                               readonly>
                                                     </c:if>
                                                 </c:forEach>
                                             </div>
@@ -132,12 +138,12 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
                                                 <div class="row">
-                                                    <label class="col-2" style="text-align: center">Estabelecimento</label>
-                                                    <label class="col-2" style="text-align: center">Data da venda</label>
-                                                    <label class="col-2" style="text-align: center">Nome Funcionário</label>
-                                                    <label class="col-2" style="text-align: center">Nome Cliente</label>
-                                                    <label class="col-2" style="text-align: center">Tipo de pagamento</label>
-                                                    <label class="col-2" style="text-align: center">Valor total</label>
+                                                    <label class="col-2" style="text-align: center"><b>Estabelecimento</b></label>
+                                                    <label class="col-2" style="text-align: center"><b>Data da venda</b></label>
+                                                    <label class="col-2" style="text-align: center"><b>Nome Funcionário</b></label>
+                                                    <label class="col-2" style="text-align: center"><b>Nome Cliente</b></label>
+                                                    <label class="col-2" style="text-align: center"><b>Tipo de pagamento</b></label>
+                                                    <label class="col-2" style="text-align: center"><b>Valor total</b></label>
                                                     <br>
                                                     <label class="col-2" style="text-align: center">${venda.funcionario.estabelecimento.nome}</label>
                                                     <label class="col-2" style="text-align: center">${venda.dataVenda}</label>
@@ -153,11 +159,11 @@
                                         <div class="card-body">
                                             <c:if test="${detalhes != null}">
                                                 <div class="row">
-                                                    <label class="col-1">Id</label>
-                                                    <label class="col-3">Nome do produto</label>
-                                                    <label class="col-3">Valor unitário</label>
-                                                    <label class="col-2">Quantidade</label>
-                                                    <label class="col-3">Total Produto</label>
+                                                    <label class="col-1"><b>Id</b></label>
+                                                    <label class="col-3"><b>Nome do produto</b></label>
+                                                    <label class="col-3"><b>Valor unitário</b></label>
+                                                    <label class="col-2"><b>Quantidade</b></label>
+                                                    <label class="col-3"><b>Total Produto</b></label>
                                                     <br>
                                                     <c:forEach items="${detalhes}" var="detalhe">
                                                         <c:if test="${detalhe.venda.id == venda.id}">
