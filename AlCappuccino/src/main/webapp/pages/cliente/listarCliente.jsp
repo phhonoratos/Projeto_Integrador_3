@@ -59,7 +59,7 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${cliente.cpf}" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${cliente.cpf}" aria-expanded="true" aria-controls="collapseOne">
                                             <div class="row">
                                                 <label class="col-4" id="nome1"><b>Nome</b></label>
                                                 <label class="col-4" id="cargo1"><b>Email</b></label>
@@ -86,7 +86,7 @@
                                         <div class="row">
                                             <label class="col-3" id="cep"><b>CEP:</b> ${cliente.cep}</label>
                                             <label class="col-6" id="logradouro"><b>Logradouro:</b> ${cliente.logradouro}</label>
-                                            <label class="col-1" id="numero"><b>Número:</b> ${cliente.numeroEndereco}</label>
+                                            <label class="col-3" id="numero"><b>Número:</b> ${cliente.numeroEndereco}</label>
                                         </div>
                                         <br/>
                                         <div class="row">
