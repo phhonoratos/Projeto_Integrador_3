@@ -32,6 +32,38 @@ INSERT INTO CLIENTE VALUES(
     'Jurubatuba', 
     'Sao Paulo',
     '2020-10-28'
+),
+(
+    '18295125362', 
+    'Priscila Marli Isabella Silveira', 
+    'priscilamarliisabellasilveira-77@lajescobre.com',
+    '67989727945',
+    'Solteiro(a)',
+    'Feminino', 
+    '79042547', 
+    'Travessa dos Metais', 
+    '333',
+    'Casa',
+    'MS', 
+    'Tiradentes', 
+    'Campo Grande',
+    '1989-03-24'
+),
+(
+    '22850363456', 
+    'Danilo Caleb Baptista', 
+    'luisnelsonbaptista..luisnelsonbaptista@integrasjc.com.br',
+    '69981507829',
+    'Casado(a)',
+    'Masculino', 
+    '76829514', 
+    'Rua Maria Vitalina', 
+    '183',
+    'Casa',
+    'RO', 
+    'Tancredo Neves', 
+    'Porto Velho',
+    '1988-12-12'
 );
 
 CREATE TABLE estabelecimento (
