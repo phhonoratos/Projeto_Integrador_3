@@ -107,7 +107,14 @@
 
                         <c:if test="${sessionScope.usuario.admin}">
                             <li class="nav-item">
-                                <a class="nav-link" href="<c:url value="/Relatorio?chamada=${sessionScope.usuario.estabelecimento.nome}"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                <c:choose>
+                                    <c:when test="${(sessionScope.usuario.estabelecimento.matriz) && (sessionScope.usuario.cargo == 'Gerente')}">
+                                        <a class="nav-link" href="<c:url value="/Relatorio?chamada="/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="nav-link" href="<c:url value="/Relatorio?chamada=${sessionScope.usuario.estabelecimento.nome}"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                    </c:otherwise>   
+                                </c:choose>
                                     <span class="material-icons">
                                         data_usage
                                     </span>
