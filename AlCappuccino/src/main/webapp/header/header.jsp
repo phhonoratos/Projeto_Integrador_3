@@ -107,7 +107,7 @@
 
                         <c:if test="${sessionScope.usuario.admin}">
                             <li class="nav-item">
-                                <a class="nav-link" href="<c:url value="/Relatorio?chamada=total"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="<c:url value="/Relatorio?chamada=${sessionScope.usuario.estabelecimento.nome}"/>" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                                     <span class="material-icons">
                                         data_usage
                                     </span>
