@@ -130,19 +130,19 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
                                                 <div class="row">
-                                                    <label >Estabelecimento</label>
-                                                    <label class="col-2">Data da venda</label>
-                                                    <label class="col-2">Nome Funcionário</label>
-                                                    <label class="col-2">Nome Cliente</label>
-                                                    <label class="col-3">Tipo de pagamento</label>
-                                                    <label class="col-3">Valor total</label>
+                                                    <label class="col-2" style="text-align: center">Estabelecimento</label>
+                                                    <label class="col-2" style="text-align: center">Data da venda</label>
+                                                    <label class="col-2" style="text-align: center">Nome Funcionário</label>
+                                                    <label class="col-2" style="text-align: center">Nome Cliente</label>
+                                                    <label class="col-2" style="text-align: center">Tipo de pagamento</label>
+                                                    <label class="col-2" style="text-align: center">Valor total</label>
                                                     <br>
-                                                    <label>${venda.funcionario.estabelecimento.nome}</label>
-                                                    <label class="col-2">${venda.dataVenda}</label>
-                                                    <label class="col-2">${venda.funcionario.nome}</label>
-                                                    <label class="col-2">${venda.cliente.nome}</label>
-                                                    <label class="col-3">${venda.tipoPagamento}</label>
-                                                    <label class="col-3">${venda.valorTotal}</label>
+                                                    <label class="col-2" style="text-align: center">${venda.funcionario.estabelecimento.nome}</label>
+                                                    <label class="col-2" style="text-align: center">${venda.dataVenda}</label>
+                                                    <label class="col-2" style="text-align: center">${venda.funcionario.nome}</label>
+                                                    <label class="col-2" style="text-align: center">${venda.cliente.nome}</label>
+                                                    <label class="col-2" style="text-align: center">${venda.tipoPagamento}</label>
+                                                    <label class="col-2" style="text-align: center">${venda.valorTotal}</label>
                                                 </div>
                                             </button>
                                         </h2>
