@@ -179,8 +179,17 @@
                             </c:forEach>
                         </div>
                         <div class="row" style="margin: 5px">
-                            <div class="col-2">
-                                <label step=0.01 class="two-decimals">Total R$ ${sessionScope.totalCarrinho}</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Total R$</span>
+                                </div>
+                                <input type="number" 
+                                       class="form-control two-decimals" 
+                                       aria-label="Default" 
+                                       aria-describedby="inputGroup-sizing-default"
+                                       step=0.01
+                                       value="${sessionScope.totalCarrinho}"
+                                       readonly>
                             </div>
                             <div class="col-6">
                                 <label for="">Forma de pagamento</label>
@@ -193,7 +202,7 @@
                                     <option value="vr"></option>
                                 </datalist>
                             </div>
-                            <div class="col-4">
+                            <div class="col-6" style="text-align: right">
                                 <button class="btn btn-danger"><a href="<c:url value="/MatarCarrinho"/>" style="color: white">Cancelar venda</a></button>
                                 <button type="submit" class="btn btn-success">Finalizar venda</button>
                             </div>
