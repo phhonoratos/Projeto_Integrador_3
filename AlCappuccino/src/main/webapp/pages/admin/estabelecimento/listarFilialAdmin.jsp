@@ -15,7 +15,7 @@
     <body>
         <div class="container p-2 mb-4">
             <div class="text-center page-title">
-                <h3>Filiais</h3> 
+                <h1>Filiais</h1> 
             </div>
             <div class="row">
                 <!-- SEARCH BOX -->
@@ -231,7 +231,7 @@
                             </div>
                             <div class="modal-footer text-center">
                                 <button type="button" class="btn btn-primary btn-success"
-                                        id="btn-confirm-update-ajax-form" type="submit">
+                                        id="btn-confirm-update-ajax-form" type="submit" onclick="enviarAlteracaoFilial(`modalAlteracao${estabelecimento.id}`);">
                                     Alterar
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

@@ -39,12 +39,12 @@
     </head>
     <body class="container">
         <br>
-        <h1>Lista de Produtos</h1>
+        <h1 style="text-align: center">Lista de Produtos</h1>
+        <br>
         <br>
         <div id="divBusca">
             <form method="GET" action="ListarProdutosPesquisa?id='${"#id"}.val()'">
-                <input type="text" name ="id" id="id" placeholder="Digite o ID do Produto..."/>
-                <br>
+                <input type="text" id="id" placeholder="Digite o ID do Produto..."/>
                 <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
         </div>
