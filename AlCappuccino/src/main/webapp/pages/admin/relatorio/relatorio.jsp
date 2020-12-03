@@ -101,16 +101,14 @@
                                                 <label class="col-2">Id</label>
                                                 <label class="col-3">Nome do produto</label>
                                                 <label class="col-3">Valor unitário</label>
-                                                <label class="col-2">Quantidade</label>
-                                                <label class="col-2">Valor total</label>
+                                                <label class="col-4">Quantidade</label>
                                                 <br>
                                                 <c:forEach items="${detalhes}" var="detalhe">
                                                     <c:if test="${detalhe.venda.id == venda.id}">
                                                         <label class="col-2">${detalhe.produto.id}</label>
                                                         <label class="col-3">${detalhe.produto.nome}</label>
                                                         <label class="col-3">${detalhe.produto.valorVenda}</label>
-                                                        <label class="col-2">${detalhe.quantidade}</label>
-                                                        <label class="col-2">${detalhe.valorTotal}</label>
+                                                        <label class="col-4">${detalhe.quantidade}</label>
                                                     </c:if>
                                                 </c:forEach>
                                             </div>
@@ -156,16 +154,14 @@
                                                     <label class="col-2">Id</label>
                                                     <label class="col-3">Nome do produto</label>
                                                     <label class="col-3">Valor unitário</label>
-                                                    <label class="col-2">Quantidade</label>
-                                                    <label class="col-2">Valor total</label>
+                                                    <label class="col-4">Quantidade</label>
                                                     <br>
                                                     <c:forEach items="${detalhes}" var="detalhe">
                                                         <c:if test="${detalhe.venda.id == venda.id}">
                                                             <label class="col-2">${detalhe.produto.id}</label>
                                                             <label class="col-3">${detalhe.produto.nome}</label>
                                                             <label class="col-3">${detalhe.produto.valorVenda}</label>
-                                                            <label class="col-2">${detalhe.quantidade}</label>
-                                                            <label class="col-2">${detalhe.valorTotal}</label>
+                                                            <label class="col-4">${detalhe.quantidade}</label>
                                                         </c:if>
                                                     </c:forEach>
                                                 </div>
