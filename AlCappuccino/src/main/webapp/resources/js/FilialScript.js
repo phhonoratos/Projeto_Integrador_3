@@ -2,7 +2,7 @@ function enviarExclusao(id) {
     var urlExclusao = `${excluirFilialURL()}?id=${id}`;
 
     $.ajax({
-        url: urlExclusao, // TODO: TOKEN de Login / ADMIN
+        url: urlExclusao,
         type: "POST",
         success: function () {
             $('.info-success').show();
@@ -15,22 +15,23 @@ function enviarExclusao(id) {
     });
 }
 
-$("#btn-confirm-update-ajax-form").on('click', function (e) {
+function enviarAlteracaoFilial(id) {
+    var modalDiv = document.getElementById(id);
 
     var formData = {
-        'nome': $('input[name=nome]').val(),
-        'email': $('input[name=email]').val(),
-        'unidadeFederativa': $('input[name=unidadeFederativa]').val(),
-        'telefone': $('input[name=telefone]').val(),
-        'cep': $('input[name=cep]').val(),
-        'cidade': $('input[name=cidade]').val(),
-        'complemento': $('input[name=complemento]').val(),
-        'bairro': $('input[name=bairro]').val(),
-        'numeroEndereco': $('input[name=numeroEndereco]').val(),
-        'logradouro': $('input[name=logradouro]').val(),
-        'inscricaoEstadual': $('input[name=inscricaoEstadual]').val(),
-        'cnpj': $('input[name=cnpj]').val(),
-        'id': $('input[name=id]').val()
+        'nome': modalDiv.querySelector('input[name=nome]').value,
+        'email': modalDiv.querySelector('input[name=email]').value,
+        'unidadeFederativa': modalDiv.querySelector('input[name=unidadeFederativa]').value,
+        'telefone': modalDiv.querySelector('input[name=telefone]').value,
+        'cep': modalDiv.querySelector('input[name=cep]').value,
+        'cidade': modalDiv.querySelector('input[name=cidade]').value,
+        'complemento': modalDiv.querySelector('input[name=complemento]').value,
+        'bairro': modalDiv.querySelector('input[name=bairro]').value,
+        'numeroEndereco': modalDiv.querySelector('input[name=numeroEndereco]').value,
+        'logradouro': modalDiv.querySelector('input[name=logradouro]').value,
+        'inscricaoEstadual': modalDiv.querySelector('input[name=inscricaoEstadual]').value,
+        'cnpj': modalDiv.querySelector('input[name=cnpj]').value,
+        'id': modalDiv.querySelector('input[name=id]').value
     };
 
     $.ajax({
@@ -45,8 +46,7 @@ $("#btn-confirm-update-ajax-form").on('click', function (e) {
             xhr.status === 200 ? modalSuccess() : modalFailed();
         }
     });
-    e.preventDefault();
-});
+}
 
 const listarFiliaisURL = () => {
     return "/AlCappuccino/ListarFiliais";
