@@ -67,7 +67,7 @@
            <c:if test="${sessionScope.usuario.estabelecimento.matriz}">
             <div class="row">
                 <div class="col-sm">
-                    <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
+                    <input id="listFilial" value="${produto.estabelecimento.id}" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
                     <datalist id="filiais">
                         <c:forEach items="${filiais}" var="filial">
                             <option>${filial.id}</option>
