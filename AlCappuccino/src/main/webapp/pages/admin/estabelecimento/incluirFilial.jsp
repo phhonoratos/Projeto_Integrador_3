@@ -13,6 +13,10 @@
         <title>Incluir Filial</title>
     </head>
     <body>
+        <br/>
+        <h1 style="text-align: center">Cadastro de filiais</h1>
+        <br/>
+        <br/>
         <form method="POST" action="IncluirFiliais">
             <div class="container">
                 <div class="form-row">

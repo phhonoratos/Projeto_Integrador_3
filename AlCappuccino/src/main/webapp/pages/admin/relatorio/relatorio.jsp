@@ -11,19 +11,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Relatório</title>
-        <link rel="stylesheet" href="../../../resources/css/relatorio.css">
+        <link rel="stylesheet" href="./resources/css/relatorio.css">
         <link rel="stylesheet" href="./resources/css/front.css">
         <script src="../../../resources/js/relatorio.js"></script>
     </head>
     <body class="container">
         <%@include file="../../../header/header.jsp" %>
-
+        <br/>
         <h1>Relatório</h1>
-
         <br>
-
-
-        <!--<form method="GET" action="Relatorio?chamada=listarVendas">-->
         <form method="GET" action="Relatorio">
             <c:choose>
                 <c:when test="${(sessionScope.usuario.estabelecimento.matriz) && (sessionScope.usuario.cargo == 'Gerente')}">
@@ -34,45 +30,43 @@
 
                         </c:forEach>
                     </datalist>
-
-                    <br><br>
+                    <br>
+                    <br>
                 </c:when>
                 <c:otherwise>
                     <input id="listFilial" name="filial" value="${sessionScope.usuario.estabelecimento.nome}" list="filiais">
                 </c:otherwise>
             </c:choose>
-
-
             <div class="row">
-                <label class="col-3" id="labelDataInicial" for="dateInicial">De</label>
-                <label class="col-3" id="labelDataFinal" for="dateDataFinal">Até</label>
-                <label class="col-3" id="labelCliente" for="textCliente">Cliente</label>
-                <label class="col-3" id="labelDataFinal" for="textProduto">Produto</label>
+                <div class="col-12">
+                    <label name="labelDataInicial" id="labelDataInicial" for="dateInicial">De</label>
+                    <label name="labelDataFinal" id="labelDataFinal" for="dateDataFinal">Até</label>
+                    <label name="labelCliente" id="labelCliente" for="textCliente">Cliente</label>
+                    <label name="labelProduto" id="labelProduto" for="textProduto">Produto</label>
+                </div>
             </div>
             <div class="row">
-                <input class="col-3" id="dateInicial" class="form-control-sm" type="date" name="inicio">
-                <input class="col-3" id="dateDataFinal" class="form-control-sm" type="date" name="final">
-                <input class="col-3" id="textCliente" class="form-control-sm" type="text" name="cliente" list="clientes" placeholder="Nome do cliente">
-                <datalist id="clientes">
-                    <c:forEach items="${clientes}" var="cliente">
-                        <option>${cliente.nome}</option>
-                    </c:forEach>
-                </datalist>
-                <input class="col-3" id="textProduto" class="form-control-sm" type="text" name="produto" list="produtos" placeholder="Nome do produto">
-                <datalist id="produtos">
-                    <c:forEach items="${produtos}" var="produto">
-                        <option>${produto.nome}</option>
-                    </c:forEach>
-                </datalist>
+                <div class="col-12">
+                    <input id="dateInicial" type="date" name="inicio">
+                    <input id="dateDataFinal" type="date" name="final">
+                    <input id="textCliente" type="text" name="cliente" list="clientes" placeholder="Nome do cliente">
+                    <datalist id="clientes">
+                        <c:forEach items="${clientes}" var="cliente">
+                            <option>${cliente.nome}</option>
+                        </c:forEach>
+                    </datalist>
+                    <input id="textProduto" type="text" name="produto" list="produtos" placeholder="Nome do produto">
+                    <datalist id="produtos">
+                        <c:forEach items="${produtos}" var="produto">
+                            <option>${produto.nome}</option>
+                        </c:forEach>
+                    </datalist>
+                    <input type="hidden" value="listarVendas" name="chamada">
+                    <button id="pesq" class="btn btn-primary" type="submit">Pesquisar</button>
+                </div>
             </div>
-            <input type="hidden" value="listarVendas" name="chamada">
-            <button class="btn btn-primary" type="submit">Pesquisar</button>
         </form>
-
-        <!--</form>-->
-
         <br>
-
         <c:choose>
             <c:when test="${(sessionScope.usuario.estabelecimento.matriz) && (sessionScope.usuario.cargo == 'Gerente')}">
                 <c:if test="${vendas != null}">
@@ -83,23 +77,22 @@
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
                                             <div class="row">
-                                                <label >Estabelecimento</label>
-                                                <label class="col-2">Data da venda</label>
-                                                <label class="col-2">Nome Funcionário</label>
-                                                <label class="col-2">Nome Cliente</label>
-                                                <label class="col-3">Tipo de pagamento</label>
-                                                <label class="col-3">Valor total</label>
+                                                <label class="col-2" style="text-align: center">Estabelecimento</label>
+                                                <label class="col-2" style="text-align: center">Data da venda</label>
+                                                <label class="col-2" style="text-align: center">Nome Funcionário</label>
+                                                <label class="col-2" style="text-align: center">Nome Cliente</label>
+                                                <label class="col-2" style="text-align: center">Tipo de pagamento</label>
+                                                <label class="col-2" style="text-align: center">Valor total</label>
                                                 <br>
-                                                <label>${venda.funcionario.estabelecimento.nome}</label>
-                                                <label class="col-2">${venda.dataVenda}</label>
-                                                <label class="col-2">${venda.funcionario.nome}</label>
-                                                <label class="col-2">${venda.cliente.nome}</label>
-                                                <label class="col-3">${venda.tipoPagamento}</label>
-                                                <label class="col-3">${venda.valorTotal}</label>
+                                                <label class="col-2" style="text-align: center">${venda.funcionario.estabelecimento.nome}</label>
+                                                <label class="col-2" style="text-align: center">${venda.dataVenda}</label>
+                                                <label class="col-2" style="text-align: center">${venda.funcionario.nome}</label>
+                                                <label class="col-2" style="text-align: center">${venda.cliente.nome}</label>
+                                                <label class="col-2" style="text-align: center">${venda.tipoPagamento}</label>
+                                                <label class="col-2" style="text-align: center">${venda.valorTotal}</label>
                                             </div>
                                         </button>
                                     </h2>
-
                                 </div>
                                 <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
@@ -155,7 +148,6 @@
                                                 </div>
                                             </button>
                                         </h2>
-
                                     </div>
                                     <div id="collapse${venda.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body">
@@ -187,9 +179,8 @@
                 </c:if>
             </c:otherwise>
         </c:choose>
-
-
-
-        <p id="pTotal">Total: ${totalVendas}</p>
+        <br/>
+        <label name="labelTtl" style="border: 1px solid #ced4da; background-color: #e9ecef; padding: .375rem .75rem; border-radius: .25rem">Total R$ </label>
+        <label id="labelTotal" style="border: 1px solid #ced4da; padding: .375rem .75rem">${totalVendas}</label>
     </body>
 </html>

@@ -38,8 +38,10 @@
     </head>
     <body>
         <div class="container">
+            <br/>
             <h1 style="text-align: center">Lista de Clientes</h1>
-
+            <br/>
+            <br/>
             <form method="GET" action="ListarCliente?cpf=${"#cpf"}.val()">
                 <input id ="cpf" name="cpf" placeholder="Digite o cpf" list="exampleList"></input>
                 <datalist id="exampleList">

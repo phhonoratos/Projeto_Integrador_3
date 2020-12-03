@@ -15,7 +15,7 @@
     <body>
         <div class="container p-2 mb-4">
             <div class="text-center page-title">
-                <h3>Filiais</h3> 
+                <h1>Filiais</h1> 
             </div>
             <div class="row">
                 <!-- SEARCH BOX -->
