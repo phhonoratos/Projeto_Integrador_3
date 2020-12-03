@@ -110,11 +110,11 @@
                                                         <label class="col-3">${detalhe.produto.nome}</label>
                                                         <label class="col-3">${detalhe.produto.valorVenda}</label>
                                                         <label class="col-2">${detalhe.quantidade}</label>
-                                                        <input class="col-3 two-decimals" 
+                                                        <input class="col-3" 
                                                                name="inputTotalProduto" 
-                                                               step=.01 
-                                                               type="number" 
-                                                               maxlength="2"
+                                                               step="0.01"
+                                                               type="number"
+                                                               data-number-to-fixed="2"
                                                                value="${detalhe.valorTotal}" 
                                                                readonly>
                                                     </c:if>
