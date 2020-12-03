@@ -8,6 +8,11 @@ input[name="cpf"] {
     height: 30px;
 }
 
+label[name="cpf"] {
+    margin-top: 10px;
+    margin-right: 180px;
+}
+
 input[name="nome"] {
     width: 400px;
     height: 30px;
@@ -23,9 +28,18 @@ select[name="sexo"]{
     height: 30px;
 }
 
+label[name="sexo"] {
+    margin-top: 10px;
+    margin-right: 170px;
+}
+
 input[name="dt_nascimento"] {
     width: 150px;
     height: 30px;
+}
+
+label[name="dt_nascimento"] {
+    margin-right: 25px;
 }
 
 select[name="estado_civil"]{
@@ -43,6 +57,11 @@ input[name="numero"] {
     height: 30px;
 }
 
+label[name="numero"] {
+    margin-top: 12px;
+    margin-right: 45px;
+}
+
 input[name="complemento"] {
     width: 503px;
     height: 30px;
@@ -53,9 +72,17 @@ input[name="cep"] {
     height: 30px;
 }
 
+label[name="cep"] {
+    margin-top: 5px;
+}
+
 input[name="bairro"] {
     width: 200px;
     height: 30px;
+}
+
+label[name="bairro"] {
+    margin-right: 157px;
 }
 
 input[name="cidade"] {
@@ -68,22 +95,41 @@ select[name="uf"] {
     height: 30px;
 }
 
+label[name="uf"] {
+    margin-top: 10px;
+    margin-right: 80px;
+}
+
 select[name="cargo"] {
     margin-bottom: 15px;
     width: 350px;
-    height: 35px;
+    height: 33px;
+}
+
+input[name="telefone"] {
+    width: 350px;
+    height: 30px;
+}
+
+input[name="email"] {
+    width: 350px;
+    height: 30px;
+}
+
+label[name="email"] {
+    margin-top: 10px;
 }
 
 input[name="salario"] {
     margin-bottom: 15px;
     width: 350px;
-    height: 35px;
+    height: 30px;
 }
 
 input[name="filial"] {
     margin-bottom: 15px;
     width: 350px;
-    height: 35px;
+    height: 30px;
 }
 
 input[name="login"] {

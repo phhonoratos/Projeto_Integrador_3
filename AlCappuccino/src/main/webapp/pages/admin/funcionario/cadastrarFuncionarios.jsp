@@ -16,26 +16,34 @@
         <title>Cadastrar Funcionário</title>
     </head>
     <body class="container">
-        <h3 style="margin-left: 320px">Cadastro de funcionário</h3>
+        <h1 style="margin-left: 320px; margin-top: 25px;">Cadastro de funcionário</h1>
+        <br/>
         <br/>
         <form method="POST" action="CadastrarFuncionarios">
             <table class="table">
                     <div class="row">
                         <div class="col-8">
                             <p><b>Dados Pessoais</b></p>
-                            <input type="text" id="nome" name="nome" placeholder="Nome" style="text-align: center" title="Digite o nome completo" required="true"/>
+                            <label>Nome</label>
                             <br/>
+                            <input type="text" id="nome" name="nome" style="text-align: center" title="Digite o nome completo" required="true"/>
                             <br/>
-                            <input id="cpf" minlength="11" maxlength="11" type="number" name="cpf" placeholder="CPF" style="text-align: center" title="Digite apenas números" required="true"/>
-                            <input pattern="[a-zA-Z0-9]+" type="text" name="rg" placeholder="RG" style="text-align: center" title="Digite apenas números" required="true"/>
+                            <label name="cpf">CPF</label>
+                            <label>RG</label>
                             <br/>
+                            <input id="cpf" minlength="11" maxlength="11" type="number" name="cpf" style="text-align: center" title="Digite apenas números" required="true"/>
+                            <input pattern="[a-zA-Z0-9]+" type="text" name="rg" style="text-align: center" title="Digite apenas números" required="true"/>
+                            <br/>
+                            <label name="sexo">Sexo</label>
+                            <label name="dt_nascimento">Data Nascimento</label>
+                            <label>Estado civil</label>
                             <br/>
                             <select id="sexo" name="sexo">
                                 <option value="masculino">Masculino</option>
                                 <option value="feminino">Feminino</option>
                                 <option value="lgbt">LGBTQI+</option>
                             </select>
-                            <input id="dt_nascimento" type="date" name="dt_nascimento" placeholder="Data de nasc." style="text-align: center" required="true"/>
+                            <input id="dt_nascimento" type="date" name="dt_nascimento" style="text-align: center" required="true"/>
                             <select name="estado_civil">
                                 <option value="Solteiro(a)">Solteiro(a)</option>
                                 <option value="Casado(a)">Casado(a)</option>
@@ -46,23 +54,33 @@
                         <div class="col-4">
                             <p><b>Contatos</b></p>
                             <br/>
-                            <input id="telefone" minlength="10" maxlength="12" name="telefone" class="form-control" placeholder="Telefone" style="text-align: center"/>
+                            <label>Telefone</label>
+                            <input id="telefone" minlength="10" maxlength="12" name="telefone" style="text-align: center"/>
                             <br/>
-                            <input id="email" type="email" name="email" class="form-control" placeholder="E-mail" style="text-align: center"/>
+                            <label name="email">E-mail</label>
+                            <input id="email" type="email" name="email" style="text-align: center"/>
                         </div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-8">
                             <p><b>Endereço</b></p>
-                            <input type="number" name="cep" id="cep" placeholder="CEP" style="text-align: center" required="true"/>
-                            <input type="text" name="logradouro" id="rua" placeholder="Logradouro" style="text-align: center" required="true"/>
+                            <label name="cep">CEP</label>
+                            <label>Logradouro</label>
                             <br/>
+                            <input type="number" name="cep" id="cep" style="text-align: center" required="true"/>
+                            <input type="text" name="logradouro" id="rua" style="text-align: center" required="true"/>
                             <br/>
-                            <input type="number" name="numero" id="numero" placeholder="Número" style="text-align: center" required="true"/>
-                            <input type="text" name="bairro" id="bairro" placeholder="Bairro" style="text-align: center" required="true"/>
-                            <input type="text" name="cidade" id="cidade" placeholder="cidade" style="text-align: center" required="true"/>
+                            <label name="numero">Número</label>
+                            <label name="bairro">Bairro</label>
+                            <label>Cidade</label>
                             <br/>
+                            <input type="number" name="numero" id="numero" style="text-align: center" required="true"/>
+                            <input type="text" name="bairro" id="bairro" style="text-align: center" required="true"/>
+                            <input type="text" name="cidade" id="cidade" style="text-align: center" required="true"/>
+                            <br/>
+                            <label name="uf">UF</label>
+                            <label>Complemento</label>
                             <br/>
                             <select name="uf" id="uf">
                                 <option value="UF">UF</option>
@@ -94,17 +112,20 @@
                                 <option value="SE">SE</option>
                                 <option value="TO">TO</option>
                             </select>
-                            <input type="text" name="complemento" id="complemento" placeholder="Complemento" style="text-align: center"/>
+                            <input type="text" name="complemento" id="complemento" style="text-align: center"/>
                         </div>
                         <div class="col-4">
                             <p><b>Função</b></p>
-                            <select name="cargo" id="cargo" required="true" class="form-control">
+                            <label>Cargo</label>
+                            <select name="cargo" id="cargo" required="true">
                                 <option value="Gerente">Gerente</option>
                                 <option value="Vendedor(a)">Vendedor(a)</option>
                                 <option value="TI">TI</option>
                             </select>
-                            <input type="number" name="salario" class="form-control" placeholder="Salário" style="text-align: center" required="true"/>
-                            <input id="listFilial" class="form-control" name="filial" placeholder="Filial" style="text-align: center" list="filiais">
+                            <label>Salário</label>
+                            <input type="number" name="salario" style="text-align: center" required="true"/>
+                            <label>Estabelecimento</label>
+                            <input id="listFilial" name="filial" style="text-align: center" list="filiais">
                             <datalist id="filiais">
                                 <c:forEach items="${filiais}" var="filial">
                                     <option value="${filial.id}">${filial.nome}</option>
@@ -113,30 +134,30 @@
                         </div>
                     </div>
                     <br/>
-                    <br/>
                     <div class="row">
                         <div class="col-4">
                             <p><b>Admissão / Demissão / Observações</b></p>
                             <br/>
                             <label>Data Admissão: </label>
-                            <input type="date" name="dt_adm" placeholder="Data Adm." style="text-align: center" required="true"/>
+                            <input type="date" name="dt_adm" style="text-align: center" required="true"/>
                             <br/>
                             <label>Data Demissão: </label>
-                            <input type="date" name="dt_dem" placeholder="Data Dem." style="text-align: center"/>
+                            <input type="date" name="dt_dem" style="text-align: center"/>
                         </div>
                         <div class="col-1">
                         </div>
                         <div class="col-7">
                             <br/>
-                            <br/>
-                            <textarea name="observacao" class="form-control" placeholder="Observações" aria-label="With textarea"></textarea>
+                            <label>Observações</label>
+                            <textarea name="observacao" aria-label="With textarea"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
                             <p><b>Acesso ao sistema</b></p>
+                            <label name="senha">Senha</label>
                             <br/>
-                            <input id="senha" maxlength="150" name="senha" class="form-control" placeholder="Senha" style="text-align: center"/>
+                            <input id="senha" maxlength="150" name="senha" style="text-align: center"/>
                         </div>
                         <div class="col-4">
                             <button id="cadastrar" type="submit" class="btn btn-success">Cadastrar</button>

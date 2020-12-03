@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <h3 style="margin-left: 450px">Funcionários</h3>
+        <h1 style="margin-left: 450px; margin-top: -50px;">Funcionários</h1>
         <br/>
 
         <form method="GET" action="ListarFuncionarios?cpf='${"#cpf"}.val()'">
@@ -69,7 +69,7 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.cpf}" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${funcionarios.cpf}" aria-expanded="true" aria-controls="collapseOne">
                                     <div class="row">
                                         <label class="col-4" id="nome1"><b>Nome</b></label>
                                         <label class="col-4" id="cargo1"><b>Cargo</b></label>

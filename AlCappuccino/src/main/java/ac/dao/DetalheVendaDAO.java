@@ -51,8 +51,8 @@ public class DetalheVendaDAO {
             String query = "select * from detalhe_venda_join where e_nome like ?";
 
             PreparedStatement ps = con.prepareStatement(query);
-
-            ps.setString(1, nomeFilial);
+            
+            ps.setString(1, "%"+nomeFilial);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

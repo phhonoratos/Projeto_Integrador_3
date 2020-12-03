@@ -131,6 +131,8 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a style="margin-left: 25px">${sessionScope.usuario.nome}</a>
+                                <hr>
                                 <a class="dropdown-item" href="<c:url value="/AlterarSenha"/>">Trocar senha</a>
                                 <a class="dropdown-item" href="<c:url value="/AlCappuccinoInstitucional.jsp"/>">AlCappuccino Institucional</a>
                                 <a class="dropdown-item" href="<c:url value="/LogoutServlet"/>">SAIR</a>
@@ -167,9 +169,9 @@
                                         <input name="quantidade" value="${lista.quantidadeEstoque}">
                                     </div>
                                     <div class="col-5">
-                                        <input name="produto" value="${lista.nome}">
+                                        <input id="produto" name="produto" value="${lista.nome}">
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-3">
                                         <input name="valorTotal" value="${lista.valorVenda}">
                                     </div>
                                 </div>
@@ -177,8 +179,17 @@
                             </c:forEach>
                         </div>
                         <div class="row" style="margin: 5px">
-                            <div class="col-2">
-                                <label>Total R$ ${sessionScope.totalCarrinho}</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Total R$</span>
+                                </div>
+                                <input type="number" 
+                                       class="form-control two-decimals" 
+                                       aria-label="Default" 
+                                       aria-describedby="inputGroup-sizing-default"
+                                       step=0.01
+                                       value="${sessionScope.totalCarrinho}"
+                                       readonly>
                             </div>
                             <div class="col-6">
                                 <label for="">Forma de pagamento</label>
@@ -191,7 +202,8 @@
                                     <option value="vr"></option>
                                 </datalist>
                             </div>
-                            <div class="col-4">
+                            <div class="col-6" style="text-align: right">
+                                <button class="btn btn-danger"><a href="<c:url value="/MatarCarrinho"/>" style="color: white">Cancelar venda</a></button>
                                 <button type="submit" class="btn btn-success">Finalizar venda</button>
                             </div>
                         </div>
@@ -206,4 +218,5 @@
 
         <script src="./resources/js/header.js"></script>
     </body>
+
 </html>

@@ -12,7 +12,7 @@ body{
     background-color: black;
 }
 
-input {
+div.card-produto input {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid black;
