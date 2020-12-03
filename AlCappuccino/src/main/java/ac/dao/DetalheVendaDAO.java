@@ -52,7 +52,7 @@ public class DetalheVendaDAO {
 
             PreparedStatement ps = con.prepareStatement(query);
             
-            ps.setString(1, nomeFilial);
+            ps.setString(1, "%"+nomeFilial);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
