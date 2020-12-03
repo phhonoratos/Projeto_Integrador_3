@@ -220,10 +220,6 @@
         <servlet-name>MatarCarrinho</servlet-name>
         <url-pattern>/MatarCarrinho</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AtualizarCarrinho</servlet-name>
-        <url-pattern>/AtualizarCarrinho</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

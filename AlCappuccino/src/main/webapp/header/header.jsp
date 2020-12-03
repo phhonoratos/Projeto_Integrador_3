@@ -131,6 +131,8 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a style="margin-left: 25px">${sessionScope.usuario.nome}</a>
+                                <hr>
                                 <a class="dropdown-item" href="<c:url value="/AlterarSenha"/>">Trocar senha</a>
                                 <a class="dropdown-item" href="<c:url value="/AlCappuccinoInstitucional.jsp"/>">AlCappuccino Institucional</a>
                                 <a class="dropdown-item" href="<c:url value="/LogoutServlet"/>">SAIR</a>
@@ -171,9 +173,6 @@
                                     </div>
                                     <div class="col-3">
                                         <input name="valorTotal" value="${lista.valorVenda}">
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn btn-danger material-icons"><a href="<c:url value="/AtualizarCarrinho?produto=${lista.nome}"/>">delete</a></button>
                                     </div>
                                 </div>
                                 <hr>

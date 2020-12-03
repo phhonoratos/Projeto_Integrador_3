@@ -1,0 +1,44 @@
+input[name="inicio" ] {
+    width: 150px;
+    margin-right: 10px;
+}
+
+input[name="final"] {
+    width: 150px;
+    margin-right: 10px;
+}
+
+input[name="cliente"] {
+    width: 350px;
+    margin-right: 10px;
+}
+
+input[name="produto"] {
+    width: 300px;
+    margin-right: 10px;
+}
+
+label[name="labelDataInicial"] {
+    margin-right: 140px;
+    margin-left: 5px;
+}
+
+label[name="labelDataFinal"] {
+    margin-right: 137px;
+}
+
+label[name="labelCliente"] {
+    margin-right: 260px;
+} 
+
+button[id="pesq"] {
+    margin-left: 7px;
+} 
+
+h1 {
+    text-align: center;
+}
+
+label[name="labelTtl"] {
+    margin-left: 900px;
+}
