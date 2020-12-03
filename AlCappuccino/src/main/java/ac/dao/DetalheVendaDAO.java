@@ -145,109 +145,232 @@ public class DetalheVendaDAO {
         return listaDetalheVenda;
     }
 
+    public static List<Integer> listaVendasIdNomeProduto(String produtoString)
+            throws SQLException, ClassNotFoundException {
+        List<Integer> vendasId = new ArrayList<>();
+        try {
+            Connection con = ConexaoDB.getConexao();
+
+            String query = "select v_id from detalhe_venda_join "
+                    + "where p_nome like ? ";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, "%" + produtoString + "%");
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                vendasId.add(rs.getInt("v_id"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return vendasId;
+    }
+
     public static List<DetalheVenda> listaDetalheVenda(Date dataInicial, Date dataFinal, String clienteString, String produtoString, String nomeFilial)
             throws SQLException, ClassNotFoundException {
         List<DetalheVenda> listaDetalheVenda = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
 
-            String query = "select * from detalhe_venda_join "
-                    + "where v_data between ? and ? "
-                    + "and   c_nome like    ? "
-                    + "and   p_nome like    ? "
-                    + "and   e_nome   like    ? ";
+            if (!produtoString.equals("")) {
+                String query = "select * from detalhe_venda_join "
+                        + "where v_data between ? and ? "
+                        + "and   c_nome like    ? "
+                        + "and   v_id      =    ? "
+                        + "and   e_nome like    ? ";
 
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setDate(1, dataInicial);
-            ps.setDate(2, dataFinal);
-            ps.setString(3, "%" + clienteString + "%");
-            ps.setString(4, "%" + produtoString + "%");
+                List<Integer> vendasId = listaVendasIdNomeProduto(produtoString);
+                for (int idVenda : vendasId) {
+                    PreparedStatement ps = con.prepareStatement(query);
+                    ps.setDate(1, dataInicial);
+                    ps.setDate(2, dataFinal);
+                    ps.setString(3, "%" + clienteString + "%");
+                    ps.setInt(4, idVenda);
+                    ps.setString(5, "%" + nomeFilial + "%");
 
-            ps.setString(5, "%" + nomeFilial + "%");
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        Produto p = new Produto();
+                        p.setId(rs.getInt("p_id"));
+                        p.setTipo(rs.getString("p_tipo"));
+                        p.setNome(rs.getString("p_nome"));
+                        p.setQuantidadeEstoque(rs.getInt("p_qtd_estoque"));
+                        p.setPreco(rs.getDouble("p_preco"));
+                        p.setPorcentagem(rs.getDouble("p_porcentagem"));
+                        p.setValorVenda(rs.getDouble("p_valor_venda"));
 
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Produto p = new Produto();
-                p.setId(rs.getInt("p_id"));
-                p.setTipo(rs.getString("p_tipo"));
-                p.setNome(rs.getString("p_nome"));
-                p.setQuantidadeEstoque(rs.getInt("p_qtd_estoque"));
-                p.setPreco(rs.getDouble("p_preco"));
-                p.setPorcentagem(rs.getDouble("p_porcentagem"));
-                p.setValorVenda(rs.getDouble("p_valor_venda"));
+                        Cliente c = new Cliente();
+                        c.setCpf(rs.getString("c_cpf"));
+                        c.setNome(rs.getString("c_nome"));
+                        c.setEmail(rs.getString("c_email"));
+                        c.setTelefone(rs.getString("c_telefone"));
+                        c.setEstadoCivil(rs.getString("c_estado_civil"));
+                        c.setSexo(rs.getString("c_sexo"));
+                        c.setCep(rs.getString("c_cep"));
+                        c.setLogradouro(rs.getString("c_logradouro"));
+                        c.setNumeroEndereco(rs.getString("c_numero"));
+                        c.setComplemento(rs.getString("c_complemento"));
+                        c.setUnidadeFederativa(rs.getString("c_uf"));
+                        c.setBairro(rs.getString("c_bairro"));
+                        c.setCidade(rs.getString("c_cidade"));
+                        c.setDataNascimento(rs.getDate("c_data_nascimento"));
 
-                Cliente c = new Cliente();
-                c.setCpf(rs.getString("c_cpf"));
-                c.setNome(rs.getString("c_nome"));
-                c.setEmail(rs.getString("c_email"));
-                c.setTelefone(rs.getString("c_telefone"));
-                c.setEstadoCivil(rs.getString("c_estado_civil"));
-                c.setSexo(rs.getString("c_sexo"));
-                c.setCep(rs.getString("c_cep"));
-                c.setLogradouro(rs.getString("c_logradouro"));
-                c.setNumeroEndereco(rs.getString("c_numero"));
-                c.setComplemento(rs.getString("c_complemento"));
-                c.setUnidadeFederativa(rs.getString("c_uf"));
-                c.setBairro(rs.getString("c_bairro"));
-                c.setCidade(rs.getString("c_cidade"));
-                c.setDataNascimento(rs.getDate("c_data_nascimento"));
+                        Estabelecimento e = new Estabelecimento();
+                        e.setId(rs.getInt("e_id"));
+                        e.setNome(rs.getString("e_nome"));
+                        e.setCnpj(rs.getString("e_cnpj"));
+                        e.setInscricaoEstadual(rs.getString("e_inscricao_estadual"));
+                        e.setUnidadeFederativa(rs.getString("e_uf"));
+                        e.setLogradouro(rs.getString("e_logradouro"));
+                        e.setBairro(rs.getString("e_bairro"));
+                        e.setEmail(rs.getString("e_email"));
+                        e.setCidade(rs.getString("e_cidade"));
+                        e.setTelefone(rs.getString("e_telefone"));
+                        e.setNumeroEndereco(rs.getString("e_numero_endereco"));
+                        e.setComplemento(rs.getString("e_complemento"));
+                        e.setCep(rs.getString("e_cep"));
+                        e.setMatriz(rs.getBoolean("e_matriz"));
 
-                Estabelecimento e = new Estabelecimento();
-                e.setId(rs.getInt("e_id"));
-                e.setNome(rs.getString("e_nome"));
-                e.setCnpj(rs.getString("e_cnpj"));
-                e.setInscricaoEstadual(rs.getString("e_inscricao_estadual"));
-                e.setUnidadeFederativa(rs.getString("e_uf"));
-                e.setLogradouro(rs.getString("e_logradouro"));
-                e.setBairro(rs.getString("e_bairro"));
-                e.setEmail(rs.getString("e_email"));
-                e.setCidade(rs.getString("e_cidade"));
-                e.setTelefone(rs.getString("e_telefone"));
-                e.setNumeroEndereco(rs.getString("e_numero_endereco"));
-                e.setComplemento(rs.getString("e_complemento"));
-                e.setCep(rs.getString("e_cep"));
-                e.setMatriz(rs.getBoolean("e_matriz"));
+                        Funcionario f = new Funcionario();
+                        f.setCpf(rs.getString("f_cpf"));
+                        f.setNome(rs.getString("f_nome"));
+                        f.setEmail(rs.getString("f_email"));
+                        f.setTelefone(rs.getString("f_telefone"));
+                        f.setEstadoCivil(rs.getString("f_estado_civil"));
+                        f.setSexo(rs.getString("f_sexo"));
+                        f.setCep(rs.getString("f_cep"));
+                        f.setLogradouro(rs.getString("f_logradouro"));
+                        f.setNumeroEndereco(rs.getString("f_numero"));
+                        f.setComplemento(rs.getString("f_complemento"));
+                        f.setUnidadeFederativa(rs.getString("f_uf"));
+                        f.setBairro(rs.getString("f_bairro"));
+                        f.setCidade(rs.getString("f_cidade"));
+                        f.setDataNascimento(rs.getDate("f_dt_nascimento"));
+                        f.setNumeroRg(rs.getString("f_rg"));
+                        f.setCargo(rs.getString("f_cargo"));
+                        f.setSalario(rs.getDouble("f_salario"));
+                        f.setDataAdmissao(rs.getDate("f_dt_adm"));
+                        f.setDataDemissao(rs.getDate("f_dt_dem"));
+                        f.setObservacao(rs.getString("f_observacao"));
+                        f.setEstabelecimento(e);
 
-                Funcionario f = new Funcionario();
-                f.setCpf(rs.getString("f_cpf"));
-                f.setNome(rs.getString("f_nome"));
-                f.setEmail(rs.getString("f_email"));
-                f.setTelefone(rs.getString("f_telefone"));
-                f.setEstadoCivil(rs.getString("f_estado_civil"));
-                f.setSexo(rs.getString("f_sexo"));
-                f.setCep(rs.getString("f_cep"));
-                f.setLogradouro(rs.getString("f_logradouro"));
-                f.setNumeroEndereco(rs.getString("f_numero"));
-                f.setComplemento(rs.getString("f_complemento"));
-                f.setUnidadeFederativa(rs.getString("f_uf"));
-                f.setBairro(rs.getString("f_bairro"));
-                f.setCidade(rs.getString("f_cidade"));
-                f.setDataNascimento(rs.getDate("f_dt_nascimento"));
-                f.setNumeroRg(rs.getString("f_rg"));
-                f.setCargo(rs.getString("f_cargo"));
-                f.setSalario(rs.getDouble("f_salario"));
-                f.setDataAdmissao(rs.getDate("f_dt_adm"));
-                f.setDataDemissao(rs.getDate("f_dt_dem"));
-                f.setObservacao(rs.getString("f_observacao"));
-                f.setEstabelecimento(e);
+                        Venda v = new Venda();
+                        v.setId(rs.getInt("v_id"));
+                        v.setDataVenda(rs.getDate("v_data"));
+                        v.setHorarioVenda(rs.getTime("v_hora"));
+                        v.setValorTotal(rs.getFloat("v_total"));
+                        v.setTipoPagamento(rs.getString("v_tipo_pagamento"));
+                        v.setCliente(c);
+                        v.setFuncionario(f);
 
-                Venda v = new Venda();
-                v.setId(rs.getInt("v_id"));
-                v.setDataVenda(rs.getDate("v_data"));
-                v.setHorarioVenda(rs.getTime("v_hora"));
-                v.setValorTotal(rs.getFloat("v_total"));
-                v.setTipoPagamento(rs.getString("v_tipo_pagamento"));
-                v.setCliente(c);
-                v.setFuncionario(f);
+                        DetalheVenda dv = new DetalheVenda();
+                        dv.setId(rs.getInt("d_id"));
+                        dv.setQuantidade(rs.getInt("d_qtd_produto"));
+                        dv.setValorTotal(rs.getFloat("d_valor"));
+                        dv.setProduto(p);
+                        dv.setVenda(v);
 
-                DetalheVenda dv = new DetalheVenda();
-                dv.setId(rs.getInt("d_id"));
-                dv.setQuantidade(rs.getInt("d_qtd_produto"));
-                dv.setValorTotal(rs.getFloat("d_valor"));
-                dv.setProduto(p);
-                dv.setVenda(v);
+                        listaDetalheVenda.add(dv);
+                    }
+                }
+            } else {
+                String query = "select * from detalhe_venda_join "
+                        + "where v_data between ? and ? "
+                        + "and   c_nome like    ? "
+                        + "and   e_nome like    ? ";
 
-                listaDetalheVenda.add(dv);
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setDate(1, dataInicial);
+                ps.setDate(2, dataFinal);
+                ps.setString(3, "%" + clienteString + "%");
+                ps.setString(4, "%" + nomeFilial + "%");
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    Produto p = new Produto();
+                    p.setId(rs.getInt("p_id"));
+                    p.setTipo(rs.getString("p_tipo"));
+                    p.setNome(rs.getString("p_nome"));
+                    p.setQuantidadeEstoque(rs.getInt("p_qtd_estoque"));
+                    p.setPreco(rs.getDouble("p_preco"));
+                    p.setPorcentagem(rs.getDouble("p_porcentagem"));
+                    p.setValorVenda(rs.getDouble("p_valor_venda"));
+
+                    Cliente c = new Cliente();
+                    c.setCpf(rs.getString("c_cpf"));
+                    c.setNome(rs.getString("c_nome"));
+                    c.setEmail(rs.getString("c_email"));
+                    c.setTelefone(rs.getString("c_telefone"));
+                    c.setEstadoCivil(rs.getString("c_estado_civil"));
+                    c.setSexo(rs.getString("c_sexo"));
+                    c.setCep(rs.getString("c_cep"));
+                    c.setLogradouro(rs.getString("c_logradouro"));
+                    c.setNumeroEndereco(rs.getString("c_numero"));
+                    c.setComplemento(rs.getString("c_complemento"));
+                    c.setUnidadeFederativa(rs.getString("c_uf"));
+                    c.setBairro(rs.getString("c_bairro"));
+                    c.setCidade(rs.getString("c_cidade"));
+                    c.setDataNascimento(rs.getDate("c_data_nascimento"));
+
+                    Estabelecimento e = new Estabelecimento();
+                    e.setId(rs.getInt("e_id"));
+                    e.setNome(rs.getString("e_nome"));
+                    e.setCnpj(rs.getString("e_cnpj"));
+                    e.setInscricaoEstadual(rs.getString("e_inscricao_estadual"));
+                    e.setUnidadeFederativa(rs.getString("e_uf"));
+                    e.setLogradouro(rs.getString("e_logradouro"));
+                    e.setBairro(rs.getString("e_bairro"));
+                    e.setEmail(rs.getString("e_email"));
+                    e.setCidade(rs.getString("e_cidade"));
+                    e.setTelefone(rs.getString("e_telefone"));
+                    e.setNumeroEndereco(rs.getString("e_numero_endereco"));
+                    e.setComplemento(rs.getString("e_complemento"));
+                    e.setCep(rs.getString("e_cep"));
+                    e.setMatriz(rs.getBoolean("e_matriz"));
+
+                    Funcionario f = new Funcionario();
+                    f.setCpf(rs.getString("f_cpf"));
+                    f.setNome(rs.getString("f_nome"));
+                    f.setEmail(rs.getString("f_email"));
+                    f.setTelefone(rs.getString("f_telefone"));
+                    f.setEstadoCivil(rs.getString("f_estado_civil"));
+                    f.setSexo(rs.getString("f_sexo"));
+                    f.setCep(rs.getString("f_cep"));
+                    f.setLogradouro(rs.getString("f_logradouro"));
+                    f.setNumeroEndereco(rs.getString("f_numero"));
+                    f.setComplemento(rs.getString("f_complemento"));
+                    f.setUnidadeFederativa(rs.getString("f_uf"));
+                    f.setBairro(rs.getString("f_bairro"));
+                    f.setCidade(rs.getString("f_cidade"));
+                    f.setDataNascimento(rs.getDate("f_dt_nascimento"));
+                    f.setNumeroRg(rs.getString("f_rg"));
+                    f.setCargo(rs.getString("f_cargo"));
+                    f.setSalario(rs.getDouble("f_salario"));
+                    f.setDataAdmissao(rs.getDate("f_dt_adm"));
+                    f.setDataDemissao(rs.getDate("f_dt_dem"));
+                    f.setObservacao(rs.getString("f_observacao"));
+                    f.setEstabelecimento(e);
+
+                    Venda v = new Venda();
+                    v.setId(rs.getInt("v_id"));
+                    v.setDataVenda(rs.getDate("v_data"));
+                    v.setHorarioVenda(rs.getTime("v_hora"));
+                    v.setValorTotal(rs.getFloat("v_total"));
+                    v.setTipoPagamento(rs.getString("v_tipo_pagamento"));
+                    v.setCliente(c);
+                    v.setFuncionario(f);
+
+                    DetalheVenda dv = new DetalheVenda();
+                    dv.setId(rs.getInt("d_id"));
+                    dv.setQuantidade(rs.getInt("d_qtd_produto"));
+                    dv.setValorTotal(rs.getFloat("d_valor"));
+                    dv.setProduto(p);
+                    dv.setVenda(v);
+
+                    listaDetalheVenda.add(dv);
+                }
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ServletBD.class.getName()).

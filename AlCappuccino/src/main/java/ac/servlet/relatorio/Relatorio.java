@@ -39,6 +39,7 @@ public class Relatorio extends HttpServlet {
             throws ServletException, IOException {
 
         String chamada = request.getParameter("chamada");
+            
         switch (chamada) {
             default:
                 listarVendasTotal(request, response);
@@ -55,7 +56,7 @@ public class Relatorio extends HttpServlet {
             List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
             List<Cliente> clientes = ClienteDAO.getClientes();
             List<Produto> produtos = ProdutoDAO.getProduto();
-            
+
             String nomeFilial = request.getParameter("chamada");
 
             List<DetalheVenda> detalhes = DetalheVendaDAO.listaDetalheVenda(nomeFilial);
@@ -84,7 +85,6 @@ public class Relatorio extends HttpServlet {
         String nomeCliente = request.getParameter("cliente");
         String nomeProduto = request.getParameter("produto");
         String nomeFilial = request.getParameter("filial");
-        
 
         Date dataInicial = Date.valueOf(dataInicialStr);
         Date dataFinal = Date.valueOf(dataFinalStr);
