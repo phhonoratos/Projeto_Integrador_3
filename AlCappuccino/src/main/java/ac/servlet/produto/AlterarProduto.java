@@ -5,6 +5,7 @@
  */
 package ac.servlet.produto;
 
+import ac.dao.EstabelecimentoDAO;
 import ac.dao.ProdutoDAO;
 import ac.entidade.Estabelecimento;
 import ac.entidade.Produto;
@@ -12,6 +13,7 @@ import ac.utils.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -31,6 +33,9 @@ public class AlterarProduto extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Produto produto = ProdutoDAO.getProduto(id);
+        List<Estabelecimento> filiais = EstabelecimentoDAO.obterFiliais();
+
+        request.setAttribute("filiais", filiais);
         request.setAttribute("produto", produto);
          RequestDispatcher rd = 
                  getServletContext().getRequestDispatcher("/pages/admin/produto/alterarProduto.jsp");
