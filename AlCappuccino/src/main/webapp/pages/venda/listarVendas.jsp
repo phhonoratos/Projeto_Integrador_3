@@ -88,7 +88,7 @@
                                     <div class="card">
                                         <div class="card-header" id="headingOne">
                                             <h2 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
+                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${venda.id}" aria-expanded="true" aria-controls="collapseOne">
                                                     <div class="row">
                                                         <label class="col-3" id="data"><b>Data</b></label>
                                                         <label class="col-3" id="hora"><b>Hora</b></label>
