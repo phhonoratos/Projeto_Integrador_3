@@ -98,17 +98,19 @@
                                     <div class="card-body">
                                         <c:if test="${detalhes != null}">
                                             <div class="row">
-                                                <label class="col-2">Id</label>
+                                                <label class="col-1">Id</label>
                                                 <label class="col-3">Nome do produto</label>
                                                 <label class="col-3">Valor unitário</label>
-                                                <label class="col-4">Quantidade</label>
+                                                <label class="col-2">Quantidade</label>
+                                                <label class="col-3">Total produto</label>
                                                 <br>
                                                 <c:forEach items="${detalhes}" var="detalhe">
                                                     <c:if test="${detalhe.venda.id == venda.id}">
-                                                        <label class="col-2">${detalhe.produto.id}</label>
+                                                        <label class="col-1">${detalhe.produto.id}</label>
                                                         <label class="col-3">${detalhe.produto.nome}</label>
                                                         <label class="col-3">${detalhe.produto.valorVenda}</label>
-                                                        <label class="col-4">${detalhe.quantidade}</label>
+                                                        <label class="col-2">${detalhe.quantidade}</label>
+                                                        <label class="col-3">${detalhe.valorTotal}</label>
                                                     </c:if>
                                                 </c:forEach>
                                             </div>
@@ -151,17 +153,19 @@
                                         <div class="card-body">
                                             <c:if test="${detalhes != null}">
                                                 <div class="row">
-                                                    <label class="col-2">Id</label>
+                                                    <label class="col-1">Id</label>
                                                     <label class="col-3">Nome do produto</label>
                                                     <label class="col-3">Valor unitário</label>
-                                                    <label class="col-4">Quantidade</label>
+                                                    <label class="col-2">Quantidade</label>
+                                                    <label class="col-3">Total Produto</label>
                                                     <br>
                                                     <c:forEach items="${detalhes}" var="detalhe">
                                                         <c:if test="${detalhe.venda.id == venda.id}">
-                                                            <label class="col-2">${detalhe.produto.id}</label>
+                                                            <label class="col-1">${detalhe.produto.id}</label>
                                                             <label class="col-3">${detalhe.produto.nome}</label>
                                                             <label class="col-3">${detalhe.produto.valorVenda}</label>
-                                                            <label class="col-4">${detalhe.quantidade}</label>
+                                                            <label class="col-2">${detalhe.quantidade}</label>
+                                                            <label class="col-3">${detalhe.valorTotal}</label>
                                                         </c:if>
                                                     </c:forEach>
                                                 </div>

@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-                            
+
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-4">
                 <div class="card">
@@ -134,11 +134,18 @@
                         <div class="card-body">
                             <h5 class="card-title">Relatórios</h5>
                             <p class="card-text">Listar</p>
-                            <a href="<c:url value="/Relatorio?chamada=${sessionScope.usuario.estabelecimento.nome}"/>" class="btn btn-primary">
-                                <span class="material-icons">
-                                    list
-                                </span>
-                            </a>
+                            <c:choose>
+                                <c:when test="${(sessionScope.usuario.estabelecimento.matriz) && (sessionScope.usuario.cargo == 'Gerente')}">
+                                    <a href="<c:url value="/Relatorio?chamada="/>" class="btn btn-primary">
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="<c:url value="/Relatorio?chamada=${sessionScope.usuario.estabelecimento.nome}"/>" class="btn btn-primary">
+                                </c:otherwise>   
+                            </c:choose>
+                                    <span class="material-icons">
+                                        list
+                                    </span>
+                                </a>
                         </div>
                     </div>
                 </div>
