@@ -57,7 +57,7 @@ public class AlterarProduto extends HttpServlet {
         String filial = request.getParameter("filial");
         estabelecimento.setId(Integer.parseInt(filial));
 
-        Produto produto = new Produto(0, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, estabelecimento);
+        Produto produto = new Produto(id, tipo, nome, qtd_estoque, preco, porcentagem, valor_venda, estabelecimento);
         
          
          try {
