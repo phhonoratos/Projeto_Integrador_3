@@ -18,6 +18,10 @@ input[name="produto"] {
     margin-right: 10px;
 }
 
+input[name="inputTotalProduto"] {
+    border: none;
+}
+
 label[name="labelDataInicial"] {
     margin-right: 140px;
     margin-left: 5px;
