@@ -61,7 +61,7 @@ public class FuncionarioDAO {
         List<Funcionario> listaFuncionarios = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
-            final String SQL_SELECT_FUNCIONARIOS = "select * from funcionarios";
+            final String SQL_SELECT_FUNCIONARIOS = "select * from funcionarios order by nome";
             PreparedStatement ps = con.prepareStatement(SQL_SELECT_FUNCIONARIOS);
             ResultSet rs = ps.executeQuery();
 

@@ -157,6 +157,9 @@
                             <textarea name="observacao" placeholder="Observações" class="form-control">${funcionarios.observacao}</textarea>
                         </div>
                     </div>
+                        <div class="col-4">
+                            <button id="atualizar" type="submit" class="btn btn-success">Atualizar</button>
+                        </div>
                     <br/>
             </table>
         </form>
