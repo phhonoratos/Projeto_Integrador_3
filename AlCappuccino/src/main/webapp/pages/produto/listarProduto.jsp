@@ -43,8 +43,8 @@
         <br>
         <br>
         <div id="divBusca">
-            <form method="GET" action="ListarProdutosPesquisa?id='${"#id"}.val()'">
-                <input type="text" id="id" placeholder="Digite o ID do Produto..."/>
+            <form method="GET" action="ListarProdutosPesquisa?id=${"#id"}.val()">
+                <input name="id" type="text" id="id" placeholder="Digite o ID do Produto..."/>
                 <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
         </div>
